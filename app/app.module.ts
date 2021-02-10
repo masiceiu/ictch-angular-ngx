@@ -10,8 +10,11 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from './app.component';
 import 
 {
-   GoogleInputToolsComponent,
-   AsyncHttpRequestTestComponent 
+  ScrollTopComponent,
+  ScrollTopTestComponent,
+  GoogleInputToolsComponent,
+  GoogleInputToolsTestComponent,
+  AsyncHttpRequestTestComponent 
 } from './components/index';
 import 
 { 
@@ -26,7 +29,10 @@ import
     BlogTestComponent,
     AsyncHttpRequestTestComponent,
     OffcanvasTestComponent,
-    GoogleInputToolsComponent
+    GoogleInputToolsComponent,
+    GoogleInputToolsTestComponent,
+    ScrollTopComponent,
+    ScrollTopTestComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

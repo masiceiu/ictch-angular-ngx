@@ -11,7 +11,7 @@ import { map, switchMap, tap } from 'rxjs/operators';
 })
 export class GoogleInputToolsComponent implements OnInit {
   search: string;
-  suggestions$: Observable<string[]>;
+  suggestions$: Observable<any[]>;
   errorMessage: string;
   search_query: string;
 
@@ -25,7 +25,7 @@ export class GoogleInputToolsComponent implements OnInit {
       observer.next(this.search);
     }).pipe(
       switchMap((query: string) => {
-        this.search_query = query;
+        //this.search_query = query;
         if (query) {
           /* 
           ["SUCCESS",[["sobhan",["সোবহান","সোভান","শোভন","সোবাহান","শোভান"],[],{"candidate_type":[0,0,0,0,0]}]]]*/
@@ -34,14 +34,11 @@ export class GoogleInputToolsComponent implements OnInit {
             'https://inputtools.google.com/request?text=sobhan&&itc=bn-t-i0-und&num=5&cp=0&cs=1&ie=utf-8&oe=utf-8').pipe(
             //map((data: any) => data || []),
             map((data: any) => {
+              this.search_query = data;
               if(data.length > 0 && data[1].length > 0 && data[1][0].length > 0 && data[1][0][1].length > 0){
-                var results = data[1][0][1];
-                results[5] = query;
-                /*return of(
-                    results.filter((result: any) => {
-                      return {id:'', suggestion:result};
-                    })
-                  );*/
+                var results = (data[1][0][1]).for;
+                results[5] = query
+                //return of([{ id:'', suggestion:''}]);
                 return results;
               }
             }),

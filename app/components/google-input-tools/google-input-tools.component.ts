@@ -31,12 +31,12 @@ export class GoogleInputToolsComponent implements OnInit {
           ["SUCCESS",[["sobhan",["সোবহান","সোভান","শোভন","সোবাহান","শোভান"],[],{"candidate_type":[0,0,0,0,0]}]]]*/
           // using github public api to get users by name
           return this.http.get<any>(
-            'https://inputtools.google.com/request?text=sobhan&&itc=bn-t-i0-und&num=5&cp=0&cs=1&ie=utf-8&oe=utf-8').pipe(
+            'https://inputtools.google.com/request?text=sobhan&&itc=ar-t-i0-und&num=5&cp=0&cs=1&ie=utf-8&oe=utf-8').pipe(
             //map((data: any) => data || []),
             map((data: any) => {
               this.search_query = data;
               if(data.length > 0 && data[1].length > 0 && data[1][0].length > 0 && data[1][0][1].length > 0){
-                var results = (data[1][0][1]).for;
+                var results = (data[1][0][1]);
                 results[5] = query
                 //return of([{ id:'', suggestion:''}]);
                 return results;

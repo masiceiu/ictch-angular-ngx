@@ -10,7 +10,7 @@ export class ScrollTopComponent implements OnInit {
   showScroll: boolean;
   showScrollHeight = 300;
   hideScrollHeight = 10;
-  @Input() text = 'Scroll To Top';
+  @Input() text = 'Top';
   constructor() { }
   ngOnInit()
   {

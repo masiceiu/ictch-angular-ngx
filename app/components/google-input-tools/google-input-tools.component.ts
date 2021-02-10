@@ -31,7 +31,7 @@ export class GoogleInputToolsComponent implements OnInit {
           ["SUCCESS",[["sobhan",["সোবহান","সোভান","শোভন","সোবাহান","শোভান"],[],{"candidate_type":[0,0,0,0,0]}]]]*/
           // using github public api to get users by name
           return this.http.get<any>(
-            'https://inputtools.google.com/request?text=sobhan&&itc=ar-t-i0-und&num=5&cp=0&cs=1&ie=utf-8&oe=utf-8').pipe(
+            'https://inputtools.google.com/request?text=sobhan&&itc=bn-t-i0-und&num=5&cp=0&cs=1&ie=utf-8&oe=utf-8').pipe(
             //map((data: any) => data || []),
             map((data: any) => {
               this.search_query = data;

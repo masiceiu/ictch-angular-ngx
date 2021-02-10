@@ -50,9 +50,11 @@ search: string;
       switchMap((query: string) => {
         this.search_query = query;
         if (query) {
+          /* 
+          ["SUCCESS",[["sobhan",["সোবহান","সোভান","শোভন","সোবাহান","শোভান"],[],{"candidate_type":[0,0,0,0,0]}]]]*/
           // using github public api to get users by name
           return this.http.get<GitHubUserSearchResponse>(
-            'https://api.github.com/search/users', {
+            'https://inputtools.google.com/request?text=sobhan&&itc=bn-t-i0-und&num=5&cp=0&cs=1&ie=utf-8&oe=utf-8', {
             params: { q: query }
           }).pipe(
             map((data: GitHubUserSearchResponse) => data && data.items || []),

@@ -4,11 +4,11 @@ google-input-tools works!
 <pre class="card card-block card-header">Search: {{ search | json }}</pre>
 <input [(ngModel)]="search"
        (typeaheadOnSelect)="onSelect($event)"
-       typeaheadOptionField="login"
+       typeaheadOptionField="suggestion"
        [typeahead]="suggestions$"
        [typeaheadAsync]="true"
        class="form-control"
-       placeholder="Enter GitHub username">
+       placeholder="Enter input">
 
 <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
   {{ errorMessage }}

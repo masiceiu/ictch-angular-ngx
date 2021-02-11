@@ -1,5 +1,6 @@
-<div class="container">
-      <header class="blog-header py-2">
+<header class="mt-6" style="margin-top: 110px;">
+  <div class="container fixed-top bg-white" role="header">
+    <div class="blog-header py-2 navbar-light">
         <ng-container *ngIf="true">
           <div class="row flex-nowrap justify-content-between align-items-center">
             <ng-container *ngIf="!isSearchActive">
@@ -58,6 +59,9 @@
             </ng-container>
             <ng-container *ngIf="true">
               <a class="btn btn-sm btn-outline-secondary ml-2 py-2" href="#"> Sign up</a>
+              <button class="navbar-toggler ml-2  px-1 border-2" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+              </button>
             </ng-container>
             </div>
           </div>
@@ -73,9 +77,9 @@
             <img class="mx-2 bg-success" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-outline.svg" alt="" width="48" height="48">
           </div>
         </ng-container>
-      </header>
+    </div>
 
-      <ng-container *ngIf="true">
+    <ng-container *ngIf="true">
         <div class="nav-scroller py-1 mb-2">
           <nav class="nav d-flex justify-content-between">
             <a class="p-2 text-muted" href="#">World</a>
@@ -93,15 +97,18 @@
           </nav>
         </div>
       </ng-container>
-
-      <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+  </div>
+  <div class="container" role="jumbotron">
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
           <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
           <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
           <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
         </div>
       </div>
+  </div>
 
+  <div class="container">
       <div class="row mb-2">
         <div class="col-md-12">
           <div class="card flex-md-row mb-4 box-shadow h-md-250">
@@ -132,7 +139,8 @@
           </div>
         </div>
       </div>
-    </div>
+  </div>
+</header>
 
     <main role="main" class="container">
       <div class="row">

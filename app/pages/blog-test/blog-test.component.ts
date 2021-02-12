@@ -21,5 +21,10 @@ export class BlogTestComponent implements OnInit {
   handler(value: string): void {
     //this.messages.push(`Event ${value} is fired`);
     //this.messages = this.messages.length > 2 ? this.messages.slice(0, 1) : this.messages;
+  }
+
+  isOffcanvas=false;
+  onOffcanvasClick = function(){
+    this.isOffcanvas = !this.isOffcanvas;
   } 
 }

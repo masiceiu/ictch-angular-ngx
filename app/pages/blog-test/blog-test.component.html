@@ -23,7 +23,7 @@
                 </ng-container>
                 <ng-container *ngIf="true" dropdown>
                   <button type="button" class="btn btn-outline-secondary">Action</button>
-                  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"  dropdownToggle>
+                  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" dropdownToggle>
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu" *dropdownMenu>
@@ -59,9 +59,12 @@
             </ng-container>
             <ng-container *ngIf="true">
               <a class="btn btn-sm btn-outline-secondary ml-2 py-2" href="#"> Sign up</a>
-              <button class="navbar-toggler ml-2  px-1 border-2" type="button" data-toggle="offcanvas">
+              <button class="navbar-toggler ml-2  px-1 border-2" type="button" data-toggle="offcanvas" (click)="onOffcanvasClick()">
                 <span class="navbar-toggler-icon"></span>
               </button>
+              <!--<button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas"(click)="onOffcanvasClick()">
+                <span class="navbar-toggler-icon"></span>
+              </button>-->
             </ng-container>
             </div>
           </div>
@@ -78,26 +81,56 @@
           </div>
         </ng-container>
     </div>
+    <!--offcanvas-->
+    <div class="navbar-collapse offcanvas-collapse {{isOffcanvas?'open':''}}">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Switch account</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+  </div>
 
     <ng-container *ngIf="true">
-        <div class="nav-scroller py-1 mb-2">
-          <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="#">World</a>
-            <a class="p-2 text-muted" href="#">U.S.</a>
-            <a class="p-2 text-muted" href="#">Technology</a>
-            <a class="p-2 text-muted" href="#">Design</a>
-            <a class="p-2 text-muted" href="#">Culture</a>
-            <a class="p-2 text-muted" href="#">Business</a>
-            <a class="p-2 text-muted" href="#">Politics</a>
-            <a class="p-2 text-muted" href="#">Opinion</a>
-            <a class="p-2 text-muted" href="#">Science</a>
-            <a class="p-2 text-muted" href="#">Health</a>
-            <a class="p-2 text-muted" href="#">Style</a>
-            <a class="p-2 text-muted" href="#">Travel</a>
-          </nav>
-        </div>
-      </ng-container>
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="#">World</a>
+          <a class="p-2 text-muted" href="#">U.S.</a>
+          <a class="p-2 text-muted" href="#">Technology</a>
+          <a class="p-2 text-muted" href="#">Design</a>
+          <a class="p-2 text-muted" href="#">Culture</a>
+          <a class="p-2 text-muted" href="#">Business</a>
+          <a class="p-2 text-muted" href="#">Politics</a>
+          <a class="p-2 text-muted" href="#">Opinion</a>
+          <a class="p-2 text-muted" href="#">Science</a>
+          <a class="p-2 text-muted" href="#">Health</a>
+          <a class="p-2 text-muted" href="#">Style</a>
+          <a class="p-2 text-muted" href="#">Travel</a>
+        </nav>
+      </div>
+    </ng-container>
   </div>
+
   <div class="container" role="jumbotron">
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
         <div class="col-md-6 px-0">

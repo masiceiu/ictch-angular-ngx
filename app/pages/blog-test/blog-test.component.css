@@ -137,9 +137,10 @@ h1, h2, h3, h4, h5, h6 {
 }
   .offcanvas-collapse {
     position: fixed;
-    top: 56px; /* Height of navbar */
-    bottom: 0;
-    width: 100%;
+    top: 56px;
+    right: 0;
+    left: 0;
+    z-index: 1030;
     padding-right: 1rem;
     padding-left: 1rem;
     overflow-y: auto;

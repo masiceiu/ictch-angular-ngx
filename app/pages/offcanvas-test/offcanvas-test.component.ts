@@ -11,9 +11,13 @@ body {
   padding-top: 56px;
 }
 */
+  isOffcanvas=false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  onOffcanvasClick = function(){
+    this.isOffcanvas = !this.isOffcanvas;
+  }
 }

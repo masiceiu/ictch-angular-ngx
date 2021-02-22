@@ -140,7 +140,10 @@ h1, h2, h3, h4, h5, h6 {
   top: 56px; /* Height of navbar */
   bottom: 0;
   width: 100%;
+  /*mas*/
+  display: none;
   z-index: 1030;
+  /*end mas*/
   padding-right: 1rem;
   padding-left: 1rem;
   overflow-y: auto;
@@ -152,6 +155,9 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(100%);
 }
 .offcanvas-collapse.open {
+  /*mas*/
+  display: block;
+  /*end mas*/
   -webkit-transform: translateX(-0rem);
   transform: translateX(-0rem); /* Account for horizontal padding on navbar */
 }

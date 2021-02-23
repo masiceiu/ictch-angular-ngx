@@ -166,13 +166,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 .flags
 {
-  background-image: url();
+  background-image: url(https://www.countryflags.io/bd/flat/64.png);
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;
   background-color: transparent;
 }
 .flags::after {
-  content: "    ";
+  content: "   ";
   white-space: pre;
 }

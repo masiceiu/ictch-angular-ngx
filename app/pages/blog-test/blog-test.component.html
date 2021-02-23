@@ -1,4 +1,5 @@
 <header class="mt-6" style="margin-top: 110px;">
+  {{ log | json }}
   <div class="container fixed-top bg-white" role="header">
     <div class="blog-header py-2 navbar-light">
         <ng-container *ngIf="true">
@@ -21,18 +22,24 @@
                     <a href="#">X</a>
                   </div>
                 </ng-container>
-                <ng-container *ngIf="true" dropdown>
+                <ng-container *ngIf="true" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
                   <button type="button" class="btn btn-outline-secondary">Action</button>
                   <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" dropdownToggle (click)="false">
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu" *dropdownMenu>
-                    <a class="dropdown-item" *ngFor="let lang of langs" href="#" (click)="false">
-                      {{lang.name}}
+                    <a class="dropdown-item" *ngFor="let lang of langs" href="#" 
+                    (click)="onMenuItemClick({ lang: lang, dropdown: dropdown })">
+                     <span [ngStyle]="{'background-image': 'url(' + lang.ImageUrl + ')'}">&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                     {{lang.name}}
                     </a>
                     <div role="separator" class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Separated link</a>
-                  </div>
+                    <a class="dropdown-item disabled" href="#">disabled link</a>
+                    <a class="dropdown-item" href="#">
+                      <span class="badge badge-secondary">Some HTML here</span>
+                    </a>
+                  </div>                 
                 </ng-container>
               </div>
               <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">

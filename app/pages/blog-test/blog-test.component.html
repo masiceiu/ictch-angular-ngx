@@ -30,7 +30,7 @@
                   <div class="dropdown-menu" *dropdownMenu>
                     <a class="dropdown-item" *ngFor="let lang of langs" href="#" 
                     (click)="onMenuItemClick({ lang: lang, dropdown: dropdown })">
-                     <span [ngStyle]="{'background-image': 'url(' + lang.ImageUrl + ')'}">&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                     <span class="flags" [ngStyle]="{'background-image': 'url(' + lang.ImageUrl + ')'}"></span> 
                      {{lang.name}}
                     </a>
                     <div role="separator" class="dropdown-divider"></div>

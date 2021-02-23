@@ -27,6 +27,7 @@ export class BlogTestComponent implements OnInit {
   {
     //data.dropdown.autoClose = false;
     //this.log.menuItem = data;
+    this.log.menuItem = data.lang;
     //console.log(data);
     //console.log(data);
     //console.log(data.dropdown.autoClose);

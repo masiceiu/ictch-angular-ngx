@@ -23,13 +23,13 @@
                 </ng-container>
                 <ng-container *ngIf="true" dropdown>
                   <button type="button" class="btn btn-outline-secondary">Action</button>
-                  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" dropdownToggle>
+                  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" dropdownToggle (click)="false">
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu" *dropdownMenu>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" *ngFor="let lang of langs" href="#" (click)="false">
+                      {{lang.name}}
+                    </a>
                     <div role="separator" class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Separated link</a>
                   </div>

@@ -22,6 +22,7 @@ import
   BlogTestComponent, 
   OffcanvasTestComponent,
 } from './pages/index';
+import { AudioPlayerTestComponent } from './components/audio-player-test/audio-player-test.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import
     GoogleInputToolsComponent,
     GoogleInputToolsTestComponent,
     ScrollTopComponent,
-    ScrollTopTestComponent
+    ScrollTopTestComponent,
+    AudioPlayerTestComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

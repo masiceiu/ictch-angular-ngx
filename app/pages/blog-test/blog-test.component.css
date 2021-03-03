@@ -142,9 +142,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   /*mas*/
   display: none;
-  opacity : 0;
   z-index: 1030;
-  /*end mas*/
+  /*opacity : 0;
+  end mas*/
   padding-right: 1rem;
   padding-left: 1rem;
   overflow-y: auto;
@@ -158,9 +158,9 @@ h1, h2, h3, h4, h5, h6 {
 .offcanvas-collapse.open {
   /*mas*/
   display: block;
-  opacity : 1;
+  /*opacity : 1;
   transition : opacity .3s ease-in-out;
-  /*end mas*/ 
+  end mas*/ 
   -webkit-transform: translateX(-0rem);
   transform: translateX(-0rem); /* Account for horizontal padding on navbar */
 }

@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
  * offcanvas
  */
 @media (max-width: 767.98px) {
-}
+}/**/
 .offcanvas-collapse {
   position: fixed;
   top: 56px;

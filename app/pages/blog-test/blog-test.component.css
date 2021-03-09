@@ -137,14 +137,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 .offcanvas-collapse {
   position: fixed;
-  top: 56px; /* Height of navbar */
+  top: 56px;
   bottom: 0;
-  width: 100%;
-  /*mas*/
+  left: 0;
+  right: 0;
+  width: 100vw;
   display: none;
   z-index: 1030;
-  /*opacity : 0;
-  end mas*/
   padding-right: 1rem;
   padding-left: 1rem;
   overflow-y: auto;
@@ -156,13 +155,9 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(100%);
 }
 .offcanvas-collapse.open {
-  /*mas*/
   display: block;
-  /*opacity : 1;
-  transition : opacity .3s ease-in-out;
-  end mas*/ 
   -webkit-transform: translateX(-0rem);
-  transform: translateX(-0rem); /* Account for horizontal padding on navbar */
+  transform: translateX(-0rem);
 }
 .flags
 {

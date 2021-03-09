@@ -1,5 +1,5 @@
 export const cultures: any[] = [
-  { "code":"af-ZA", "name":"Afrikaans (South Africa)", "lang":"af", "iso":"ZA", "language":"Afrikaans", "country":"South Africa" },
+{ "code":"af-ZA", "name":"Afrikaans (South Africa)", "lang":"af", "iso":"ZA", "language":"Afrikaans", "country":"South Africa" },
 { "code":"ar-LB", "name":"Arabic (Lebanon)", "lang":"ar", "iso":"LB", "language":"Arabic", "country":"Lebanon" },
 { "code":"fr-LU", "name":"French (Luxembourg)", "lang":"fr", "iso":"LU", "language":"French", "country":"Luxembourg" },
 { "code":"fr-MA", "name":"French (Morocco)", "lang":"fr", "iso":"MA", "language":"French", "country":"Morocco" },

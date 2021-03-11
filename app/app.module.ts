@@ -14,7 +14,9 @@ import
   ScrollTopTestComponent,
   GoogleInputToolsComponent,
   GoogleInputToolsTestComponent,
-  AsyncHttpRequestTestComponent 
+  AsyncHttpRequestTestComponent,
+  AudioPlayerTestComponent,
+  ReactiveFormTestComponent 
 } from './components/index';
 import 
 { 
@@ -22,7 +24,6 @@ import
   BlogTestComponent, 
   OffcanvasTestComponent,
 } from './pages/index';
-import { AudioPlayerTestComponent } from './components/audio-player-test/audio-player-test.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { AudioPlayerTestComponent } from './components/audio-player-test/audio-p
     GoogleInputToolsTestComponent,
     ScrollTopComponent,
     ScrollTopTestComponent,
-    AudioPlayerTestComponent
+    AudioPlayerTestComponent,
+    ReactiveFormTestComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

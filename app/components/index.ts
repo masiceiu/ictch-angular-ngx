@@ -5,3 +5,6 @@ export * from './google-input-tools-test/google-input-tools-test.component';
 
 export * from './scroll-top/scroll-top.component';
 export * from './scroll-top-test/scroll-top-test.component';
+
+export * from './audio-player-test/audio-player-test.component';
+export * from './reactive-form-test/reactive-form-test.component';

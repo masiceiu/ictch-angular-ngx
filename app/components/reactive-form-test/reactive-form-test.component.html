@@ -1,0 +1,31 @@
+<form [formGroup]='master'>
+	<div 
+    formArrayName="items" 
+    *ngFor="let item of master.get('items').controls; let i = index;" class="form_array">
+		<div [formGroupName]="i">
+
+			<label>Item Name: </label>
+			<!-- <input formControlName="name" placeholder="Item name"> -->
+			<input 
+        contenteditable="true" 
+        formControlName="name" 
+        placeholder="Item name" />
+
+      <br>
+
+			<label>Item Description: </label>
+
+			<label>Item Price: </label>
+			<!-- <input formControlName="price" placeholder="Item price"> -->
+			<input 
+        contenteditable="true" 
+        formControlName="price" 
+        placeholder="Item price" />
+		</div>
+
+		Chosen name: {{ master.controls.items.controls[i].controls.name.value }}
+	</div>
+	<button (click)="addItem()" type="button">Add</button>
+  <button (click)="onSubmit()">Submit</button>
+
+</form>

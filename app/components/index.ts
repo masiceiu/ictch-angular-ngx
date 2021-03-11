@@ -8,5 +8,5 @@ export * from './scroll-top-test/scroll-top-test.component';
 
 export * from './audio-player-test/audio-player-test.component';
 export * from './reactive-form-test/reactive-form-test.component';
-export * from './reactive-profile-editor/profile-editor.component';
+export * from './reactive-profile-editor/reactive-profile-editor.component';
 export * from './reactive-form-table/reactive-form-table.component';

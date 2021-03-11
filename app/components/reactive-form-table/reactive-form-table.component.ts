@@ -12,12 +12,14 @@ export class ReactiveFormTableComponent implements OnInit {
   columns:string[]; // priming turbo table columns 
 
   public invoiceForm: FormGroup;
-  constructor(private _fb: FormBuilder, private formBuilder: FormBuilder) {}
+  constructor(private _fb: FormBuilder, private formBuilder: FormBuilder) {
+    this.columns = ["Name", "Address", "Salary", "IsActive", "Delete"];  
+  }
   ngOnInit() {
     this.invoiceForm = this._fb.group({
       Rows: this._fb.array([this.initRows()])
     });
-    this.columns = ["Name", "Address", "Salary", "IsActive", "Delete"];  
+    this.createForm();
   }
 
   get formArr() {

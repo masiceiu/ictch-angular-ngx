@@ -16,7 +16,9 @@ import
   GoogleInputToolsTestComponent,
   AsyncHttpRequestTestComponent,
   AudioPlayerTestComponent,
-  ReactiveFormTestComponent 
+  ReactiveFormTestComponent,
+  ProfileEditorComponent,
+  ReactiveFormTableComponent
 } from './components/index';
 import 
 { 
@@ -36,7 +38,9 @@ import
     ScrollTopComponent,
     ScrollTopTestComponent,
     AudioPlayerTestComponent,
-    ReactiveFormTestComponent
+    ReactiveFormTestComponent,
+    ProfileEditorComponent,
+    ReactiveFormTableComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

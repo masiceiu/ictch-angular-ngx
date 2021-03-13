@@ -82,4 +82,9 @@ export class ReactiveFormTableComponent implements OnInit {
     this.tableRowArray.removeAt(rowIndex);  
   } 
 
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.employeeForm.value);
+  }
+
 }

@@ -1,9 +1,10 @@
+
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
 <div class="card">
   <div class="card-header text-center">
     <h5>Reactive Forms with PrimeNg Table</h5>
   </div>
   <div class="card-body">
-    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
       <div class="table-responsive">
         <table align="center">
           <tr>
@@ -85,10 +86,11 @@
           </tr>
         </table>
       </div>
-    </form>
   </div>
   <div class="card-footer text-center">
     <!--<button type="button" class="btn btn-primary btn-sm pull-left" (click)="onAddNewRow()">Add Row</button>-->
     <button type="submit" [disabled]="!employeeForm.valid" class="btn btn-success" title="Save">Save Changes</button>
   </div>
 </div>
+
+    </form>

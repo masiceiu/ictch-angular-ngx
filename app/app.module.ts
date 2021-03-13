@@ -18,7 +18,10 @@ import
   AudioPlayerTestComponent,
   ReactiveFormTestComponent,
   ProfileEditorComponent,
-  ReactiveFormTableComponent
+  ReactiveFormTableComponent,
+  PagerComponent,
+  PagingComponent,
+  PagingTestComponent
 } from './components/index';
 import 
 { 
@@ -40,7 +43,10 @@ import
     AudioPlayerTestComponent,
     ReactiveFormTestComponent,
     ProfileEditorComponent,
-    ReactiveFormTableComponent
+    ReactiveFormTableComponent,
+    PagerComponent,
+    PagingComponent,
+    PagingTestComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

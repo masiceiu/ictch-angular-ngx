@@ -3,17 +3,17 @@ import { FormGroup, FormArray, FormBuilder, FormControl, Validators } from "@ang
 
 @Component({
   selector: 'app-reactive-form-table',
-  templateUrl: './reactive-form-table.component3.html',
+  templateUrl: './reactive-form-table.component4.html',
   styleUrls: ['./reactive-form-table.component.css']
 })
-export class ReactiveFormTableComponent implements OnInit {
+export class ReactiveFormTableComponent1 implements OnInit {
 
   employeeForm: FormGroup;  
   columns:string[]; // priming turbo table columns 
 
   public invoiceForm: FormGroup;
   constructor(private _fb: FormBuilder, private formBuilder: FormBuilder) {
-    this.columns = ["Sl No.", "Date", "Bill No KM", "Amount (TK)", "Remarks"];  
+    this.columns = ["Sl No.", "Name", "Address", "Salary", "IsActive"];  
   }
   ngOnInit() {
     this.invoiceForm = this._fb.group({
@@ -48,21 +48,21 @@ export class ReactiveFormTableComponent implements OnInit {
    * Returns the FormGroup as a Table Row 
    */  
   private createTableRow(): FormGroup {  
-    return this.formBuilder.group({  
-      name: new FormControl(null, {  
-          validators: [Validators.required, Validators.minLength(3), Validators.maxLength(50)]  
-      }),  
-      address: new FormControl(null, {  
-          validators: [Validators.required, Validators.maxLength(500)]  
-      }),  
-      salary: new FormControl(null, {  
-          validators: [Validators.required, Validators.pattern(/^\d{1,6}(?:\.\d{0,2})?$/), Validators.minLength(3), Validators.maxLength(50)]  
-      }),  
-      isActive: new FormControl({  
-          value: true,  
-          disabled: true  
-      })  
-    });  
+      return this.formBuilder.group({  
+          name: new FormControl(null, {  
+              validators: [Validators.required, Validators.minLength(3), Validators.maxLength(50)]  
+          }),  
+          address: new FormControl(null, {  
+              validators: [Validators.required, Validators.maxLength(500)]  
+          }),  
+          salary: new FormControl(null, {  
+              validators: [Validators.required, Validators.pattern(/^\d{1,6}(?:\.\d{0,2})?$/), Validators.minLength(3), Validators.maxLength(50)]  
+          }),  
+          isActive: new FormControl({  
+              value: true,  
+              disabled: true  
+          })  
+      });  
   }    
 
   addNewRow() {

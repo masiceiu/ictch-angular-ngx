@@ -13,7 +13,7 @@ export class ReactiveFormTableComponent implements OnInit {
 
   public invoiceForm: FormGroup;
   constructor(private _fb: FormBuilder, private formBuilder: FormBuilder) {
-    this.columns = ["Name", "Address", "Salary", "IsActive", "Delete"];  
+    this.columns = ["Sl No.", "Name", "Address", "Salary", "IsActive"];  
   }
   ngOnInit() {
     this.invoiceForm = this._fb.group({

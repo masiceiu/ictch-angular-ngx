@@ -21,7 +21,8 @@ import
   ReactiveFormTableComponent,
   PagerComponent,
   PagingComponent,
-  PagingTestComponent
+  PagingTestComponent,
+  AmountInWordComponent
 } from './components/index';
 import 
 { 
@@ -46,7 +47,8 @@ import
     ReactiveFormTableComponent,
     PagerComponent,
     PagingComponent,
-    PagingTestComponent
+    PagingTestComponent,
+    AmountInWordComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

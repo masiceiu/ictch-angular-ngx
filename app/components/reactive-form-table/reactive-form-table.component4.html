@@ -1,73 +1,81 @@
 <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
-  <div class="table-responsive">
-    <table align="center">
-      <tr>
-        <td>
-          <table width="100%">
-            <tbody>
-              <tr>
-                <th class="text-center"><h2>Bashundhara Group</h2></th>
-              </tr>
-              <tr>
-                <th class="text-center">Department of Transport, Sector-C</th>
-              </tr>
-              <tr>
-                <th class="text-center">Vehicle's  Fuel & Other Cost</th>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <table border="1">
-            <tbody>
-              <tr>
-                <th colspan="2" class="text-right">
-                  Vehicles Regn. No.: 
-                </th>
-                <td colspan="2">
-                 Dhaka Met Ga 22-1013
-                </td>
-                <th class="text-right">
-                 Date: 
-                </th>
-                <td>
-                 03/06/2021
-                </td>
-              </tr>
-              <tr>
-                <th colspan="2" class="text-right">
-                 User Name: 
-                </th>
-                <td colspan="2">
-                 Sheakh Mohammad Rashadul Haider
-                </td>
-                <th class="text-right">
-                 Driver's Name: 
-                </th>
-                <td>
-                 Md. Shahin Mia
-                </td>
-              </tr>            
-              <tr>
-                <th colspan="2" class="text-right">
-                  Payment Unit
-                </th>
-                <td>
-                 BPML-3
-                </td>
-                <td>
-                 {{daysInMonth}}
-                </td>
-                <th class="text-right">
-                 Name of Month
-                </th>
-                <td>
-                 February, 2021
-                </td>
-              </tr>
-              <!--<tr>
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table align="center">
+          <tr>
+            <td>
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <th class="text-center"><h2>Bashundhara Group</h2></th>
+                  </tr>
+                  <tr>
+                    <th class="text-center">
+                      Department of Transport, Sector-C
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="text-center">Vehicle's Fuel & Other Cost</th>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table border="1">
+                <tbody>
+                  <tr>
+                    <th colspan="2" class="text-right">
+                      Vehicles Regn. No.:
+                    </th>
+                    <td colspan="2">
+                      Dhaka Met Ga 22-1013
+                    </td>
+                    <th class="text-right">
+                      Date:
+                    </th>
+                    <td>
+                      03/06/2021
+                    </td>
+                  </tr>
+                  <tr>
+                    <th
+                      colspan="2"
+                      class="text-right"
+                      style="white-space: nowrap;"
+                    >
+                      User Name:
+                    </th>
+                    <td colspan="2" style="white-space: nowrap;">
+                      Sheakh Mohammad Rashadul Haider
+                    </td>
+                    <th class="text-right" style="white-space: nowrap;">
+                      Driver's Name:
+                    </th>
+                    <td style="white-space: nowrap;">
+                      Md. Shahin Mia
+                    </td>
+                  </tr>
+                  <tr>
+                    <th colspan="2" class="text-right">
+                      Payment Unit
+                    </th>
+                    <td>
+                      BPML-3
+                    </td>
+                    <td>
+                      {{daysInMonth}}
+                    </td>
+                    <th class="text-right">
+                      Name of Month
+                    </th>
+                    <td>
+                      February, 2021
+                    </td>
+                  </tr>
+                  <!--<tr>
                 <td class="text-right">
                   <label>Last Name:</label>
                 </td>
@@ -87,173 +95,171 @@
                   </div>
                 </td>
               </tr>-->
-              <tr>
-                <th class="text-center">
-                 Sl No.
-                </th>
-                <th class="text-center">
-                  Date
-                </th>
-                <th class="text-center">
-                Bill No 
-                </th>
-                <th class="text-center">
-                 KM
-                </th>
-                <th class="text-center">
-                 Amount (TK)
-                </th>
-                <th class="text-center">
-                 Remarks
-                </th>
-              </tr>
+                  <tr>
+                    <th class="text-center">
+                      Sl No.
+                    </th>
+                    <th class="text-center">
+                      Date
+                    </th>
+                    <th class="text-center">
+                      Bill No
+                    </th>
+                    <th class="text-center">
+                      KM
+                    </th>
+                    <th class="text-center">
+                      Amount (TK)
+                    </th>
+                    <th class="text-center">
+                      Remarks
+                    </th>
+                  </tr>
 
-              <tr>
-                <td class="text-center">
-                1
-                </td>
-                <td class="text-center">
-                  8-Feb-20
-                </td>
-                <td class="text-center">
-                355003
-                </td>
-                <td class="text-center">
-                 101117
-                </td>
-                <td class="text-center">
-                 579
-                </td>
-                <td class="text-center">
-                 CNG
-                </td>
-              </tr>
-              <tr>
-                <th colspan="4" class="text-right">
-                 Net Total of CNG/LPG 			
-                </th>
-                <th class="text-center">
-                4,880.00 
-                </th>
-                <th class="text-center">
-                
-                </th>   
-              <tr> 
-                <th colspan="6">
-                </th>
-              </tr>   
-              <tr>
-                <th colspan="2" class="text-center">
-                  Previous KM	
-                </th>
-                <th class="text-center">
-                 100944
-                </th>
-                <th class="text-center">
-                Octane 
-                </th>
-                <th class="text-center">
-                1780.00
-                </th>
-                <th class="text-center">
-                Signature  of User
-                </th>
-              </tr>   
-              <tr>
-                <th colspan="2" class="text-center">
-                 Present KM	
-                </th>
-                <th class="text-center">
-                101947
-                </th>
-                <th class="text-center">
-                 Toll
-                </th>
-                <th class="text-center">
-                0.00
-                </th>
-                <th rowspan="3">
-                </th>
-              </tr>   
-              <tr>
-                <th colspan="2" class="text-center">
-                 Duration KM	
-                </th>
-                <th class="text-center">
-                1003
-                </th>
-                <th class="text-center">
-                Others
-                </th>
-                <th class="text-center">
-                400.00
-                </th>
-              </tr>   
-              <tr>
-                <th colspan="2" class="text-center">
-                  Cost Per KM	
-                </th>
-                <th class="text-center">
-                 4.87
-                </th>
-                <th class="text-center">
-                 Total Cost 
-                </th>
-                <th class="text-center">
-                 7060.00
-                </th>
-              </tr> 
-            </tbody>
-          </table>
-        </td>
-      </tr>   
-      <tr>
-        <td>
-          <table>
-            <tbody>
-              <tr> 
-                <th colspan="6">&nbsp;</th>
-              </tr>      
-              <tr> 
-                <th colspan="6">&nbsp;</th>
-              </tr>      
-              <tr> 
-                <th colspan="6">&nbsp;</th>
-              </tr>      
-              <tr> 
-                <th colspan="6">&nbsp;</th>
-              </tr> 
-            </tbody>
-          </table>
-        </td>
-      </tr>
-     <tr>
-        <td>
-          <table border="1" width="100%">
-            <tbody>
-              <tr> 
-                <th colspan="2" class="text-center">
-                 Driver Sign
-                </th>
-                <th class="text-center">
-                Checked By, TPT
-                </th>
-                <th class="text-center">
-                DGM-TPT,Sector-C 
-                </th>
-                <th class="text-center">
-                Checked By (A&F)
-                </th>
-                <th class="text-center">
-                Approved By
-                </th>
-              </tr>   
-            </tbody>
-          </table>
-        </td>
-      </tr>
-                     
-      <!--
+                  <tr>
+                    <td class="text-center">
+                      1
+                    </td>
+                    <td class="text-center">
+                      8-Feb-20
+                    </td>
+                    <td class="text-center">
+                      355003
+                    </td>
+                    <td class="text-center">
+                      101117
+                    </td>
+                    <td class="text-center">
+                      579
+                    </td>
+                    <td class="text-center">
+                      CNG
+                    </td>
+                  </tr>
+                  <tr>
+                    <th colspan="4" class="text-right">
+                      Net Total of CNG/LPG
+                    </th>
+                    <th class="text-center">
+                      4,880.00
+                    </th>
+                    <th class="text-center"></th>
+                  </tr>
+
+                  <tr>
+                    <th colspan="6"></th>
+                  </tr>
+                  <tr>
+                    <th colspan="2" class="text-center">
+                      Previous KM
+                    </th>
+                    <th class="text-center">
+                      100944
+                    </th>
+                    <th class="text-center">
+                      Octane
+                    </th>
+                    <th class="text-center">
+                      1780.00
+                    </th>
+                    <th class="text-center">
+                      Signature of User
+                    </th>
+                  </tr>
+                  <tr>
+                    <th colspan="2" class="text-center">
+                      Present KM
+                    </th>
+                    <th class="text-center">
+                      101947
+                    </th>
+                    <th class="text-center">
+                      Toll
+                    </th>
+                    <th class="text-center">
+                      0.00
+                    </th>
+                    <th rowspan="3"></th>
+                  </tr>
+                  <tr>
+                    <th colspan="2" class="text-center">
+                      Duration KM
+                    </th>
+                    <th class="text-center">
+                      1003
+                    </th>
+                    <th class="text-center">
+                      Others
+                    </th>
+                    <th class="text-center">
+                      400.00
+                    </th>
+                  </tr>
+                  <tr>
+                    <th colspan="2" class="text-center">
+                      Cost Per KM
+                    </th>
+                    <th class="text-center">
+                      4.87
+                    </th>
+                    <th class="text-center">
+                      Total Cost
+                    </th>
+                    <th class="text-center">
+                      7060.00
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table>
+                <tbody>
+                  <tr>
+                    <th colspan="6">&nbsp;</th>
+                  </tr>
+                  <tr>
+                    <th colspan="6">&nbsp;</th>
+                  </tr>
+                  <tr>
+                    <th colspan="6">&nbsp;</th>
+                  </tr>
+                  <tr>
+                    <th colspan="6">&nbsp;</th>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table border="1" width="100%">
+                <tbody>
+                  <tr>
+                    <th colspan="2" class="text-center">
+                      Driver Sign
+                    </th>
+                    <th class="text-center">
+                      Checked By, TPT
+                    </th>
+                    <th class="text-center">
+                      DGM-TPT,Sector-C
+                    </th>
+                    <th class="text-center">
+                      Checked By (A&F)
+                    </th>
+                    <th class="text-center">
+                      Approved By
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!--
       <tr>
         <td>
           <table class="table table-bordered">
@@ -304,10 +310,9 @@
           </table>
         </td>
       </tr>-->
-
-    </table>
-  </div>
-  <!--<div class="card">
+        </table>
+      </div>
+      <!--<div class="card">
     <div class="card-header text-center">
       <h5>Reactive Forms with PrimeNg Table</h5>
     </div>
@@ -318,5 +323,6 @@
       <button type="submit" [disabled]="!employeeForm.valid" class="btn btn-success" title="Save">Save Changes</button>
     </div>
   </div>-->
-
+    </div>
+  </div>
 </form>

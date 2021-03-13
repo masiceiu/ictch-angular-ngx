@@ -30,6 +30,8 @@ import
   BlogTestComponent, 
   OffcanvasTestComponent,
 } from './pages/index';
+import { PrintContentComponent } from './components/print-content/print-content.component';
+import { PrintContainerComponent } from './components/print-container/print-container.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,9 @@ import
     PagerComponent,
     PagingComponent,
     PagingTestComponent,
-    AmountInWordComponent
+    AmountInWordComponent,
+    PrintContentComponent,
+    PrintContainerComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

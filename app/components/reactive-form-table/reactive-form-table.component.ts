@@ -3,7 +3,7 @@ import { FormGroup, FormArray, FormBuilder, FormControl, Validators } from "@ang
 
 @Component({
   selector: 'app-reactive-form-table',
-  templateUrl: './reactive-form-table.component3.html',
+  templateUrl: './reactive-form-table.component4.html',
   styleUrls: ['./reactive-form-table.component.css']
 })
 export class ReactiveFormTableComponent implements OnInit {

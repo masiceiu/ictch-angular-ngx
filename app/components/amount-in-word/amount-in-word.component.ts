@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-amount-in-word',
+  selector: 'app-in-word',
   templateUrl: './amount-in-word.component.html',
   styleUrls: ['./amount-in-word.component.css']
 })

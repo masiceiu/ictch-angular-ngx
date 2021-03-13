@@ -48,21 +48,21 @@ export class ReactiveFormTableComponent implements OnInit {
    * Returns the FormGroup as a Table Row 
    */  
   private createTableRow(): FormGroup {  
-      return this.formBuilder.group({  
-          name: new FormControl(null, {  
-              validators: [Validators.required, Validators.minLength(3), Validators.maxLength(50)]  
-          }),  
-          address: new FormControl(null, {  
-              validators: [Validators.required, Validators.maxLength(500)]  
-          }),  
-          salary: new FormControl(null, {  
-              validators: [Validators.required, Validators.pattern(/^\d{1,6}(?:\.\d{0,2})?$/), Validators.minLength(3), Validators.maxLength(50)]  
-          }),  
-          isActive: new FormControl({  
-              value: true,  
-              disabled: true  
-          })  
-      });  
+    return this.formBuilder.group({  
+      name: new FormControl(null, {  
+          validators: [Validators.required, Validators.minLength(3), Validators.maxLength(50)]  
+      }),  
+      address: new FormControl(null, {  
+          validators: [Validators.required, Validators.maxLength(500)]  
+      }),  
+      salary: new FormControl(null, {  
+          validators: [Validators.required, Validators.pattern(/^\d{1,6}(?:\.\d{0,2})?$/), Validators.minLength(3), Validators.maxLength(50)]  
+      }),  
+      isActive: new FormControl({  
+          value: true,  
+          disabled: true  
+      })  
+    });  
   }    
 
   addNewRow() {

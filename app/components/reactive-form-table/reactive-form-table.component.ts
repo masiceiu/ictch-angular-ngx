@@ -3,7 +3,7 @@ import { FormGroup, FormArray, FormBuilder, FormControl, Validators } from "@ang
 
 @Component({
   selector: 'app-reactive-form-table',
-  templateUrl: './reactive-form-table.component2.html',
+  templateUrl: './reactive-form-table.component3.html',
   styleUrls: ['./reactive-form-table.component.css']
 })
 export class ReactiveFormTableComponent implements OnInit {
@@ -29,11 +29,13 @@ export class ReactiveFormTableComponent implements OnInit {
    * Initializes the Form & by default adds an empty row to the PRIMENG TABLE 
    */  
   private createForm(): void {  
-      this.employeeForm = this.formBuilder.group({  
-          //tableRowArray is a FormArray which holds a list of FormGroups  
-          tableRowArray: this.formBuilder.array([  
-              this.createTableRow()  
-          ])  
+      this.employeeForm = this.formBuilder.group({   
+        firstName: ['', Validators.required],
+        lastName: [''],
+        //tableRowArray is a FormArray which holds a list of FormGroups  
+        tableRowArray: this.formBuilder.array([  
+            this.createTableRow()  
+        ])  
       })  
   }
   initRows() {

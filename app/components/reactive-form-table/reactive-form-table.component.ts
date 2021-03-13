@@ -86,5 +86,12 @@ export class ReactiveFormTableComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     console.warn(this.employeeForm.value);
   }
+  //-----------------------\\
+  get daysInMonth(): number {  
+    var date = new Date();
+    var month = date.getMonth()
+    var year = date.getFullYear();
+     return new Date(year, month, 0).getDate();  
+  }
 
 }

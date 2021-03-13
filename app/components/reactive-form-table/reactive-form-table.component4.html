@@ -1,6 +1,6 @@
 <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
   <div class="table-responsive">
-    <table border="1" align="center">
+    <table align="center">
       <tr>
         <td>
           <table width="100%">
@@ -20,17 +20,54 @@
       </tr>
       <tr>
         <td>
-          <table width="100%">
+          <table border="1" width="100%">
             <tbody>
               <tr>
-                <td class="text-right">
-                  <label>First Name:</label>
+                <th colspan="2" class="text-right">
+                  Vehicles Regn. No.: 
+                </th>
+                <td colspan="2">
+                 Dhaka Met Ga 22-1013
+                </td>
+                <th class="text-right">
+                 Date: 
+                </th>
+                <td>
+                 03/06/2021
+                </td>
+              </tr>
+              <tr>
+                <th colspan="2" class="text-right">
+                 User Name: 
+                </th>
+                <td colspan="2">
+                 Sheakh Mohammad Rashadul Haider
+                </td>
+                <th class="text-right">
+                 Driver's Name: 
+                </th>
+                <td>
+                 Md. Shahin Mia
+                </td>
+              </tr>            
+              <tr>
+                <th colspan="2" class="text-right">
+                  Payment Unit
+                </th>
+                <td>
+                 BPML-3
                 </td>
                 <td>
-                  <div class="col">
-                    <input type="text" formControlName="firstName" class="form-control" required>
-                  </div>
+                 {{daysInMonth}}
                 </td>
+                <th class="text-right">
+                 Name of Month
+                </th>
+                <td>
+                 February, 2021
+                </td>
+              </tr>
+              <!--<tr>
                 <td class="text-right">
                   <label>Last Name:</label>
                 </td>
@@ -39,11 +76,42 @@
                     <input type="text" formControlName="lastName" class="form-control">
                   </div>
                 </td>
+                <td>
+                  <div class="col">
+                    <input type="text" formControlName="lastName" class="form-control">
+                  </div>
+                </td>
+                <td>
+                  <div class="col">
+                    <input type="text" formControlName="lastName" class="form-control">
+                  </div>
+                </td>
+              </tr>-->
+              <tr>
+                <th class="text-center">
+                 Sl No.
+                </th>
+                <th class="text-center">
+                  Date
+                </th>
+                <th class="text-center">
+                Bill No 
+                </th>
+                <th class="text-center">
+                 KM
+                </th>
+                <th class="text-center">
+                 Amount (TK)
+                </th>
+                <th class="text-center">
+                 Remarks
+                </th>
               </tr>
             </tbody>
           </table>
         </td>
       </tr>
+      <!--
       <tr>
         <td>
           <table class="table table-bordered">
@@ -93,7 +161,7 @@
             </tbody>
           </table>
         </td>
-      </tr>
+      </tr>-->
     </table>
   </div>
   <div class="card">

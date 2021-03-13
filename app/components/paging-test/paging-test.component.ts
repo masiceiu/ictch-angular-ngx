@@ -17,7 +17,7 @@ export class PagingTestComponent implements OnInit {
 
   constructor(appService: PagingService) {
     this.items = appService.getOrders(100);
-    this.fieldNames = [ 'No', '商品名', '受注日', '金額' ];
+    this.fieldNames = [ 'No', 'Product name', 'Bet date', 'Amount' ];
     this.pageIndex = 0;
     this.pageSize = 10;
   }

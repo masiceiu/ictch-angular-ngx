@@ -3,7 +3,7 @@ import { FormGroup, FormArray, FormBuilder, FormControl, Validators } from "@ang
 
 @Component({
   selector: 'app-reactive-form-table',
-  templateUrl: './reactive-form-table.component4.html',
+  templateUrl: './reactive-form-table.component3.html',
   styleUrls: ['./reactive-form-table.component.css']
 })
 export class ReactiveFormTableComponent implements OnInit {
@@ -13,7 +13,7 @@ export class ReactiveFormTableComponent implements OnInit {
 
   public invoiceForm: FormGroup;
   constructor(private _fb: FormBuilder, private formBuilder: FormBuilder) {
-    this.columns = ["Sl No.", "Name", "Address", "Salary", "IsActive"];  
+    this.columns = ["Sl No.", "Date", "Bill No KM", "Amount (TK)", "Remarks"];  
   }
   ngOnInit() {
     this.invoiceForm = this._fb.group({

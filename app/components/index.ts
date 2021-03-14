@@ -15,5 +15,4 @@ export * from './paging/paging.component';
 export * from './paging-test/pager.component';
 export * from './paging-test/paging-test.component';
 
-
 export * from './amount-in-word/amount-in-word.component';

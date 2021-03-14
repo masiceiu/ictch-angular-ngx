@@ -31,8 +31,7 @@ import
   OffcanvasTestComponent,
 } from './pages/index';
 
-import { PrintContentComponent } from './components/print-content/print-content.component';
-import { PrintContainerComponent } from './components/print-container/print-container.component';
+import { PrintPageModule } from './components/print-test/print-page.module';
 import { ContentNestedModule } from './components/content-nested/content-nested.module';
 @NgModule({
   declarations: [
@@ -52,9 +51,7 @@ import { ContentNestedModule } from './components/content-nested/content-nested.
     PagerComponent,
     PagingComponent,
     PagingTestComponent,
-    AmountInWordComponent,
-    PrintContentComponent,
-    PrintContainerComponent
+    AmountInWordComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),
@@ -65,7 +62,8 @@ import { ContentNestedModule } from './components/content-nested/content-nested.
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    ContentNestedModule
+    ContentNestedModule,
+    PrintPageModule
   ],
   entryComponents: [],
   bootstrap: [AppComponent]

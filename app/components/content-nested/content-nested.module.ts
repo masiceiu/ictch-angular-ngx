@@ -10,6 +10,7 @@ import { ContentNestedComponent, Test1Component, Test2Component, Test3Component 
     Test2Component, 
     Test3Component,
     ContentNestedComponent 
-  ]
+  ],
+  exports:[ContentNestedComponent]
 })
 export class ContentNestedModule { }

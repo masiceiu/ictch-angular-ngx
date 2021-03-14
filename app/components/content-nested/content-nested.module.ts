@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent, Test1Component, Test2Component, Test3Component } from './content-nested.component';
+import { ContentNestedComponent, Test1Component, Test2Component, Test3Component } from './content-nested.component';
 
 @NgModule({
-  imports:      [ FormsModule ],
-  declarations: [ AppComponent, Test1Component, Test2Component, Test3Component ]
+  imports: [ FormsModule ],
+  declarations: [ 
+    Test1Component, 
+    Test2Component, 
+    Test3Component,
+    ContentNestedComponent 
+  ]
 })
 export class ContentNestedModule { }

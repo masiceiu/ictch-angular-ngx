@@ -54,8 +54,7 @@ import { ContentNestedModule } from './components/content-nested/content-nested.
     PagingTestComponent,
     AmountInWordComponent,
     PrintContentComponent,
-    PrintContainerComponent,
-    ContentNestedModule
+    PrintContainerComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

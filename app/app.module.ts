@@ -33,6 +33,7 @@ import
 
 import { PrintPageModule } from './components/print-test/print-page.module';
 import { ContentNestedModule } from './components/content-nested/content-nested.module';
+import { DatatablesPaginationComponent } from './components/datatables-pagination/datatables-pagination.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { ContentNestedModule } from './components/content-nested/content-nested.
     PagerComponent,
     PagingComponent,
     PagingTestComponent,
-    AmountInWordComponent
+    AmountInWordComponent,
+    DatatablesPaginationComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

@@ -34,6 +34,7 @@ import
 import { PrintContentComponent } from './components/print-content/print-content.component';
 import { PrintContainerComponent } from './components/print-container/print-container.component';
 import { ContentNestedModule } from './components/content-nested/content-nested.module';
+import { DirectivesDirective } from './directives.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { ContentNestedModule } from './components/content-nested/content-nested.
     AmountInWordComponent,
     PrintContentComponent,
     PrintContainerComponent,
-    ContentNestedModule
+    ContentNestedModule,
+    DirectivesDirective
     ],
   imports: [
     TypeaheadModule.forRoot(),

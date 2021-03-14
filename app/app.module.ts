@@ -30,8 +30,10 @@ import
   BlogTestComponent, 
   OffcanvasTestComponent,
 } from './pages/index';
+
 import { PrintContentComponent } from './components/print-content/print-content.component';
 import { PrintContainerComponent } from './components/print-container/print-container.component';
+import { ContentNestedModule } from './components/content-nested/content-nested.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,8 @@ import { PrintContainerComponent } from './components/print-container/print-cont
     PagingTestComponent,
     AmountInWordComponent,
     PrintContentComponent,
-    PrintContainerComponent
+    PrintContainerComponent,
+    ContentNestedModule
     ],
   imports: [
     TypeaheadModule.forRoot(),
@@ -62,7 +65,8 @@ import { PrintContainerComponent } from './components/print-container/print-cont
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserModule
+    BrowserModule,
+    ContentNestedModule
   ],
   entryComponents: [],
   bootstrap: [AppComponent]

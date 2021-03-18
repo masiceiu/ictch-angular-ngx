@@ -20,7 +20,8 @@ export class VideoPlayerSnapshotComponent implements OnInit {
   @ViewChild('videoPlayer') videoPlayer: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
 
-  constructor(private videoPlayerService: VideoPlayerSnapshotService) { }
+  constructor(private videoPlayerService: VideoPlayerSnapshotService) { 
+  }
 
   ngOnInit() {
     this.getVideo(this.mediaID);
@@ -39,7 +40,10 @@ export class VideoPlayerSnapshotComponent implements OnInit {
 
       this.video.key = video.items[0].assetDescriptors[1].key; // set key
 
-      setTimeout(() => this.videoPlayer.nativeElement.play(), 0); // play
+      setTimeout(() => {
+        //this.videoPlayer.nativeElement.play()
+        //this.videoPlayer.nativeElement.pause();
+      }, 0); // play
     })
   }
 

@@ -1,0 +1,29 @@
+<div class="main">
+
+  <video #videoPlayer [src]="video?.key" id="video-player" width="640" height="480" controls>
+    <source id="video-key">
+    Video player is not supported by your browser.
+  </video>
+
+  <div style="margin: 20px 0">
+    <button (click)="getSnapshot()" style="margin-right: 20px; padding: 10px">Get snapshot</button>
+    <canvas #canvas id="canvas" width="160" height="120"></canvas>
+  </div>
+
+  <div class="d-flex title-box">
+    <div class="flex-grow-1">
+      <!-- left -->
+      <h2 class="mb-0 mt-0" id="video-title">{{video?.title}}</h2>
+    </div>
+    <div class="flex-grow-0">
+      <!-- right -->
+      <h2 class="mb-0 mt-0" id="video-duration">{{video?.duration}}</h2>
+    </div>
+  </div>
+
+  <div class="info-message">
+    <h3 class="mb-0 mt-0">DESCRIPTION</h3>
+    <h2 class="mb-0 mt-0" id="video-description">{{video?.description}}</h2>
+  </div>
+
+</div>

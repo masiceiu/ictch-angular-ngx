@@ -10,7 +10,9 @@ import { VideoPlayerSnapshotComponent } from './video-player-snapshot/video-play
   ],
   declarations: [VideoPlayer01Component, VideoPlayer02Component, VideoPlayerSnapshotComponent],
   exports: [
-    VideoPlayer01Component
+    VideoPlayer01Component,
+    VideoPlayer02Component,
+    VideoPlayerSnapshotComponent
   ]
 })
 export class VideoPlayerModule { }

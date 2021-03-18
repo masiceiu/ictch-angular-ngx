@@ -1,3 +1,32 @@
-<p>
-video-player works!
-</p>
+<div class="popup">
+  <video  controls (canplay)="pauseVideo(videoplayer)"
+    #videoPlayer>
+  <source src="{{videoSource}}" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+</div>
+<ng-container *ngIf="show">
+<div>
+  <div class="popuptext">
+        <div>
+          <span class="close-button" (click) = "closebutton(videoplayer)">&times;</span>
+            <div>
+                <label>Name:</label>
+                <div><input id="tbname" name="yourname" /></div>
+            </div>
+            <div>
+                <label>Email Address:</label>
+                <div><input name="email" id="email" /></div></div>
+            <div>
+                <label>Additional Information (optional):</label>
+                <div><textarea rows="5" cols="46"></textarea></div>
+                <div>
+                  <span><input type="submit" value="Submit" class="button button-greencolor"
+                   (click) = "closebutton(videoplayer)"></span>
+                  <span><input type="button" value="Cancel" class="button button-redcolor" (click) = "closebutton(videoplayer)"></span>
+                </div>
+            </div>        
+          </div>
+      </div>
+  </div>
+</ng-container>

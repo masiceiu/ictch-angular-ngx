@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopoverComponent implements OnInit {
 
+  html = `<span class="btn btn-danger">Never trust not sanitized HTML!!!</span>`;
   constructor() { }
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 <div class="btn-group">
-  <button type="button" class="btn btn-secondary" 
-          popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+  <ng-template #popTemplate>Here we go: <div [innerHtml]="html"></div></ng-template>
+  <button type="button" class="btn btn-success" 
+          [popover]="popTemplate" 
           popoverTitle="Popover&nbsp;auto"
           placement="auto" [outsideClick]="true">
     ||<span class="navbar-toggler-icon"></span>||

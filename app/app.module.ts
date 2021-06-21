@@ -15,10 +15,12 @@ import
 import 
 { 
 } from './pages/index';
+import { DropdownComponent } from './shared/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DropdownComponent
     ],
   imports: [
     TypeaheadModule.forRoot(),

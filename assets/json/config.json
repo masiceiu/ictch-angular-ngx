@@ -1,0 +1,10 @@
+{
+  "SCREENS": {
+      "HOME": {
+          "TITLE": "Master Works"
+      },        
+      "DETAILS": {
+          "TITLE": "Details Works!"
+      }
+ }
+}

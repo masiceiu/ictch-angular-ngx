@@ -20,12 +20,14 @@ import
 } from './pages/index';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { PopoverComponent } from './shared/popover/popover.component';
+import { FeatureComponent } from './shared/feature/feature.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DropdownComponent,
-    PopoverComponent
+    PopoverComponent,
+    FeatureComponent
     ],
   imports: [
     PopoverModule.forRoot(),

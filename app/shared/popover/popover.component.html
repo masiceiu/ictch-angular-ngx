@@ -1,5 +1,7 @@
 <div class="btn-group">
-  <ng-template #popTemplate>Here we go: <div [innerHtml]="html"></div></ng-template>
+  <ng-template #popTemplate>
+    <app-feature></app-feature>
+  </ng-template>
   <button type="button" class="btn btn-success" 
           [popover]="popTemplate" 
           popoverTitle="Popover&nbsp;auto"

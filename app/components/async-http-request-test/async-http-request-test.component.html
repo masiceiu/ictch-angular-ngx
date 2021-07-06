@@ -1,0 +1,18 @@
+<p>
+async-http-request-test works!
+</p>
+<pre class="card card-block card-header">Search: {{ search | json }}</pre>
+<input [(ngModel)]="search"
+       (typeaheadOnSelect)="onSelect($event)"
+       typeaheadOptionField="login"
+       [typeahead]="suggestions$"
+       [typeaheadAsync]="true"
+       class="form-control"
+       placeholder="Enter GitHub username">
+
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+<pre class="card card-block card-header">Query: {{ search_query | json }}</pre>
+<pre class="card card-block card-header">Result: {{ selected | json }}</pre>
+

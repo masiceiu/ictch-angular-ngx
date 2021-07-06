@@ -11,6 +11,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
 import 
 {
 
@@ -21,13 +22,15 @@ import
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { PopoverComponent } from './shared/popover/popover.component';
 import { FeatureComponent } from './shared/feature/feature.component';
+import { CommonComponent } from './shared/components/common/common.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DropdownComponent,
     PopoverComponent,
-    FeatureComponent
+    FeatureComponent,
+    CommonComponent
     ],
   imports: [
     PopoverModule.forRoot(),
@@ -38,7 +41,8 @@ import { FeatureComponent } from './shared/feature/feature.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   entryComponents: [],
   bootstrap: [AppComponent]

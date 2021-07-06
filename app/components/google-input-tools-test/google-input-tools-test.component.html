@@ -1,0 +1,28 @@
+<p>
+google-input-tools-test works!
+</p>
+<pre class="card card-block card-header">Search: {{ search | json }}</pre>
+<h3>
+  <a class="link">Lang-></a>
+  <a href="#" (click)="lan='bn'" class="link">bn</a>|
+  <a href="#" (click)="lan='ar'" class="link">ar</a>|
+  <a href="#" (click)="lan='en'" class="link">en</a>|
+</h3>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">{{lan}}</span>
+  </div>
+  <input type="text"
+  [(ngModel)]="search"
+  (typeaheadOnSelect)="onSelect($event)"
+  typeaheadOptionField="suggestion"
+  [typeahead]="suggestions$"
+  [typeaheadAsync]="true"
+   class="form-control">
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+<pre class="card card-block card-header">Query: {{ search_query | json }}</pre>
+<pre class="card card-block card-header">Result: {{ results | json }}</pre>
+<pre class="card card-block card-header">Selected: {{ selected | json }}</pre>

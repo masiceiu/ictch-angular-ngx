@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppComponent } from './app.component';
 import 
@@ -37,6 +38,7 @@ import { VideoPlayerModule } from './shared/video-player/video-player.module';
 
 import { DatatablesPaginationComponent } from './components/datatables-pagination/datatables-pagination.component';
 import { SetupProductComponent } from './components/setup-product/setup-product.component';
+import { CarouselTestComponent } from './pages/carousel-test/carousel-test.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,9 +59,11 @@ import { SetupProductComponent } from './components/setup-product/setup-product.
     PagingTestComponent,
     AmountInWordComponent,
     DatatablesPaginationComponent,
-    SetupProductComponent
+    SetupProductComponent,
+    CarouselTestComponent
     ],
   imports: [
+    CarouselModule.forRoot(),
     TypeaheadModule.forRoot(),
     BsDropdownModule.forRoot(),
     HttpClientModule,

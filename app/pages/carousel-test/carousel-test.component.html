@@ -1,0 +1,78 @@
+
+<div>
+<button type="button" class="btn btn-info"
+        (click)="addSlide()">Add Slide
+</button>
+<button type="button" class="btn btn-info"
+        (click)="removeSlide()">Remove Current
+</button>
+<button type="button" class="btn btn-info"
+        (click)="removeSlide(2)">Remove #3
+</button>
+</div>
+<br/>
+<carousel [(activeSlide)]="activeSlideIndex" >
+<slide *ngFor="let slide of slides; let index=index">
+<img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+
+<div class="carousel-caption">
+  <h4>Slide {{index}}</h4>
+  <p>{{slide.text}}</p>
+</div>
+</slide>
+</carousel>
+<br/>
+<carousel (activeSlideChange)="log($event)" [interval]="false">
+<slide *ngFor="let slide of slides; let index=index">
+<div class="text-center py-5 bg-dark text-white">
+  <h2>{{index}} custom content</h2>
+  <div class="lead">
+    <h3>{{index}} slide label</h3>
+    <p>{{slide.text}} Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+  </div>
+</div>
+</slide>
+</carousel>
+<br/>
+<pre class="card card-block card-header">{{slideChangeMessage}}</pre>
+<br/>
+<carousel [showIndicators]="showIndicator" [interval]="myInterval" [(activeSlide)]="activeSlideIndex"  [pauseOnFocus]="false" [noPause]="false">
+<slide>
+  <div class="text-center py-5 bg-dark text-white">
+    <h2>First custom content</h2>
+    <div class="lead">
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </div>
+  </div>
+</slide>
+<slide>
+  <div class="text-center py-5 bg-dark text-white">
+    <h2>Second custom content</h2>
+    <div class="lead">
+      <h3>Second slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </div>
+  </div>
+</slide>
+<slide>
+  <div class="text-center py-5 bg-dark text-white">
+    <h2>Third custom content</h2>
+    <div class="lead">
+      <h3>Third slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum. </p>
+    </div>
+  </div>
+</slide>
+</carousel>
+<br/>
+<div>
+<button type="button" class="btn btn-info"
+        (click)="switchIndicator()">Enable/Disable Indicator
+</button>
+</div>
+<br/>
+<div>
+<span>Interval, in milliseconds (Enter a negative number or 0 to stop the interval.): </span>
+<input type="number" class="form-control" [(ngModel)]="myInterval">
+</div>

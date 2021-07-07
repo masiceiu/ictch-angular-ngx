@@ -8,7 +8,8 @@ import {AyatService} from './../../../core/services';
   styleUrls: ['./ayat-dynamic.component.css']
 })
 export class AyatDynamicComponent implements OnInit {
-
+  
+  public title = '';
   public ayatList: any[] = [];
   constructor(private service: AyatService) { 
     this.loadList();
@@ -18,14 +19,7 @@ export class AyatDynamicComponent implements OnInit {
 
   private loadList(): void{
     this.service.getList().then(res => {
-      console.log(res.data);
-      if (res.data){
-        console.log(res.data);
-        this.ayatList = res.data;
-      }
-      else {
-        console.log('Error', res);
-      }
-    });
+        this.ayatList = res;
+    },ex=>{console.log(ex.name/*, ex*/);});
   }
 }

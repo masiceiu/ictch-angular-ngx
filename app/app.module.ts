@@ -23,7 +23,7 @@ import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { PopoverComponent } from './shared/popover/popover.component';
 import { FeatureComponent } from './shared/feature/feature.component';
 import { CommonComponent } from './shared/components/common/common.component';
-import { AyatCardComponent } from './shared/components/ayat-card/ayat-card.component';
+//import { AyatCardComponent } from './shared/components/ayat-card/ayat-card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { AyatCardComponent } from './shared/components/ayat-card/ayat-card.compo
     PopoverComponent,
     FeatureComponent,
     CommonComponent,
-    AyatCardComponent
+    //AyatCardComponent
     ],
   imports: [
     PopoverModule.forRoot(),

@@ -17,7 +17,8 @@ export class AyatDynamicComponent implements OnInit {
   }
 
   private loadList(): void{
-    this.service.getDistrictList().then(res => {
+    this.service.getList().then(res => {
+      console.log(res.data);
       if (res.data){
         console.log(res.data);
         this.ayatList = res.data;

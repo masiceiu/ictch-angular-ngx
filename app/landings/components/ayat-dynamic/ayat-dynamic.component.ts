@@ -10,7 +10,7 @@ import { AyatCardComponent } from './../../../shared/components/ayat-card/ayat-c
 })
 export class AyatDynamicComponent implements OnInit {
   
-  public title = '';
+  public title = 'Quran Ayat';
   public ayatList: any[] = [];
   constructor(private service: AyatService, private componentFactoryResolver: ComponentFactoryResolver) { 
     this.loadList();

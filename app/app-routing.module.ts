@@ -4,7 +4,8 @@ import { RouterModule, Route } from "@angular/router";
 
 const routes: Route[] = [
   {
-    path: "landings",
+    path: "",
+    //path: "landings",
     loadChildren: () =>
       import("./landings/landings.module").then(m => m.LandingsModule),
     data: {

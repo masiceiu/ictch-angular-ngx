@@ -14,6 +14,7 @@ import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.com
     LandingsComponent, 
     AyatCardComponent,
     AyatDynamicComponent,
-  ]
+  ],
+  entryComponents: [AyatCardComponent]
 })
 export class LandingsModule {}

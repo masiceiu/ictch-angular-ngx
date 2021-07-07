@@ -4,6 +4,16 @@
     Loading...
   </app-ayat-card>
 </div>
-<button (click)="add()">Dynamically Add Component</button>
+<hr>
+
+<div class="card-deck">
+    <div class="card shadow-sm mb-4">
+      <ng-template #container></ng-template>
+    </div>
+</div>
+<!--
+<div class="card-deck">
+  <ng-template #container></ng-template>
+</div>-->
 <!-- This is where we will insert the dynamic components -->
-<div #container></div>
+<button (click)="add()"> Add Component(Dynamically)</button>

@@ -1,6 +1,9 @@
 <h3 class="font-weight-normal text-center mt-5">{{title}}</h3>
-<div class="card-deck"><!--
+<div class="card-deck">
   <app-ayat-card class="card shadow-sm mb-4" [data]="ayat"  *ngFor="let ayat of ayatList">
     Loading...
-  </app-ayat-card>-->
+  </app-ayat-card>
 </div>
+<button (click)="add()">Dynamically Add Component</button>
+<!-- This is where we will insert the dynamic components -->
+<div #container></div>

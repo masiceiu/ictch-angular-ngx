@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 
 import {AyatService} from './../../../core/services';
+import { AyatCardComponent } from './../../../shared/components/ayat-card/ayat-card.component';
 
 @Component({
   selector: 'app-ayat-dynamic',
@@ -11,7 +12,7 @@ export class AyatDynamicComponent implements OnInit {
   
   public title = '';
   public ayatList: any[] = [];
-  constructor(private service: AyatService) { 
+  constructor(private service: AyatService, private componentFactoryResolver: ComponentFactoryResolver) { 
     this.loadList();
   }
   ngOnInit(): void {
@@ -22,4 +23,21 @@ export class AyatDynamicComponent implements OnInit {
         this.ayatList = res;
     },ex=>{console.log(ex.name/*, ex*/);});
   }
+
+  @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
+
+  private _counter = 1;
+
+  add(): void {
+
+    // create the component factory
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(AyatCardComponent);
+
+    // add the component to the view
+    const componentRef = this.container.createComponent(componentFactory);
+
+    // pass some data to the component
+    (<AyatCardComponent>componentRef.instance).data = {};//this._counter++;
+  }
+
 }

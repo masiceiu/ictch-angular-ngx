@@ -1,20 +1,24 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { LandingsComponent } from "./landings.component";
+//Module
 import { LandingsRoutingModule } from "./landings-routing.module";
-import { AyatCardComponent } from './../shared/components/ayat-card/ayat-card.component';
+import { AyatCardModule } from './../shared/components/ayat-card/ayat-card.module';
+import { AddBtnFixedModule } from './../shared/components/add-btn-fixed/add-btn-fixed.module';
+//Component
+import { LandingsComponent } from "./landings.component";
 import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.component';
 
 @NgModule({
   imports: [
     CommonModule, 
-    LandingsRoutingModule
+    LandingsRoutingModule,
+    AyatCardModule,
+    AddBtnFixedModule
   ],
   declarations: [
     LandingsComponent, 
-    AyatCardComponent,
     AyatDynamicComponent,
   ],
-  entryComponents: [AyatCardComponent]
+  entryComponents: []
 })
 export class LandingsModule {}

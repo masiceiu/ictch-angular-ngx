@@ -1,0 +1,6 @@
+<button class="add-btn-fixed" 
+[ngClass]="{'circle':isCircle}"
+[ngStyle]="{'bottom': positionBottom +'px', 'opacity': opacity, 'width':size+'px', 'heigh':size+'px'}"
+(click)="addClick()">
+{{ text }}
+</button>

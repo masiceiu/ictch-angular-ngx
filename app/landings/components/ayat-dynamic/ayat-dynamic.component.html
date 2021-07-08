@@ -1,19 +1,22 @@
 <h3 class="font-weight-normal text-center mt-5">{{title}}</h3>
 <div class="card-deck">
-  <app-ayat-card class="card shadow-sm mb-4" [data]="ayat"  *ngFor="let ayat of ayatList">
+  <app-ayat-card [data]="ayat"  *ngFor="let ayat of ayatList">
     Loading...
   </app-ayat-card>
 </div>
 <hr>
 
 <div class="card-deck">
-    <div class="card shadow-sm mb-4">
-      <ng-template #container></ng-template>
-    </div>
+  <ng-template #container></ng-template>
 </div>
+<app-add-btn-fixed [positionBottom]="60" (onAddClick)="addNew()" ></app-add-btn-fixed>
 <!--
 <div class="card-deck">
   <ng-template #container></ng-template>
 </div>-->
 <!-- This is where we will insert the dynamic components -->
+<!--<button (click)="addNew()" 
+[disabled]="addNewDisabled"> Add Next(Dynamically)</button>
+<br><br>
 <button (click)="add()"> Add Component(Dynamically)</button>
+-->

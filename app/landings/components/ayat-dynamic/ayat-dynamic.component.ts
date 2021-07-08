@@ -27,17 +27,42 @@ export class AyatDynamicComponent implements OnInit {
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
 
   private _counter = 1;
-
-  add(): void {
-
+  addDyn(data:any): void {
     // create the component factory
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(AyatCardComponent);
-
     // add the component to the view
     const componentRef = this.container.createComponent(componentFactory);
-
     // pass some data to the component
-    (<AyatCardComponent>componentRef.instance).data = {};//this._counter++;
+    (<AyatCardComponent>componentRef.instance).data = data;
+  }
+  add(): void {
+    this.addDyn({});
+  }
+  addNewDisabled = false;
+  addNew(): void {
+      this.addNewDisabled = true;
+      this.service.get(this._counter++).then(res => {
+        //this.ayatList = res;
+        res.forEach((item,index)=>{
+          this.addDyn(item);
+          //console.log(item,index);
+       });      
+       this.addNewDisabled = false;
+    },ex=>{console.log(ex.name/*, ex*/);});
+  }
+  items: any[] = [];
+  fetchTodos() {
+    const ids = [1, 2, 3, 4];
+    ids.map(async id => {
+      let request = await this.service
+        .get(`https://jsonplaceholder.typicode.com/todos/${id}`);
+        
+      let response = await request;
+
+      this.items.push(response);
+    });
+
+    
   }
 
 }

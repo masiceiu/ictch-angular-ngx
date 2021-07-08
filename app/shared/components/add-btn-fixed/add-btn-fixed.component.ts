@@ -19,8 +19,8 @@ export class AddBtnFixedComponent implements OnInit {
   }
   addClick(data:any) 
   {
-    this.onAddClick.emit(data||{});
-    this.scrollTo();
+    let req = { data:data||{}, ref: this};
+    this.onAddClick.emit(req);
   }
   //https://stackblitz.com/edit/ngstyle-examples?file=src%2Fapp%2Fapp.component.html
 /***************************************/
@@ -55,5 +55,11 @@ export class AddBtnFixedComponent implements OnInit {
         })();        
         break;
     } 
+  }
+  scrollToTop(){
+    this.scrollTo('top');
+  } 
+  scrollToBottom(){
+    this.scrollTo('bottom');
   }
 }

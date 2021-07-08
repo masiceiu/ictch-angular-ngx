@@ -39,12 +39,15 @@ export class AyatDynamicComponent implements OnInit {
     this.addDyn({});
   }
   addNewDisabled = false;
-  addNew(): void {
+  addNew(ev): void {
+    //console.log('ev:',ev);
+    //callBack
       this.addNewDisabled = true;
       this.service.get(this._counter++).then(res => {
         //this.ayatList = res;
         res.forEach((item,index)=>{
           this.addDyn(item);
+          ev.ref.scrollToBottom();
           //console.log(item,index);
        });      
        this.addNewDisabled = false;

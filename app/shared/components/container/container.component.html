@@ -1,0 +1,7 @@
+<div #container class="history">
+  <div class="message"
+    *ngFor="let entry of messages | async" 
+    (click)="false">
+    {{ entry }}
+  </div>
+</div>

@@ -32,8 +32,13 @@ export class AddBtnFixedComponent implements OnInit {
     const max = document.documentElement.scrollHeight -
                 document.documentElement.clientHeight;
 
+                console.log('scrollHeight:', document.documentElement.scrollHeight);
+                console.log('clientHeight:',document.documentElement.clientHeight);
+                console.log('window.pageYOffset:',window.pageYOffset);
+                console.log('body.clientHeight:',document.body.clientHeight);
+                console.log('body.scrollHeight:',document.body.scrollHeight);
     if (scroll === max) {
-      alert('Bottom');
+      //alert('Bottom');
     }*/
   }
   scrollTo(input:any) 
@@ -51,7 +56,8 @@ export class AddBtnFixedComponent implements OnInit {
         break;
         case"bottom":
         (function smoothscroll(){ 
-          window.scrollTo(0,document.body.scrollHeight);
+          //console.log(window.document.body.scrollHeight, document.documentElement.scrollHeight);
+          window.scrollTo(0, window.document.documentElement.scrollHeight);
         })();        
         break;
     } 

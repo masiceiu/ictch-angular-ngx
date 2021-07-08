@@ -25,6 +25,7 @@ import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { PopoverComponent } from './shared/popover/popover.component';
 import { FeatureComponent } from './shared/feature/feature.component';
 import { CommonComponent } from './shared/components/common/common.component';
+import { ContainerComponent } from './shared/components/container/container.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CommonComponent } from './shared/components/common/common.component';
     DropdownComponent,
     PopoverComponent,
     FeatureComponent,
-    CommonComponent
+    CommonComponent,
+    ContainerComponent
   ],
   imports: [
     HttpClientModule,

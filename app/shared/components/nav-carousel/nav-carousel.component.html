@@ -1,16 +1,24 @@
-<carousel [itemsPerSlide]="6"  [showIndicators]="false"
+<carousel [itemsPerSlide]="2"  [showIndicators]="false" [startFromIndex]="0" [interval]="false">
+  <slide *ngFor="let slide of slides; let index=index">
+    <div class="text-center py-2 bg-dark text-white border-left">
+      <a href="#"> First-{{index}}</a>
+    </div>
+  </slide>
+</carousel>
+<!--<carousel [itemsPerSlide]="6"  
           [singleSlideOffset]="singleSlideOffset"
           [startFromIndex]="0"
           [interval]="false">
     <slide *ngFor="let slide of slides; let index=index">
-      <!--
+      
         <div class="text-center py-2 bg-dark text-white border-left">
         <a href="#"> First-{{index}}</a>
       </div>
-    -->
+  
     <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
     <div class="carousel-caption">
       <h4>Slide {{index}}</h4>
     </div>
   </slide>
 </carousel>
+  -->

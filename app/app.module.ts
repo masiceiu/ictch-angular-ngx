@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+
 import { AyatCardModule } from './shared/components/ayat-card/ayat-card.module';
 import { AddBtnFixedModule } from './shared/components/add-btn-fixed/add-btn-fixed.module';
 import { NavCarouselModule } from './shared/components/nav-carousel/nav-carousel.module';

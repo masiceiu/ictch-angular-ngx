@@ -1,3 +1,7 @@
 body{
   margin-bottom: 120px;
 }
+a.left.carousel-control.carousel-control-prev,
+a.right.carousel-control.carousel-control-next{
+  width: 6% !important;
+}

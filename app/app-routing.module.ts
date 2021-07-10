@@ -3,9 +3,9 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Route } from "@angular/router";
 
 const routes: Route[] = [
+  { path: '', redirectTo: 'landings', pathMatch: 'full' },
   {
-    path: "",
-    //path: "landings",
+    path: "landings",
     loadChildren: () =>
       import("./landings/landings.module").then(m => m.LandingsModule),
     data: {

@@ -5,3 +5,11 @@
 [ngx-datatable ⚡️](https://github.com/swimlane/ngx-datatable/tree/master/src/app)
 [ngx-datatable-angular ⚡️](https://stackblitz.com/edit/ngx-datatable-angular)
 
+
+https://stackblitz.com/edit/angular-meta-viewport?file=src%2Fapp%2Fapp.module.ts
+https://stackblitz.com/edit/angular-size?file=src%2Fapp%2Fapp.module.ts
+https://stackblitz.com/edit/screen-resolution
+https://stackblitz.com/edit/angular-window-size-observable?file=app%2Fapp.service.ts
+https://stackblitz.com/edit/angular-window-width?file=src%2Fapp%2Fapp.component.ts
+
+https://stackblitz.com/edit/navigation-bar-project

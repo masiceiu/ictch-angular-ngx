@@ -1,0 +1,23 @@
+/*move to styles.css
+a.left.carousel-control.carousel-control-prev,
+a.right.carousel-control.carousel-control-next{
+  width: 6% !important;
+}*/
+<carousel [itemsPerSlide]="6"  [showIndicators]="false"
+          [singleSlideOffset]="singleSlideOffset"
+          [startFromIndex]="0"
+          [interval]="false">
+  <slide *ngFor="let slide of slides; let index=index">
+      <div class="text-center py-2 bg-dark text-white border-left">
+      <a href="#"> First-{{index}}</a>
+      <!--<div class="lead carousel-caption">
+        <h3>First slide label</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>-->
+    </div>
+    <!--<img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+    <div class="carousel-caption">
+      <h4>Slide {{index}}</h4>
+    </div>-->
+  </slide>
+</carousel>

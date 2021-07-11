@@ -31,6 +31,7 @@ onResize() {
 ngAfterViewInit() {
   //this.detectScreenSize('init:');
 }
+ 
 onItemsPerSlide(): number {
    return (function smoothscroll(self) {
     let res = {

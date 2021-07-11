@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav-carousel',
@@ -8,61 +8,26 @@ import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 export class NavCarouselComponent implements OnInit, AfterViewInit {
   
   size:any='';
-  itemsPerSlide = 2;
-  itemsPerSlidea = true;
-  constructor() {}
+  itemsPerSlide = 0;
+  constructor(private cdRef : ChangeDetectorRef) {}
 
   ngOnInit() {}
-  /*onItemsPerSlide()
-  {
-    return this.itemsPerSlide;
-  }
-
+  /*
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     event.target.innerWidth;
   }*/
-/*
 @HostListener('window:resize', [])
 onResize() {
-  //this.detectScreenSize('hos:');
-}*/
+  this.detectScreenSize('hos:');
+}
 
 ngAfterViewInit() {
-  //this.detectScreenSize('init:');
+  this.detectScreenSize('init:');
+  this.cdRef.detectChanges();
 }
- 
-onItemsPerSlide(): number {
-   return (function smoothscroll(self) {
-    let res = {
-      width: window.innerWidth
-    };
-    if (res.width < 576) {
-      self.size = 'Extra small';
-      self.itemsPerSlide = 3;
-    }
-    if (res.width >= 576) {
-      self.size = 'Small';
-      self.itemsPerSlide = 4;
-    }
-    if (res.width >= 768) {
-      self.size = 'Medium';
-      self.itemsPerSlide = 6;
-    }
-    if (res.width >= 992) {
-      self.size = 'Large';
-      self.itemsPerSlide = 8;
-    }
-    if (res.width >= 1200) {
-      self.size = 'Extra Large';
-      self.itemsPerSlide = 10;
-    }
-      console.log( self.size);
-      return self.itemsPerSlide
-    })(this);
-  }
   detectScreenSize(log:any) {
-    (function smoothscroll(self) {
+    (function detectChanges(self) {
       let res = {
         width: window.innerWidth
       };
@@ -86,7 +51,7 @@ onItemsPerSlide(): number {
         self.size = 'Extra Large';
         self.itemsPerSlide = 10;
       }
-      //console.log(log, self.size);
+      console.log(log, self.size);
     })(this);
   }
   slides = [

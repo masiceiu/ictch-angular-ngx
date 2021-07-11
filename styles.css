@@ -3,5 +3,5 @@ body{
 }/**/
 a.left.carousel-control.carousel-control-prev,
 a.right.carousel-control.carousel-control-next{
-  width: 7% !important;
+  width: 30px  !important;
 }

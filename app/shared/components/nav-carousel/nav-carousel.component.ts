@@ -1,4 +1,10 @@
-import { AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-nav-carousel',
@@ -6,10 +12,9 @@ import { AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit } fro
   styleUrls: ['./nav-carousel.component.css']
 })
 export class NavCarouselComponent implements OnInit, AfterViewInit {
-  
-  size:any='';
+  size: any = '';
   itemsPerSlide = 0;
-  constructor(private cdRef : ChangeDetectorRef) {}
+  constructor(private cdRef: ChangeDetectorRef) {}
 
   ngOnInit() {}
   /*
@@ -17,16 +22,16 @@ export class NavCarouselComponent implements OnInit, AfterViewInit {
   onResize(event) {
     event.target.innerWidth;
   }*/
-@HostListener('window:resize', [])
-onResize() {
-  this.detectScreenSize('hos:');
-}
+  @HostListener('window:resize', [])
+  onResize() {
+    this.detectScreenSize('hos:');
+  }
 
-ngAfterViewInit() {
-  this.detectScreenSize('init:');
-  this.cdRef.detectChanges();
-}
-  detectScreenSize(log:any) {
+  ngAfterViewInit() {
+    this.detectScreenSize('init:');
+    this.cdRef.detectChanges();
+  }
+  detectScreenSize(log: any) {
     (function detectChanges(self) {
       let res = {
         width: window.innerWidth

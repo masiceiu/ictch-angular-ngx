@@ -1,4 +1,5 @@
-<carousel [itemsPerSlide]="4" [showIndicators]="false"  
+
+<carousel [itemsPerSlide]="onItemsPerSlide()" [showIndicators]="false" *ngIf="itemsPerSlidea" 
           [singleSlideOffset]="true"
           [startFromIndex]="0"
           [interval]="false">
@@ -8,4 +9,5 @@
       </div>
   </slide>
 </carousel>
-  
+<br>
+ <button (click)="onItemsPerSlide1()" >Set({{itemsPerSlide1}})</button>

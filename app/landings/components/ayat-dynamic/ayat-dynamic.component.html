@@ -1,10 +1,14 @@
+<!-- 
 <h3 class="font-weight-normal text-center mt-5">{{title}}</h3>
 <div class="card-deck">
-  <app-ayat-card [data]="ayat"  *ngFor="let ayat of ayatList">
+  <app-ayat-card [data]="ayat" class="card shadow-sm mb-2" *ngFor="let ayat of ayatList">
     Loading...
   </app-ayat-card>
+  <app-ayat-card [data]="ayat" class="card shadow-sm mb-2" *ngFor="let ayat of ayatList">
+  Loading...
+</app-ayat-card>
 </div>
-<hr>
+<hr>-->
 
 <div class="card-deck">
   <ng-template #container></ng-template>

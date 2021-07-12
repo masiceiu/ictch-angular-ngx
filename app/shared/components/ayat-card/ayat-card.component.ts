@@ -8,10 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AyatCardComponent implements OnInit {
 
   @Input() data: any;
+  @Input() class: any;
   constructor() {
     this.data = {};
   }
-
+//class="card shadow-sm mb-2"
   ngOnInit() {
   }
 }

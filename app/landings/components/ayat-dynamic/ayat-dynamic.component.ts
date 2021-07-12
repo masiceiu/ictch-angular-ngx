@@ -34,6 +34,16 @@ export class AyatDynamicComponent implements OnInit {
     const componentRef = this.container.createComponent(componentFactory);
     // pass some data to the component
     (<AyatCardComponent>componentRef.instance).data = data;
+    /*
+    constructor(private resolver: ComponentFactoryResolver, private renderer2: Renderer2) { }
+    createComponent(message, some_css_class) {
+        this.msg.reset();
+        const factory = this.resolver.resolveComponentFactory(MessageComponent);
+        const componentRef = this.entry.createComponent(factory);
+        componentRef.instance.message = message;
+        this.renderer2.addClass(componentRef.location.nativeElement, some_css_class);
+    }
+    */
   }
   add(): void {
     this.addDyn({});

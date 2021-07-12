@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 
 import {AyatService} from './../../../core/services';
 import { AyatCardComponent } from './../../../shared/components/ayat-card/ayat-card.component';
@@ -12,7 +12,7 @@ export class AyatDynamicComponent implements OnInit {
   
   public title = 'Quran Ayat';
   public ayatList: any[] = [];
-  constructor(private service: AyatService, private componentFactoryResolver: ComponentFactoryResolver) { 
+  constructor(private service: AyatService, private componentFactoryResolver: ComponentFactoryResolver, private renderer2: Renderer2) { 
     this.loadList();
   }
   ngOnInit(): void {
@@ -34,6 +34,12 @@ export class AyatDynamicComponent implements OnInit {
     const componentRef = this.container.createComponent(componentFactory);
     // pass some data to the component
     (<AyatCardComponent>componentRef.instance).data = data;
+    
+    this.renderer2.addClass(componentRef.location.nativeElement, "col-sm-6");
+    //this.renderer2.addClass(componentRef.location.nativeElement, "card");
+    //this.renderer2.addClass(componentRef.location.nativeElement, "shadow-sm"); 
+    //this.renderer2.addClass(componentRef.location.nativeElement, "w-50");
+    //this.renderer2.addClass(componentRef.location.nativeElement, "mb-2");
     /*
     constructor(private resolver: ComponentFactoryResolver, private renderer2: Renderer2) { }
     createComponent(message, some_css_class) {

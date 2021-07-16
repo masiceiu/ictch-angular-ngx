@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Observable, Subject, distinctUntilChanged } from 'rxjs';
 export enum SCREEN_SIZE {
   XS,
@@ -17,17 +18,20 @@ export interface WindowSize {
 })
 export class ResizeService {
   private resizeSubject: Subject<any>;
+  private readonly _resize = new BehaviorSubject<any>({});
   constructor() {
-    this.resizeSubject = new Subject();
+    //this.resizeSubject = new Subject();
   }
-
-  get resize(): Observable<any> {
-    return this.resizeSubject.asObservable().pipe(distinctUntilChanged());
+  get resize(): BehaviorSubject<any> {
+    return this._resize;
   }
+  //get resize(): Observable<any> {
+    //return this.resizeSubject.asObservable().pipe(distinctUntilChanged());
+  //}
 
-  onResize(size: WindowSize) {
-    console.log(size);
-    this.resizeSubject.next(size);
+  onResize(size: any) {
+    this.resize.next(size);
+    //this.resizeSubject.next(size);
   }
 
 }

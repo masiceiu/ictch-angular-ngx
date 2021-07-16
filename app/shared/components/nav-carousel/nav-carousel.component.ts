@@ -16,10 +16,10 @@ export class NavCarouselComponent implements OnInit {
   size: any = '';
   itemsPerSlide = 0;
   constructor(private cdRef: ChangeDetectorRef, private resizeService: ResizeService) { 
-    console.log(this.resizeService);
+    //console.log(this.resizeService);
     this.resizeService.resize
       .subscribe(x => {
-        //this.size = x;
+        this.size = x;
         console.log(x);
         this.itemsPerSlide = 3;
       });

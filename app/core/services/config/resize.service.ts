@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs/dist/types';
-import { distinctUntilChanged } from 'rxjs/operators';
-
+import { Observable, Subject, distinctUntilChanged } from 'rxjs';
 export enum SCREEN_SIZE {
   XS,
   SM,

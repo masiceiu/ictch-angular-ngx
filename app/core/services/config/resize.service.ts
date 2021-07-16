@@ -26,7 +26,7 @@ export class ResizeService {
   }
 
   onResize(size: WindowSize) {
-    //console.log(size);
+    console.log(size);
     this.resizeSubject.next(size);
   }
 

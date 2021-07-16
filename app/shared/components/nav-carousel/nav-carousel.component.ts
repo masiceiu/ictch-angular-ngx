@@ -5,7 +5,6 @@ import {
   HostListener,
   OnInit
 } from '@angular/core';
-import { ResizeService } from '../../../core/services/config/resize.service';
 
 @Component({
   selector: 'app-nav-carousel',
@@ -15,14 +14,8 @@ import { ResizeService } from '../../../core/services/config/resize.service';
 export class NavCarouselComponent implements OnInit {
   size: any = '';
   itemsPerSlide = 0;
-  constructor(private cdRef: ChangeDetectorRef, private resizeService: ResizeService) { 
-    //console.log(this.resizeService);
-    this.resizeService.resize
-      .subscribe(x => {
-        this.size = x;
-        console.log(x);
-        this.itemsPerSlide = 3;
-      });
+  constructor(private cdRef: ChangeDetectorRef) { 
+    
   }
 
   ngOnInit() {}
@@ -31,7 +24,7 @@ export class NavCarouselComponent implements OnInit {
   onResize(event) {
     event.target.innerWidth;
   }*/
-  /*@HostListener('window:resize', [])
+  @HostListener('window:resize', [])
   onResize() {
     this.detectScreenSize('hos:');
   }
@@ -67,7 +60,7 @@ export class NavCarouselComponent implements OnInit {
       }
       console.log(log, self.size);
     })(this);
-  }*/
+  }
   slides = [
     {
       text: 'Item',

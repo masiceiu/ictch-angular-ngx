@@ -9,6 +9,7 @@ import { ResizeService } from './core/services/config/resize.service';
 export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(private cdRef: ChangeDetectorRef, private resizeService: ResizeService) { 
+    /* Test */
     //this.resizeService.resize
       //.subscribe(x => {
         //this.size = x;

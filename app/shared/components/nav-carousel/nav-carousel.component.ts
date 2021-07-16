@@ -15,10 +15,13 @@ import { ResizeService } from '../../../core/services/config/resize.service';
 export class NavCarouselComponent implements OnInit {
   size: any = '';
   itemsPerSlide = 0;
-  constructor(private cdRef: ChangeDetectorRef, private resizeSvc: ResizeService) { 
-    this.resizeSvc.resize
+  constructor(private cdRef: ChangeDetectorRef, private resizeService: ResizeService) { 
+    console.log(this.resizeService);
+    this.resizeService.resize
       .subscribe(x => {
-        this.size = x;
+        //this.size = x;
+        //console.log(x);
+        this.itemsPerSlide = 3;
       });
   }
 

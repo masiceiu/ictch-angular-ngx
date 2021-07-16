@@ -7,24 +7,26 @@ export enum SCREEN_SIZE {
   LG,
   XL
 }
+export interface WindowSize {
+  width: number,
+  height: number
+};
 //(0 = xs, 1 = sm, 2 = md, 3 = lg, 4 = xl)
 @Injectable({
   providedIn: "root"
 })
 export class ResizeService {
-
-  get resize(): Observable<SCREEN_SIZE> {
-    return this.resizeSubject.asObservable().pipe(distinctUntilChanged());
-  }
-
-  private resizeSubject: Subject<SCREEN_SIZE>;
-
+  private resizeSubject: Subject<any>;
   constructor() {
     this.resizeSubject = new Subject();
   }
 
-  onResize(size: SCREEN_SIZE) {
-    
+  get resize(): Observable<any> {
+    return this.resizeSubject.asObservable().pipe(distinctUntilChanged());
+  }
+
+  onResize(size: WindowSize) {
+    //console.log(size);
     this.resizeSubject.next(size);
   }
 

@@ -9,10 +9,10 @@ import { ResizeService } from './core/services/config/resize.service';
 export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(private cdRef: ChangeDetectorRef, private resizeService: ResizeService) { 
-    this.resizeService.resize
-      .subscribe(x => {
+    //this.resizeService.resize
+      //.subscribe(x => {
         //this.size = x;
-      });
+     // });
   }
 
   ngOnInit() {
@@ -28,10 +28,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   detectScreenSize(log: any) {
     (function detectChanges(self) {
-      /*let res = {
-        width: window.innerWidth
-      };*/
-      this.resizeService.onResize(window.innerWidth);
+      let size = {
+        width: window.innerWidth,
+        height: window.innerHeight
+      };
+      self.resizeService.onResize(size);
     })(this);
   }
 }

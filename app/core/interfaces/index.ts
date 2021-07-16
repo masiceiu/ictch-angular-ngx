@@ -1,0 +1,1 @@
+export { ISegment } from './segment.interface';

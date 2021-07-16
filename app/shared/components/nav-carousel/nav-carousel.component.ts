@@ -20,7 +20,7 @@ export class NavCarouselComponent implements OnInit {
     this.resizeService.resize
       .subscribe(x => {
         //this.size = x;
-        //console.log(x);
+        console.log(x);
         this.itemsPerSlide = 3;
       });
   }

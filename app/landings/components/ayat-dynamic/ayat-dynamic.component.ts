@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ComponentFactoryResolver, HostListener, OnInit, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, HostListener, OnInit, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 
 import {AyatService} from './../../../core/services';
 import { AyatCardComponent } from './../../../shared/components/ayat-card/ayat-card.component';
@@ -35,12 +35,13 @@ export class AyatDynamicComponent implements OnInit, AfterViewInit {
     // pass some data to the component
     (<AyatCardComponent>componentRef.instance).data = data;
     
-    this.renderer2.addClass(componentRef.location.nativeElement, "col-sm-" + this.itemsPer);
+    //this.renderer2.addClass(componentRef.location.nativeElement, "col-sm-" + this.itemsPer);
+    this.renderer2.addClass(componentRef.location.nativeElement, "col-md-6");
     //this.renderer2.addClass(componentRef.location.nativeElement, "col-sm-6");
     //this.renderer2.addClass(componentRef.location.nativeElement, "card");
     //this.renderer2.addClass(componentRef.location.nativeElement, "shadow-sm"); 
     //this.renderer2.addClass(componentRef.location.nativeElement, "w-50");
-    //this.renderer2.addClass(componentRef.location.nativeElement, "mb-2");
+    this.renderer2.addClass(componentRef.location.nativeElement, "mb-2");
     /*
     constructor(private resolver: ComponentFactoryResolver, private renderer2: Renderer2) { }
     createComponent(message, some_css_class) {

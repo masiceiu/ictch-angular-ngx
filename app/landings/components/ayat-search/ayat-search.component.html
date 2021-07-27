@@ -1,5 +1,5 @@
 <div class="row mt-2">
-	<div class="col">
+	<div class="col-12 order-md-2">
 		<div class="flex-parent">
 			<div class="flex-child">
 				<div class="form-group">
@@ -246,13 +246,16 @@
 					<option value="1">1</option>
 					</select>
 				</div>-->
-				<button [disabled]="addNewDisabled"
-				class="btn btn-block btn-success" 
-				(click)="addNew($event)">+</button>
+				<div class="form-group">
+				<label for="Ayat">Ayat:</label>
+					<button [disabled]="addNewDisabled"
+					class="btn btn-sm btn-block btn-success" 
+					(click)="addNew($event)">+</button>
+			  </div>
 			</div>
 		</div>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-6 order-md-1" style="text-center">
 		<app-ayat-card [data]="item"></app-ayat-card>	
 	</div>
 </div>

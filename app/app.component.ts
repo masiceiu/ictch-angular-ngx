@@ -20,12 +20,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.detectScreenSize('init:');
-    this.cdRef.detectChanges();
+    //this.detectScreenSize('init:');
+    //this.cdRef.detectChanges();
   }
   @HostListener('window:resize', [])
   onResize() {
-    this.detectScreenSize('hos:');
+    //this.detectScreenSize('hos:');
   }
   detectScreenSize(log: any) {
     (function detectChanges(self) {

@@ -8,6 +8,7 @@ import { NavCarouselModule } from './../shared/components/nav-carousel/nav-carou
 //Component
 import { LandingsComponent } from "./landings.component";
 import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.component';
+import { AyatSearchComponent } from './components/ayat-search/ayat-search.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.com
   ],
   declarations: [
     LandingsComponent, 
-    AyatDynamicComponent,
+    AyatDynamicComponent, AyatSearchComponent,
   ],
   entryComponents: []
 })

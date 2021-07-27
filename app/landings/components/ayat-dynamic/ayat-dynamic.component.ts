@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Component, ComponentFactoryResolver, HostListener, OnInit, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 
 import {AyatService} from './../../../core/services';
 import { AyatCardComponent } from './../../../shared/components/ayat-card/ayat-card.component';
@@ -8,11 +8,11 @@ import { AyatCardComponent } from './../../../shared/components/ayat-card/ayat-c
   templateUrl: './ayat-dynamic.component.html',
   styleUrls: ['./ayat-dynamic.component.css']
 })
-export class AyatDynamicComponent implements OnInit {
+export class AyatDynamicComponent implements OnInit, AfterViewInit {
   
   public title = 'Quran Ayat';
   public ayatList: any[] = [];
-  constructor(private service: AyatService, private componentFactoryResolver: ComponentFactoryResolver, private renderer2: Renderer2) { 
+  constructor(private service: AyatService, private componentFactoryResolver: ComponentFactoryResolver, private renderer2: Renderer2, private cdRef: ChangeDetectorRef) { 
     this.loadList();
   }
   ngOnInit(): void {
@@ -35,7 +35,8 @@ export class AyatDynamicComponent implements OnInit {
     // pass some data to the component
     (<AyatCardComponent>componentRef.instance).data = data;
     
-    this.renderer2.addClass(componentRef.location.nativeElement, "col-sm-6");
+    this.renderer2.addClass(componentRef.location.nativeElement, "col-sm-" + this.itemsPer);
+    //this.renderer2.addClass(componentRef.location.nativeElement, "col-sm-6");
     //this.renderer2.addClass(componentRef.location.nativeElement, "card");
     //this.renderer2.addClass(componentRef.location.nativeElement, "shadow-sm"); 
     //this.renderer2.addClass(componentRef.location.nativeElement, "w-50");
@@ -82,6 +83,48 @@ export class AyatDynamicComponent implements OnInit {
     });
 
     
+  }
+  
+  size: any = '';
+  cardSize: any = '';
+  itemsPer: number = 0;
+  @HostListener('window:resize', [])
+  onResize() {
+    this.detectScreenSize('hos:');
+  }
+
+  ngAfterViewInit() {
+    this.detectScreenSize('init:');
+    this.cdRef.detectChanges();
+  }
+  detectScreenSize(log: any) {
+    (function detectChanges(self) {
+      let res = {
+        width: window.innerWidth
+      };
+      if (res.width < 576) {
+        self.size = 'Extra small';
+        self.itemsPer = 12;
+        //self.cardSize = 'sm-1';
+      }
+      if (res.width >= 576) {
+        self.size = 'Small';
+        self.itemsPer = 12;
+      }
+      if (res.width >= 768) {
+        self.size = 'Medium';
+        self.itemsPer = 6;
+      }
+      if (res.width >= 992) {
+        self.size = 'Large';
+        self.itemsPer = 6;
+      }
+      if (res.width >= 1200) {
+        self.size = 'Extra Large';
+        self.itemsPer = 6;
+      }
+      console.log(log, self.size,self.itemsPer);
+    })(this);
   }
 
 }

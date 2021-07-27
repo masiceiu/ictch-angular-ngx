@@ -11,7 +11,7 @@ import {
   templateUrl: './nav-carousel.component.html',
   styleUrls: ['./nav-carousel.component.css']
 })
-export class NavCarouselComponent implements OnInit {
+export class NavCarouselComponent implements OnInit, AfterViewInit {
   size: any = '';
   itemsPerSlide = 0;
   constructor(private cdRef: ChangeDetectorRef) { 

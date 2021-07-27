@@ -9,9 +9,11 @@ import { NavCarouselModule } from './../shared/components/nav-carousel/nav-carou
 import { LandingsComponent } from "./landings.component";
 import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.component';
 import { AyatSearchComponent } from './components/ayat-search/ayat-search.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [
+    FormsModule,
     CommonModule, 
     LandingsRoutingModule,
     AyatCardModule,

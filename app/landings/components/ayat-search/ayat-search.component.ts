@@ -19,7 +19,7 @@ export class AyatSearchComponent implements OnInit {
 
   ngOnInit() {}
   private setAyat(data, callBack = null): void {
-    this.btnDisabled = true;
+    //this.btnDisabled = true;
     this.service.get(data).then(
       res => {
         //this.ayatList = res;
@@ -31,10 +31,11 @@ export class AyatSearchComponent implements OnInit {
         if (callBack) {
           callBack(this);
         }
-        this.btnDisabled = false;
+        //this.btnDisabled = false;
       },
       ex => {
         console.log(ex.name);
+        //this.btnDisabled = false;
       }
     );
   }
@@ -44,11 +45,18 @@ export class AyatSearchComponent implements OnInit {
       res => {
         this.ayatList = res;
         if (this.ayatList.length) {
-          this.selectedAyat = this.ayatList[0];
+          let newItem = this.ayatList[0];
+          //currentIndex
+          let newIndexId = (newItem.index - 0);
+          let currentIndexId = (this.item.index - 0)||0;
+          //console.log(newIndex,currentIndex);
+          if(newIndexId < currentIndexId){
+            newItem = this.ayatList[this.ayatList.length-1]
+          }
+          this.selectedAyat = newItem;
           this.item = this.selectedAyat;
         }
         if (callBack) {
-          console.log('?');
           callBack(this);
         }
         //console.log(res);
@@ -77,37 +85,41 @@ export class AyatSearchComponent implements OnInit {
     */
   }
 
-  private _counter = 1;
   private item: any = {}; //ayat item
   btnDisabled = false;
   onClick(ev, switch_on): void {
-    let index = this.selectedAyat.aya - 0;
-    /*function fn(val){
-      let indexItem = this.ayatList[index];
+    var fnAyatUpDown = function (ref,val){
+      //console.log(index);
+      let indexItem = ref.ayatList[index];
       //console.log(indexItem);
       if (indexItem) {
-        this.item = this.selectedAyat = indexItem;
+        ref.item = ref.selectedAyat = indexItem;
       } else {
-        //console.log(this.item);
-        let indexAsId = this.item.index - 0 + 1;
-        this.setAyat(indexAsId, function(self) {
-          let req = { sura: self.selectedSura };
-          self.setAyatList(req);
-        });
+        //console.log(ref.item);
+        let indexAsId = (ref.item.index - 0) + val;
+        //console.log(indexAsId);
+        if(indexAsId){
+          ref.setAyat(indexAsId, function(self) {
+            let req = { sura: self.selectedSura };
+            self.setAyatList(req);
+          });          
+        }
       }
-    }*/
+    }
+    let index = (this.selectedAyat.aya - 0);
+    //console.log(index);
     switch (switch_on) {
       case '+':
-        index++;
-        //fn(1);
+        fnAyatUpDown(this,1);
         break;
       case '-':
         index--;
-        //fn(1);
+        index--;
+        fnAyatUpDown(this,-1);
         break;
       case 'download':
         break;
-    }
+    }/*
     let indexItem = this.ayatList[index];
     //console.log(indexItem);
     if (indexItem) {
@@ -115,11 +127,12 @@ export class AyatSearchComponent implements OnInit {
     } else {
       //console.log(this.item);
       let indexAsId = this.item.index - 0 + 1;
+      console.log(indexAsId);
       this.setAyat(indexAsId, function(self) {
         let req = { sura: self.selectedSura };
         self.setAyatList(req);
       });
-    }
+    }*/
     
   }
 }

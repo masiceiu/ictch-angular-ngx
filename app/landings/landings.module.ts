@@ -10,6 +10,7 @@ import { LandingsComponent } from "./landings.component";
 import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.component';
 import { AyatSearchComponent } from './components/ayat-search/ayat-search.component';
 import { FormsModule } from "@angular/forms";
+import { AyatSelectComponent } from './components/ayat-select/ayat-select.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { FormsModule } from "@angular/forms";
   ],
   declarations: [
     LandingsComponent, 
-    AyatDynamicComponent, AyatSearchComponent,
+    AyatDynamicComponent, AyatSearchComponent, AyatSelectComponent,
   ],
   entryComponents: []
 })

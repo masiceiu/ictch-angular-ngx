@@ -240,26 +240,47 @@
 				</div>
 			</div>
 			<div class="flex-child">
-				<!--<div class="form-group">
-					<label for="Ayat">Ayat:</label>
-					<select class="form-control form-control-sm"[(ngModel)]="selectedAyat" (change)="onChangeItem($event,'ayat')">
-					<option value="1">1</option>
-					</select>
-				</div>-->
 				<div class="form-group">
-				<label for="Ayat">Ayat:</label>
-					<button [disabled]="addNewDisabled"
-					class="btn btn-sm btn-block btn-success" 
-					(click)="addNew($event)">+</button>
-			  </div>
+					<label for="Ayat">Ayat(select):</label>
+					<select class="form-control form-control-sm"[(ngModel)]="selectedAyat" (change)="onChangeItem($event,'ayat')">
+						<option *ngFor="let it of ayatList" [ngValue]="it">
+						{{it.aya}}
+					</option>
+					</select>
+				</div>
+			</div>
+			<div class="flex-child">
+				<div class="form-group">
+					<label for="Ayat">Ayat(+):</label>
+					<button [disabled]="btnDisabled"
+				class="btn btn-sm btn-block btn-success"
+				(click)="onClick($event,'+')">+</button>
+				</div>
+			</div>
+			<div class="flex-child">
+				<div class="form-group">
+					<label for="Ayat">Ayat(-):</label>
+					<button [disabled]="btnDisabled"
+				class="btn btn-sm btn-block btn-primary"
+				(click)="onClick($event,'-')">-</button>
+				</div>
+			</div>
+			<div class="flex-child">
+				<div class="form-group">
+					<label for="Ayat">Ayat(Down):</label>
+					<button [disabled]="btnDisabled"
+				class="btn btn-sm btn-block btn-secondary"
+				(click)="onClick($event,'download')"><i class="bi bi-download"></i></button>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-6 order-md-1" style="margin: 0 auto">
-		<app-ayat-card [data]="item"></app-ayat-card>	
+		<app-ayat-card [data]="item"></app-ayat-card>
 	</div>
 </div>
-		<!--
+
+<!--
 			<div class="row mt-2">
 	<div class="col">
 		<form>

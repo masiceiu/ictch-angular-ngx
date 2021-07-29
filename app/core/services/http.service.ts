@@ -13,6 +13,7 @@ export class HttpService{
 
   // GET Method
   public get(url: string, params?: ISegment): Promise<any>{
+    //console.log(params);
     const buildUrl = (params !== undefined) ? url + '?' + this.urlService.paramsToUrl(params) : url;
     const promise = new Promise( (resolve, reject) => {
       const req = this.http.get(buildUrl);

@@ -13,8 +13,9 @@ export class AyatService{
     const url = "https://ictcarehome.com/api/qurn/ayat/"+id;
     return this.httpService.get(url);
   }
-  public getList(): Promise<any>{
-    const url = "https://ictcarehome.com/api/qurn/ayat/1";
-    return this.httpService.get(url);
+  public getList(data): Promise<any>{
+    const url = "https://ictcarehome.com/api/qurn/ayat";
+    //const url = "https://ictcarehome.com/api/qurn/ayat/1";
+    return this.httpService.get(url,data);
   }
 }

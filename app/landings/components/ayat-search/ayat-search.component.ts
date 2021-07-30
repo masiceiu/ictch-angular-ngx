@@ -33,14 +33,14 @@ export class AyatSearchComponent implements OnInit {
 
       this.suggestions$ = new Observable((observer: Observer<string>) => {
         observer.next(this.search);
-      }).pipe(switchMap((query: string) => {
-          if (query) {
-            return this.service.inputTools(query).then(
+      }).pipe(switchMap((query: string) => {console.log(query);
+          if (query) {console.log(query);
+            /*return this.service.inputTools(query).then(
               res => {
                 console.log(res);
                 return of(['a']);
-            });
-           /*return of(['a']);*/
+            });*/
+           return of(['a','b']);
           }
         }));
   }

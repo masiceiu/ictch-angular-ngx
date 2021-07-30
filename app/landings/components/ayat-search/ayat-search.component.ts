@@ -1,5 +1,7 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
-import { AyatService } from '../../../core/services';
+import { Observer, Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { GoogleService } from '../../../core/services';
 
 @Component({
   selector: 'app-ayat-search',
@@ -8,7 +10,13 @@ import { AyatService } from '../../../core/services';
 })
 export class AyatSearchComponent implements OnInit {
 
-  constructor() { }
+  search: string;
+  suggestions$: Observable<any[]>;
+  errorMessage: string;
+  search_query: string;
+  constructor(private service: GoogleService) { 
+
+  }
 
   lang: any;
   langs: any[] = [];
@@ -22,6 +30,19 @@ export class AyatSearchComponent implements OnInit {
       ];
       this.langs = langs;
       this.lang = langs[0];
+
+      this.suggestions$ = new Observable((observer: Observer<string>) => {
+        observer.next(this.search);
+      }).pipe(switchMap((query: string) => {
+          if (query) {
+            return this.service.inputTools(query).then(
+              res => {
+                console.log(res);
+                return of(['a']);
+            });
+           /*return of(['a']);*/
+          }
+        }));
   }
   onOpenChange(data: boolean): void {
     console.log(data);
@@ -30,5 +51,9 @@ export class AyatSearchComponent implements OnInit {
   {
     this.lang = data.lang
     console.log(data.lang);
+  }
+  onSelect(data: any): void {
+    //this.selected = data.item;
+    console.log(data.item);
   }
 }  

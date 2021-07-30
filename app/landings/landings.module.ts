@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 //Module
 import { LandingsRoutingModule } from "./landings-routing.module";
 import { AyatCardModule } from './../shared/components/ayat-card/ayat-card.module';
@@ -23,6 +24,7 @@ import { AyatSelectComponent } from './components/ayat-select/ayat-select.compon
     AddBtnFixedModule,
     NavCarouselModule,
     BsDropdownModule.forRoot(),
+    TypeaheadModule.forRoot(),
   ],
   declarations: [
     LandingsComponent, 

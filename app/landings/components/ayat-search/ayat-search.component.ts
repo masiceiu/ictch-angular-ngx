@@ -29,18 +29,25 @@ export class AyatSearchComponent implements OnInit {
       { id : 'ar', name : 'Arabic', imageUrl : 'https://www.countryflags.io/sa/flat/64.png'},
       ];
       this.langs = langs;
-      this.lang = langs[0];
+      this.lang = langs[3];
 
       this.suggestions$ = new Observable((observer: Observer<string>) => {
         observer.next(this.search);
-      }).pipe(switchMap((query: string) => {console.log(query);
-          if (query) {console.log(query);
-            /*return this.service.inputTools(query).then(
-              res => {
-                console.log(res);
-                return of(['a']);
-            });*/
-           return of(['a','b']);
+      }).pipe(switchMap((query: string) => {
+          if (query) {
+            return this.service.inputTools(query,this.lang.id).then(
+              data => {
+                if(data.length > 0 && data[1].length > 0 && data[1][0].length > 0 && data[1][0][1].length > 0){
+                  let res = (data[1][0][1]);
+                  res[5] = query;
+                 let results = Object.keys(res).map(key => ({ 
+                    'index' : key, 
+                    'suggestion' : res[key] 
+                    }));
+                  return results;
+                }
+            });
+           /*return of(['a','b']);*/
           }
         }));
   }

@@ -5,7 +5,7 @@
 				<div class="input-group input-group-sm mb-3">
 					<div class="input-group-prepend" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
 						<!--<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false">{{lang.id}}</button>-->
-						<button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')', 'background-size': 'cover'}">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+						<button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')', 'background-size': 'contain'}">&nbsp;&nbsp;&nbsp;&nbsp;</button>
 						<div class="dropdown-menu" *dropdownMenu>
 							<a class="dropdown-item" *ngFor="let lang of langs" routerlink="/"
 								(click)="onMenuItemClick({ lang: lang, dropdown: dropdown })">
@@ -23,9 +23,13 @@
 						typeaheadOptionField="suggestion"
 						[typeahead]="suggestions$"
 						[typeaheadAsync]="true"
+						[typeaheadMultipleSearch]="true"
+						typeaheadMultipleSearchDelimiters="' '"
 						class="form-control">
 					<div class="input-group-append">
-						<button type="button" class="btn btn-outline-secondary">
+						<button type="button" 
+						(click)="onClick($event,'search')"
+						class="btn btn-outline-secondary">
 							<i class="bi bi-search"></i>
 						</button>
 					</div>
@@ -39,6 +43,33 @@
 					</div>
 				</div>-->
 			</div>
+		</div>
+		<div class="list-group">
+			<a  routerlink="/" *ngFor="let it of ayatList; let i = index;" class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">{{it.index}}.List group item heading</h5>
+					<small>{{it.aya}}/{{it.sura}} Ayat/Sura</small>
+				</div>
+				<p class="mb-1">{{it.text}}.</p>
+				<small>Donec id elit non mi porta.</small>
+			</a>
+			<!--
+			<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">List group item heading</h5>
+					<small class="text-muted">3 days ago</small>
+				</div>
+				<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				<small class="text-muted">Donec id elit non mi porta.</small>
+			</a>
+			<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">List group item heading</h5>
+					<small class="text-muted">3 days ago</small>
+				</div>
+				<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				<small class="text-muted">Donec id elit non mi porta.</small>
+			</a>-->
 		</div>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { Observer, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { GoogleService } from '../../../core/services';
+import { AyatService, GoogleService } from '../../../core/services';
 
 @Component({
   selector: 'app-ayat-search',
@@ -14,7 +14,11 @@ export class AyatSearchComponent implements OnInit {
   suggestions$: Observable<any[]>;
   errorMessage: string;
   search_query: string;
-  constructor(private service: GoogleService) { 
+
+  selected:any = {};
+  constructor( 
+    private ayatService: AyatService,
+    private googleService: GoogleService) { 
 
   }
 
@@ -35,7 +39,7 @@ export class AyatSearchComponent implements OnInit {
         observer.next(this.search);
       }).pipe(switchMap((query: string) => {
           if (query) {
-            return this.service.inputTools(query,this.lang.id).then(
+            return this.googleService.inputTools(query,this.lang.id).then(
               data => {
                 if(data.length > 0 && data[1].length > 0 && data[1][0].length > 0 && data[1][0][1].length > 0){
                   let res = (data[1][0][1]);
@@ -60,7 +64,38 @@ export class AyatSearchComponent implements OnInit {
     console.log(data.lang);
   }
   onSelect(data: any): void {
-    //this.selected = data.item;
+    this.selected = data.item;
     console.log(data.item);
+  }
+  tempCount = 1;
+  private ayatList = []; 
+  onClick(data, switch_on): void {
+    switch (switch_on) {
+      case 'search':
+        //console.log(this.selected.suggestion);
+        //let req = { sura: this.tempCount++ };
+        let req = { sura:this.selected.suggestion };
+        if(req.sura){
+          this.setAyatList(req);
+        }
+        break;
+      case 'download':
+        break;
+    }
+  }
+  private setAyatList(req, callBack = null): void {
+    //console.log(req);
+    this.ayatService.getList(req).then(
+      res => {
+        this.ayatList = res;
+        if (callBack) {
+          callBack(this);
+        }
+        //console.log(res);
+      },
+      ex => {
+        console.log(ex.name /*, ex*/);
+      }
+    );
   }
 }  

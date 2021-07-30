@@ -1,1 +1,383 @@
-<p>ayat select component</p>
+<div class="row mt-2">
+	<div class="col-12 order-md-2">
+		<div class="flex-parent">
+			<div class="flex-child">
+				<div class="form-group">
+					<label for="Language">Language:</label>
+					<select class="form-control form-control-sm" [(ngModel)]="selectedLanguage" (change)="onChangeItem($event,'language')">
+						<option value="sq_nahi">Albanian(Efendi Nahi)</option>
+						<option value="sq_mehdiu">Albanian(Feti Mehdiu)</option>
+						<option value="sq_ahmeti">Albanian(Sherif Ahmeti)</option>
+						<option value="ber_mensur">Amazigh(At Mensur)</option>
+						<option value="ar_jalalayn">Arabic	(تفسير الجلالين)</option>
+						<option value="ar_muyassar">Arabic	(تفسير المیسر)</option>
+						<option value="am_sadiq">Amharic(ሳዲቅ &amp; ሳኒ ሐቢብ)</option>
+						<option value="az_mammadaliyev">Azerbaijani(Məmmədəliyev &amp; Bünyadov)</option>
+						<option value="az_musayev">Azerbaijani(Musayev)</option>
+						<option value="bn_hoque">Bengali	 (জহুরুল হক)</option>                        
+						<option value="bn_bengali">Bengali(	মুহিউদ্দীন খান)</option>
+						<option value="bs_korkut">Bosnian(Korkut)</option>
+						<option value="bs_mlivo">Bosnian(Mlivo)</option>
+						<option value="bg_theophanov">Bulgarian(Теофанов)</option>
+						<option value="zh_jian">Chinese(Ma Jian)</option>
+						<option value="zh_majian">Chinese Traditional (Ma Jian)</option>
+						<option value="cs_hrbek">Czech(Hrbek)</option>
+						<option value="cs_nykl">Czech(Nykl)</option>
+						<option value="dv_divehi">Divehi	(ދިވެހި)</option>
+						<option value="nl_keyzer">Dutch(Keyzer)</option>
+						<option value="nl_leemhuis">Dutch(Leemhuis)</option>
+						<option value="nl_siregar">Dutch(Siregar)</option>
+						<option value="en_ahmedali">English(Ahmed Ali)</option>
+						<option value="en_ahmedraza">English(Ahmed Raza Khan)</option>
+						<option value="en_arberry">English(Arberry)</option>
+						<option value="en_daryabadi">English(Daryabadi)</option>
+						<option value="en_hilali">English(Hilali &amp; Khan)</option>
+						<option value="en_itani">English(Itani)</option>
+						<option value="en_maududi">English(Maududi)</option>
+						<option value="en_pickthall">English(Pickthall)</option>
+						<option value="en_qarai">English(Qarai)</option>                        
+						<option value="en_qaribullah">English(Qaribullah &amp; Darwish)</option>
+						<option value="en_sahih">English(Saheeh International)</option>
+						<option value="en_sarwar">English(Sarwar)</option>
+						<option value="en_shakir">English(Shakir)</option>
+						<option value="en_transliteration">English(Transliteration)</option>
+						<option value="en_wahiduddin">English(Wahiduddin Khan)</option>
+						<option value="en_yusufali">English(Yousuf Ali)</option>
+						<option value="fr_hamidullah">French(Hamidullah)</option>
+						<option value="de_aburida">German(Abu Rida)</option>
+						<option value="de_bubenheim">German(Bubenheim &amp; Elyas)</option>
+						<option value="de_khoury">German(Khoury)</option>
+						<option value="de_zaidan">German(Zaidan)</option>
+						<option value="ha_gumi">Hausa(Gumi)</option>
+						<option value="hi_farooq">Hindi(	फ़ारूक़ ख़ान &amp; अहमद)</option>
+						<option value="hi_hindi">Hindi(	फ़ारूक़ ख़ान &amp; नदवी)</option>
+						<option value="id_indonesian">Indonesian(Bahasa Indonesia)</option>
+						<option value="id_muntakhab">Indonesian(Quraish Shihab)</option>
+						<option value="id_jalalayn">Indonesian(Tafsir Jalalayn)</option>
+						<option value="it_piccardo">Italian(Piccardo)</option>
+						<option value="ja_japanese">Japanese(Japanese)</option>
+						<option value="ko_korean">Korean(Korean)</option>
+						<option value="ku_asan">Kurdish(	ته&zwnj;فسیری ئاسان)</option>
+						<option value="ms_basmeih">Malay(Basmeih)</option>
+						<option value="ml_abdulhameed">Malayalam(	അബ്ദുല്&zwj; ഹമീദ് &amp; പറപ്പൂര്&zwj;)</option>
+						<option value="ml_karakunnu">Malayalam(	കാരകുന്ന് &amp; എളയാവൂര്)</option>
+						<option value="no_berg">Norwegian(Einar Berg)</option>                        
+						<option value="fa_ghomshei">Persian	(الهی قمشه&zwnj;ای)</option>
+						<option value="fa_ansarian">Persian(	انصاریان)</option>
+						<option value="fa_ayati">Persian(	آیتی)</option>
+						<option value="fa_bahrampour">Persian	(بهرام پور)</option>
+						<option value="fa_khorramdel">Persian	(خرمدل)</option>
+						<option value="fa_khorramshahi">Persian(	خرمشاهی)</option>
+						<option value="fa_sadeqi">Persian(	صادقی تهرانی)</option>
+						<option value="fa_fooladvand">Persian	(فولادوند)</option>
+						<option value="fa_mojtabavi">Persian(	مجتبوی)</option>
+						<option value="fa_moezzi">Persian(	معزی)</option>
+						<option value="fa_makarem">Persian	(مکارم شیرازی)</option>
+						<option value="pl_bielawskiego">Polish(Bielawskiego)</option>
+						<option value="pt_elhayek">Portuguese(El-Hayek)</option>
+						<option value="ro_grigore">Romanian(Grigore)</option>
+						<option value="ru_abuadel">Russian(Абу Адель)</option>
+						<option value="ru_muntahab">Russian(Аль-Мунтахаб)</option>
+						<option value="ru_krachkovsky">Russian(Крачковский)</option>
+						<option value="ru_kuliev">Russian(Кулиев)</option>
+						<option value="ru_kulieval">Russian(Кулиев + ас-Саади)</option>                        
+						<option value="ru_osmanov">Russian(Османов)</option>
+						<option value="ru_porokhova">Russian(Порохова)</option>
+						<option value="ru_sablukov">Russian(Саблуков)</option>
+						<option value="sd_amroti">Sindhi(	امروٽي)</option>
+						<option value="so_abduh">Somali(Abduh)</option>
+						<option value="es_bornez">Spanish(Bornez)</option>
+						<option value="es_cortes">Spanish(Cortes)</option>
+						<option value="es_garcia">Spanish(Garcia)</option>
+						<option value="sw_barwani">Swahili(Al-Barwani)</option>
+						<option value="sv_bernstrom">Swedish(Bernström)</option>
+						<option value="tg_ayati">Tajik(Оятӣ)</option>
+						<option value="ta_tamil">Tamil(	ஜான் டிரஸ்ட்)</option>
+						<option value="tt_nugman">Tatar(Yakub Ibn Nugman)</option>
+						<option value="th_thai">Thai(	ภาษาไทย)</option>	
+						<option value="tr_golpinarli">Turkish(Abdulbakî Gölpınarlı)</option>
+						<option value="tr_bulac">Turkish(Alİ Bulaç)</option>
+						<option value="tr_transliteration">Turkish(Çeviriyazı)</option>
+						<option value="tr_diyanet">Turkish(Diyanet İşleri)</option>
+						<option value="tr_vakfi">Turkish(Diyanet Vakfı)</option>
+						<option value="tr_yuksel">Turkish(Edip Yüksel)</option>
+						<option value="tr_yazir">Turkish(Elmalılı Hamdi Yazır)</option>
+						<option value="tr_ozturk">Turkish(Öztürk)</option>
+						<option value="tr_yildirim">Turkish(Suat Yıldırım)</option>                        
+						<option value="tr_ates">Turkish(Süleyman Ateş)</option>
+						<option value="ur_maududi">Urdu(	ابوالاعلی مودودی)</option>
+						<option value="ur_kanzuliman">Urdu	(احمد رضا خان)</option>
+						<option value="ur_ahmedali">Urdu	(احمد علی)</option>
+						<option value="ur_jalandhry">Urdu	(جالندہری)</option>
+						<option value="ur_qadri">Urdu(	طاہر القادری)</option>
+						<option value="ur_jawadi">Urdu(	علامہ جوادی)</option>
+						<option value="ur_junagarhi">Urdu	(محمد جوناگڑھی)</option>
+						<option value="ur_najafi">Urdu	(محمد حسین نجفی)</option>
+						<option value="ug_saleh">Uyghur	(محمد صالح)</option>
+						<option value="uz_sodik">Uzbek(Мухаммад Содик)</option>	
+					</select>
+				</div>
+			</div>
+			<div class="flex-child">
+				<div class="form-group">
+					<label for="Sura">Sura:</label>
+					<select class="form-control form-control-sm" [(ngModel)]="selectedSura" (change)="onChangeItem($event,'sura')">
+					<option value="1">1.Al-Fatiha</option>
+					<option value="2">2.Al-Baqarah</option>
+					<option value="3">3.Al-Imran</option>
+					<option value="4">4.An-Nisa</option>
+					<option value="5">5.Al-Maidah</option>
+					<option value="6">6.Al-Anam</option>
+					<option value="7">7.Al-Araf</option>
+					<option value="8">8.Al-Anfal</option>
+					<option value="9">9.At-Tawbah</option>
+					<option value="10">10.Yunes</option>
+					<option value="11">11.Hud</option>
+					<option value="12">12.Youssouf</option>
+					<option value="13">13.Ar-Rad</option>
+					<option value="14">14.Ibrahim</option>
+					<option value="15">15.Al-Hijr</option>
+					<option value="16">16.An-Nahl</option>
+					<option value="17">17.Al-Isra</option>
+					<option value="18">18.Al-Kahf</option>
+					<option value="19">19.Maryam</option>
+					<option value="20">20.Ta-Ha</option>
+					<option value="21">21.Al-Anbiya</option>
+					<option value="22">22.Al-Hajj</option>
+					<option value="23">23.Al-Mouminoune</option>
+					<option value="24">24.An-Nour</option>
+					<option value="25">25.Al-Furqane</option>
+					<option value="26">26.Ash-Shuara</option>
+					<option value="27">27.An-Naml</option>
+					<option value="28">28.Al-Qasas</option>
+					<option value="29">29.AL-ANKABUT</option>
+					<option value="30">30.Ar-Rum</option>
+					<option value="31">31.Luqman</option>
+					<option value="32">32.As-Sajda</option>
+					<option value="33">33.Al-Ahzab</option>
+					<option value="34">34.Saba</option>
+					<option value="35">35.Fatir</option>
+					<option value="36">36.Ya-Sin</option>
+					<option value="37">37.As-Saffat</option>
+					<option value="38">38.Sad</option>
+					<option value="39">39.Az-Zumar</option>
+					<option value="40">40.Ghafir</option>
+					<option value="41">41.Fussilat</option>
+					<option value="42">42.Ash-shoura</option>
+					<option value="43">43.AZZUKHRUF</option>
+					<option value="44">44.Ad-Dukhan</option>
+					<option value="45">45.AL-JATHYA</option>
+					<option value="46">46.Al-Ahqaf</option>
+					<option value="47">47.Muhammad</option>
+					<option value="48">48.Al-Fath</option>
+					<option value="49">49.Al.Hujurat</option>
+					<option value="50">50.Qaf</option>
+					<option value="51">51.Ad-Dariyat</option>
+					<option value="52">52.At-Tur</option>
+					<option value="53">53.AN-NAJM </option>
+					<option value="54">54.Al-Qamar</option>
+					<option value="55">55.Ar-Rahman</option>
+					<option value="56">56.AL-WAQI</option>
+					<option value="57">57.Al-Hadid - le fer</option>
+					<option value="58">58.Al-Mujadalah</option>
+					<option value="59">59.Al-Hashr</option>
+					<option value="60">60.AL-MUMTAHANAH</option>
+					<option value="61">61.As-Saff</option>
+					<option value="62">62.Al-Jumua</option>
+					<option value="63">63.Al-Munafiqun</option>
+					<option value="64">64.At-Tagabun</option>
+					<option value="65">65.At-Talaq</option>
+					<option value="66">66.AT-TAHRIM</option>
+					<option value="67">67.Al-Mulk</option>
+					<option value="68">68.Al-Qalam</option>
+					<option value="69">69.Al-Haqqah</option>
+					<option value="70">70.Al-Ma arij</option>
+					<option value="71">71.Nuh</option>
+					<option value="72">72.Al-Jinn</option>
+					<option value="73">73.Al-Muzzammil</option>
+					<option value="74">74.Al-Muddattir</option>
+					<option value="75">75.Al-Qiyamah</option>
+					<option value="76">76.Al-Insan</option>
+					<option value="77">77.Al-Mursalate</option>
+					<option value="78">78.An-Naba</option>
+					<option value="79">79.An-Naziate</option>
+					<option value="80">80.ABASA</option>
+					<option value="81">81.AT-TAKWIR</option>
+					<option value="82">82.Al-Infitar</option>
+					<option value="83">83.Al-Mutaffifine</option>
+					<option value="84">84.Al-Inshiqaq</option>
+					<option value="85">85.Al-Buraj</option>
+					<option value="86">86.AT-TARIQ</option>
+					<option value="87">87.Al-Ala</option>
+					<option value="88">88.AL-GASIYAH</option>
+					<option value="89">89.Al-Fajr</option>
+					<option value="90">90.Al-Balad</option>
+					<option value="91">91.Ash-Shams</option>
+					<option value="92">92.Al-Layl</option>
+					<option value="93">93.Ad-Duha</option>
+					<option value="94">94.AS-SARH</option>
+					<option value="95">95.At-Tin</option>
+					<option value="96">96.AL-ALAQ</option>
+					<option value="97">97.Al-Qadr</option>
+					<option value="98">98.Al-Bayyinah</option>
+					<option value="99">99.Az-Zalzalah</option>
+					<option value="100">100.Al-Adiyate</option>
+					<option value="101">101.Al-Qariah</option>
+					<option value="102">102.At-Takathur</option>
+					<option value="103">103.Al-Asr</option>
+					<option value="104">104.Al-Humazah </option>
+					<option value="105">105.Al-Fil</option>
+					<option value="106">106.Quraysh</option>
+					<option value="107">107.AL-MAUN</option>
+					<option value="108">108.AL-KAWTAR</option>
+					<option value="109">109.Al-Kafiroune</option>
+					<option value="110">110.An-Nasr</option>
+					<option value="111">111.Al-Masad</option>
+					<option value="112">112.Al-Ikhlas</option>
+					<option value="113">113.Al-Falaq</option>
+					<option value="114">114.An-Nass</option>
+				</select>
+				</div>
+			</div>
+			<div class="flex-child">
+				<div class="form-group">
+					<label for="Ayat">Ayat(select):</label>
+					<select class="form-control form-control-sm"[(ngModel)]="selectedAyat" (change)="onChangeItem($event,'ayat')">
+						<option *ngFor="let it of ayatList" [ngValue]="it">
+						{{it.aya}}
+					</option>
+					</select>
+				</div>
+			</div>
+			<div class="flex-child">
+				<div class="form-group">
+					<label for="Ayat">Ayat(+):</label>
+					<button [disabled]="btnDisabled"
+				class="btn btn-sm btn-block btn-success"
+				(click)="onClick($event,'+')">+</button>
+				</div>
+			</div>
+			<div class="flex-child">
+				<div class="form-group">
+					<label for="Ayat">Ayat(-):</label>
+					<button [disabled]="btnDisabled"
+				class="btn btn-sm btn-block btn-primary"
+				(click)="onClick($event,'-')">-</button>
+				</div>
+			</div>
+			<div class="flex-child">
+				<div class="form-group">
+					<label for="Ayat">Ayat(Down):</label>
+					<button [disabled]="btnDisabled"
+				class="btn btn-sm btn-block btn-secondary"
+				(click)="onClick($event,'download')"><i class="bi bi-download"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 order-md-1" style="margin: 0 auto">
+		<app-ayat-card [data]="item"></app-ayat-card>
+	</div>
+</div>
+
+<!--
+			<div class="row mt-2">
+	<div class="col">
+		<form>
+			<div class="form-group">
+				<label for="email">Email address:</label>
+				<select class="form-control form-control-sm">
+					<option>Small select</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="email" class="form-control form-control-sm" placeholder="Small input">
+			</div>
+		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<form>
+			<div class="form-group">
+				<div class="input-group input-group-sm">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Small</span>
+					</div>
+					<input type="text" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group input-group-sm">
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="inputGroupSelect01">Options</label>
+					</div>
+					<select class="custom-select form-control-sm">
+						<option selected>Choose...</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group input-group-sm">
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="inputGroupSelect01">Options</label>
+					</div>
+					<select class="form-control form-control-sm">
+					<option selected>Choose...</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="list">
+    <ol>
+        <li><span style="color:#000000;background:#ffffff">Select-> </span>Language</li>
+        <li>
+			<select id="language" class="filter" style="width:180px">		
+				<option value="0"></option>
+				<option value="quran_text">Arabic(Quran)</option>
+				<option value="bn_bengali">Bangla(Muhiuddin)</option>
+				<option value="sq_nahi">Albanian(Nahi)</option>
+				<option value="az_mammadaliyev">Tran.Azerbaizani(Mammadaliyev)</option>
+				<option value="bn_hoque">Bangla(Hoque)</option>
+				<option value="zh_majian">Chinesse(Chinesse)</option>
+				<option value="en_sahih">English(Sahih)</option>			  
+				<option value="en_yusufali">English(Yousuf Ali)</option>
+				<option value="fr_hamidullah">French(Hamidullah)</option>
+				<option value="hi_farooq">Hindi(Farooq)</option>
+				<option value="ko_korean">Korean(Korean)</option>
+				<option value="ru_muntahab">Russian(Muntahab)</option>
+				<option value="tg_ayati">Tajik(Ayati)</option>
+				<option value="tr_golpinarli">Turkish(Golpinarli)</option>				  
+				<option value="ur_ahmedali">Urdu(Ahmedali)</option>
+				<option value="ug_saleh">Uyghur(Saleh)</option>
+			</select>
+		</li>
+        <li>Sura</li>
+        <li>
+			<select id="sura" class="filter" style="width:50px">		
+				<option value="0"></option>	
+			</select>
+		</li>		
+        <li>Ayat</li>
+        <li>
+			<select id="ayat" class="filter" style="width:50px"></select>			
+		</li>
+		<li><a id="download" href="#" target="_blank" style="display:none">Download</a></li>
+		<li>
+			<button class="filter" id="back" >Back</button>
+			<button class="filter" id="next" >Next</button>
+		</li>
+		<li style="float:right;"><button id="post" onclick="PostImage()">Post</button></li>
+		<li id="share" style="float:right;"></li>
+    </ol>
+</div>-->

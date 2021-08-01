@@ -13,6 +13,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { AyatCardModule } from './shared/components/ayat-card/ayat-card.module';
 import { AddBtnFixedModule } from './shared/components/add-btn-fixed/add-btn-fixed.module';
 import { NavCarouselModule } from './shared/components/nav-carousel/nav-carousel.module';
+import { AdviceInQuranModule } from './shared/views/advice-in-quran/advice-in-quran.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -36,7 +37,8 @@ import { ContainerComponent } from './shared/components/container/container.comp
     PopoverComponent,
     FeatureComponent,
     CommonComponent,
-    ContainerComponent
+    ContainerComponent,
+    AdviceInQuranModule
   ],
   imports: [
     HttpClientModule,

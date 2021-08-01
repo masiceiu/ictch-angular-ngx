@@ -14,16 +14,13 @@ import { AyatCardModule } from './shared/components/ayat-card/ayat-card.module';
 import { AddBtnFixedModule } from './shared/components/add-btn-fixed/add-btn-fixed.module';
 import { NavCarouselModule } from './shared/components/nav-carousel/nav-carousel.module';
 import { AdviceInQuranModule } from './shared/views/advice-in-quran/advice-in-quran.module';
+import { NavScrollerModule } from './shared/components/nav-scroller/nav-scroller.module';
+import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
-import 
-{
-
-} from './components/index';
-import 
-{ 
-} from './pages/index';
+//import {} from './components/index';
+//import {} from './pages/index';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { PopoverComponent } from './shared/popover/popover.component';
 import { FeatureComponent } from './shared/feature/feature.component';
@@ -38,7 +35,6 @@ import { ContainerComponent } from './shared/components/container/container.comp
     FeatureComponent,
     CommonComponent,
     ContainerComponent,
-    AdviceInQuranModule
   ],
   imports: [
     HttpClientModule,
@@ -54,6 +50,9 @@ import { ContainerComponent } from './shared/components/container/container.comp
     AyatCardModule,
     AddBtnFixedModule,
     NavCarouselModule,
+    AdviceInQuranModule,
+    NavScrollerModule,
+    SelectedIlmModule,
   ],
   entryComponents: [],
   bootstrap: [AppComponent]

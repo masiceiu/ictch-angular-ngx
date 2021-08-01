@@ -2,6 +2,9 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Route } from "@angular/router";
 
+import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.component';
+//import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
+
 const routes: Route[] = [
   { path: '', redirectTo: 'landings', pathMatch: 'full' },
   {
@@ -11,7 +14,19 @@ const routes: Route[] = [
     data: {
       feature: "landings"
     }
-  }
+  },
+  { 
+    path: 'selectedilms', 
+    component: SelectedIlmComponent
+  }/*,
+  { 
+    path: 'selectedilms', 
+    loadChildren: () =>
+    import("./shared/pages/selected-ilm/selected-ilm.module").then(m => m.SelectedIlmModule),
+    data: {
+      feature: "selected-ilms"
+    }
+  }*/
 ];
 
 @NgModule({

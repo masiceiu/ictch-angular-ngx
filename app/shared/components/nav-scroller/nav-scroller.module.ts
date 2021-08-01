@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AdviceInQuranComponent } from './advice-in-quran.component';
+import { NavScrollerComponent } from './nav-scroller.component';
 @NgModule({
   declarations: [
-    AdviceInQuranComponent
+    NavScrollerComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    AdviceInQuranComponent
+    NavScrollerComponent
   ]
 })
-export class AdviceInQuranModule { }
+export class NavScrollerModule { }

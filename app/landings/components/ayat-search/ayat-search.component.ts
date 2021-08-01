@@ -117,8 +117,9 @@ export class AyatSearchComponent implements OnInit {
       case 'search':
         //console.log(this.selected.suggestion);
         //let req = { sura: this.tempCount++ };
-        let req = { sura:this.selected.suggestion };
-        if(req.sura){
+        //let req = { sura:this.selected.suggestion };
+        let req = { q:this.selected.suggestion };
+        if(req.q){
           this.setAyatList(req);
         }
         break;

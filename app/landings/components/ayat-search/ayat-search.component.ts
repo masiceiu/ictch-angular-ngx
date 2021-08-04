@@ -84,7 +84,9 @@ export class AyatSearchComponent implements OnInit {
   }).pipe(switchMap((query: string) => {
       if (query) {
         return this.googleService.inputTools(query,this.lang.id).then(
-          data => {
+        data => {
+          //console.log(query,data.length);
+          if(data.length > 1){/**/
             if(data.length > 0 && data[1].length > 0 && data[1][0].length > 0 && data[1][0][1].length > 0){
               let res = (data[1][0][1]);
               res[5] = query;
@@ -94,6 +96,10 @@ export class AyatSearchComponent implements OnInit {
                 }));
               return results;
             }
+          }else {
+            console.log('lang:',this.lang.id);
+            return [{ 'index' : 0, 'suggestion' : query }];
+          }/**/
         });
         /*return of(['a','b']);*/
       }

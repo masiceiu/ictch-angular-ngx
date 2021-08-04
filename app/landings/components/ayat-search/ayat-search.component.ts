@@ -18,7 +18,7 @@ export class AyatSearchComponent implements OnInit {
   search_query: string;
 
   selected: any = {};
-  selectedLanguage = 'bn_bengali';
+  selectedLanguage = {};//'bn_bengali'
   ayatSearchModel = new AyatSearchModel();
   constructor(
     private ayatService: AyatService,
@@ -44,10 +44,10 @@ export class AyatSearchComponent implements OnInit {
     }).pipe(
       switchMap((query: string) => {
         if (query) {
-          /*
+          /**/
         return this.googleService.inputTools(query,this.lang.id).then(
         data => {
-          //console.log(query,data.length);
+          console.log(query,this.lang.id,data.length);
           if(data.length > 1){
             if(data.length > 0 && data[1].length > 0 && data[1][0].length > 0 && data[1][0][1].length > 0){
               let res = (data[1][0][1]);
@@ -62,8 +62,8 @@ export class AyatSearchComponent implements OnInit {
             console.log('lang:',this.lang.id);
             return [{ 'index' : 0, 'suggestion' : query }];
           }
-        });*/
-          return of(['a', 'b']);
+        });
+          //return of(['a', 'b']);
         }
       })
     );
@@ -72,6 +72,7 @@ export class AyatSearchComponent implements OnInit {
   onChangeItem(data, switch_on) {
     switch (switch_on) {
       case 'translate':
+        this.translate = data;
         let id = data.id.split('_')[0];
         let item = this.langs.find(it => it.id == id);
         //console.log('?',item);
@@ -111,15 +112,14 @@ export class AyatSearchComponent implements OnInit {
   onClick(data, switch_on): void {
     switch (switch_on) {
       case 'search': //আল্লাহ মধু মধুর
-        //console.log(this.selected.suggestion);
-        //let req = { sura: this.tempCount++ };
-        //let req = { sura:this.selected.suggestion };
-        //let req = { q:this.selected.suggestion };
-        let req = {
-          lang: this.selectedLanguage,
-          search: this.selected.suggestion
-        };
-        if (req.search) {
+        console.log(this.translate.id,this.selected.suggestion);
+        if (this.selected.suggestion) {
+          //let req = { sura: this.tempCount++ };
+          //let req = { sura:this.selected.suggestion };
+          let req = {
+            lang: this.translate.id,
+            sura: this.selected.suggestion
+          };
           //if(req.q){
           this.setAyatList(req);
         }

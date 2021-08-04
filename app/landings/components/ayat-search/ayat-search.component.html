@@ -3,7 +3,7 @@
 		<div class="flex-parent">
 			<div class="flex-child">
 				<div class="input-group input-group-sm mb-0">
-				<select class="custom-select form-control-sm" [(ngModel)]="selectedLanguage" (change)="onChangeItem(selectedLanguage,'translate')">
+				<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChangeItem(translate,'translate')">
 					<option *ngFor="let it of translates" [ngValue]="it">
 						{{it.name}}
 					</option>
@@ -34,7 +34,7 @@
 			<div class="flex-child">
 				<div class="input-group input-group-sm mb-3">
 					<div class="input-group-append">
-						<button class="btn btn-outline-secondary" type="button">{{lang.id}}</button>
+						<span class="input-group-text" id="inputGroup-sizing-sm">{{lang.id}}</span>
 						<!--
 							<div class="input-group-prepend" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
 							<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false">{{lang.id}}</button>
@@ -52,6 +52,7 @@
 						</div>
 						</div>-->
 					</div>
+					<ng-container *ngIf="true">
 					<input type="text"
 						[(ngModel)]="search"
 						(typeaheadOnSelect)="onSelect($event)"
@@ -60,7 +61,8 @@
 						[typeaheadAsync]="true"
 						[typeaheadMultipleSearch]="true"
 						typeaheadMultipleSearchDelimiters="' '"
-						class="form-control">
+						class="form-control"  aria-describedby="inputGroup-sizing-sm">
+					</ng-container>
 					<div class="input-group-append">
 						<button type="button"
 						(click)="onClick($event,'search')"

@@ -2,10 +2,129 @@
 	<div class="col-12">
 		<div class="flex-parent">
 			<div class="flex-child">
+				<div class="form-group">
+					<label for="Language">Language:</label>
+					<select class="form-control form-control-sm" [(ngModel)]="selectedLanguage" (change)="onChangeItem($event,'language')">
+							<option value="sq_nahi">Albanian(Efendi Nahi)</option>
+							<option value="sq_mehdiu">Albanian(Feti Mehdiu)</option>
+							<option value="sq_ahmeti">Albanian(Sherif Ahmeti)</option>
+							<option value="ber_mensur">Amazigh(At Mensur)</option>
+							<option value="ar_jalalayn">Arabic	(تفسير الجلالين)</option>
+							<option value="ar_muyassar">Arabic	(تفسير المیسر)</option>
+							<option value="am_sadiq">Amharic(ሳዲቅ &amp; ሳኒ ሐቢብ)</option>
+							<option value="az_mammadaliyev">Azerbaijani(Məmmədəliyev &amp; Bünyadov)</option>
+							<option value="az_musayev">Azerbaijani(Musayev)</option>
+							<option value="bn_hoque">Bengali	 (জহুরুল হক)</option>                        
+							<option value="bn_bengali">Bengali(	মুহিউদ্দীন খান)</option>
+							<option value="bs_korkut">Bosnian(Korkut)</option>
+							<option value="bs_mlivo">Bosnian(Mlivo)</option>
+							<option value="bg_theophanov">Bulgarian(Теофанов)</option>
+							<option value="zh_jian">Chinese(Ma Jian)</option>
+							<option value="zh_majian">Chinese Traditional (Ma Jian)</option>
+							<option value="cs_hrbek">Czech(Hrbek)</option>
+							<option value="cs_nykl">Czech(Nykl)</option>
+							<option value="dv_divehi">Divehi	(ދިވެހި)</option>
+							<option value="nl_keyzer">Dutch(Keyzer)</option>
+							<option value="nl_leemhuis">Dutch(Leemhuis)</option>
+							<option value="nl_siregar">Dutch(Siregar)</option>
+							<option value="en_ahmedali">English(Ahmed Ali)</option>
+							<option value="en_ahmedraza">English(Ahmed Raza Khan)</option>
+							<option value="en_arberry">English(Arberry)</option>
+							<option value="en_daryabadi">English(Daryabadi)</option>
+							<option value="en_hilali">English(Hilali &amp; Khan)</option>
+							<option value="en_itani">English(Itani)</option>
+							<option value="en_maududi">English(Maududi)</option>
+							<option value="en_pickthall">English(Pickthall)</option>
+							<option value="en_qarai">English(Qarai)</option>                        
+							<option value="en_qaribullah">English(Qaribullah &amp; Darwish)</option>
+							<option value="en_sahih">English(Saheeh International)</option>
+							<option value="en_sarwar">English(Sarwar)</option>
+							<option value="en_shakir">English(Shakir)</option>
+							<option value="en_transliteration">English(Transliteration)</option>
+							<option value="en_wahiduddin">English(Wahiduddin Khan)</option>
+							<option value="en_yusufali">English(Yousuf Ali)</option>
+							<option value="fr_hamidullah">French(Hamidullah)</option>
+							<option value="de_aburida">German(Abu Rida)</option>
+							<option value="de_bubenheim">German(Bubenheim &amp; Elyas)</option>
+							<option value="de_khoury">German(Khoury)</option>
+							<option value="de_zaidan">German(Zaidan)</option>
+							<option value="ha_gumi">Hausa(Gumi)</option>
+							<option value="hi_farooq">Hindi(	फ़ारूक़ ख़ान &amp; अहमद)</option>
+							<option value="hi_hindi">Hindi(	फ़ारूक़ ख़ान &amp; नदवी)</option>
+							<option value="id_indonesian">Indonesian(Bahasa Indonesia)</option>
+							<option value="id_muntakhab">Indonesian(Quraish Shihab)</option>
+							<option value="id_jalalayn">Indonesian(Tafsir Jalalayn)</option>
+							<option value="it_piccardo">Italian(Piccardo)</option>
+							<option value="ja_japanese">Japanese(Japanese)</option>
+							<option value="ko_korean">Korean(Korean)</option>
+							<option value="ku_asan">Kurdish(	ته&zwnj;فسیری ئاسان)</option>
+							<option value="ms_basmeih">Malay(Basmeih)</option>
+							<option value="ml_abdulhameed">Malayalam(	അബ്ദുല്&zwj; ഹമീദ് &amp; പറപ്പൂര്&zwj;)</option>
+							<option value="ml_karakunnu">Malayalam(	കാരകുന്ന് &amp; എളയാവൂര്)</option>
+							<option value="no_berg">Norwegian(Einar Berg)</option>                        
+							<option value="fa_ghomshei">Persian	(الهی قمشه&zwnj;ای)</option>
+							<option value="fa_ansarian">Persian(	انصاریان)</option>
+							<option value="fa_ayati">Persian(	آیتی)</option>
+							<option value="fa_bahrampour">Persian	(بهرام پور)</option>
+							<option value="fa_khorramdel">Persian	(خرمدل)</option>
+							<option value="fa_khorramshahi">Persian(	خرمشاهی)</option>
+							<option value="fa_sadeqi">Persian(	صادقی تهرانی)</option>
+							<option value="fa_fooladvand">Persian	(فولادوند)</option>
+							<option value="fa_mojtabavi">Persian(	مجتبوی)</option>
+							<option value="fa_moezzi">Persian(	معزی)</option>
+							<option value="fa_makarem">Persian	(مکارم شیرازی)</option>
+							<option value="pl_bielawskiego">Polish(Bielawskiego)</option>
+							<option value="pt_elhayek">Portuguese(El-Hayek)</option>
+							<option value="ro_grigore">Romanian(Grigore)</option>
+							<option value="ru_abuadel">Russian(Абу Адель)</option>
+							<option value="ru_muntahab">Russian(Аль-Мунтахаб)</option>
+							<option value="ru_krachkovsky">Russian(Крачковский)</option>
+							<option value="ru_kuliev">Russian(Кулиев)</option>
+							<option value="ru_kulieval">Russian(Кулиев + ас-Саади)</option>                        
+							<option value="ru_osmanov">Russian(Османов)</option>
+							<option value="ru_porokhova">Russian(Порохова)</option>
+							<option value="ru_sablukov">Russian(Саблуков)</option>
+							<option value="sd_amroti">Sindhi(	امروٽي)</option>
+							<option value="so_abduh">Somali(Abduh)</option>
+							<option value="es_bornez">Spanish(Bornez)</option>
+							<option value="es_cortes">Spanish(Cortes)</option>
+							<option value="es_garcia">Spanish(Garcia)</option>
+							<option value="sw_barwani">Swahili(Al-Barwani)</option>
+							<option value="sv_bernstrom">Swedish(Bernström)</option>
+							<option value="tg_ayati">Tajik(Оятӣ)</option>
+							<option value="ta_tamil">Tamil(	ஜான் டிரஸ்ட்)</option>
+							<option value="tt_nugman">Tatar(Yakub Ibn Nugman)</option>
+							<option value="th_thai">Thai(	ภาษาไทย)</option>	
+							<option value="tr_golpinarli">Turkish(Abdulbakî Gölpınarlı)</option>
+							<option value="tr_bulac">Turkish(Alİ Bulaç)</option>
+							<option value="tr_transliteration">Turkish(Çeviriyazı)</option>
+							<option value="tr_diyanet">Turkish(Diyanet İşleri)</option>
+							<option value="tr_vakfi">Turkish(Diyanet Vakfı)</option>
+							<option value="tr_yuksel">Turkish(Edip Yüksel)</option>
+							<option value="tr_yazir">Turkish(Elmalılı Hamdi Yazır)</option>
+							<option value="tr_ozturk">Turkish(Öztürk)</option>
+							<option value="tr_yildirim">Turkish(Suat Yıldırım)</option>                        
+							<option value="tr_ates">Turkish(Süleyman Ateş)</option>
+							<option value="ur_maududi">Urdu(	ابوالاعلی مودودی)</option>
+							<option value="ur_kanzuliman">Urdu	(احمد رضا خان)</option>
+							<option value="ur_ahmedali">Urdu	(احمد علی)</option>
+							<option value="ur_jalandhry">Urdu	(جالندہری)</option>
+							<option value="ur_qadri">Urdu(	طاہر القادری)</option>
+							<option value="ur_jawadi">Urdu(	علامہ جوادی)</option>
+							<option value="ur_junagarhi">Urdu	(محمد جوناگڑھی)</option>
+							<option value="ur_najafi">Urdu	(محمد حسین نجفی)</option>
+							<option value="ug_saleh">Uyghur	(محمد صالح)</option>
+							<option value="uz_sodik">Uzbek(Мухаммад Содик)</option>	
+						</select>
+				</div>
+			</div>
+		</div>
+		<div class="flex-parent">
+			<div class="flex-child">
 				<div class="input-group input-group-sm mb-3">
 					<div class="input-group-prepend" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
-						<!--<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false">{{lang.id}}</button>-->
-						<button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')', 'background-size': 'contain'}">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+						<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false">{{lang.id}}</button>
+						<!--<button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')', 'background-size': 'contain'}">&nbsp;&nbsp;&nbsp;&nbsp;</button>-->
 						<div class="dropdown-menu" *dropdownMenu>
 							<a class="dropdown-item" *ngFor="let lang of langs" routerlink="/"
 								(click)="onMenuItemClick({ lang: lang, dropdown: dropdown })">
@@ -17,7 +136,7 @@
 						</div>
 					</div>
 					<!--<input type="text" class="form-control" aria-label="Text input with segmented dropdown button">-->
-					<input type="text" 
+					<input type="text"
 						[(ngModel)]="search"
 						(typeaheadOnSelect)="onSelect($event)"
 						typeaheadOptionField="suggestion"
@@ -27,7 +146,7 @@
 						typeaheadMultipleSearchDelimiters="' '"
 						class="form-control">
 					<div class="input-group-append">
-						<button type="button" 
+						<button type="button"
 						(click)="onClick($event,'search')"
 						class="btn btn-outline-secondary">
 							<i class="bi bi-search"></i>
@@ -45,7 +164,8 @@
 			</div>
 		</div>
 		<div class="list-group">
-			<a  routerlink="/" *ngFor="let it of ayatList; let i = index;" class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
+			<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
+				class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
 				<div class="d-flex w-100 justify-content-between">
 					<h5 class="mb-1">{{it.index}}.List group item heading</h5>
 					<small>{{it.aya}}/{{it.sura}} Ayat/Sura</small>

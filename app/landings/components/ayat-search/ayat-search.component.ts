@@ -16,6 +16,7 @@ export class AyatSearchComponent implements OnInit {
   search_query: string;
 
   selected:any = {};
+  selectedLanguage = 'bn_bengali';
   constructor( 
     private ayatService: AyatService,
     private googleService: GoogleService) { 
@@ -76,7 +77,7 @@ export class AyatSearchComponent implements OnInit {
       { id : 'zh', name : 'Chinese', imageUrl : 'https://www.countryflags.io/cn/flat/64.png'},
     ];
   this.langs = langs;
-  this.lang = langs[3];
+  this.lang = langs[5];
 
   this.suggestions$ = new Observable((observer: Observer<string>) => {
     observer.next(this.search);
@@ -98,6 +99,31 @@ export class AyatSearchComponent implements OnInit {
       }
     }));
   }
+  
+  onChangeItem($event, switch_on) {
+    switch (switch_on) {
+      case 'language':
+        let id = this.selectedLanguage.split('_')[0];
+        let item = this.langs.find(it => it.id == id);
+        //console.log('?',item);
+        this.lang = item
+        break;
+        case 'sura':
+          //let req = { sura: this.selectedSura };
+          //this.setAyatList(req);
+          break;
+      case 'ayat':
+        //this.item = this.selectedAyat;
+        break;
+    }
+    /*
+    console.log($event,switch_on);
+    console.log(this.selectedLanguage);
+     console.log(this.selectedSura);
+    console.log(this.selectedAyat);
+    //console.log(this.selectedItem);
+    */
+  }
   onOpenChange(data: boolean): void {
     console.log(data);
   }
@@ -114,12 +140,17 @@ export class AyatSearchComponent implements OnInit {
   private ayatList = []; 
   onClick(data, switch_on): void {
     switch (switch_on) {
-      case 'search':
+      case 'search'://আল্লাহ মধু মধুর
         //console.log(this.selected.suggestion);
         //let req = { sura: this.tempCount++ };
         //let req = { sura:this.selected.suggestion };
-        let req = { q:this.selected.suggestion };
-        if(req.q){
+        //let req = { q:this.selected.suggestion };
+        let req = { 
+          lang:this.selectedLanguage,
+          search:this.selected.suggestion 
+        };
+        if(req.search){
+        //if(req.q){
           this.setAyatList(req);
         }
         break;
@@ -143,3 +174,5 @@ export class AyatSearchComponent implements OnInit {
     );
   }
 }  
+//https://stackoverflow.com/questions/40678206/angular-2-filter-search-list
+//https://stackoverflow.com/questions/37969984/angular-2-typescript-how-to-find-element-in-array

@@ -2,37 +2,28 @@
 	<div class="col-12">
 		<div class="flex-parent">
 			<div class="flex-child">
-				<div class="btn-group" dropdown (isOpenChange)="onOpenChange($event)" >
-					<button id="btnGroupDrop1" type="button" class="btn btn-secondary" 
-					dropdownToggle
-					data-toggle="dropdown" aria-haspopup="true" 
-					aria-expanded="false">
-							<i class="bi bi-chevron-down"></i> Dropdown
-					</button>
-					<div class="dropdown-menu" *dropdownMenu>
-						<a class="dropdown-item" *ngFor="let it of langs" routerlink="/">
-							{{it.name}}
-						</a>
-					</div>
-					<!--<div class="btn-group" role="group" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
-						<button class="btn btn-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false"
-						>
-							csxdv fgdfgf 
+				<div class="input-group input-group-sm mb-0">
+				<select class="custom-select form-control-sm" [(ngModel)]="selectedLanguage" (change)="onChangeItem(selectedLanguage,'translate')">
+					<option *ngFor="let it of translates" [ngValue]="it">
+						{{it.name}}
+					</option>
+			</select>
+					<!--
+					<div class="input-group-append" dropdown container="body">
+						<button id="button-container" class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-controls="dropdown-container" dropdownToggle>
+						<i class="bi bi-chevron-down"></i>&nbsp;{{translate.name}}
 						</button>
-
-						<div class="dropdown-menu" *dropdownMenu>
-							<a class="dropdown-item" *ngFor="let lang of langs" routerlink="/"
-								(click)="onMenuItemClick({ lang: lang, dropdown: dropdown })">
-								<span class="flags" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')'}"></span>
-								{{lang.name}}
+						<div id="dropdown-container" class="dropdown-menu" aria-labelledby="button-container" *dropdownMenu>
+							<a *ngFor="let it of translates" routerlink="/" (click)="onClick(it, 'translate-item')"
+								class="dropdown-item">
+								{{it.name}}
 							</a>
-							<div role="separator" class="dropdown-divider"></div>
-							<a class="dropdown-item" routerlink="/">Separated link</a>
 						</div>
-					</div>-->
+					</div>
+					-->
 					<div class="input-group-append">
-						<div class="input-group-text ">
-							<input class="" type="checkbox" aria-label="Checkbox for following text input">
+						<div class="input-group-text">
+							<input type="checkbox" aria-label="Checkbox forinput">
 							<label class="form-check-label">&nbsp;Sura</label>
 						</div>
 					</div>
@@ -42,7 +33,7 @@
 		<div class="flex-parent">
 			<div class="flex-child">
 				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
+					<div class="input-group-append">
 						<button class="btn btn-outline-secondary" type="button">{{lang.id}}</button>
 						<!--
 							<div class="input-group-prepend" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
@@ -52,7 +43,7 @@
 
 						<div class="dropdown-menu" *dropdownMenu>
 							<a class="dropdown-item" *ngFor="let lang of langs" routerlink="/"
-								(click)="onMenuItemClick({ lang: lang, dropdown: dropdown })">
+								(click)="onClick(lang, 'iang-item')">
 								<span class="flags" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')'}"></span>
 								{{lang.name}}
 							</a>

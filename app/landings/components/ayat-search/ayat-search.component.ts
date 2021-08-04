@@ -27,16 +27,17 @@ export class AyatSearchComponent implements OnInit {
 
   lang: any;
   langs: any[] = [];
+  translate: any;
   translates: any[] = [];
   ngOnInit() {
     let langs = this.ayatSearchModel.getLangList();
-    let translates = this.ayatSearchModel.getLangList();
-    
+    let translates = this.ayatSearchModel.getTranslateList();
+
     this.langs = langs;
     this.lang = langs[5];
 
-    this.translates = langs;
-    this.translates = langs[9];
+    this.translates = translates;
+    this.translate = translates[10];
 
     this.suggestions$ = new Observable((observer: Observer<string>) => {
       observer.next(this.search);
@@ -68,11 +69,17 @@ export class AyatSearchComponent implements OnInit {
     );
   }
 
-  onChangeItem($event, switch_on) {
+  onChangeItem(data, switch_on) {
     switch (switch_on) {
-      case 'language':
-        let id = this.selectedLanguage.split('_')[0];
+      case 'translate':
+        let id = data.id.split('_')[0];
         let item = this.langs.find(it => it.id == id);
+        //console.log('?',item);
+        this.lang = item;
+        break;
+      case 'lang':
+        //let id = this.selectedLanguage.split('_')[0];
+        //let item = this.langs.find(it => it.id == id);
         //console.log('?',item);
         this.lang = item;
         break;
@@ -95,10 +102,6 @@ export class AyatSearchComponent implements OnInit {
   onOpenChange(data: boolean): void {
     console.log(data);
   }
-  onMenuItemClick(data: any) {
-    this.lang = data.lang;
-    console.log(data.lang);
-  }
   onSelect(data: any): void {
     this.selected = data.item;
     console.log(data.item);
@@ -120,6 +123,18 @@ export class AyatSearchComponent implements OnInit {
           //if(req.q){
           this.setAyatList(req);
         }
+        break;
+      case 'lang-item':
+        this.lang = data;
+        console.log(data);
+        break;
+      case 'translate-item':
+        this.translate = data;
+        let id = data.id.split('_')[0];
+        let item = this.langs.find(it => it.id == id);
+        this.lang = item;
+        console.log(item);
+        console.log(data);
         break;
       case 'download':
         break;

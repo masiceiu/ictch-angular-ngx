@@ -1,0 +1,117 @@
+<div class="row mt-2">
+<div class="col-12">
+  <div class="flex-parent">
+    <div class="flex-child">
+      <div class="input-group input-group-sm mb-0">
+        <div class="input-group-append" dropdown container="body">
+          <button id="button-container" class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-controls="dropdown-container" dropdownToggle>
+          <i class="bi bi-chevron-down"></i>&nbsp;{{translate.name}}
+          </button>
+          <div id="dropdown-container" class="dropdown-menu"
+           aria-labelledby="button-container" *dropdownMenu>
+            <a *ngFor="let it of translates" routerlink="/" 
+            (click)="onClick(it, 'translate-item')"
+            class="dropdown-item">
+              {{it.name}}
+            </a>
+          </div>
+        </div>
+        <!--
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">
+            <i class="bi bi-chevron-down"></i>&nbsp;Dropdown
+          </span>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a class="dropdown-item" *ngFor="let it of langs" routerlink="/">
+              {{it.name}}
+            </a>
+          </div>
+        </div>-->
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <input type="checkbox" aria-label="Checkbox forinput">
+            <label class="form-check-label">&nbsp;Sura</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex-parent">
+    <div class="flex-child">
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">{{lang.id}}</button>
+          <!--
+            <div class="input-group-prepend" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false">{{lang.id}}</button>
+
+          <button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')', 'background-size': 'contain'}">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+          <div class="dropdown-menu" *dropdownMenu>
+            <a class="dropdown-item" *ngFor="let lang of langs" routerlink="/"
+              (click)="onClick(lang, 'iang-item')">
+              <span class="flags" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')'}"></span>
+              {{lang.name}}
+            </a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" routerlink="/">Separated link</a>
+          </div>
+          </div>-->
+        </div>
+        <input type="text"
+          [(ngModel)]="search"
+          (typeaheadOnSelect)="onSelect($event)"
+          typeaheadOptionField="suggestion"
+          [typeahead]="suggestions$"
+          [typeaheadAsync]="true"
+          [typeaheadMultipleSearch]="true"
+          typeaheadMultipleSearchDelimiters="' '"
+          class="form-control">
+        <div class="input-group-append">
+          <button type="button"
+          (click)="onClick($event,'search')"
+          class="btn btn-outline-secondary">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+      <!--<div class="form-group">
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+          </div>
+          <input type="text" class="form-control">
+        </div>
+      </div>-->
+    </div>
+  </div>
+  <div class="list-group">
+    <a routerlink="/" *ngFor="let it of ayatList; let i = index;"
+      class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{it.index}}.List group item heading</h5>
+        <small>{{it.aya}}/{{it.sura}} Ayat/Sura</small>
+      </div>
+      <p class="mb-1">{{it.text}}.</p>
+      <small>Donec id elit non mi porta.</small>
+    </a>
+    <!--
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small class="text-muted">Donec id elit non mi porta.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small class="text-muted">Donec id elit non mi porta.</small>
+    </a>-->
+  </div>
+</div>
+</div>

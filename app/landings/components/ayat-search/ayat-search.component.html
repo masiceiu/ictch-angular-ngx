@@ -64,7 +64,7 @@
 						class="form-control"  aria-describedby="inputGroup-sizing-sm">
 					</ng-container>
 					<ng-container *ngIf="isSuraSearch">
-						<input [(ngModel)]="selected1" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="5"  [typeaheadMinLength]="0" class="form-control">
+						<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="5"  [typeaheadMinLength]="0" class="form-control">
 					</ng-container>
 					<div class="input-group-append">
 						<button type="button"
@@ -91,8 +91,8 @@
 					<h5 class="mb-1">{{it.index}}.List group item heading</h5>
 					<small>{{it.aya}}/{{it.sura}} Ayat/Sura</small>
 				</div>
-				<p class="mb-1">{{it.text}}.</p>
-				<small>Donec id elit non mi porta.</small>
+				<p class="mb-1">{{it.text}}</p>
+				<small>{{it.etext}}</small>
 			</a>
 			<!--
 			<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">

@@ -16,21 +16,21 @@ export class AyatSearchComponent implements OnInit {
   
 
   search: string;
-  suggestions$: Observable<any[]>;
-  errorMessage: string;
-  search_query: string;
-
   selected: any = {};
+  suggestions$: Observable<any[]>;
+
   selectedLanguage = {};//'bn_bengali'
   ayatSearchModel = new AyatSearchModel();
 
+  sura: any;
+  suras: any[] = [];
   isSuraSearch: true;
+  lang: any;
+  langs: any[] = [];
+  ayatList: any[] = [];
+  translate: any;
+  translates: any[] = [];
 
-  stateCtrl = new FormControl();
-  myForm = new FormGroup({
-    state: this.stateCtrl
-  });
- selected1: string;
   states: string[] = [
     'Alabama',
     'Alaska',
@@ -44,13 +44,6 @@ export class AyatSearchComponent implements OnInit {
   ) {
 
   }
-
-  sura: any;
-  suras: any[] = [];
-  lang: any;
-  langs: any[] = [];
-  translate: any;
-  translates: any[] = [];
   ngOnInit() {
     let langs = this.ayatSearchModel.getLangList();
     let suras = this.ayatSearchModel.getSuraList();
@@ -70,7 +63,6 @@ export class AyatSearchComponent implements OnInit {
     }).pipe(
       switchMap((query: string) => {
         if (query) {
-          /**/
         return this.googleService.inputTools(query,this.lang.id).then(
         data => {
           //console.log(query,this.lang.id,data.length);
@@ -111,7 +103,8 @@ export class AyatSearchComponent implements OnInit {
         this.lang = item;
         break;
       case 'sura':
-        console.log('?',data);
+        this.search = '';
+        //console.log('?',data);
         break;
       case 'ayat':
         break;
@@ -128,45 +121,44 @@ export class AyatSearchComponent implements OnInit {
     console.log(data);
   }
   onSelect($event: any): void {
-    console.log($event);
-    this.selected = $event.item;
-    console.log($event.item);
+    //console.log($event);
+    this.selected = $event;
+    //console.log($event.item);
   }
-  tempCount = 1;
-  private ayatList = [];
   onClick(data, switch_on): void {
+    //console.log(this.selected);
     switch (switch_on) {
       case 'search': //আল্লাহ মধু মধুর
-        console.log(this.translate.id,this.selected.suggestion);
-        if (this.selected.suggestion) {
-          //let req = { sura: this.tempCount++ };
+        if (this.selected.value==this.search) {
+          let req:any = {lang: this.translate.id};
+          if(this.isSuraSearch){
+            req.sura = this.selected.item.id
+          }else{
+            req.search = this.selected.item.suggestion
+          }
+          //console.log(req);
           //let req = { sura:this.selected.suggestion };
-          let req = {
-            lang: this.translate.id,
-            sura: this.selected.suggestion
-          };
-          //if(req.q){
           this.setAyatList(req);
         }
         break;
       case 'lang-item':
         this.lang = data;
-        console.log(data);
+        //console.log(data);
         break;
       case 'translate-item':
         this.translate = data;
         let id = data.id.split('_')[0];
         let item = this.langs.find(it => it.id == id);
         this.lang = item;
-        console.log(item);
-        console.log(data);
+        //console.log(item);
+        //console.log(data);
         break;
       case 'download':
         break;
     }
   }
   private setAyatList(req, callBack = null): void {
-    //console.log(req);
+    console.log(req);
     this.ayatService.getList(req).then(
       res => {
         this.ayatList = res;

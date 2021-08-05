@@ -64,7 +64,7 @@
 						class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
 					</ng-container>
 					<ng-container *ngIf="isSuraSearch">
-						<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="10"  [typeaheadMinLength]="0" class="form-control" [disabled]='isSearchLoading'  aria-describedby="inputGroup-sizing-sm">
+						<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="10"  [typeaheadMinLength]="0" class="form-control" [disabled]='isSearchLoading'  [typeaheadOptionsLimit]="114" aria-describedby="inputGroup-sizing-sm">
 					</ng-container>
 					<ng-container *ngIf="!isSearchLoading">
 						<div class="input-group-append">

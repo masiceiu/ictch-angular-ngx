@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
@@ -12,13 +13,13 @@ import { NavCarouselModule } from './../shared/components/nav-carousel/nav-carou
 import { LandingsComponent } from "./landings.component";
 import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.component';
 import { AyatSearchComponent } from './components/ayat-search/ayat-search.component';
-import { FormsModule } from "@angular/forms";
 import { AyatSelectComponent } from './components/ayat-select/ayat-select.component';
 
 @NgModule({
   imports: [
     FormsModule,
     CommonModule, 
+    ReactiveFormsModule,
     LandingsRoutingModule,
     AyatCardModule,
     AddBtnFixedModule,

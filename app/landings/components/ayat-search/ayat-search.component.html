@@ -3,7 +3,7 @@
 		<div class="flex-parent">
 			<div class="flex-child">
 				<div class="input-group input-group-sm mb-0">
-				<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')">
+					<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')">
 					<option *ngFor="let it of translates" [ngValue]="it">
 						{{it.name}}
 					</option>
@@ -23,7 +23,7 @@
 					-->
 					<div class="input-group-append">
 						<div class="input-group-text">
-							<input  [(ngModel)]="isSuraSearch" (change)="onChange(isSuraSearch,'sura')" type="checkbox" aria-label="Checkbox forinput">
+							<input [(ngModel)]="isSuraSearch" (change)="onChange(isSuraSearch,'sura')" type="checkbox" aria-label="Checkbox forinput">
 							<label class="form-check-label">&nbsp;Sura</label>
 						</div>
 					</div>
@@ -52,8 +52,8 @@
 						</div>
 						</div>-->
 					</div>
-					<ng-container *ngIf="true">
-					<input type="text"
+					<ng-container *ngIf="!isSuraSearch">
+						<input type="text"
 						[(ngModel)]="search"
 						(typeaheadOnSelect)="onSelect($event)"
 						typeaheadOptionField="suggestion"
@@ -62,6 +62,9 @@
 						[typeaheadMultipleSearch]="true"
 						typeaheadMultipleSearchDelimiters="' '"
 						class="form-control"  aria-describedby="inputGroup-sizing-sm">
+					</ng-container>
+					<ng-container *ngIf="isSuraSearch">
+						<input [(ngModel)]="selected1" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="5"  [typeaheadMinLength]="0" class="form-control">
 					</ng-container>
 					<div class="input-group-append">
 						<button type="button"

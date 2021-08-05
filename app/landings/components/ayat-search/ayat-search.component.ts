@@ -14,7 +14,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AyatSearchComponent implements OnInit {
   
-  isSuraSearch: true;
 
   search: string;
   suggestions$: Observable<any[]>;
@@ -25,11 +24,20 @@ export class AyatSearchComponent implements OnInit {
   selectedLanguage = {};//'bn_bengali'
   ayatSearchModel = new AyatSearchModel();
 
+  isSuraSearch: true;
+
   stateCtrl = new FormControl();
   myForm = new FormGroup({
     state: this.stateCtrl
   });
-  
+ selected1: string;
+  states: string[] = [
+    'Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California'
+  ];
   constructor(
     private ayatService: AyatService,
     private googleService: GoogleService
@@ -119,9 +127,10 @@ export class AyatSearchComponent implements OnInit {
   onOpenChange(data: boolean): void {
     console.log(data);
   }
-  onSelect(data: any): void {
-    this.selected = data.item;
-    console.log(data.item);
+  onSelect($event: any): void {
+    console.log($event);
+    this.selected = $event.item;
+    console.log($event.item);
   }
   tempCount = 1;
   private ayatList = [];
@@ -174,3 +183,4 @@ export class AyatSearchComponent implements OnInit {
 }
 //https://stackoverflow.com/questions/40678206/angular-2-filter-search-list
 //https://stackoverflow.com/questions/37969984/angular-2-typescript-how-to-find-element-in-array
+//https://stackoverflow.com/questions/39152071/cant-bind-to-formgroup-since-it-isnt-a-known-property-of-form

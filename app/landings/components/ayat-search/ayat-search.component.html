@@ -104,13 +104,17 @@
 		<p class="mb-1">{{it.text}}</p>
 		<small>{{it.etext}}</small>
 	-->
-				<div class="d-flex w-100 justify-content-center">
+				<!--<div class="d-flex w-100 justify-content-center">
 					<h6 class="mb-1">{{it.stext}}({{it.aya}})</h6>
-					<!--<button type="button" class="btn btn-primary">
+					<button type="button" class="btn btn-primary">
 					{{it.sura}}.{{it.stext}} <span class="badge badge-light">{{it.aya}}</span>
 					<span class="sr-only">unread messages</span>
-				</button>-->
-				</div>
+				</button>
+				</div>-->
+				<p class="text-center">
+					<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
+				</p>
+				<hr>
 				<p class="mb-1">{{it.atext}}</p><br>
 				<p class="mb-1">{{it.mtext}}</p><br>
 				<p class="mb-1">{{it.etext}}</p><br>

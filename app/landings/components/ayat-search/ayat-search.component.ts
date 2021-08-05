@@ -5,6 +5,7 @@ import { switchMap } from 'rxjs/operators';
 import { AyatSearchModel } from './ayat-search.model';
 import { AyatService, GoogleService } from '../../../core/services';
 import { Location } from '@angular/common';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-ayat-search',
@@ -12,6 +13,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./ayat-search.component.css']
 })
 export class AyatSearchComponent implements OnInit {
+  
+  isSuraSearch: true;
+
   search: string;
   suggestions$: Observable<any[]>;
   errorMessage: string;
@@ -20,18 +24,32 @@ export class AyatSearchComponent implements OnInit {
   selected: any = {};
   selectedLanguage = {};//'bn_bengali'
   ayatSearchModel = new AyatSearchModel();
+
+  stateCtrl = new FormControl();
+  myForm = new FormGroup({
+    state: this.stateCtrl
+  });
+  
   constructor(
     private ayatService: AyatService,
     private googleService: GoogleService
-  ) {}
+  ) {
 
+  }
+
+  sura: any;
+  suras: any[] = [];
   lang: any;
   langs: any[] = [];
   translate: any;
   translates: any[] = [];
   ngOnInit() {
     let langs = this.ayatSearchModel.getLangList();
+    let suras = this.ayatSearchModel.getSuraList();
     let translates = this.ayatSearchModel.getTranslateList();
+
+    this.suras = suras;
+    this.sura = suras[1];
 
     this.langs = langs;
     this.lang = langs[5];
@@ -47,7 +65,7 @@ export class AyatSearchComponent implements OnInit {
           /**/
         return this.googleService.inputTools(query,this.lang.id).then(
         data => {
-          console.log(query,this.lang.id,data.length);
+          //console.log(query,this.lang.id,data.length);
           if(data.length > 1){
             if(data.length > 0 && data[1].length > 0 && data[1][0].length > 0 && data[1][0][1].length > 0){
               let res = (data[1][0][1]);
@@ -69,7 +87,7 @@ export class AyatSearchComponent implements OnInit {
     );
   }
 
-  onChangeItem(data, switch_on) {
+  onChange(data, switch_on) {
     switch (switch_on) {
       case 'translate':
         this.translate = data;
@@ -85,11 +103,9 @@ export class AyatSearchComponent implements OnInit {
         this.lang = item;
         break;
       case 'sura':
-        //let req = { sura: this.selectedSura };
-        //this.setAyatList(req);
+        console.log('?',data);
         break;
       case 'ayat':
-        //this.item = this.selectedAyat;
         break;
     }
     /*

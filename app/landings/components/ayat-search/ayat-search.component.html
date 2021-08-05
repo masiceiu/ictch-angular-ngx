@@ -3,7 +3,7 @@
 		<div class="flex-parent">
 			<div class="flex-child">
 				<div class="input-group input-group-sm mb-0">
-				<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChangeItem(translate,'translate')">
+				<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')">
 					<option *ngFor="let it of translates" [ngValue]="it">
 						{{it.name}}
 					</option>
@@ -23,7 +23,7 @@
 					-->
 					<div class="input-group-append">
 						<div class="input-group-text">
-							<input type="checkbox" aria-label="Checkbox forinput">
+							<input  [(ngModel)]="isSuraSearch" (change)="onChange(isSuraSearch,'sura')" type="checkbox" aria-label="Checkbox forinput">
 							<label class="form-check-label">&nbsp;Sura</label>
 						</div>
 					</div>

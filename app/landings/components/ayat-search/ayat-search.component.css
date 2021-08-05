@@ -1,8 +1,22 @@
-.list-group
+.list-group1
 {
   font-family: RooneySans-Regular,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;
   font-size: x-large;
 }
+.ayath{
+  margin: 0;
+  font-family:Lucida Sans Unicode;
+}
+.hrh{
+  margin-top: 0;
+}
+.ayat{
+  margin: 0;
+  text-align: right;
+  font-size: xx-large;
+  font-family:Lucida Sans Unicode;
+}
+
 .flex-parent {
   display: flex;
   flex-wrap: wrap;

@@ -12,7 +12,7 @@ export class AyatSearchModel {
       { id : 'am', name : 'Amharic', imageUrl : 'https://www.countryflags.io/am/flat/64.png'},
       { id : 'ar', name : 'Arabic', imageUrl : 'https://www.countryflags.io/ar/flat/64.png'},
       { id : 'az', name : 'Azerbaijani', imageUrl : 'https://www.countryflags.io/az/flat/64.png'},
-      { id : 'be', name : 'mazigh', imageUrl : 'https://www.countryflags.io/be/flat/64.png'},
+      { id : 'ber', name : 'Amazigh', imageUrl : 'https://www.countryflags.io/be/flat/64.png'},
       { id : 'bg', name : 'Bulgarian', imageUrl : 'https://www.countryflags.io/bg/flat/64.png'},
       { id : 'bn', name : 'Bengali', imageUrl : 'https://www.countryflags.io/bd/flat/64.png'},
       { id : 'bs', name : 'Bosnian', imageUrl : 'https://www.countryflags.io/bs/flat/64.png'},

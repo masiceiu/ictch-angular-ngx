@@ -31,8 +31,8 @@
 			</div>
 		</div>
 		<div class="flex-parent">
-			<div class="flex-child">
-				<div class="input-group input-group-sm mb-3">
+			<div class="flex-child" style="border-bottom: 0px;">
+				<div class="input-group input-group-sm">
 					<div class="input-group-append">
 						<span class="input-group-text" id="inputGroup-sizing-sm">{{lang.id}}</span>
 						<!--
@@ -94,8 +94,12 @@
 				</div>-->
 			</div>
 		</div>
-		<div class="list-group">
-
+		<div class="flex-parent mb-2">
+			<div class="flex-child" style="border-top: 0px;">
+				<small>Search result : {{ayatList.length}}</small>
+			</div>
+		</div>
+		<div class="list-group" *ngIf="">
 			<a class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted" routerlink="/">
 				<p class="text-center ayath">
 					<small>
@@ -109,79 +113,19 @@
 				<p class="mb-1">শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p><br>
 				<p class="mb-1">In the name of Allah, most benevolent, ever-merciful.</p><br>
 			</a>
-
-			<a class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted"
-				routerlink="/">
-				<p class="text-center"><small>"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;2)"</small></p>
-				<hr>
-				<p class="mb-1">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</p><br>
-				<p class="mb-1">যাবতীয় প্রশংসা আল্লাহ তাআলার যিনি সকল সৃষ্টি জগতের পালনকর্তা।</p><br>
-				<p class="mb-1">ALL PRAISE BE to Allah, Lord of all the worlds,</p><br>
-			</a>
-			
-			<a class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted"
-				routerlink="/">
-				<p class="text-center"><small>"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;3)"</small></p>
-				<hr>
-				<p class="mb-1">الرَّحْمَٰنِ الرَّحِيمِ</p><br>
-				<p class="mb-1">যিনি নিতান্ত মেহেরবান ও দয়ালু।</p><br>
-				<p class="mb-1">Most beneficent, ever-merciful,</p><br>
-			</a><a class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted"
-				routerlink="/">
-				<p class="text-center"><small>"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;4)"</small></p>
-				<hr>
-				<p class="mb-1">مَالِكِ يَوْمِ الدِّينِ</p><br>
-				<p class="mb-1">যিনি বিচার দিনের মালিক।</p><br>
-				<p class="mb-1">King of the Day of Judgement.</p><br>
-			</a><a class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted"
-				routerlink="/">
-				<p class="text-center"><small>"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;5)"</small></p>
-				<hr>
-				<p class="mb-1">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</p><br>
-				<p class="mb-1">আমরা একমাত্র তোমারই ইবাদত করি এবং শুধুমাত্র তোমারই সাহায্য প্রার্থনা করি।</p><br>
-				<p class="mb-1">You alone we worship, and to You alone turn for help.</p><br>
-			</a><a class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted"
-				routerlink="/">
-				<p class="text-center"><small>"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;6)"</small></p>
-				<hr>
-				<p class="mb-1">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</p><br>
-				<p class="mb-1">আমাদেরকে সরল পথ দেখাও,</p><br>
-				<p class="mb-1">Guide us (O Lord) to the path that is straight,</p><br>
-			</a><a class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted"
-				routerlink="/">
-				<p class="text-center"><small>"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;7)"</small></p>
-				<hr>
-				<p class="mb-1">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</p><br>
-				<p class="mb-1">সে সমস্ত লোকের পথ, যাদেরকে তুমি নেয়ামত দান করেছ। তাদের পথ নয়, যাদের প্রতি তোমার গজব নাযিল
-					হয়েছে এবং যারা পথভ্রষ্ট হয়েছে।</p><br>
-				<p class="mb-1">The path of those You have blessed, Not of those who have earned Your anger, nor those who have
-					gone astray.</p><br>
-			</a>
 		</div>
 		<div class="list-group">
 			<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start">
-				<!--<div class="d-flex w-100 justify-content-between">
-			<h5 class="mb-1">{{it.index}}.List group item heading</h5>
-			<small>Ayat:{{it.aya}},{{it.sura}}</small>
-		</div>
-		<p class="mb-1">{{it.text}}</p>
-		<small>{{it.etext}}</small>
-	-->
-				<!--<div class="d-flex w-100 justify-content-center">
-					<h6 class="mb-1">{{it.stext}}({{it.aya}})</h6>
-					<button type="button" class="btn btn-primary">
-					{{it.sura}}.{{it.stext}} <span class="badge badge-light">{{it.aya}}</span>
-					<span class="sr-only">unread messages</span>
-				</button>
-				</div>-->
-				<p class="text-center">
+				<p class="text-center texth">
 					<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
 				</p>
-				<hr>
-				<p class="mb-1">{{it.atext}}</p><br>
-				<p class="mb-1">{{it.mtext}}</p><br>
-				<p class="mb-1">{{it.etext}}</p><br>
+				<hr class="hrh">
+				<p class="atext">{{it.atext}}</p>
+				<hr class="hrh">
+				<p class="mtext">{{it.mtext}}</p><br>
+				<hr class="hrh">
+				<p class="etext">{{it.etext}}</p><br>
 			</a>
 			<!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">

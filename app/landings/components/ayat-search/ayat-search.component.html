@@ -85,7 +85,20 @@
 			</div>
 		</div>
 		<div class="list-group">
-			<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
+		<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
+		class="list-group-item list-group-item-action flex-column align-items-start">
+		<!--<div class="d-flex w-100 justify-content-between">
+			<h5 class="mb-1">{{it.index}}.List group item heading</h5>
+			<small>Ayat:{{it.aya}},{{it.sura}}</small>
+		</div>
+		<p class="mb-1">{{it.text}}</p>
+		<small>{{it.etext}}</small>
+	-->
+		<p class="mb-1">{{it.atext}}</p><br>
+		<p class="mb-1">{{it.mtext}}</p><br>
+		<p class="mb-1">{{it.etext}}</p><br>
+	</a>
+			<!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
 				<div class="d-flex w-100 justify-content-between">
 					<h5 class="mb-1">{{it.index}}.List group item heading</h5>

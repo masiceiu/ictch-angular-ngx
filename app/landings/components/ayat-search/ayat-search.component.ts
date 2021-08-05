@@ -158,14 +158,14 @@ export class AyatSearchComponent implements OnInit {
     }
   }
   private setAyatList(req, callBack = null): void {
-    console.log(req);
+    //console.log(req);
     this.ayatService.getList(req).then(
       res => {
         this.ayatList = res;
         if (callBack) {
           callBack(this);
         }
-        //console.log(res);
+        console.log(res);
       },
       ex => {
         console.log(ex.name /*, ex*/);

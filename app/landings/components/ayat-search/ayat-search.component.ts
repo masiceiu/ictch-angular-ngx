@@ -24,12 +24,14 @@ export class AyatSearchComponent implements OnInit {
 
   sura: any;
   suras: any[] = [];
-  isSuraSearch: true;
   lang: any;
   langs: any[] = [];
   ayatList: any[] = [];
   translate: any;
   translates: any[] = [];
+
+  isSuraSearch = false;
+  isSearchLoading = false;
 
   states: string[] = [
     'Alabama',
@@ -159,15 +161,18 @@ export class AyatSearchComponent implements OnInit {
   }
   private setAyatList(req, callBack = null): void {
     //console.log(req);
+    this.isSearchLoading = true;
     this.ayatService.getList(req).then(
       res => {
         this.ayatList = res;
         if (callBack) {
           callBack(this);
         }
-        console.log(res);
+        this.isSearchLoading = false;
+        //console.log(res);
       },
       ex => {
+        this.isSearchLoading = false;
         console.log(ex.name /*, ex*/);
       }
     );

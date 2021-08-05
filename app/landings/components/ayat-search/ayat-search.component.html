@@ -53,26 +53,36 @@
 						</div>-->
 					</div>
 					<ng-container *ngIf="!isSuraSearch">
+						<!--[typeaheadMultipleSearch]="true"
+					typeaheadMultipleSearchDelimiters="','"-->
 						<input type="text"
 						[(ngModel)]="search"
 						(typeaheadOnSelect)="onSelect($event)"
 						typeaheadOptionField="suggestion"
 						[typeahead]="suggestions$"
 						[typeaheadAsync]="true"
-						[typeaheadMultipleSearch]="true"
-						typeaheadMultipleSearchDelimiters="' '"
-						class="form-control"  aria-describedby="inputGroup-sizing-sm">
+						class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
 					</ng-container>
 					<ng-container *ngIf="isSuraSearch">
-						<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="5"  [typeaheadMinLength]="0" class="form-control">
+						<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="10"  [typeaheadMinLength]="0" class="form-control" [disabled]='isSearchLoading'  aria-describedby="inputGroup-sizing-sm">
 					</ng-container>
-					<div class="input-group-append">
-						<button type="button"
+					<ng-container *ngIf="!isSearchLoading">
+						<div class="input-group-append">
+							<button type="button"
 						(click)="onClick($event,'search')"
 						class="btn btn-outline-secondary">
 							<i class="bi bi-search"></i>
 						</button>
+						</div>
+					</ng-container>
+					<ng-container *ngIf="isSearchLoading">
+					<div class="input-group-append">
+						<button type="button" 
+						class="btn btn-outline-secondary">
+						<span class="flags" [ngStyle]="{'background-image': 'url(https://ictcarehome.com/Content/fancybox/fancybox_loading.gif)'}"></span>
+						</button>
 					</div>
+				</ng-container>
 				</div>
 				<!--<div class="form-group">
 					<div class="input-group input-group-sm">
@@ -85,19 +95,22 @@
 			</div>
 		</div>
 		<div class="list-group">
-		<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
-		class="list-group-item list-group-item-action flex-column align-items-start">
-		<!--<div class="d-flex w-100 justify-content-between">
+			<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
+				class="list-group-item list-group-item-action flex-column align-items-start">
+				<!--<div class="d-flex w-100 justify-content-between">
 			<h5 class="mb-1">{{it.index}}.List group item heading</h5>
 			<small>Ayat:{{it.aya}},{{it.sura}}</small>
 		</div>
 		<p class="mb-1">{{it.text}}</p>
 		<small>{{it.etext}}</small>
 	-->
-		<p class="mb-1">{{it.atext}}</p><br>
-		<p class="mb-1">{{it.mtext}}</p><br>
-		<p class="mb-1">{{it.etext}}</p><br>
-	</a>
+				<div class="d-flex w-100 justify-content-center">
+				<p class="mb-1">{{it.sura}}.{{it.stext}}({{it.aya}})</p><br>
+				</div>
+				<p class="mb-1">{{it.atext}}</p><br>
+				<p class="mb-1">{{it.mtext}}</p><br>
+				<p class="mb-1">{{it.etext}}</p><br>
+			</a>
 			<!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
 				<div class="d-flex w-100 justify-content-between">

@@ -139,7 +139,7 @@ export class AyatSearchComponent implements OnInit {
             req.search = this.selected.item.suggestion
           }
           //console.log(req);
-          //let req = { sura:this.selected.suggestion };
+          //let req = { sura:this.selected.suggestion }
           this.setAyatList(req);
         }
         break;
@@ -161,6 +161,7 @@ export class AyatSearchComponent implements OnInit {
   }
   private setAyatList(req, callBack = null): void {
     //console.log(req);
+    this.ayatList = [];
     this.isSearchLoading = true;
     this.ayatService.getList(req).then(
       res => {

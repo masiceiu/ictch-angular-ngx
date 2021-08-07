@@ -1,11 +1,36 @@
-{"apps": [
-    {
-      "styles": [
-        "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "./node_modules/font-awesome/css/font-awesome.css",
-        "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
-        "styles.css"
-        ]
+{
+  "project": {
+    "name": "angular20062021"
+  },
+  "apps": [{
+    "root": "",
+    "outDir": "dist",
+    "assets": [
+      "assets",
+      "favicon.ico"
+    ],
+    "index": "index.html",
+    "main": "main.ts",
+    "polyfills": "polyfills.ts",
+    "tsconfig": "tsconfig.json",
+    "prefix": "app",
+    "styles": [
+      "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "./node_modules/font-awesome/css/font-awesome.css",
+      "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
+      "styles.css"
+    ],
+    "scripts": [
+    ]
+  }],
+  "defaults": {
+    "styleExt": "css",
+    "component": {
+      "inlineStyle": false,
+      "inlineTemplate": false
     }
-  ]
+  },
+  "warnings": {
+    "typescriptMismatch": false
+  }
 }

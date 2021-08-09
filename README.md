@@ -22,3 +22,11 @@ https://stackblitz.com/edit/speech-synthesis
 https://stackblitz.com/edit/speech-recognition
 https://stackblitz.com/edit/angular-user-media-video-voice-recognition
 https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices
+
+
+for angular 6 and above
+The working solution for me was
+npm install
+ng update
+and finally
+npm update

@@ -64,8 +64,9 @@ export class AyatSearchComponent implements OnInit {
       observer.next(this.search);
     }).pipe(
       switchMap((query: string) => {
-        if (query) {
-        return this.googleService.inputTools(query,this.lang.id).then(
+        if (query){ 
+          if (this.lang.suggestion)
+          return this.googleService.inputTools(query,this.lang.id).then(
         data => {
           //console.log(query,this.lang.id,data.length);
           if(data.length > 1){

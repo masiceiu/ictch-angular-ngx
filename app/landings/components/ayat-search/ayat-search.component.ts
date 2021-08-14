@@ -85,6 +85,8 @@ export class AyatSearchComponent implements OnInit {
           }
         });
           //return of(['a', 'b']);
+          //return [{ 'index' : 0, 'suggestion' : query }];
+          return of([{ 'index' : 0, 'suggestion' : query }]);
         }
       })
     );

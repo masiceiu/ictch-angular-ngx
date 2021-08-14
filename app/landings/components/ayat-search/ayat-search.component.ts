@@ -127,6 +127,7 @@ export class AyatSearchComponent implements OnInit {
     this.selected = $event;
     //console.log($event.item);
   }
+  list=[];
   onClick(data, switch_on): void {
     //console.log(this.selected);
     switch (switch_on) {
@@ -157,6 +158,23 @@ export class AyatSearchComponent implements OnInit {
         break;
       case 'download':
         break;
+        case 'test':
+          this.langs.forEach((it, i) => {
+  
+            //console.log('lang:',it.id);
+            let res = this.googleService.inputTools('a', it.id).then(
+              data => {
+                //console.log(query,this.lang.id,data.length);
+                if (data.length > 1) {
+  
+                } else {
+                  this.list.push(it.id);
+                  //console.log('lang:',this.lang.id);
+                  //return [{ 'index' : 0, 'suggestion' : query }];
+                }
+              });
+          });
+          break;
     }
   }
   private setAyatList(req, callBack = null): void {

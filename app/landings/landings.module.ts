@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 //Module
+import { SharedModule } from "../shared/shared.module";
 import { LandingsRoutingModule } from "./landings-routing.module";
 import { AyatCardModule } from './../shared/components/ayat-card/ayat-card.module';
 import { AddBtnFixedModule } from './../shared/components/add-btn-fixed/add-btn-fixed.module';
@@ -21,6 +22,7 @@ import { AyatSelectComponent } from './components/ayat-select/ayat-select.compon
     CommonModule, 
     ReactiveFormsModule,
     LandingsRoutingModule,
+    SharedModule,
     AyatCardModule,
     AddBtnFixedModule,
     NavCarouselModule,

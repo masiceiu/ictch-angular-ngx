@@ -121,9 +121,11 @@
 					<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
 				</p>
 				<hr class="hrh">
-				<p class="atext">{{it.atext}}</p>
+				<p class="atext" >{{it.atext}}</p>
 				<hr class="hrh">
-				<p class="mtext">{{it.mtext}}</p>
+				<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search">
+					{{it.mtext}}
+				</p>
 				<hr class="hrh">
 				<p class="etext">{{it.etext}}</p>
 			</a>

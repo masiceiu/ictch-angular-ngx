@@ -23,6 +23,10 @@ https://stackblitz.com/edit/speech-recognition
 https://stackblitz.com/edit/angular-user-media-video-voice-recognition
 https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices
 
+https://stackblitz.com/edit/angular-tree-component-search-highlight-u3gmlp-pdplxj?file=styles.css
+https://stackblitz.com/edit/angular-search-and-highlight?file=src%2Fapp%2Fsearch%2Fsearch.component.ts
+
+
 
 for angular 6 and above
 The working solution for me was
@@ -30,3 +34,5 @@ npm install
 ng update
 and finally
 npm update
+
+

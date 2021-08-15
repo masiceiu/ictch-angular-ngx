@@ -32,14 +32,6 @@ export class AyatSearchComponent implements OnInit {
 
   isSuraSearch = false;
   isSearchLoading = false;
-
-  states: string[] = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California'
-  ];
   constructor(
     private ayatService: AyatService,
     private googleService: GoogleService
@@ -65,28 +57,30 @@ export class AyatSearchComponent implements OnInit {
     }).pipe(
       switchMap((query: string) => {
         if (query){ 
-          if (this.lang.suggestion)
+          if (this.lang.suggestion){
           return this.googleService.inputTools(query,this.lang.id).then(
-        data => {
-          //console.log(query,this.lang.id,data.length);
-          if(data.length > 1){
-            if(data.length > 0 && data[1].length > 0 && data[1][0].length > 0 && data[1][0][1].length > 0){
-              let res = (data[1][0][1]);
-              res[5] = query;
-              let results = Object.keys(res).map(key => ({ 
-                'index' : key, 
-                'suggestion' : res[key] 
-                }));
-              return results;
+            data => {
+            //console.log(query,this.lang.id,data.length);
+            if(data.length > 1){
+              if(data.length > 0 && data[1].length > 0 && data[1][0].length > 0 && data[1][0][1].length > 0){
+                let res = (data[1][0][1]);
+                res[5] = query;
+                let results = Object.keys(res).map(key => ({ 
+                  'index' : key, 
+                  'suggestion' : res[key] 
+                  }));
+                return results;
+              }
+            }else {
+              console.log('lang:',this.lang.id);
+              return [{ 'index' : 0, 'suggestion' : query }];
             }
-          }else {
-            console.log('lang:',this.lang.id);
-            return [{ 'index' : 0, 'suggestion' : query }];
+          });
+          }else{
+            //return of(['a', 'b']);
+            //return [{ 'index' : 0, 'suggestion' : query }];
+            return of([{ 'index' : 0, 'suggestion' : query }]);         
           }
-        });
-          //return of(['a', 'b']);
-          //return [{ 'index' : 0, 'suggestion' : query }];
-          return of([{ 'index' : 0, 'suggestion' : query }]);
         }
       })
     );

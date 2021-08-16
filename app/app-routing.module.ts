@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Route } from "@angular/router";
 
 import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.component';
+import { IlmChannelComponent } from "./shared/views/ilm-channel/ilm-channel.component";
 //import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 const routes: Route[] = [
@@ -18,6 +19,10 @@ const routes: Route[] = [
   { 
     path: 'selectedilms', 
     component: SelectedIlmComponent
+  },
+  { 
+    path: 'ilmchannel', 
+    component: IlmChannelComponent
   }/*,
   { 
     path: 'selectedilms', 

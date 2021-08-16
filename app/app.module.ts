@@ -18,6 +18,7 @@ import { NavCarouselModule } from './shared/components/nav-carousel/nav-carousel
 import { AdviceInQuranModule } from './shared/views/advice-in-quran/advice-in-quran.module';
 import { NavScrollerModule } from './shared/components/nav-scroller/nav-scroller.module';
 import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
+import { IlmChannelModule } from './shared/views/ilm-channel/ilm-channel.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -56,6 +57,7 @@ import { ContainerComponent } from './shared/components/container/container.comp
     AdviceInQuranModule,
     NavScrollerModule,
     SelectedIlmModule,
+    IlmChannelModule,
   ],
   entryComponents: [],
   bootstrap: [AppComponent]

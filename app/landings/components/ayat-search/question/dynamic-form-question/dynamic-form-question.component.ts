@@ -4,7 +4,7 @@ import { QuestionBase } from './../question-base';
 
 
 @Component({
-  selector: 'app-question',//'app-dynamic-form-question',
+  selector: 'app-dynamic-form-question',
   templateUrl: './dynamic-form-question.component.html',
   styleUrls: ['./dynamic-form-question.component.css']
 })

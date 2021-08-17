@@ -5,7 +5,7 @@ import { QuestionBase } from './question-base';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-question',//'app-root',
+  selector: 'app-question',
   template: `
     <div>
       <h2>Job Application for Heroes</h2>

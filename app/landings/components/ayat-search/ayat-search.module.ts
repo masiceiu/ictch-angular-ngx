@@ -21,6 +21,7 @@ import { AyatSearchComponent } from './ayat-search.component';
     QuestionModule
   ],
   exports: [
+    QuestionModule,
     AyatSearchComponent
   ],
   declarations: [

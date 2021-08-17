@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { SharedModule } from '../../../shared/shared.module';
+import { QuestionModule } from './question/question.module';
 //Component
 import { ConfigComponent } from './config/config.component';
 import { AyatSearchComponent } from './ayat-search.component';
@@ -17,6 +18,7 @@ import { AyatSearchComponent } from './ayat-search.component';
     BsDropdownModule.forRoot(),
     TypeaheadModule.forRoot(), 
     SharedModule,
+    QuestionModule
   ],
   exports: [
     AyatSearchComponent
@@ -24,8 +26,6 @@ import { AyatSearchComponent } from './ayat-search.component';
   declarations: [
     ConfigComponent,
     AyatSearchComponent,
-    DynamicFormComponent,
-    DynamicFormQuestionComponent
   ]
 })
 export class AyatSearchModule { }

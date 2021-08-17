@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
   `,
   providers:  [QuestionService]
 })
-export class AppComponent {
+export class QuestionComponent {
   questions$: Observable<QuestionBase<any>[]>;
 
   constructor(service: QuestionService) {

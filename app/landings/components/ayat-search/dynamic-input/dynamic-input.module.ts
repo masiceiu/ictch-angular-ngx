@@ -19,4 +19,4 @@ import { DynamicFormInputComponent } from './dynamic-form-input/dynamic-form-inp
     DynamicFormInputComponent
   ]
 })
-export class InputModule { }
+export class DynamicInputModule { }

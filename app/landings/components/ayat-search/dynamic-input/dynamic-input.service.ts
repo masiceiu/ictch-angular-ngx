@@ -6,7 +6,7 @@ import { TextboxInput } from './input-textbox';
 import { of } from 'rxjs';
 
 @Injectable()
-export class InputService {
+export class DynamicInputService {
 
   // TODO: get from a remote source of input metadata
   getInputs() {

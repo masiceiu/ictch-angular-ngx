@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { QuestionService } from './question.service';
-import { QuestionBase } from './question-base';
+import { InputService } from './question.service';
+import { InputBase } from './question-base';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,12 +12,12 @@ import { Observable } from 'rxjs';
       <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
     </div>
   `,
-  providers:  [QuestionService]
+  providers:  [InputService]
 })
-export class QuestionComponent {
-  questions$: Observable<QuestionBase<any>[]>;
+export class InputComponent {
+  questions$: Observable<InputBase<any>[]>;
 
-  constructor(service: QuestionService) {
-    this.questions$ = service.getQuestions();
+  constructor(service: InputService) {
+    this.questions$ = service.getInputs();
   }
 }

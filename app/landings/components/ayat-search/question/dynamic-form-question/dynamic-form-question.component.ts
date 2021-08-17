@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { QuestionBase } from './../question-base';
+import { InputBase } from './../question-base';
 
 
 @Component({
@@ -8,8 +8,8 @@ import { QuestionBase } from './../question-base';
   templateUrl: './dynamic-form-question.component.html',
   styleUrls: ['./dynamic-form-question.component.css']
 })
-export class DynamicFormQuestionComponent {
-  @Input() question!: QuestionBase<string>;
+export class DynamicFormInputComponent {
+  @Input() question!: InputBase<string>;
   @Input() form!: FormGroup;
   get isValid() { return this.form.controls[this.question.key].valid; }
 }

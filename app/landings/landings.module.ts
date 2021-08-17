@@ -10,10 +10,11 @@ import { LandingsRoutingModule } from "./landings-routing.module";
 import { AyatCardModule } from './../shared/components/ayat-card/ayat-card.module';
 import { AddBtnFixedModule } from './../shared/components/add-btn-fixed/add-btn-fixed.module';
 import { NavCarouselModule } from './../shared/components/nav-carousel/nav-carousel.module';
+import { AyatSearchModule } from "./components/ayat-search/ayat-search.module";
 //Component
 import { LandingsComponent } from "./landings.component";
 import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.component';
-import { AyatSearchComponent } from './components/ayat-search/ayat-search.component';
+//import { AyatSearchModule } from './components/ayat-search/ayat-search.component';
 import { AyatSelectComponent } from './components/ayat-select/ayat-select.component';
 
 @NgModule({
@@ -27,11 +28,13 @@ import { AyatSelectComponent } from './components/ayat-select/ayat-select.compon
     AddBtnFixedModule,
     NavCarouselModule,
     BsDropdownModule.forRoot(),
-    TypeaheadModule.forRoot(),
+    TypeaheadModule.forRoot(), 
+    AyatSearchModule, 
   ],
   declarations: [
     LandingsComponent, 
-    AyatDynamicComponent, AyatSearchComponent, AyatSelectComponent,
+    AyatDynamicComponent,
+    AyatSelectComponent,
   ],
   entryComponents: []
 })

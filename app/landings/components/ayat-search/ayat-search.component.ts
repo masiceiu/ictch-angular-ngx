@@ -4,8 +4,6 @@ import { switchMap } from 'rxjs/operators';
 
 import { AyatSearchModel } from './ayat-search.model';
 import { AyatService, GoogleService } from '../../../core/services';
-import { Location } from '@angular/common';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-ayat-search',
@@ -14,6 +12,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AyatSearchComponent implements OnInit {
   
+  //atextFontSize = 40;
+  //ayatListConfig = {};
+  config = {
+    aFontSize:30,//
+    mFontSize:16,//
+    eFontSize:17,//
+  };
+
 
   search: string;
   selected: any = {};
@@ -194,6 +200,7 @@ export class AyatSearchComponent implements OnInit {
     );
   }
 }
+//https://www.concretepage.com/angular-2/angular-2-formgroup-example
 //https://stackoverflow.com/questions/40678206/angular-2-filter-search-list
 //https://stackoverflow.com/questions/37969984/angular-2-typescript-how-to-find-element-in-array
 //https://stackoverflow.com/questions/39152071/cant-bind-to-formgroup-since-it-isnt-a-known-property-of-form

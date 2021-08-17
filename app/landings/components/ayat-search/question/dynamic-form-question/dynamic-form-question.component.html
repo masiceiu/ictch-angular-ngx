@@ -1,16 +1,16 @@
 <div [formGroup]="form">
-<label [attr.for]="question.key">{{question.label}}</label>
+<label [attr.for]="input.key">{{input.label}}</label>
 
-<div [ngSwitch]="question.controlType">
+<div [ngSwitch]="input.controlType">
 
-  <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
-          [id]="question.key" [type]="question.type">
+  <input *ngSwitchCase="'textbox'" [formControlName]="input.key"
+          [id]="input.key" [type]="input.type">
 
-  <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
-    <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+  <select [id]="input.key" *ngSwitchCase="'dropdown'" [formControlName]="input.key">
+    <option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</option>
   </select>
 
 </div>
 
-<div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+<div class="errorMessage" *ngIf="!isValid">{{input.label}} is required</div>
 </div>

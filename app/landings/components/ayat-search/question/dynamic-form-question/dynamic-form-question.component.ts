@@ -1,15 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { InputBase } from './../question-base';
+import { InputBase } from './../input-base';
 
 
 @Component({
-  selector: 'app-dynamic-form-question',
-  templateUrl: './dynamic-form-question.component.html',
-  styleUrls: ['./dynamic-form-question.component.css']
+  selector: 'app-dynamic-form-input',
+  templateUrl: './dynamic-form-input.component.html',
+  styleUrls: ['./dynamic-form-input.component.css']
 })
 export class DynamicFormInputComponent {
-  @Input() question!: InputBase<string>;
+  @Input() input!: InputBase<string>;
   @Input() form!: FormGroup;
-  get isValid() { return this.form.controls[this.question.key].valid; }
+  get isValid() { return this.form.controls[this.input.key].valid; }
 }

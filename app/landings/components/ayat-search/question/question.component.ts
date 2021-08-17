@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
 
-import { InputService } from './question.service';
-import { InputBase } from './question-base';
+import { InputService } from './input.service';
+import { InputBase } from './input-base';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-question',
+  selector: 'app-input',
   template: `
     <div>
       <h2>Job Application for Heroes</h2>
-      <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
+      <app-dynamic-form [inputs]="inputs$ | async"></app-dynamic-form>
     </div>
   `,
   providers:  [InputService]
 })
 export class InputComponent {
-  questions$: Observable<InputBase<any>[]>;
+  inputs$: Observable<InputBase<any>[]>;
 
   constructor(service: InputService) {
-    this.questions$ = service.getInputs();
+    this.inputs$ = service.getInputs();
   }
 }

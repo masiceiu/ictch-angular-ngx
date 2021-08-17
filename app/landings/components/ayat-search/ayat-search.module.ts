@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { SharedModule } from '../../../shared/shared.module';
-import { InputModule } from './question/question.module';
+import { InputModule } from './input/input.module';
 //Component
 import { ConfigComponent } from './config/config.component';
 import { AyatSearchComponent } from './ayat-search.component';

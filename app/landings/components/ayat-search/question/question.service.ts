@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 
-import { DropdownInput } from './question-dropdown';
-import { InputBase } from './question-base';
-import { TextboxInput } from './question-textbox';
+import { DropdownInput } from './input-dropdown';
+import { InputBase } from './input-base';
+import { TextboxInput } from './input-textbox';
 import { of } from 'rxjs';
 
 @Injectable()
 export class InputService {
 
-  // TODO: get from a remote source of question metadata
+  // TODO: get from a remote source of input metadata
   getInputs() {
 
-    const questions: InputBase<string>[] = [
+    const inputs: InputBase<string>[] = [
 
       new DropdownInput({
         key: 'brave',
@@ -41,6 +41,6 @@ export class InputService {
       })
     ];
 
-    return of(questions.sort((a, b) => a.order - b.order));
+    return of(inputs.sort((a, b) => a.order - b.order));
   }
 }

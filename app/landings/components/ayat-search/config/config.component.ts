@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Location } from '@angular/common';
-import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-config',
@@ -10,8 +10,19 @@ import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 })
 export class ConfigComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private fb: FormBuilder) { }
+  config = {
+    aFontSize:30,//
+    mFontSize:16,//
+    eFontSize:17,//
+  };
+  frm = this.fb.group({
+    aDisplay: [true],
+    aFontSize: [30],
+    logs: this.fb.group({
+      note: ['']
+    }),
+  });
   ngOnInit() {
   }
 

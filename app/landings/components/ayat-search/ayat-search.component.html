@@ -104,7 +104,11 @@
 			<div class="flex-child" style="border-top: 0px;text-align:right;">
 				<small>Search result : {{ayatList.length}}</small>
 			</div>
-			<!--<div class="flex-child" style="border-top: 0px;text-align:right;">
+			<!--
+			<div class="flex-child" style="border-top: 0px;text-align:right;">
+				<input type="number" [(ngModel)]="config.aFontSize" />
+			</div>
+			<div class="flex-child" style="border-top: 0px;text-align:right;">
 				<small>Search result : {{ayatList.length}}</small>
 			</div>-->
 		</div>
@@ -127,7 +131,7 @@
 					</small>
 				</p>
 				<hr class="hrh">
-				<p class="atext" [ngStyle]="{'font-size': atextFontSize+'px'}">
+				<p class="atext" [ngStyle]="{'font-size': config.aFontSize+'px'}">
 					بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
 				</p>
 				<hr class="hrh">

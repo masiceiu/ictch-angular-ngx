@@ -14,7 +14,7 @@ import { AyatSearchModule } from "./components/ayat-search/ayat-search.module";
 //Component
 import { LandingsComponent } from "./landings.component";
 import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.component';
-//import { AyatSearchModule } from './components/ayat-search/ayat-search.component';
+//import { AyatSearchComponent } from './components/ayat-search/ayat-search.component';
 import { AyatSelectComponent } from './components/ayat-select/ayat-select.component';
 
 @NgModule({

@@ -13,7 +13,7 @@ import { AyatSearchComponent } from './ayat-search.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     TypeaheadModule.forRoot(), 
     SharedModule,
@@ -23,7 +23,9 @@ import { AyatSearchComponent } from './ayat-search.component';
   ],
   declarations: [
     ConfigComponent,
-    AyatSearchComponent
+    AyatSearchComponent,
+    DynamicFormComponent,
+    DynamicFormQuestionComponent
   ]
 })
 export class AyatSearchModule { }

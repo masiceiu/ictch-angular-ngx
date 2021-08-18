@@ -1,0 +1,17 @@
+<div class="row mt-2">
+  <div class="col-12">
+    <p>
+    {{adviceInQuran.title}}
+    </p>
+    <div class="list-group">
+      <a  routerlink="/" *ngFor="let it of adviceInQuran.advices; let i = index;" class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{it.title}}</h5>
+          <small>{{i}} index</small>
+        </div>
+        <p class="mb-1">{{it.detail}}.</p>
+        <small>{{it.ref}}</small>
+      </a>
+    </div>
+  </div>
+</div>

@@ -32,6 +32,13 @@ const routes: Route[] = [
     path: 'ilmchannel', 
     component: IlmChannelComponent
   },
+  {
+    path: 'demo', 
+    loadChildren: () =>import("./demo/demo.module").then(m => m.DemoModule),
+    data: {
+      title: "demo"
+    }
+  },
   { path: '', redirectTo: 'quran', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent},
   /*,

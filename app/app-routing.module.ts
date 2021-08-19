@@ -4,16 +4,24 @@ import { RouterModule, Route } from "@angular/router";
 
 import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.component';
 import { IlmChannelComponent } from "./shared/views/ilm-channel/ilm-channel.component";
+
+import { PageNotFoundComponent } from "./pages/page-not-found.component";
 //import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 const routes: Route[] = [
-  { path: '', redirectTo: 'landings', pathMatch: 'full' },
   {
     path: "landings",
     loadChildren: () =>
       import("./landings/landings.module").then(m => m.LandingsModule),
     data: {
       feature: "landings"
+    }
+  },
+  {
+    path: 'quran', 
+    loadChildren: () =>import("./quran/quran.module").then(m => m.QuranModule),
+    data: {
+      title: "quran"
     }
   },
   { 
@@ -23,7 +31,10 @@ const routes: Route[] = [
   { 
     path: 'ilmchannel', 
     component: IlmChannelComponent
-  }/*,
+  },
+  { path: '', redirectTo: 'quran', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent},
+  /*,
   { 
     path: 'selectedilms', 
     loadChildren: () =>

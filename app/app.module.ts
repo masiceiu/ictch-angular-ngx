@@ -30,6 +30,8 @@ import { FeatureComponent } from './shared/feature/feature.component';
 import { CommonComponent } from './shared/components/common/common.component';
 import { ContainerComponent } from './shared/components/container/container.component';
 
+import { PageNotFoundComponent } from './pages/page-not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { ContainerComponent } from './shared/components/container/container.comp
     FeatureComponent,
     CommonComponent,
     ContainerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     HttpClientModule,

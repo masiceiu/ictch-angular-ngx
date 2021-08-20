@@ -19,7 +19,7 @@ const routes: Route[] = [
   },
   {
     path: 'quran', 
-    loadChildren: () =>import("./quran/quran.module").then(m => m.QuranModule),
+    loadChildren: () =>import("./modules/quran/quran.module").then(m => m.QuranModule),
     data: {
       title: "quran"
     }
@@ -34,7 +34,7 @@ const routes: Route[] = [
   },
   {
     path: 'demo', 
-    loadChildren: () =>import("./demo/demo.module").then(m => m.DemoModule),
+    loadChildren: () =>import("./modules/demo/demo.module").then(m => m.DemoModule),
     data: {
       title: "demo"
     }

@@ -1,20 +1,21 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Route } from "@angular/router";
 
+import { QuranComponent } from "./quran.component";
 import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.component';
 //import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 const routes: Route[] = [
   //{ path: '', redirectTo: 'selectedilms', pathMatch: 'full' },
-  { path: '', component: SelectedIlmComponent },
-  /*{
+  { path: '', component: QuranComponent },
+  {
     path: "landings",
     loadChildren: () =>
       import("./landings/landings.module").then(m => m.LandingsModule),
     data: {
       feature: "landings"
     }
-  },*/
+  },
   {
     path: 'selectedilms',
     component: SelectedIlmComponent

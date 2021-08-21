@@ -56,12 +56,12 @@ import { ContainerComponent } from './shared/components/container/container.comp
   ]
   ,
   declarations: [
-    QuranComponent,/*
+    QuranComponent,/**/
     DropdownComponent,
     PopoverComponent,
     FeatureComponent,
     CommonComponent,
-    ContainerComponent,*/
+    ContainerComponent,
   ]
 })
 export class QuranModule {

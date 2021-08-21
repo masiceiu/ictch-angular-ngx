@@ -31,7 +31,7 @@ const routes: Route[] = [
   { 
     path: 'ilmchannel', 
     component: IlmChannelComponent
-  },*
+  },*/
   {
     path: 'demo', 
     loadChildren: () =>import("./modules/demo/demo.module").then(m => m.DemoModule),

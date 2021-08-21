@@ -9,21 +9,21 @@ import { PageNotFoundComponent } from "./pages/page-not-found.component";
 //import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 const routes: Route[] = [
-  {
+  /*{
     path: "landings",
     loadChildren: () =>
       import("./modules/quran/landings/landings.module").then(m => m.LandingsModule),
     data: {
       feature: "landings"
     }
-  },
+  },*/
   {
     path: 'quran', 
     loadChildren: () =>import("./modules/quran/quran.module").then(m => m.QuranModule),
     data: {
       title: "quran"
     }
-  },
+  },/*
   { 
     path: 'selectedilms', 
     component: SelectedIlmComponent
@@ -31,7 +31,7 @@ const routes: Route[] = [
   { 
     path: 'ilmchannel', 
     component: IlmChannelComponent
-  },
+  },*
   {
     path: 'demo', 
     loadChildren: () =>import("./modules/demo/demo.module").then(m => m.DemoModule),

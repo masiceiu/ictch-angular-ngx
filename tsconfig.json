@@ -4,13 +4,13 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "lib": ["es2018", "dom"],
     "mapRoot": "./",
-    "module": "es6",
+    "module": "esnext", 
     "moduleResolution": "node",
     "outDir": "../docs/out-tsc",
     "sourceMap": true,
-    "target": "es5",
+    "target": "es2020",
     "typeRoots": [
       "../node_modules/@types"
     ]

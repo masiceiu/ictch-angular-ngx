@@ -1,1 +1,0 @@
-export { AyatService } from './ayat.service';

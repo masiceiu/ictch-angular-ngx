@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 //import { BrowserModule } from '@angular/platform-browser';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-/*
+/**/
 import { SharedModule } from './shared/shared.module';
 
 import { PopoverModule } from 'ngx-bootstrap/popover';
@@ -17,12 +17,12 @@ import { AddBtnFixedModule } from './shared/components/add-btn-fixed/add-btn-fix
 import { NavCarouselModule } from './shared/components/nav-carousel/nav-carousel.module';
 import { AdviceInQuranModule } from './shared/views/advice-in-quran/advice-in-quran.module';
 import { NavScrollerModule } from './shared/components/nav-scroller/nav-scroller.module';
-*/
+
 import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 import { QuranComponent } from './quran.component';
 import { QuranRoutingModule } from "./quran-routing.module";
-/*
+/**/
 //import {} from './components/index';
 //import {} from './pages/index';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
@@ -30,7 +30,7 @@ import { PopoverComponent } from './shared/popover/popover.component';
 import { FeatureComponent } from './shared/feature/feature.component';
 import { CommonComponent } from './shared/components/common/common.component';
 import { ContainerComponent } from './shared/components/container/container.component';
-*/
+
 @NgModule({
   imports: [
     CommonModule,
@@ -39,7 +39,7 @@ import { ContainerComponent } from './shared/components/container/container.comp
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserModule,
+    BrowserModule,*/
     SharedModule,
     PopoverModule.forRoot(),
     TypeaheadModule.forRoot(),
@@ -48,7 +48,7 @@ import { ContainerComponent } from './shared/components/container/container.comp
     AddBtnFixedModule,
     NavCarouselModule,
     AdviceInQuranModule,
-    NavScrollerModule,*/
+    NavScrollerModule,
     SelectedIlmModule,
   ],
   exports:[

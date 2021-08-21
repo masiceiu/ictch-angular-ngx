@@ -1,7 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { fromEvent, BehaviorSubject /*Observable*/} from 'rxjs';
-import { map } from 'rxjs/operators';
-
+import { Observable, BehaviorSubject } from 'rxjs';
 
 export interface WindowSize {
   height: number,
@@ -12,29 +10,9 @@ export interface WindowSize {
   providedIn: "root"
 })
 export class CoreService {
-  /*
-    fromEvent(this.elementRef.nativeElement, 'keyup')
-    const obs = fromEvent(this.el.nativeElement, 'keyup')
-
-  .pipe (
-    map((e:any) => e.target.value), // extract the value of the input
-
-    // filter((text:string) => text.length > 1), //filter out if empty
-
-    debounceTime(250), //only search after 250 ms
-
-    tap(() => this.loading.emit(true)), // Enable loading
-    // search, call the search service
-
-    map((query:string) => this.youtube.search(query)) ,
-    // discard old events if new input comes in
-
-    switchAll()
-    // act on the return of the search
-    ) 
-*/
-/*
+  
   constructor(@Inject('windowObject') private window: Window) {
+    
     Observable.fromEvent(window, 'resize')
         .auditTime(100)
         .map(event => <WindowSize>{ 
@@ -44,17 +22,7 @@ export class CoreService {
         .subscribe((windowSize) => {
             this.windowSizeChanged.next(windowSize);
         })
-  };*/
-  constructor(@Inject('windowObject') private window: Window) {
-    fromEvent(window, 'resize').pipe(
-      map((event:any) => <WindowSize>{ 
-          width: event['currentTarget'].innerWidth, 
-          height: event['currentTarget'].innerHeight
-        }),
-        map((windowSize:any) => {
-            this.windowSizeChanged.next(windowSize);
-        })
-    )};
+  };
   
   readonly windowSizeChanged = new BehaviorSubject<WindowSize>(<WindowSize>{
     width: this.window.innerWidth,
@@ -74,14 +42,10 @@ export class CoreComponent implements OnInit, OnDestroy {
   private values: Array<WindowSize> = [];
   private anyErrors: boolean;
   private finished: boolean;
-  private subscription:any;
-  @Input() name: string;
+  private subscription;
 
-  constructor(private service: CoreService) { 
-    this.name = "";
-    this.finished = false
-    this.anyErrors = false;
-  }
+  constructor(private service: CoreService) { }
+  @Input() name: string;
   
   ngOnInit() {
     this.subscription = this.service.windowSizeChanged.subscribe(

@@ -2,8 +2,8 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Route } from "@angular/router";
 
-import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.component';
-import { IlmChannelComponent } from "./shared/views/ilm-channel/ilm-channel.component";
+import { SelectedIlmComponent } from './modules/quran/shared/pages/selected-ilm/selected-ilm.component';
+import { IlmChannelComponent } from "./modules/quran/shared/views/ilm-channel/ilm-channel.component";
 
 import { PageNotFoundComponent } from "./pages/page-not-found.component";
 //import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
@@ -12,7 +12,7 @@ const routes: Route[] = [
   {
     path: "landings",
     loadChildren: () =>
-      import("./landings/landings.module").then(m => m.LandingsModule),
+      import("./modules/quran/landings/landings.module").then(m => m.LandingsModule),
     data: {
       feature: "landings"
     }

@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //Module
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from './../../shared/shared.module';
 import { DynamicInputModule } from './dynamic-input/dynamic-input.module';
 //Component
 import { ConfigComponent } from './config/config.component';

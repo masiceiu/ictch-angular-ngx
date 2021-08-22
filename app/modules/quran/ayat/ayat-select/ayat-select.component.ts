@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AyatService } from '../../../core/services';
+import { AyatService } from './../../core/services';
 
 @Component({
   selector: 'app-ayat-select',

@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Route } from "@angular/router";
-import { LandingsComponent } from "./landings.component";
+import { AyatComponent } from "./ayat.component";
 
 const routes: Route[] = [
   {
     path: "",
-    component: LandingsComponent
+    component: AyatComponent
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Route[] = [
   imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LandingsRoutingModule {}
+export class AyatRoutingModule {}

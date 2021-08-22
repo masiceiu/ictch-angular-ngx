@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, HostListener, OnInit, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 
-import {AyatService} from './../../../core/services';
-import { AyatCardComponent } from './../../../shared/components/ayat-card/ayat-card.component';
+import {AyatService} from './../../core/services';
+import { AyatCardComponent } from './../../shared/components/ayat-card/ayat-card.component';
 
 @Component({
   selector: 'app-ayat-dynamic',

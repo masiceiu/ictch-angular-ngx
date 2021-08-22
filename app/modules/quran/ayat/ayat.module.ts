@@ -6,23 +6,23 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 //Module
 import { SharedModule } from "../shared/shared.module";
-import { LandingsRoutingModule } from "./landings-routing.module";
+import { AyatRoutingModule } from "./ayat-routing.module";
 import { AyatCardModule } from './../shared/components/ayat-card/ayat-card.module';
 import { AddBtnFixedModule } from './../shared/components/add-btn-fixed/add-btn-fixed.module';
 import { NavCarouselModule } from './../shared/components/nav-carousel/nav-carousel.module';
-import { AyatSearchModule } from "./components/ayat-search/ayat-search.module";
+import { AyatSearchModule } from "./ayat-search/ayat-search.module";
 //Component
-import { LandingsComponent } from "./landings.component";
-import { AyatDynamicComponent } from './components/ayat-dynamic/ayat-dynamic.component';
+import { AyatComponent } from "./ayat.component";
+import { AyatDynamicComponent } from './ayat-dynamic/ayat-dynamic.component';
 //import { AyatSearchComponent } from './components/ayat-search/ayat-search.component';
-import { AyatSelectComponent } from './components/ayat-select/ayat-select.component';
+import { AyatSelectComponent } from './ayat-select/ayat-select.component';
 
 @NgModule({
   imports: [
     FormsModule,
     CommonModule, 
     ReactiveFormsModule,
-    LandingsRoutingModule,
+    AyatRoutingModule,
     SharedModule,
     AyatCardModule,
     AddBtnFixedModule,
@@ -32,10 +32,10 @@ import { AyatSelectComponent } from './components/ayat-select/ayat-select.compon
     AyatSearchModule, 
   ],
   declarations: [
-    LandingsComponent, 
+    AyatComponent, 
     AyatDynamicComponent,
     AyatSelectComponent,
   ],
   entryComponents: []
 })
-export class LandingsModule {}
+export class AyatModule {}

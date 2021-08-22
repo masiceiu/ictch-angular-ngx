@@ -53,8 +53,7 @@ import { ContainerComponent } from './shared/components/container/container.comp
   ],
   exports:[
     SelectedIlmModule
-  ]
-  ,
+  ],
   declarations: [
     QuranComponent,/**/
     DropdownComponent,

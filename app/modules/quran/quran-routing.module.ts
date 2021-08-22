@@ -13,15 +13,15 @@ const routes: Route[] = [
     loadChildren: () =>
       import("./ayat/ayat.module").then(m => m.AyatModule),
     data: {
-      feature: "ayat"
+      feature: "Ayat"
     }
   },
   {
-    path: "ayat",
+    path: "ilm",
     loadChildren: () =>
-      import("./ayat/ayat.module").then(m => m.AyatModule),
+      import("./ilm/ilm.module").then(m => m.IlmModule),
     data: {
-      feature: "ayat"
+      feature: "Ilm"
     }
   },
   {

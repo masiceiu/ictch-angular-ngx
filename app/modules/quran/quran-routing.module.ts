@@ -6,14 +6,14 @@ import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.c
 //import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 const routes: Route[] = [
-  {
+  /*{
     path: "ayat",
     loadChildren: () =>
       import("./ayat/ayat.module").then(m => m.AyatModule),
     data: {
       feature: "Ayat"
     }
-  },
+  },*/
   {
     path: "ilm",
     loadChildren: () =>
@@ -26,8 +26,21 @@ const routes: Route[] = [
     path: 'selectedilms',
     component: SelectedIlmComponent
   },
-  { path: '', redirectTo: 'ilm', pathMatch: 'full' },
-  //{ path: '', component: QuranComponent },
+  { 
+    path: 'ayat', 
+    component: QuranComponent,
+    children:[
+      {
+        path: "",//
+        loadChildren: () =>
+          import("./ayat/ayat.module").then(m => m.AyatModule),
+        data: {
+          feature: "Ayat"
+        }
+      }
+    ] 
+  },
+  { path: '', redirectTo: 'ayat', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -5,10 +5,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { SharedModule } from './../../shared/shared.module';
-import { DynamicInputModule } from './dynamic-input/dynamic-input.module';
 //Component
 import { ConfigComponent } from './config/config.component';
 import { AyatSearchComponent } from './ayat-search.component';
+import { DynamicInputModule } from '../../../../components/dynamic-input/dynamic-input.module';
 
 @NgModule({
   imports: [

@@ -12,7 +12,7 @@ import { AdviceComponent } from './advice/advice.component';
     AdviceComponent
   ],
   declarations: [
-    IlmComponentm,
+    IlmComponent,
     AdviceComponent
   ]
 })

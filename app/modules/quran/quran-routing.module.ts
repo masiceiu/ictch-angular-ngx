@@ -6,8 +6,8 @@ import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.c
 //import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 const routes: Route[] = [
-  //{ path: '', redirectTo: 'selectedilms', pathMatch: 'full' },
-  { path: '', component: QuranComponent },
+  { path: '', redirectTo: 'ilm', pathMatch: 'full' },
+  //{ path: '', component: QuranComponent },
   {
     path: "ayat",
     loadChildren: () =>

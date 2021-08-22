@@ -2,30 +2,11 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Route } from "@angular/router";
 
 import { QuranComponent } from "./quran.component";
+//import { IlmComponent } from "./ilm/ilm.component";
 import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.component';
 //import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 const routes: Route[] = [
-  /*{
-    path: "ayat",
-    loadChildren: () =>
-      import("./ayat/ayat.module").then(m => m.AyatModule),
-    data: {
-      feature: "Ayat"
-    }
-  },*/
-  {
-    path: "ilm",
-    loadChildren: () =>
-      import("./ilm/ilm.module").then(m => m.IlmModule),
-    data: {
-      feature: "Ilm"
-    }
-  },
-  {
-    path: 'selectedilms',
-    component: SelectedIlmComponent
-  },
   { 
     path: 'ayat', 
     component: QuranComponent,
@@ -39,6 +20,24 @@ const routes: Route[] = [
         }
       }
     ] 
+  },
+  {
+    path: "ilm",
+    component: QuranComponent,
+    children:[
+      {
+        path: "",//
+        loadChildren: () =>
+        import("./ilm/ilm.module").then(m => m.IlmModule),
+        data: {
+          feature: "Ilm"
+        }
+      }
+    ]
+  },
+  {
+    path: 'selectedilms',
+    component: SelectedIlmComponent
   },
   { path: '', redirectTo: 'ayat', pathMatch: 'full' },
 ];

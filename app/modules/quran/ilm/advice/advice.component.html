@@ -1,17 +1,19 @@
 <div class="row mt-2">
-<div class="col-12">
-  <p>
-  {{adviceInQuran.title}}
-  </p>
-  <div class="list-group">
-    <a  routerlink="/" *ngFor="let it of adviceInQuran.advices; let i = index;" class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{it.title}}</h5>
-        <small>{{i}} index</small>
-      </div>
-      <p class="mb-1">{{it.detail}}.</p>
-      <small>{{it.ref}}</small>
-    </a>
+  <div class="col-12">
+    <div class="list-group">
+      <div class="list-group-item d-flex justify-content-between align-items-center list-group-item-primary">
+        <h5 class="mb-1">{{adviceInQuran.title}}</h5>
+        <a routerlink="/" class="badge badge-info badge-pill" style="padding: 10px;">14</a>
+      </div><!-- {{i?'':'active'}}-->
+      <a routerlink="/" *ngFor="let it of adviceInQuran.advices; let i = index;"
+        class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{it.title}}</h5>
+          <small>{{i}} index</small>
+        </div>
+        <p class="mb-1">{{it.detail}}.</p>
+        <small>{{it.ref}}</small>
+      </a>
+    </div>
   </div>
-</div>
 </div>

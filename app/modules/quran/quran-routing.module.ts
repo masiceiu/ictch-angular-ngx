@@ -9,11 +9,19 @@ const routes: Route[] = [
   //{ path: '', redirectTo: 'selectedilms', pathMatch: 'full' },
   { path: '', component: QuranComponent },
   {
-    path: "landings",
+    path: "ayat",
     loadChildren: () =>
-      import("./landings/landings.module").then(m => m.LandingsModule),
+      import("./ayat/ayat.module").then(m => m.AyatModule),
     data: {
-      feature: "landings"
+      feature: "ayat"
+    }
+  },
+  {
+    path: "ayat",
+    loadChildren: () =>
+      import("./ayat/ayat.module").then(m => m.AyatModule),
+    data: {
+      feature: "ayat"
     }
   },
   {

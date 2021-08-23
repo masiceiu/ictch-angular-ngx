@@ -26,7 +26,10 @@
 							<input [(ngModel)]="isSuraSearch" (change)="onChange(isSuraSearch,'sura')" type="checkbox" aria-label="Checkbox forinput">
 							<label class="form-check-label">&nbsp;Sura</label>
 						</div>
-						<span class="input-group-text">$
+						<span class="input-group-text">
+							<a routerlink="/qurn/ilm" href (click)="false">	
+								<i class="bi bi-gear"></i>
+							</a>
 						</span>
 						<!--<span class="input-group-text">0.00</span>-->
 					</div>
@@ -101,8 +104,36 @@
 			<div class="flex-child" style="border-top: 0px;">
 				<small>Search result : {{ayatList.length}}</small>
 			</div>
+			<!--
 			<div class="flex-child" style="border-top: 0px;text-align:right;">
 				<small>Search result : {{ayatList.length}}</small>
+			</div>-->
+			<div class="flex-child" style="border-top: 0px;text-align:right;">
+				<!--<small>
+				Search result <i class="bi bi-caret-down"></i>
+			</small>
+				<span dropdown>
+			<a href id="basic-link" dropdownToggle (click)="false"
+				 aria-controls="basic-link-dropdown">
+				 <small>
+				 More <i class="bi bi-caret-down"></i>
+			 </small>
+				</a>
+			<ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
+					role="menu" aria-labelledby="basic-link">
+				<li *ngFor="let choice of ['items']">
+					<a class="dropdown-item" href="#">{{choice}}</a>
+				</li>
+			</ul>
+		</span>-->
+				<ng-template #popTemplate>
+					Here we go
+				</ng-template>
+				<a href (click)="false" [popover]="popTemplate" popoverTitle="Dynamic html inside" [outsideClick]="true">
+					<small>
+						More <i class="bi bi-caret-down"></i>
+					</small>
+				</a>
 			</div>
 			<!--
 			<div class="flex-child" style="border-top: 0px;text-align:right;">

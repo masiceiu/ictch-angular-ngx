@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { InputBase } from 'app/components/dynamic-input/input-base';
-import { TextboxInput } from 'app/components/dynamic-input/input-textbox';
-import { CheckBoxInput } from 'app/components/dynamic-input/input-checkbox';
+import { InputBase } from './../../../../../components/dynamic-input/input-base';
+import { CheckBoxInput } from './../../../../../components/dynamic-input/input-checkbox';
+import { TextboxInput } from './../../../../../components/dynamic-input/input-textbox';
 import { Observable, of } from 'rxjs';
+//import { DynamicInputModule } from components/dynamic-input/dynamic-input.module';
 
 @Component({
   selector: 'app-setting',
@@ -20,7 +21,7 @@ export class SettingComponent implements OnInit {
   private getInputs() {
 
     const inputs: InputBase<string>[] = [
-/*
+      /*
       new DropdownInput({
         key: 'brave',
         label: 'Bravery Rating',
@@ -32,7 +33,7 @@ export class SettingComponent implements OnInit {
         ],
         order: 3
       }),
-*/
+      */
       new TextboxInput({
         key: 'atext',
         label: 'A-Text',
@@ -40,13 +41,12 @@ export class SettingComponent implements OnInit {
         required: true,
         order: 1
       }),
-/*
       new CheckBoxInput({
         key: 'satext',
         label: 'S-A-Text',
         type: 'checkbox',
         order: 2
-      })*/
+      })
     ];
 
     return of(inputs.sort((a, b) => a.order - b.order));

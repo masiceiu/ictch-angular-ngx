@@ -10,6 +10,7 @@ import { SharedModule } from './../../shared/shared.module';
 import { ConfigComponent } from './config/config.component';
 import { AyatSearchComponent } from './ayat-search.component';
 import { DynamicInputModule } from '../../../../components/dynamic-input/dynamic-input.module';
+import { SettingComponent } from './setting/setting.component';
 
 @NgModule({
   imports: [
@@ -24,10 +25,11 @@ import { DynamicInputModule } from '../../../../components/dynamic-input/dynamic
   ],
   exports: [
     DynamicInputModule,
-    AyatSearchComponent
+    AyatSearchComponent,SettingComponent
   ],
   declarations: [
     ConfigComponent,
+    SettingComponent,
     AyatSearchComponent,
   ]
 })

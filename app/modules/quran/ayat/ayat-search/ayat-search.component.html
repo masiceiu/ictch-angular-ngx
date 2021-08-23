@@ -27,7 +27,11 @@
 							<label class="form-check-label">&nbsp;Sura</label>
 						</div>
 						<span class="input-group-text">
-							<a routerlink="/qurn/ilm" href (click)="false">	
+						<ng-template #popTemplate1>
+							<!--<app-dynamic-input [showTitle]="false"></app-dynamic-input>-->
+						
+						</ng-template>
+							<a href (click)="false" [popover]="popTemplate1" popoverTitle="Dynamic html inside" [outsideClick]="true" placement="auto">	
 								<i class="bi bi-gear"></i>
 							</a>
 						</span>

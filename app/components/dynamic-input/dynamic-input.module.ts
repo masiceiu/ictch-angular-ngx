@@ -11,7 +11,7 @@ import { DynamicFormInputComponent } from './dynamic-form-input/dynamic-form-inp
     ReactiveFormsModule
   ],
   exports: [
-    DynamicInputComponent
+    DynamicInputComponent,DynamicFormComponent
   ],
   declarations: [
     DynamicInputComponent, 

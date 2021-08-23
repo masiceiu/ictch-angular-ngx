@@ -11,8 +11,17 @@ export class InputControlService {
     const group: any = {};
 
     inputs.forEach(input => {
-      group[input.key] = input.required ? new FormControl(input.value || '', Validators.required)
-                                              : new FormControl(input.value || '');
+      switch(input.type){
+      case 'checkbox'://[false, Validators.requiredTrue]
+        group[input.key] = input.required ? new FormControl(false, Validators.required)
+            : new FormControl(false);
+console.log(input.type);
+          break;
+          default:
+            group[input.key] = input.required ? new FormControl(input.value || '', Validators.required)
+            : new FormControl(input.value || '');
+          break;
+      }
     });
     return new FormGroup(group);
   }

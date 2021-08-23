@@ -3,6 +3,7 @@ import { InputBase } from './../../../../../components/dynamic-input/input-base'
 import { CheckBoxInput } from './../../../../../components/dynamic-input/input-checkbox';
 import { TextboxInput } from './../../../../../components/dynamic-input/input-textbox';
 import { Observable, of } from 'rxjs';
+import { DropdownInput } from './../../../../../components/dynamic-input/input-dropdown';
 //import { DynamicInputModule } from components/dynamic-input/dynamic-input.module';
 
 @Component({
@@ -32,11 +33,12 @@ export class SettingComponent implements OnInit {
           {key: 'unproven', value: 'Unproven'}
         ],
         order: 3
-      }),
-      */
+      }),*/
+      
       new TextboxInput({
         key: 'atext',
         label: 'A-Text',
+        type: 'text',
         value: '',
         required: true,
         order: 1

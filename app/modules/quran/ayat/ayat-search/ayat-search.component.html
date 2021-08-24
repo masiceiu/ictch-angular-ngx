@@ -115,13 +115,35 @@
 			</div>-->
 			<div class="flex-child" style="border-top: 0px;">
 				<div class="mt-1">
-				<input type="range" min="2" max="100" [(ngModel)]='rangeFontSize' (change)="onChange($event.target.value,'range')"></div>
+				<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange($event.target.value,'range')"></div>
 			</div>
 			<div class="flex-child" style="border-top: 0px;text-align:right;">
 				<ng-template #popTemplate>
-					Here we go
+					<div class="form-group">
+						<div class="form-check">
+							<input type="checkbox" [(ngModel)]="config.aShow"
+							id="aShow"  class="form-check-input mt-1">
+							<label for="aShow" class="form-check-label">
+								Show Arabic Text
+							</label>
+						</div>
+						<div class="form-check">
+							<input type="checkbox" [(ngModel)]="config.mShow"
+							id="mShow"  class="form-check-input mt-1">
+							<label for="mShow" class="form-check-label">
+								Show {{lang.name}} Text
+							</label>
+						</div>
+						<div class="form-check">
+							<input type="checkbox" [(ngModel)]="config.eShow"
+							id="eShow"  class="form-check-input mt-1">
+							<label for="eShow" class="form-check-label">
+								Show English Text
+							</label>
+						</div>
+					</div>
 				</ng-template>
-				<a href (click)="false" [popover]="popTemplate" popoverTitle="More Search Settings" [outsideClick]="true">
+				<a href (click)="false" [popover]="popTemplate" placement="auto" popoverTitle="More Search Settings" [outsideClick]="true">
 					<small>
 						More <i class="bi bi-caret-down"></i>
 					</small>
@@ -153,8 +175,8 @@
 
 	<input type="range" min="1" max="100" value="5" [(ngModel)]='sad' (change)="onChange($event.target.value,'range')">	-->
 
-		<div class="list-group" *ngIf="1">
-			<div class="list-group-item list-group-item-action flex-column align-items-start">
+		<div class="list-group" *ngIf="0">
+			<div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="0">
 				<div class="d-flex w-100 justify-content-between">
 					<h5 class="mb-1">List group item heading</h5>
 					<small class="text-muted">3 days ago</small>
@@ -174,25 +196,31 @@
 					بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
 				</p>
 				<hr class="hrh" *ngIf="config.mShow">
-				<p class="mtext" *ngIf="config.mShow">শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p>
-				<hr class="hrh">
-				<p class="etext">In the name of Allah, most benevolent, ever-merciful.</p>
+				<p class="mtext" *ngIf="config.mShow" [ngStyle]="{'font-size': config.mFontSize+'px'}">
+				শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p>
+				<hr class="hrh" *ngIf="config.eShow">
+				<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">
+					In the name of Allah, most benevolent, ever-merciful.</p>
 			</a>
 		</div>
 		<div class="list-group">
+			<div class="list-group-item d-flex justify-content-between align-items-center" *ngIf="isSuraSearch && ayatList?.length">
+        <h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{selected.item.name}}, Ayat:&nbsp;{{ayatList?.length}})"</h6>
+        <a routerlink="/" class="badge badge-info badge-pill" style="padding: 10px;">14</a>
+      </div>
 			<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start">
-				<p class="text-center texth">
+				<p class="text-center texth" *ngIf="!isSuraSearch">
 					<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
 				</p>
-				<hr class="hrh">
-				<p class="atext">{{it.atext}}</p>
-				<hr class="hrh" *ngIf="config.aShow">
-				<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search">
+				<hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
+				<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
+				<hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
+				<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow" [ngStyle]="{'font-size': config.mFontSize+'px'}">
 					{{it.mtext}}
 				</p>
-				<hr class="hrh">
-				<p class="etext">{{it.etext}}</p>
+				<hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
+				<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
 			</a>
 			<!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">

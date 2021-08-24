@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   HostListener,
+  Input,
   OnInit
 } from '@angular/core';
 
@@ -12,7 +13,7 @@ import {
   styleUrls: ['./nav-carousel.component.css']
 })
 export class NavCarouselComponent implements OnInit, AfterViewInit {
-  size: any = '';
+  @Input() size: any = '';
   itemsPerSlide = 0;
   constructor(private cdRef: ChangeDetectorRef) { 
     
@@ -58,7 +59,7 @@ export class NavCarouselComponent implements OnInit, AfterViewInit {
         self.size = 'Extra Large';
         self.itemsPerSlide = 10;
       }
-      console.log(log, self.size);
+      //console.log(log, self.size);
     })(this);
   }
   slides = [

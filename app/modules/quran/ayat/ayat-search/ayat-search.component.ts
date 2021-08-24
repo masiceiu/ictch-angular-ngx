@@ -22,7 +22,10 @@ export class AyatSearchComponent implements OnInit {
     mShow:true,//
     eShow:true,//
   };
-  rangeFontSize = 50
+  rangeMin = 0
+  rangeMax = 30
+  rangeDefault = 15
+  rangeFontSize = 15
 
   search: string;
   selected: any = {};
@@ -101,7 +104,7 @@ export class AyatSearchComponent implements OnInit {
         this.translate = data;
         let id = data.id.split('_')[0];
         let item = this.langs.find(it => it.id == id);
-        //console.log('?',item);
+        console.log('?',item);
         this.lang = item;
         break;
       case 'lang':
@@ -117,7 +120,11 @@ export class AyatSearchComponent implements OnInit {
         case 'ayat':
           break;
       case 'range':
-        console.log('range-1:'+ data,'range-2:'+ this.rangeFontSize);
+        let pad = this.rangeFontSize - this.rangeDefault;
+        this.config.aFontSize = 30 + pad;
+        this.config.mFontSize = 16 + pad;
+        this.config.eFontSize = 17 + pad;
+        //console.log('range-1:'+ data,'range-2:'+ this.rangeFontSize);
         break;
     }
     /*

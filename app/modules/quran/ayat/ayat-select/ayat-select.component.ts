@@ -44,7 +44,7 @@ export class AyatSelectComponent implements OnInit {
     this.service.getList(data).then(
       res => {
         this.ayatList = res;
-        if (this.ayatList.length) {
+        if (this.ayatList.length | 0) {
           let newItem = this.ayatList[0];
           //currentIndex
           let newIndexId = (newItem.index - 0);

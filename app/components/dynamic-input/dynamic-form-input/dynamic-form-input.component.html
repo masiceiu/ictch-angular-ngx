@@ -1,32 +1,34 @@
-<div [formGroup]="form" [ngSwitch]="input.controlType">
-  <div class="form-group" *ngSwitchCase="'textbox'">
-    <label [attr.for]="input.key" class="col-form-label col-form-label-sm">{{input.label}}</label>
-    <div class="">
-      <input [formControlName]="input.key" [id]="input.key" [type]="input.type" class="form-control form-control-sm">
+<div [formGroup]="form">
+  <ng-container [ngSwitch]="input.controlType">
+    <div class="form-group" *ngSwitchCase="'textbox'">
+      <label [attr.for]="input.key" class="col-form-label col-form-label-sm">{{input.label}}</label>
+      <div class="">
+        <input [formControlName]="input.key" [id]="input.key" [type]="input.type" class="form-control form-control-sm">
+      </div>
     </div>
-  </div>
-  <div class="form-group" *ngSwitchCase="'dropdown'">
-    <label [attr.for]="input.key" class="col-form-label col-form-label-sm">{{input.label}}</label>
-    <div class="">
-      <select [id]="input.key" [formControlName]="input.key" class="form-control form-control-sm">
+    <div class="form-group" *ngSwitchCase="'dropdown'">
+      <label [attr.for]="input.key" class="col-form-label col-form-label-sm">{{input.label}}</label>
+      <div class="">
+        <select [id]="input.key" [formControlName]="input.key" class="form-control form-control-sm">
         <option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</option>
       </select>
+      </div>
     </div>
-  </div>
-  <div class="form-group" *ngSwitchCase="'checkbox'">
-    <div class="form-check">
-    <input
-    [formControlName]="input.key"
-    [checked]="input['value']"
-    [id]="input.key"
-    (change)="form.controls[input.key].setValue($event.target.checked)"
-    [type]="'checkbox'" class="form-check-input mt-1">
-      <!--
+    <div class="form-group" *ngSwitchCase="'checkbox'">
+      <div class="form-check">
+        <input
+        [formControlName]="input.key"
+        [checked]="input['value']"
+        [id]="input.key"
+        (change)="form.controls[input.key].setValue($event.target.checked)"
+        [type]="'checkbox'" class="form-check-input mt-1">
+        <!--
       <input [formControlName]="input.key" [id]="input.key" [type]="input.type" class="form-check-input mt-1">
       -->
-      <label [attr.for]="input.key" class="form-check-label">{{input.label}}</label>
+        <label [attr.for]="input.key" class="form-check-label">{{input.label}}</label>
+      </div>
     </div>
-  </div>
+  </ng-container>
   <!--<div class="errorMessage" *ngIf="!isValid">{{input.label}} is required</div>-->
 </div>
 <!--<div [formGroup]="form">

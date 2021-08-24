@@ -18,8 +18,11 @@ export class AyatSearchComponent implements OnInit {
     aFontSize:30,//
     mFontSize:16,//
     eFontSize:17,//
+    aShow:true,//
+    mShow:true,//
+    eShow:true,//
   };
-
+  rangeFontSize = 50
 
   search: string;
   selected: any = {};
@@ -111,7 +114,11 @@ export class AyatSearchComponent implements OnInit {
         this.search = '';
         //console.log('?',data);
         break;
-      case 'ayat':
+        case 'ayat':
+          break;
+      case 'range':
+        console.log('range-1:'+ data,'range-2:'+ this.rangeFontSize);
+    
         break;
     }
     /*

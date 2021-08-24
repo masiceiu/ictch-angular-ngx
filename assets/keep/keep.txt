@@ -7,3 +7,9 @@ https://stackblitz.com/edit/angular-github-user-search-sample
 /*ecommerce*/
 https://angular-selvam-ecommerce-task-7pwrxw.stackblitz.io
 https://stackblitz.com/edit/shared-service-shopping-cart-djluyv
+/*button*/
+https://stackblitz.com/edit/button-spinner
+https://stackblitz.com/edit/angular-button-slide
+/*range-slide*/
+https://stackblitz.com/edit/angular-range-slider-ui
+https://stackblitz.com/edit/slider-range-reactive-forms

@@ -31,7 +31,7 @@
 							<!--<app-dynamic-input [showTitle]="false"></app-dynamic-input>-->
 							<app-setting></app-setting>
 						</ng-template>
-							<a href (click)="false" [popover]="popTemplate1" popoverTitle="Dynamic html inside" [outsideClick]="true" placement="auto">	
+							<a href (click)="false" [popover]="popTemplate1" popoverTitle="Serch Settings" [outsideClick]="true" placement="auto" class="w3-spin">	
 								<i class="bi bi-gear"></i>
 							</a>
 						</span>
@@ -79,9 +79,10 @@
 					<ng-container *ngIf="!isSearchLoading">
 						<div class="input-group-append">
 							<button type="button"
-						(click)="onClick($event,'search')"
+							[disabled]="!search"
+							(click)="onClick($event,'search')"
 						class="btn btn-outline-secondary">
-							<i class="bi bi-search"></i>
+						<i class="bi bi-search"></i>
 						</button>
 						</div>
 					</ng-container>
@@ -112,28 +113,15 @@
 			<div class="flex-child" style="border-top: 0px;text-align:right;">
 				<small>Search result : {{ayatList.length}}</small>
 			</div>-->
+			<div class="flex-child" style="border-top: 0px;">
+				<div class="mt-1">
+				<input type="range" min="2" max="100" [(ngModel)]='rangeFontSize' (change)="onChange($event.target.value,'range')"></div>
+			</div>
 			<div class="flex-child" style="border-top: 0px;text-align:right;">
-				<!--<small>
-				Search result <i class="bi bi-caret-down"></i>
-			</small>
-				<span dropdown>
-			<a href id="basic-link" dropdownToggle (click)="false"
-				 aria-controls="basic-link-dropdown">
-				 <small>
-				 More <i class="bi bi-caret-down"></i>
-			 </small>
-				</a>
-			<ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
-					role="menu" aria-labelledby="basic-link">
-				<li *ngFor="let choice of ['items']">
-					<a class="dropdown-item" href="#">{{choice}}</a>
-				</li>
-			</ul>
-		</span>-->
 				<ng-template #popTemplate>
 					Here we go
 				</ng-template>
-				<a href (click)="false" [popover]="popTemplate" popoverTitle="Dynamic html inside" [outsideClick]="true">
+				<a href (click)="false" [popover]="popTemplate" popoverTitle="More Search Settings" [outsideClick]="true">
 					<small>
 						More <i class="bi bi-caret-down"></i>
 					</small>
@@ -157,7 +145,14 @@
 			<p *ngFor="let it of list; let i = index;">
 			{{i+1}}| {{it}}<br>
 			</p>
-		</div>-->
+		</div>
+		<div class="spin-ayat circle">
+			1
+		</div>
+		<p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p>
+
+	<input type="range" min="1" max="100" value="5" [(ngModel)]='sad' (change)="onChange($event.target.value,'range')">	-->
+
 		<div class="list-group" *ngIf="0">
 			<div class="list-group-item list-group-item-action flex-column align-items-start">
 				<div class="d-flex w-100 justify-content-between">
@@ -174,7 +169,7 @@
 						"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;1)"
 					</small>
 				</p>
-				<hr class="hrh">
+				<hr class="hrh" >
 				<p class="atext" [ngStyle]="{'font-size': config.aFontSize+'px'}">
 					بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
 				</p>

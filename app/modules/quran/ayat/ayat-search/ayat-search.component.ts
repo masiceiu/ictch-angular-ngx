@@ -118,7 +118,6 @@ export class AyatSearchComponent implements OnInit {
           break;
       case 'range':
         console.log('range-1:'+ data,'range-2:'+ this.rangeFontSize);
-    
         break;
     }
     /*

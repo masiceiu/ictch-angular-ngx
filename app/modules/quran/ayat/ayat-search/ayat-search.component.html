@@ -153,7 +153,7 @@
 
 	<input type="range" min="1" max="100" value="5" [(ngModel)]='sad' (change)="onChange($event.target.value,'range')">	-->
 
-		<div class="list-group" *ngIf="0">
+		<div class="list-group" *ngIf="1">
 			<div class="list-group-item list-group-item-action flex-column align-items-start">
 				<div class="d-flex w-100 justify-content-between">
 					<h5 class="mb-1">List group item heading</h5>
@@ -169,12 +169,12 @@
 						"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;1)"
 					</small>
 				</p>
-				<hr class="hrh" >
-				<p class="atext" [ngStyle]="{'font-size': config.aFontSize+'px'}">
+				<hr class="hrh" *ngIf="config.mShow">
+				<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">
 					بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
 				</p>
-				<hr class="hrh">
-				<p class="mtext">শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p>
+				<hr class="hrh" *ngIf="config.mShow">
+				<p class="mtext" *ngIf="config.mShow">শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p>
 				<hr class="hrh">
 				<p class="etext">In the name of Allah, most benevolent, ever-merciful.</p>
 			</a>
@@ -187,7 +187,7 @@
 				</p>
 				<hr class="hrh">
 				<p class="atext">{{it.atext}}</p>
-				<hr class="hrh">
+				<hr class="hrh" *ngIf="config.aShow">
 				<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search">
 					{{it.mtext}}
 				</p>

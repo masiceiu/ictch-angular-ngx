@@ -15,7 +15,7 @@
   </div>
   <div class="form-group" *ngSwitchCase="'checkbox'">
     <div class="form-check">
-      <input  [formControl]="form[input.key]" [id]="input.key" [type]="input.type" class="form-check-input mt-1">
+      <input [formControlName]="input.key" [id]="input.key" [type]="input.type" class="form-check-input mt-1">
       <label [attr.for]="input.key" class="form-check-label">{{input.label}}</label>
     </div>
   </div>

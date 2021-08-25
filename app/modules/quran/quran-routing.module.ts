@@ -3,7 +3,7 @@ import { RouterModule, Route } from "@angular/router";
 
 import { QuranComponent } from "./quran.component";
 //import { IlmComponent } from "./ilm/ilm.component";
-import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.component';
+//import { SelectedIlmComponent } from './shared/pages/selected-ilm/selected-ilm.component';
 //import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
 
 const routes: Route[] = [

@@ -22,6 +22,7 @@ import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.modu
 */
 import { QuranComponent } from './quran.component';
 import { QuranRoutingModule } from "./quran-routing.module";
+import { AppStartupModule } from './../../components/app-startup/app-startup.module';
 /*
 //import {} from './components/index';
 //import {} from './pages/index';
@@ -35,6 +36,7 @@ import { ContainerComponent } from './shared/components/container/container.comp
 @NgModule({
   imports: [
     CommonModule,
+    AppStartupModule,
     QuranRoutingModule,
     /*HttpClientModule,
     BrowserAnimationsModule,

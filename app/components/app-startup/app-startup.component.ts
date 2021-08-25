@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-app-startup',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppStartupComponent implements OnInit {
 
+  @Input() title:any="";
   constructor() { }
 
   ngOnInit() {

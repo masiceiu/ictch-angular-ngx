@@ -18,14 +18,14 @@ import { DynamicInputModule } from '../../../../../components/dynamic-input/dyna
     FormsModule,
     ReactiveFormsModule,
     PopoverModule.forRoot(),
-    BsDropdownModule.forRoot(),
+    //BsDropdownModule.forRoot(),
     TypeaheadModule.forRoot(), 
     SharedModule,
     DynamicInputModule
   ],
   exports: [
-    DynamicInputModule,
-    AyatSearchComponent,SettingComponent
+    AyatSearchComponent,
+    SettingComponent
   ],
   declarations: [
     ConfigComponent,

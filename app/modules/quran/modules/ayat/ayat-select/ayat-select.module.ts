@@ -7,10 +7,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { SharedModule } from './../../../shared/shared.module';
 //Component
-import { ConfigComponent } from './config/config.component';
-import { AyatSearchComponent } from './ayat-search.component';
-import { SettingComponent } from './setting/setting.component';
-import { DynamicInputModule } from '../../../../../components/dynamic-input/dynamic-input.module';
+
+import { AyatCardModule } from '../../../shared/components/ayat-card/ayat-card.module';
+import { AyatSelectComponent } from './ayat-select.component';
 
 @NgModule({
   imports: [
@@ -21,16 +20,13 @@ import { DynamicInputModule } from '../../../../../components/dynamic-input/dyna
     BsDropdownModule.forRoot(),
     TypeaheadModule.forRoot(), 
     SharedModule,
-    DynamicInputModule
+    AyatCardModule
   ],
   exports: [
-    DynamicInputModule,
-    AyatSearchComponent,SettingComponent
   ],
   declarations: [
-    ConfigComponent,
-    SettingComponent,
-    AyatSearchComponent,
+    AyatSelectComponent,
   ]
 })
-export class AyatSearchModule { }
+
+export class AyatSelectModule { }

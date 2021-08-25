@@ -3,7 +3,7 @@ import { Observer, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { AyatSearchModel } from './ayat-search.model';
-import { AyatService, GoogleService } from './../.././services';
+import { AyatService, GoogleService } from './../.././../services';
 
 @Component({
   selector: 'app-ayat-search',

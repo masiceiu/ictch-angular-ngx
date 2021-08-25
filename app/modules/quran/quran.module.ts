@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 //import { BrowserModule } from '@angular/platform-browser';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-/**/
-import { SharedModule } from './shared/shared.module';
+/*
+//import { SharedModule } from './shared/shared.module';
 
-import { PopoverModule } from 'ngx-bootstrap/popover';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+//import { PopoverModule } from 'ngx-bootstrap/popover';
+//import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+//import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 
 import { AyatCardModule } from './shared/components/ayat-card/ayat-card.module';
@@ -19,10 +19,10 @@ import { AdviceInQuranModule } from './shared/views/advice-in-quran/advice-in-qu
 import { NavScrollerModule } from './shared/components/nav-scroller/nav-scroller.module';
 
 import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.module';
-
+*/
 import { QuranComponent } from './quran.component';
 import { QuranRoutingModule } from "./quran-routing.module";
-/**/
+/*
 //import {} from './components/index';
 //import {} from './pages/index';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
@@ -30,6 +30,7 @@ import { PopoverComponent } from './shared/popover/popover.component';
 import { FeatureComponent } from './shared/feature/feature.component';
 import { CommonComponent } from './shared/components/common/common.component';
 import { ContainerComponent } from './shared/components/container/container.component';
+*/
 
 @NgModule({
   imports: [
@@ -40,27 +41,27 @@ import { ContainerComponent } from './shared/components/container/container.comp
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,*/
-    SharedModule,
-    PopoverModule.forRoot(),
-    TypeaheadModule.forRoot(),
-    BsDropdownModule.forRoot(),
-    AyatCardModule,
-    AddBtnFixedModule,
-    NavCarouselModule,
-    AdviceInQuranModule,
-    NavScrollerModule,
-    SelectedIlmModule,
+    //SharedModule,
+    //PopoverModule.forRoot(),
+    //TypeaheadModule.forRoot(),
+    //BsDropdownModule.forRoot(),
+    //AyatCardModule,
+    //AddBtnFixedModule,
+    //NavCarouselModule,
+    //AdviceInQuranModule,
+    //NavScrollerModule,
+    //SelectedIlmModule,
   ],
   exports:[
-    SelectedIlmModule
+    //SelectedIlmModule
   ],
   declarations: [
-    QuranComponent,/**/
-    DropdownComponent,
+    QuranComponent,
+    /*DropdownComponent,
     PopoverComponent,
     FeatureComponent,
     CommonComponent,
-    ContainerComponent,
+    ContainerComponent,*/
   ]
 })
 export class QuranModule {

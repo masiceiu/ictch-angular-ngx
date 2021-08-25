@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { InputBase } from './../../../../../components/dynamic-input/input-base';
-import { CheckBoxInput } from './../../../../../components/dynamic-input/input-checkbox';
-import { TextboxInput } from './../../../../../components/dynamic-input/input-textbox';
 import { Observable, of } from 'rxjs';
-import { DropdownInput } from './../../../../../components/dynamic-input/input-dropdown';
+
+import { 
+  InputBase,
+  CheckBoxInput,
+  TextboxInput,
+  DropdownInput
+} from './../../../../../../components/dynamic-input';
+//import { CheckBoxInput } from './../../../../../components/dynamic-input/input-checkbox';
+//import { TextboxInput } from './../../../../../components/dynamic-input/input-textbox';
+//import { DropdownInput } from './../../../../../components/dynamic-input/input-dropdown';
 //import { DynamicInputModule } from components/dynamic-input/dynamic-input.module';
 
 @Component({

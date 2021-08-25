@@ -14,7 +14,7 @@ const routes: Route[] = [
       {
         path: "",//
         loadChildren: () =>
-          import("./ayat/ayat.module").then(m => m.AyatModule),
+          import("./modules/ayat/ayat.module").then(m => m.AyatModule),
         data: {
           feature: "Ayat"
         }
@@ -28,17 +28,17 @@ const routes: Route[] = [
       {
         path: "",//
         loadChildren: () =>
-        import("./ilm/ilm.module").then(m => m.IlmModule),
+        import("./modules/ilm/ilm.module").then(m => m.IlmModule),
         data: {
           feature: "Ilm"
         }
       }
     ]
-  },
+  },/*
   {
     path: 'selectedilms',
     component: SelectedIlmComponent
-  },
+  },*/
   { path: '', redirectTo: 'ayat', pathMatch: 'full' },
 ];
 

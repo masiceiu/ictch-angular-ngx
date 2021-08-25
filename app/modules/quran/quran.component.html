@@ -8,7 +8,7 @@
   <i class="bi bi-alarm"></i>
   <app-container></app-container>
 -->
-<!---->
+  <!---->
   <router-outlet></router-outlet>
 </main>
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
@@ -16,7 +16,32 @@
     <a class="navbar-brand" routerLink="/">Life-Whois</a>
     <!--<app-dropdown></app-dropdown>
     <app-popover></app-popover>
-    <a class="btn btn-success"  routerLink="/quran/ilm">Ilm</a>-->
-    <app-app-startup></app-app-startup>
+    <a class="btn btn-success"  routerLink="/quran/ilm">Ilm</a>
+    <app-app-startup></app-app-startup>-->
+    <div class="btn-group">
+      <ng-template #popTemplate>
+        <nav class="nav flex-column" style="white-space: nowrap;">
+          <a class="nav-link active" routerLink="/" href (click)="false">
+            <i class="fa fa-home"></i>
+            Home
+          </a>
+          <a class="nav-link" routerLink="/quran/ilm" href (click)="false">
+            <i class="fa fa-hand-o-right"></i>
+            Ilm (علم)
+          </a>
+          <!--
+        <a class="nav-link" href (click)="false">Link</a>
+        <a class="nav-link disabled"  href (click)="false">Up-Coming</a>
+        -->
+          <a class="nav-link disabled" href (click)="false">Disabled</a>
+        </nav>
+      </ng-template>
+      <button type="button" class="btn btn-success"
+          [popover]="popTemplate"
+          [popoverTitle]="title"
+          placement="top middle" [outsideClick]="true">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
   </div>
 </nav>

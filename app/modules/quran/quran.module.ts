@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 //import { BrowserModule } from '@angular/platform-browser';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 /*
 //import { SharedModule } from './shared/shared.module';
 
@@ -22,7 +23,8 @@ import { SelectedIlmModule } from './shared/pages/selected-ilm/selected-ilm.modu
 */
 import { QuranComponent } from './quran.component';
 import { QuranRoutingModule } from "./quran-routing.module";
-import { AppStartupModule } from './../../components/app-startup/app-startup.module';
+//import { AppStartupModule } from './../../components/app-startup/app-startup.module';
+//import { AppStartupComponent} from './../../components/app-startup/app-startup.component';
 /*
 //import {} from './components/index';
 //import {} from './pages/index';
@@ -36,15 +38,15 @@ import { ContainerComponent } from './shared/components/container/container.comp
 @NgModule({
   imports: [
     CommonModule,
-    AppStartupModule,
+    //AppStartupModule,
     QuranRoutingModule,
     /*HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,*/
+    PopoverModule.forRoot(),
     //SharedModule,
-    //PopoverModule.forRoot(),
     //TypeaheadModule.forRoot(),
     //BsDropdownModule.forRoot(),
     //AyatCardModule,
@@ -64,6 +66,7 @@ import { ContainerComponent } from './shared/components/container/container.comp
     FeatureComponent,
     CommonComponent,
     ContainerComponent,*/
+    //AppStartupComponent
   ]
 })
 export class QuranModule {

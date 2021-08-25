@@ -204,9 +204,8 @@
 			</a>
 		</div>
 		<div class="list-group">
-			<div class="list-group-item d-flex justify-content-between align-items-center" *ngIf="isSuraSearch && ayatList?.length">
+			<div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">
         <h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{selected.item.name}}, Ayat:&nbsp;{{ayatList?.length}})"</h6>
-        <a routerlink="/" class="badge badge-info badge-pill" style="padding: 10px;">14</a>
       </div>
 			<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start">

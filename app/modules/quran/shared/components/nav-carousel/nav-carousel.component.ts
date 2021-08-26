@@ -62,7 +62,36 @@ export class NavCarouselComponent implements OnInit, AfterViewInit {
       //console.log(log, self.size);
     })(this);
   }
+  
   slides = [
+    {
+      text: 'বাংলা হাদিস',
+      url: 'https://www.hadithbd.com/',
+      image:''
+    },
+    {
+      text: 'ইমাম বাতায়ন',
+      url: 'http://imam.gov.bd/',
+      image:''
+    },
+    {
+      text: 'ইসলাম জিজ্ঞাসা',
+      url: 'https://islamqa.info/bn',
+      image:''
+    },
+    {
+      text: 'TANZIL QURAN',
+      url: 'https://tanzil.net/',
+      image:''
+    },/*
+    {
+      text: 'Islamway',
+      url: 'https://en.islamway.net/',
+      image:''
+    }*/
+  ];
+
+  slides1 = [
     {
       text: 'Item',
       image:

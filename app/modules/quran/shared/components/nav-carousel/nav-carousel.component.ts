@@ -15,11 +15,11 @@ import {
 export class NavCarouselComponent implements OnInit, AfterViewInit {
   @Input() size: any = '';
   itemsPerSlide = 0;
-  constructor(private cdRef: ChangeDetectorRef) { 
-    
+  constructor(private cdRef: ChangeDetectorRef) {
+
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   /*
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -39,50 +39,50 @@ export class NavCarouselComponent implements OnInit, AfterViewInit {
       let res = {
         width: window.innerWidth
       };
+      let len = self.slides.length
       if (res.width < 576) {
         self.size = 'Extra small';
-        self.itemsPerSlide = 3;
+        self.itemsPerSlide = len > 2 ? 2 : len;
       }
       if (res.width >= 576) {
         self.size = 'Small';
-        self.itemsPerSlide = 4;
+        self.itemsPerSlide = len > 3 ? 3 : len;
       }
       if (res.width >= 768) {
         self.size = 'Medium';
-        self.itemsPerSlide = 6;
+        self.itemsPerSlide = len > 5 ? 5 : len;
       }
       if (res.width >= 992) {
         self.size = 'Large';
-        self.itemsPerSlide = 8;
+        self.itemsPerSlide = len > 8 ? 8 : len;
       }
       if (res.width >= 1200) {
         self.size = 'Extra Large';
-        self.itemsPerSlide = 10;
+        self.itemsPerSlide = len > 10 ? 10 : len;
       }
       //console.log(log, self.size);
     })(this);
   }
-  
   slides = [
     {
       text: 'বাংলা হাদিস',
       url: 'https://www.hadithbd.com/',
-      image:''
+      image: ''
     },
     {
       text: 'ইমাম বাতায়ন',
       url: 'http://imam.gov.bd/',
-      image:''
+      image: ''
     },
     {
       text: 'ইসলাম জিজ্ঞাসা',
       url: 'https://islamqa.info/bn',
-      image:''
+      image: ''
     },
     {
       text: 'TANZIL QURAN',
       url: 'https://tanzil.net/',
-      image:''
+      image: ''
     },/*
     {
       text: 'Islamway',

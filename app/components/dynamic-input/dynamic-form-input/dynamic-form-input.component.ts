@@ -12,10 +12,4 @@ export class DynamicFormInputComponent {
   @Input() input!: InputBase<string>;
   @Input() form!: FormGroup;
   get isValid() { return this.form.controls[this.input.key].valid; }
-  /*onChange(key) {
-    let f = this.form.controls[this.input.key];
-    console.log(key,f);
-  }
-  //const rememberLoginControl = new FormControl();
-  get rememberLoginControl() {return new FormControl();}*/
 }

@@ -20,7 +20,7 @@
         [formControlName]="input.key"
         [checked]="input['value']"
         [id]="input.key"
-        (change)="form.controls[input.key].setValue($event.target.checked)"
+        (change)="form.controls[input.key].setValue($event.isTrusted)"
         [type]="'checkbox'" class="form-check-input mt-1">
         <!--
       <input [formControlName]="input.key" [id]="input.key" [type]="input.type" class="form-check-input mt-1">

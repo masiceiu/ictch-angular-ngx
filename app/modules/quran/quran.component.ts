@@ -7,7 +7,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@ang
 })
 export class QuranComponent implements OnInit, AfterViewInit {
 
-  @Input() title="";
+  //title="";
   constructor(private cdRef: ChangeDetectorRef) { 
   }
 

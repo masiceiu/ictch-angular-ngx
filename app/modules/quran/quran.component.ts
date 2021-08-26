@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-quran',
@@ -7,6 +7,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit } fro
 })
 export class QuranComponent implements OnInit, AfterViewInit {
 
+  @Input() title="";
   constructor(private cdRef: ChangeDetectorRef) { 
   }
 

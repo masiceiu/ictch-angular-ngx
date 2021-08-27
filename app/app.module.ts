@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ProfileComponent } from "./pages/profile/profile.component";
 import { PageNotFoundComponent } from './pages/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProfileComponent,
     PageNotFoundComponent
   ],
   imports: [

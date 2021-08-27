@@ -1,10 +1,10 @@
 <ng-container *ngIf="itemsPerSlide">
-  <carousel [itemsPerSlide]="itemsPerSlide" [showIndicators]="false" [singleSlideOffset]="true" [startFromIndex]="0"
-    [interval]="1000">
-    <slide *ngFor="let slide of slides; let index=index">
-      <div class="text-center py-2 bg-dark text-white border-left">
-        <a href="#"> {{slide.text}}</a>
-      </div>
-    </slide>
-  </carousel>
+<carousel [itemsPerSlide]="itemsPerSlide" [showIndicators]="false" [singleSlideOffset]="true" [startFromIndex]="0"
+  [interval]="1000">
+  <slide *ngFor="let slide of slides; let index=index">
+    <div class="text-center py-2 bg-dark text-white border-left">
+      <a href="{{slide.url}}" target="_blank" (click)="true"> {{slide.text}}</a>
+    </div>
+  </slide>
+</carousel>
 </ng-container>

@@ -42,23 +42,23 @@ export class NavCarouselComponent implements OnInit, AfterViewInit {
       let len = self.slides.length
       if (res.width < 576) {
         self.size = 'Extra small';
-        self.itemsPerSlide = len > 2 ? 2 : len;
+        self.itemsPerSlide = len > 1 ? 1 : len;
       }
       if (res.width >= 576) {
         self.size = 'Small';
-        self.itemsPerSlide = len > 3 ? 3 : len;
+        self.itemsPerSlide = len > 2 ? 2 : len;
       }
       if (res.width >= 768) {
         self.size = 'Medium';
-        self.itemsPerSlide = len > 5 ? 5 : len;
+        self.itemsPerSlide = len > 4 ? 4 : len;
       }
       if (res.width >= 992) {
         self.size = 'Large';
-        self.itemsPerSlide = len > 8 ? 8 : len;
+        self.itemsPerSlide = len > 6 ? 6 : len;
       }
       if (res.width >= 1200) {
         self.size = 'Extra Large';
-        self.itemsPerSlide = len > 10 ? 10 : len;
+        self.itemsPerSlide = len > 8 ? 8 : len;
       }
       //console.log(log, self.size);
     })(this);

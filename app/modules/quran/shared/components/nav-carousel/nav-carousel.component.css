@@ -3,3 +3,6 @@ a.left.carousel-control.carousel-control-prev,
 a.right.carousel-control.carousel-control-next{
   width: 6% !important;
 }*/
+.carousel-item {
+  margin-right: 0;
+}

@@ -6,3 +6,9 @@ a.right.carousel-control.carousel-control-next{
 .carousel-item {
   margin-right: 0;
 }
+/*
+:host ::ng-deep a.left.carousel-control.carousel-control-prev,
+:host ::ng-deep a.right.carousel-control.carousel-control-next
+{
+  width: 30px  !important;
+}*/

@@ -23,3 +23,5 @@ https://stackblitz.com/edit/angular-google-maps-demo
     width: 67,
     height: 80
   }
+  /*page-rulers*/
+  https://stackblitz.com/edit/angular-ivy-vw3r1b

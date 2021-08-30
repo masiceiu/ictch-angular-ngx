@@ -13,3 +13,13 @@ https://stackblitz.com/edit/angular-button-slide
 /*range-slide*/
 https://stackblitz.com/edit/angular-range-slider-ui
 https://stackblitz.com/edit/slider-range-reactive-forms
+/*image-map*/
+https://stackblitz.com/edit/angular-image-map
+https://stackblitz.com/edit/angular-google-maps-demo
+{
+    name: 'The Jupiter',
+    x: 195,
+    y: 57,
+    width: 67,
+    height: 80
+  }

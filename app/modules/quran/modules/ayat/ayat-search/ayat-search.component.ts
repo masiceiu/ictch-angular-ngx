@@ -174,23 +174,28 @@ export class AyatSearchComponent implements OnInit {
         break;
       case 'download':
         break;
-        case 'test':
-          this.langs.forEach((it, i) => {
-  
-            //console.log('lang:',it.id);
-            let res = this.googleService.inputTools('a', it.id).then(
-              data => {
-                //console.log(query,this.lang.id,data.length);
-                if (data.length > 1) {
-  
-                } else {
-                  this.list.push(it.id);
-                  //console.log('lang:',this.lang.id);
-                  //return [{ 'index' : 0, 'suggestion' : query }];
-                }
-              });
-          });
-          break;
+      case 'test':
+        this.langs.forEach((it, i) => {
+
+          //console.log('lang:',it.id);
+          let res = this.googleService.inputTools('a', it.id).then(
+            data => {
+              //console.log(query,this.lang.id,data.length);
+              if (data.length > 1) {
+
+              } else {
+                this.list.push(it.id);
+                //console.log('lang:',this.lang.id);
+                //return [{ 'index' : 0, 'suggestion' : query }];
+              }
+            });
+        });
+        break;
+      case 'sura-view'://isSuraSearch
+        if(this.search){
+          this.search = '';
+        }
+        break;
     }
   }
   private setAyatList(req, callBack = null): void {

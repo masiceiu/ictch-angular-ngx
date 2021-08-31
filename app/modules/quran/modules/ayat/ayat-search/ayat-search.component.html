@@ -27,11 +27,11 @@
 							<label class="form-check-label">&nbsp;Sura</label>
 						</div>
 						<span class="input-group-text">
-						<ng-template #popTemplate1>
+						<ng-template #popTemplate0>
 							<!--<app-dynamic-input [showTitle]="false"></app-dynamic-input>-->
 							<app-setting></app-setting>
 						</ng-template>
-							<a href (click)="false" [popover]="popTemplate1" popoverTitle="Serch Settings" [outsideClick]="true" placement="auto" class="w3-spin">	
+							<a href (click)="false" [popover]="popTemplate0" popoverTitle="Serch Settings" [outsideClick]="true" placement="auto" class="w3-spin">	
 								<i class="bi bi-gear"></i>
 							</a>
 						</span>
@@ -45,6 +45,15 @@
 				<div class="input-group input-group-sm">
 					<div class="input-group-append">
 						<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">{{lang.id}}</span>
+						<span class="input-group-text">
+						<ng-template #popTemplate1>
+							<!--<app-dynamic-input [showTitle]="false"></app-dynamic-input>-->
+							<app-setting></app-setting>
+						</ng-template>
+							<a href (click)="false" [popover]="popTemplate1" [outsideClick]="true" placement="auto">	
+							<i class="bi bi-question-circle"></i>
+							</a>
+						</span>
 						<!--
 							<div class="input-group-prepend" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
 							<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false">{{lang.id}}</button>
@@ -74,24 +83,31 @@
 						class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
 					</ng-container>
 					<ng-container *ngIf="isSuraSearch">
-						<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="10"  [typeaheadMinLength]="0" class="form-control" [disabled]='isSearchLoading'  [typeaheadOptionsLimit]="114" aria-describedby="inputGroup-sizing-sm">
+						<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="10"  [typeaheadMinLength]="0" class="form-control" [disabled]='isSearchLoading'  [typeaheadOptionsLimit]="114" aria-describedby="inputGroup-sizing-sm" (click)="onClick($event,'sura-view')">
 					</ng-container>
 					<ng-container *ngIf="!isSearchLoading">
 						<div class="input-group-append">
 							<button type="button"
 							[disabled]="!search"
 							(click)="onClick($event,'search')"
-						class="btn btn-outline-secondary">
+						class="btn btn-outline-secondary" style="padding-right: 38px;padding-left: 38px;">
 						<i class="bi bi-search"></i>
 						</button>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="isSearchLoading">
-						<div class="input-group-append">
+						<!--<div class="input-group-append">
 							<button type="button"
-							class="btn btn-outline-secondary">
+							class="btn btn-outline-secondary" style="padding-right: 38px;padding-left: 38px;">
 							<span class="flags" [ngStyle]="{'background-image': 'url(https://ictcarehome.com/Content/fancybox/fancybox_loading.gif)'}"></span>
 							</button>
+						</div>-->
+						<div class="input-group-append">
+							<span class="input-group-text">
+								<span (click)="false" class="w3-spin" style="padding-right: 30px;padding-left: 30px;">	
+									<i class="bi bi-hourglass-split"></i>
+								</span>
+							</span>
 						</div>
 					</ng-container>
 				</div>
@@ -115,7 +131,8 @@
 			</div>-->
 			<div class="flex-child" style="border-top: 0px;text-align:center;">
 				<div class="mt-1">
-				<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange($event.target.value,'range')"></div>
+					<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange($event.target.value,'range')">
+				</div>
 			</div>
 			<div class="flex-child" style="border-top: 0px;text-align:right;">
 				<ng-template #popTemplate>
@@ -143,7 +160,8 @@
 						</div>
 					</div>
 				</ng-template>
-				<a href (click)="false" [popover]="popTemplate" placement="auto" popoverTitle="More Search Settings" [outsideClick]="true">
+				<a href (click)="false" [popover]="popTemplate" placement="auto" popoverTitle="More Search Settings"
+					[outsideClick]="true">
 					<small>
 						More <i class="bi bi-caret-down"></i>
 					</small>
@@ -197,7 +215,7 @@
 				</p>
 				<hr class="hrh" *ngIf="config.mShow">
 				<p class="mtext" *ngIf="config.mShow" [ngStyle]="{'font-size': config.mFontSize+'px'}">
-				শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p>
+					শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p>
 				<hr class="hrh" *ngIf="config.eShow">
 				<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">
 					In the name of Allah, most benevolent, ever-merciful.</p>
@@ -205,8 +223,8 @@
 		</div>
 		<div class="list-group">
 			<div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">
-        <h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{selected.item.name}}, Ayat:&nbsp;{{ayatList?.length}})"</h6>
-      </div>
+				<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{selected.item.name}}, Ayat:&nbsp;{{ayatList?.length}})"</h6>
+			</div>
 			<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start">
 				<p class="text-center texth" *ngIf="!isSuraSearch">
@@ -215,7 +233,8 @@
 				<hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
 				<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
 				<hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
-				<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow" [ngStyle]="{'font-size': config.mFontSize+'px'}">
+				<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
+					[ngStyle]="{'font-size': config.mFontSize+'px'}">
 					{{it.mtext}}
 				</p>
 				<hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">

@@ -1,6 +1,28 @@
 export class AyatSearchModel {
   //[key: string]: any;
   private data = {};
+  public getConfig():any {
+    return { 
+      ayat:{
+        aFontSize:30,
+        mFontSize:16,
+        eFontSize:17,
+        aShow:true,
+        mShow:true,
+        eShow:true,
+      },
+      tooltip:{
+        lang:"",
+        translation:"",
+        question:"",
+        fontSize:"",
+        searchResult:"",
+        moreSetting:"Search Result View Settings", 
+        suraSearch:"", 
+        search:"",
+      }
+    };
+  }
   public getLangList():any[] {
      //return [];
      return [

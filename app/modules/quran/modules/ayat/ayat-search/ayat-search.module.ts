@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //Module
 import { PopoverModule } from 'ngx-bootstrap/popover';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { SharedModule } from './../../../shared/shared.module';
@@ -18,6 +19,7 @@ import { DynamicInputModule } from '../../../../../components/dynamic-input/dyna
     FormsModule,
     ReactiveFormsModule,
     PopoverModule.forRoot(),
+    TooltipModule.forRoot(),
     //BsDropdownModule.forRoot(),
     TypeaheadModule.forRoot(), 
     SharedModule,

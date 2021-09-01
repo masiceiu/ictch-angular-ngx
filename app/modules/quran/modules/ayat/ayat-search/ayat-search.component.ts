@@ -51,6 +51,8 @@ export class AyatSearchComponent implements OnInit {
 
   }
   ngOnInit() {
+    
+    //this.config = this.ayatSearchModel.getConfig
     let langs = this.ayatSearchModel.getLangList();
     let suras = this.ayatSearchModel.getSuraList();
     let translates = this.ayatSearchModel.getTranslateList();

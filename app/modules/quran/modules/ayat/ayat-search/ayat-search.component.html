@@ -223,7 +223,7 @@
 		</div>
 		<div class="list-group">
 			<div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">
-				<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{selected.item.name}}, Ayat:&nbsp;{{ayatList?.length}})"</h6>
+				<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}}, Ayat:&nbsp;{{ayatList?.length}})"</h6>
 			</div>
 			<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start">
@@ -239,6 +239,12 @@
 				</p>
 				<hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
 				<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
+				<p class="text-center m-0">
+					<a href (click)="false" class="badge badge-secondary badge-pill" routerlink="/" 
+					style="padding: 10px;background-color: #96989a;">
+						{{it.aya}}
+					</a>
+				</p>
 			</a>
 			<!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">

@@ -47,8 +47,11 @@
 						<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">{{lang.id}}</span>
 						<span class="input-group-text">
 						<ng-template #popTemplate1>
-							<!--<app-dynamic-input [showTitle]="false"></app-dynamic-input>-->
-							<app-setting></app-setting>
+								<div class="list-group" *ngFor="let it of ayatList; let i = index;">
+								<a href (click)="false" class="list-group-item list-group-item-action active">
+									Cras justo odio
+								</a>
+							</div>
 						</ng-template>
 							<a href (click)="false" [popover]="popTemplate1" [outsideClick]="true" placement="auto">	
 							<i class="bi bi-question-circle"></i>
@@ -251,8 +254,7 @@
 								<a href="" class="page-link">7</a>
 							</li>
 						</ul>
-						<pagination [totalItems]="35" *ngIf="0"
-						[directionLinks]="false" [(ngModel)]="currentPage" [maxSize]="3">
+						<pagination [totalItems]="35" *ngIf="0" [directionLinks]="false" [(ngModel)]="currentPage" [maxSize]="3">
 						</pagination>
 					</div>
 					<div class="flex-child"></div>

@@ -25,3 +25,7 @@ https://stackblitz.com/edit/angular-google-maps-demo
   }
   /*page-rulers*/
   https://stackblitz.com/edit/angular-ivy-vw3r1b
+
+  https://stackblitz.com/edit/search-list
+  https://stackblitz.com/edit/scroll-list-items-into-view
+  https://stackblitz.com/edit/angular-scroll-to-item-in-list-after-data-is-fetched-from-api

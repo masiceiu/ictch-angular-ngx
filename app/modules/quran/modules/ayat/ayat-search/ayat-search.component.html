@@ -203,7 +203,8 @@
 				<app-dynamic-input></app-dynamic-input>
 			</div>
 
-			<a class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted" routerlink="/">
+			<!--mockup design-->
+			<div class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted" routerlink="/">
 				<p class="text-center ayath">
 					<small>
 						"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;1)"
@@ -219,13 +220,66 @@
 				<hr class="hrh" *ngIf="config.eShow">
 				<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">
 					In the name of Allah, most benevolent, ever-merciful.</p>
-			</a>
+				<div class="flex-parent">
+					<div class="flex-child"></div>
+					<div class="flex-child" style="text-align:center;">
+						<div class="btn-group btn-group-sm" role="group" aria-label="..." *ngIf="0">
+							<button type="button" class="btn btn-secondary">Left</button>
+							<button type="button" class="btn btn-secondary">Middle</button>
+							<button type="button" class="btn btn-secondary">Right</button>
+						</div>
+						<ul class="pagination" *ngIf="0">
+							<li class="pagination-page page-item">
+								<a href="" class="page-link">1</a>
+							</li>
+							<li class="pagination-page page-item">
+								<a href="" class="page-link">2</a>
+							</li>
+							<li class="pagination-page page-item">
+								<a href="" class="page-link">3</a>
+							</li>
+							<li class="pagination-page page-item">
+								<a href="" class="page-link">4</a>
+							</li>
+							<li class="pagination-page page-item active">
+								<a href="" class="page-link">5</a>
+							</li>
+							<li class="pagination-page page-item">
+								<a href="" class="page-link">6</a>
+							</li>
+							<li class="pagination-page page-item">
+								<a href="" class="page-link">7</a>
+							</li>
+						</ul>
+						<pagination [totalItems]="35" *ngIf="0"
+						[directionLinks]="false" [(ngModel)]="currentPage" [maxSize]="3">
+						</pagination>
+					</div>
+					<div class="flex-child"></div>
+				</div>
+				<!--
+				<p class="text-center m-0">
+					<a href (click)="false" class="badge badge-secondary badge-pill" routerlink="/"
+						style="padding: 10px;background-color: #96989a;">
+						{{it.aya}}
+					</a>
+				</p>
+				<div class="flex-parent">
+					<div class="flex-child"></div>
+					<div class="flex-child">
+						<pagination [totalItems]="it.aya-0+35" [directionLinks]="false" [(ngModel)]="currentPage" [maxSize]="3"></pagination>
+					</div>	
+					<div class="flex-child"></div>
+				</div>-->
+			</div>
 		</div>
+		<!--real design-->
 		<div class="list-group">
 			<div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">
-				<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}}, Ayat:&nbsp;{{ayatList?.length}})"</h6>
+				<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
+					Ayat:&nbsp;{{ayatList?.length}})"</h6>
 			</div>
-			<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
+			<div routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start">
 				<p class="text-center texth" *ngIf="!isSuraSearch">
 					<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
@@ -239,13 +293,8 @@
 				</p>
 				<hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
 				<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
-				<p class="text-center m-0">
-					<a href (click)="false" class="badge badge-secondary badge-pill" routerlink="/" 
-					style="padding: 10px;background-color: #96989a;">
-						{{it.aya}}
-					</a>
-				</p>
-			</a>
+
+			</div>
 			<!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 				class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
 				<div class="d-flex w-100 justify-content-between">

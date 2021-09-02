@@ -1,0 +1,276 @@
+<div class="row mt-0">
+<div class="col-12">
+  <div class="flex-parent">
+    <div class="flex-child">
+      <div class="input-group input-group-sm mb-0">
+        <select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')">
+        <option *ngFor="let it of translates" [ngValue]="it">
+          {{it.name}}
+        </option>
+    </select>
+        <!--
+        <div class="input-group-append" dropdown container="body">
+          <button id="button-container" class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-controls="dropdown-container" dropdownToggle>
+          <i class="bi bi-chevron-down"></i>&nbsp;{{translate.name}}
+          </button>
+          <div id="dropdown-container" class="dropdown-menu" aria-labelledby="button-container" *dropdownMenu>
+            <a *ngFor="let it of translates" routerlink="/" (click)="onClick(it, 'translate-item')"
+              class="dropdown-item">
+              {{it.name}}
+            </a>
+          </div>
+        </div>
+        -->
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <input [(ngModel)]="isSuraSearch" (change)="onChange(isSuraSearch,'sura')" type="checkbox" aria-label="Checkbox forinput">
+            <label class="form-check-label">&nbsp;Sura</label>
+          </div>
+          <span class="input-group-text">
+          <ng-template #popTemplate0>
+            <!--<app-dynamic-input [showTitle]="false"></app-dynamic-input>-->
+            <app-setting></app-setting>
+          </ng-template>
+            <a href (click)="false" [popover]="popTemplate0" popoverTitle="Serch Settings" [outsideClick]="true" placement="auto" class="w3-spin">	
+              <i class="bi bi-gear"></i>
+            </a>
+          </span>
+          <!--<span class="input-group-text">0.00</span>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex-parent">
+    <div class="flex-child" style="border-bottom: 0px;">
+      <div class="input-group input-group-sm">
+        <div class="input-group-append">
+          <span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">{{lang.id}}</span>
+          <span class="input-group-text">
+          <ng-template #popTemplate1>
+            <!--<app-dynamic-input [showTitle]="false"></app-dynamic-input>-->
+            <app-setting></app-setting>
+          </ng-template>
+            <a href (click)="false" [popover]="popTemplate1" [outsideClick]="true" placement="auto">	
+            <i class="bi bi-question-circle"></i>
+            </a>
+          </span>
+          <!--
+            <div class="input-group-prepend" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false">{{lang.id}}</button>
+
+          <button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')', 'background-size': 'contain'}">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+          <div class="dropdown-menu" *dropdownMenu>
+            <a class="dropdown-item" *ngFor="let lang of langs" routerlink="/"
+              (click)="onClick(lang, 'iang-item')">
+              <span class="flags" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')'}"></span>
+              {{lang.name}}
+            </a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" routerlink="/">Separated link</a>
+          </div>
+          </div>-->
+        </div>
+        <ng-container *ngIf="!isSuraSearch">
+          <!--[typeaheadMultipleSearch]="true"
+        typeaheadMultipleSearchDelimiters="','"-->
+          <input type="text"
+          [(ngModel)]="search"
+          (typeaheadOnSelect)="onSelect($event)"
+          typeaheadOptionField="suggestion"
+          [typeahead]="suggestions$"
+          [typeaheadAsync]="true"
+          class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
+        </ng-container>
+        <ng-container *ngIf="isSuraSearch">
+          <input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="10"  [typeaheadMinLength]="0" class="form-control" [disabled]='isSearchLoading'  [typeaheadOptionsLimit]="114" aria-describedby="inputGroup-sizing-sm" (click)="onClick($event,'sura-view')">
+        </ng-container>
+        <ng-container *ngIf="!isSearchLoading">
+          <div class="input-group-append">
+            <button type="button"
+            [disabled]="!search"
+            (click)="onClick($event,'search')"
+          class="btn btn-outline-secondary" style="padding-right: 38px;padding-left: 38px;">
+          <i class="bi bi-search"></i>
+          </button>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isSearchLoading">
+          <!--<div class="input-group-append">
+            <button type="button"
+            class="btn btn-outline-secondary" style="padding-right: 38px;padding-left: 38px;">
+            <span class="flags" [ngStyle]="{'background-image': 'url(https://ictcarehome.com/Content/fancybox/fancybox_loading.gif)'}"></span>
+            </button>
+          </div>-->
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <span (click)="false" class="w3-spin" style="padding-right: 30px;padding-left: 30px;">	
+                <i class="bi bi-hourglass-split"></i>
+              </span>
+            </span>
+          </div>
+        </ng-container>
+      </div>
+      <!--<div class="form-group">
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+          </div>
+          <input type="text" class="form-control">
+        </div>
+      </div>-->
+    </div>
+  </div>
+  <div class="flex-parent mb-2">
+    <div class="flex-child" style="border-top: 0px;">
+      <small>Search result : {{ayatList?.length}}</small>
+    </div>
+    <!--
+    <div class="flex-child" style="border-top: 0px;text-align:right;">
+      <small>Search result : {{ayatList.length}}</small>
+    </div>-->
+    <div class="flex-child" style="border-top: 0px;text-align:center;">
+      <div class="mt-1">
+        <input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange($event.target.value,'range')">
+      </div>
+    </div>
+    <div class="flex-child" style="border-top: 0px;text-align:right;">
+      <ng-template #popTemplate>
+        <div class="form-group">
+          <div class="form-check">
+            <input type="checkbox" [(ngModel)]="config.aShow"
+            id="aShow"  class="form-check-input mt-1">
+            <label for="aShow" class="form-check-label">
+              Show Arabic Text
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" [(ngModel)]="config.mShow"
+            id="mShow"  class="form-check-input mt-1">
+            <label for="mShow" class="form-check-label">
+              Show {{lang.name}} Text
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" [(ngModel)]="config.eShow"
+            id="eShow"  class="form-check-input mt-1">
+            <label for="eShow" class="form-check-label">
+              Show English Text
+            </label>
+          </div>
+        </div>
+      </ng-template>
+      <a href (click)="false" [popover]="popTemplate" placement="auto" popoverTitle="More Search Settings"
+        [outsideClick]="true">
+        <small>
+          More <i class="bi bi-caret-down"></i>
+        </small>
+      </a>
+    </div>
+    <!--
+    <div class="flex-child" style="border-top: 0px;text-align:right;">
+      <input type="number" [(ngModel)]="config.aFontSize" />
+    </div>
+    <div class="flex-child" style="border-top: 0px;text-align:right;">
+      <small>Search result : {{ayatList.length}}</small>
+    </div>-->
+  </div>
+  <!--
+  <div>
+    <button type="button"
+        (click)="onClick($event,'test')"
+        class="btn btn-block">
+        search
+        </button>
+    <p *ngFor="let it of list; let i = index;">
+    {{i+1}}| {{it}}<br>
+    </p>
+  </div>
+  <div class="spin-ayat circle">
+    1
+  </div>
+  <p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p>
+
+<input type="range" min="1" max="100" value="5" [(ngModel)]='sad' (change)="onChange($event.target.value,'range')">	-->
+
+  <div class="list-group" *ngIf="0">
+    <div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="0">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <hr>
+      <app-dynamic-input></app-dynamic-input>
+    </div>
+
+    <a class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted" routerlink="/">
+      <p class="text-center ayath">
+        <small>
+          "Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;1)"
+        </small>
+      </p>
+      <hr class="hrh" *ngIf="config.mShow">
+      <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+      </p>
+      <hr class="hrh" *ngIf="config.mShow">
+      <p class="mtext" *ngIf="config.mShow" [ngStyle]="{'font-size': config.mFontSize+'px'}">
+        শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p>
+      <hr class="hrh" *ngIf="config.eShow">
+      <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">
+        In the name of Allah, most benevolent, ever-merciful.</p>
+    </a>
+  </div>
+  <div class="list-group">
+    <div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">
+      <h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}}, Ayat:&nbsp;{{ayatList?.length}})"</h6>
+    </div>
+    <a routerlink="/" *ngFor="let it of ayatList; let i = index;"
+      class="list-group-item list-group-item-action flex-column align-items-start">
+      <p class="text-center texth" *ngIf="!isSuraSearch">
+        <small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
+      </p>
+      <hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
+      <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
+      <hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
+      <p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
+        [ngStyle]="{'font-size': config.mFontSize+'px'}">
+        {{it.mtext}}
+      </p>
+      <hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
+      <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
+      <p class="text-center m-0" *ngIf="isSuraSearch">
+        <a href (click)="false" class="badge badge-secondary badge-pill" routerlink="/" 
+        style="padding: 10px;background-color: #96989a;">
+          {{it.aya}}
+        </a>
+      </p>
+    </a>
+    <!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
+      class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{it.index}}.List group item heading</h5>
+        <small>{{it.aya}}/{{it.sura}} Ayat/Sura</small>
+      </div>
+      <p class="mb-1">{{it.text}}</p>
+      <small>{{it.etext}}</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small class="text-muted">Donec id elit non mi porta.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small class="text-muted">Donec id elit non mi porta.</small>
+    </a>-->
+  </div>
+</div>
+</div>

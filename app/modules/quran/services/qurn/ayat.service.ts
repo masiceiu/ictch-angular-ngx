@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpService} from './../';
+//import {HttpService} from './../index';
+import {HttpService} from '..';
 
 @Injectable({
   providedIn: "root"
@@ -17,5 +18,9 @@ export class AyatService{
     const url = "https://ictcarehome.com/api/qurn/ayat";
     //const url = "https://ictcarehome.com/api/qurn/ayat/1";
     return this.httpService.get(url,data);
+  }
+  public getIndexs(lang:any): Promise<any>{
+    const url = "https://ictcarehome.com/api/qurn/ayat/index/"+lang;
+    return this.httpService.get(url);
   }
 }

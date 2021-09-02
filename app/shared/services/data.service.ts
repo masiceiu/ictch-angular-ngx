@@ -44,8 +44,39 @@ export class DataService {
         }
         return of(items).pipe(delay(500));
     }
-}
+    private apiURL = "https://api.github.com/";
+    public message: string = "Uninitialized";
+    public response;
+   
+    async fetchData() {
+      this.message = "Fetching..";
+      this.response = "";
+      this.response = await this.http
+        .get<any>(this.apiURL)
+        .pipe(delay(1000))
+        .toPromise();
+      this.message = "Fetched";
+    }
+    //this.http.get(`https://api.github.com/users/madhankumar028`)
+    //this.http.get(`https://api.github.com/users/mkumar028`)
 
+    url: string = 'https://api.chucknorris.io/jokes/random';
+    url2: string = 'https://api.spacexdata.com/v2/launches/latest';
+  
+    getData(): Observable<ApiResponse> {
+      return this.http.get<ApiResponse>(this.url);//.retry(3);
+    }
+  
+    getOtherData(): Observable<any> {
+      return this.http.get<any>(this.url2);//.retry(3);
+    }
+}
+export interface ApiResponse {
+  icon_url: string;
+  id: string;
+  url: string;
+  value: string;
+}
 function getMockPeople() {
     return [
         {

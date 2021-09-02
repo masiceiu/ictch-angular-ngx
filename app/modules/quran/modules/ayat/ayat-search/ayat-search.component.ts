@@ -39,6 +39,7 @@ export class AyatSearchComponent implements OnInit {
   lang: any;
   langs: any[] = [];
   ayatList: any[] = [];
+  ayatIndexs: any[] = [];
   translate: any;
   translates: any[] = [];
 
@@ -96,8 +97,10 @@ export class AyatSearchComponent implements OnInit {
             return of([{ 'index' : 0, 'suggestion' : query }]);         
           }
         }else return of([]);
-      })
-    );
+      }));
+    setTimeout((i:any)=>{
+      this.setAyatIndex({});
+    },1000)
   }
 
   onChange(data, switch_on) {
@@ -226,6 +229,26 @@ export class AyatSearchComponent implements OnInit {
       }
     );
   }
+  private setAyatIndex(req, callBack = null): void {
+    let lang = this.translate.id;
+    this.ayatIndexs = [];
+    //this.isSearchLoading = true;
+    this.ayatService.getIndexs(lang).then(
+      res => {
+        this.ayatList = res;
+        if (callBack) {
+          callBack(this);
+        }
+        //this.isSearchLoading = false;
+        //console.log(res);
+      },
+      ex => {
+        //this.isSearchLoading = false;
+        console.log(ex.name /*, ex*/);
+      }
+    );
+  }
+  
 }
 //https://www.concretepage.com/angular-2/angular-2-formgroup-example
 //https://stackoverflow.com/questions/40678206/angular-2-filter-search-list

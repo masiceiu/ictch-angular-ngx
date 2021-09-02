@@ -198,6 +198,13 @@ export class AyatSearchComponent implements OnInit {
           this.search = '';
         }
         break;
+      case 'suggest-item'://suggest Search
+        data.$event.preventDefault()
+        if(this.search){
+          this.search = data.item.text;
+        }
+        data.popover.hide();
+        break;
     }
   }
   private setAyatList(req, callBack = null): void {

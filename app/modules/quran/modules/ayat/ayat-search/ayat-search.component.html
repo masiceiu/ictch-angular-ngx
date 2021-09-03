@@ -49,14 +49,14 @@
 						<ng-template #popTemplate1>
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item" *ngFor="let it of ayatIndexs; let i = index;">
-									<a href (click)="onClick({$event:$event, item:it, popover:pop},'suggest-item')" >{{it.name}}</a>
+									<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
 								</li>
 							</ul>
 						</ng-template>
 							<a href (click)="false" *ngIf="!ayatIndexs.length">
 								<i class="bi bi-question-circle"></i>
 							</a>
-							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true" (onShown)="onShow()" placement="right" *ngIf="ayatIndexs.length">	
+							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="right" *ngIf="ayatIndexs.length" [popoverContext]="context">	
 								<i class="bi bi-question-circle"></i>
 							</a>
 						</span>

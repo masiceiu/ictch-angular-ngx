@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ɵConsole } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren, ɵConsole } from '@angular/core';
 import { Observer, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -150,10 +150,14 @@ export class AyatSearchComponent implements OnInit {
     //console.log($event);
     this.selected = $event;
     //console.log($event.item);
-  }
-  @ViewChild(PopoverDirective) pop?: PopoverDirective;
+  } 
+  context = {
+    message: 'Hello there!'
+  };
+  //@ViewChild(PopoverDirective) pop?: PopoverDirective;
+  @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;
   onShow(): void {
-    console.log(this.pop);
+    //console.log();
     //this.selected = $event;
     //console.log($event.item);
   }
@@ -211,10 +215,26 @@ export class AyatSearchComponent implements OnInit {
         }
         break;
       case 'suggest-item'://suggest Search
-      console.log(data)
+      //console.log(data)
         data.$event.preventDefault()
         this.search = data.item.name;
-        data.popover.hide();
+        //data.popover.hide();
+        //this.pop.show();
+        //console.log(this.pop)
+        //console.log(this.popovers.length)
+        this.popovers.forEach((popover: PopoverDirective) => {
+          if(popover.isOpen){
+            popover.hide();
+          }
+        });
+        this.selected = {
+        header: false,
+        value: data.item.name,
+        item: {
+            index: "0",
+            suggestion: data.item.name
+          }
+        }
         break;
     }
   }

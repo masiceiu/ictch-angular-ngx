@@ -27,9 +27,9 @@ export class AyatSearchComponent implements OnInit {
   rangeDefault = 15
   rangeFontSize = 15
 
-  search: string;
+  search: string="";
   selected: any = {};
-  suggestions$: Observable<any[]>;
+  suggestions$!: any;// Observable<string[]>;
 
   selectedLanguage = {};//'bn_bengali'
   ayatSearchModel = new AyatSearchModel();
@@ -45,6 +45,7 @@ export class AyatSearchComponent implements OnInit {
 
   isSuraSearch = false;
   isSearchLoading = false;
+  currentPage = 2
   constructor(
     private ayatService: AyatService,
     private googleService: GoogleService
@@ -52,8 +53,6 @@ export class AyatSearchComponent implements OnInit {
 
   }
   ngOnInit() {
-    
-    //this.config = this.ayatSearchModel.getConfig
     let langs = this.ayatSearchModel.getLangList();
     let suras = this.ayatSearchModel.getSuraList();
     let translates = this.ayatSearchModel.getTranslateList();
@@ -85,7 +84,7 @@ export class AyatSearchComponent implements OnInit {
                   'suggestion' : res[key] 
                   }));
                 return results;
-              }
+              }else return of([{}]);
             }else {
               console.log('lang:',this.lang.id);
               return [{ 'index' : 0, 'suggestion' : query }];
@@ -97,13 +96,16 @@ export class AyatSearchComponent implements OnInit {
             return of([{ 'index' : 0, 'suggestion' : query }]);         
           }
         }else return of([]);
-      }));
+
+      })
+    );
+    
     setTimeout((i:any)=>{
       this.setAyatIndex({});
     },1000)
   }
 
-  onChange(data, switch_on) {
+  onChange(data:any, switch_on:string) {
     switch (switch_on) {
       case 'translate':
         this.translate = data;
@@ -148,8 +150,8 @@ export class AyatSearchComponent implements OnInit {
     this.selected = $event;
     //console.log($event.item);
   }
-  list=[];
-  onClick(data, switch_on): void {
+  //list=[];
+  onClick(data:any, switch_on:string): void {
     //console.log(this.selected);
     switch (switch_on) {
       case 'search': //আল্লাহ মধু মধুর
@@ -189,7 +191,7 @@ export class AyatSearchComponent implements OnInit {
               if (data.length > 1) {
 
               } else {
-                this.list.push(it.id);
+                //this.list.push(it.id);
                 //console.log('lang:',this.lang.id);
                 //return [{ 'index' : 0, 'suggestion' : query }];
               }
@@ -203,14 +205,12 @@ export class AyatSearchComponent implements OnInit {
         break;
       case 'suggest-item'://suggest Search
         data.$event.preventDefault()
-        if(this.search){
-          this.search = data.item.text;
-        }
+        this.search = data.item.name;
         data.popover.hide();
         break;
     }
   }
-  private setAyatList(req, callBack = null): void {
+  private setAyatList(req:any, callBack:any=null): void {
     //console.log(req);
     this.ayatList = [];
     this.isSearchLoading = true;
@@ -229,13 +229,14 @@ export class AyatSearchComponent implements OnInit {
       }
     );
   }
-  private setAyatIndex(req, callBack = null): void {
+  
+  private setAyatIndex(req:any, callBack:any=null): void {
     let lang = this.translate.id;
     this.ayatIndexs = [];
     //this.isSearchLoading = true;
     this.ayatService.getIndexs(lang).then(
       res => {
-        this.ayatList = res;
+        this.ayatIndexs = res;
         if (callBack) {
           callBack(this);
         }
@@ -248,7 +249,6 @@ export class AyatSearchComponent implements OnInit {
       }
     );
   }
-  
 }
 //https://www.concretepage.com/angular-2/angular-2-formgroup-example
 //https://stackoverflow.com/questions/40678206/angular-2-filter-search-list

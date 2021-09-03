@@ -56,7 +56,7 @@
 							<a href (click)="false" *ngIf="!ayatIndexs.length">
 								<i class="bi bi-question-circle"></i>
 							</a>
-							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true" placement="right" *ngIf="ayatIndexs.length">	
+							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true" (onShown)="onShow()" placement="right" *ngIf="ayatIndexs.length">	
 								<i class="bi bi-question-circle"></i>
 							</a>
 						</span>

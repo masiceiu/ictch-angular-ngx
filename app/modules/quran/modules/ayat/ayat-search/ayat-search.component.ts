@@ -1,9 +1,10 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit, ViewChild, ɵConsole } from '@angular/core';
 import { Observer, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { AyatSearchModel } from './ayat-search.model';
 import { AyatService, GoogleService } from './../.././../services';
+import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
   selector: 'app-ayat-search',
@@ -150,6 +151,12 @@ export class AyatSearchComponent implements OnInit {
     this.selected = $event;
     //console.log($event.item);
   }
+  @ViewChild(PopoverDirective) pop?: PopoverDirective;
+  onShow(): void {
+    console.log(this.pop);
+    //this.selected = $event;
+    //console.log($event.item);
+  }
   //list=[];
   onClick(data:any, switch_on:string): void {
     //console.log(this.selected);
@@ -204,6 +211,7 @@ export class AyatSearchComponent implements OnInit {
         }
         break;
       case 'suggest-item'://suggest Search
+      console.log(data)
         data.$event.preventDefault()
         this.search = data.item.name;
         data.popover.hide();

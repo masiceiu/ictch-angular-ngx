@@ -17,3 +17,25 @@
   padding-bottom: .75rem;
   font-size: .875rem;
 }
+/*
+.scroller {
+  width: 100%;
+  height: 200px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #afb3af;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #afb3af;
+}
+*/

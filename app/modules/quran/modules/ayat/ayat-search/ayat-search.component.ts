@@ -40,7 +40,6 @@ export class AyatSearchComponent implements OnInit {
   lang: any;
   langs: any[] = [];
   ayatList: any[] = [];
-  ayatIndexs: any[] = [];
   translate: any;
   translates: any[] = [];
 
@@ -102,7 +101,10 @@ export class AyatSearchComponent implements OnInit {
     );
     
     setTimeout((i:any)=>{
-      this.setAyatIndex({});
+      this.setAyatIndex({},()=>{
+        //this.ayatIndexs.sort((a, b) => a.name.localeCompare(b.name));
+        this.scrollAyatIndexs = this.ayatIndexs.slice(0, this.takeItem);
+      });
     },1000)
   }
 
@@ -258,6 +260,7 @@ export class AyatSearchComponent implements OnInit {
     );
   }
   
+  ayatIndexs: any[] = [];
   private setAyatIndex(req:any, callBack:any=null): void {
     let lang = this.translate.id;
     this.ayatIndexs = [];
@@ -277,6 +280,25 @@ export class AyatSearchComponent implements OnInit {
       }
     );
   }
+  scrollPage = 1;
+  takeItem = 10;
+  scrollAyatIndexs?: any[];
+  onScrollDown() {
+    setTimeout(() => {
+    const skipItem = this.scrollPage * this.takeItem;
+    const takeItem = (this.scrollPage+1) * this.takeItem;
+    let resItems = this.ayatIndexs.slice(skipItem, takeItem);
+    resItems.forEach((it:any) => {
+      this.scrollAyatIndexs.push(it);
+    });
+    /console.log('scrolled!!',skipItem,takeItem,this.scrollPage,this.scrollAyatIndexs, this.ayatIndexs.length);
+    //this.scrollAyatIndexs = this.ayatIndexs.slice(skipItem, takeItem+1);
+    //console.log('scrolled!!',this.scrollAyatIndexs);
+    this.scrollPage++;
+    },100);
+  }
+  //this.contentArray = this.contentArray.map((v: string, i: number) => `Content line ${i + 1}`);
+  //this.returnedArray = this.contentArray.slice(0, 10);
 }
 //https://www.concretepage.com/angular-2/angular-2-formgroup-example
 //https://stackoverflow.com/questions/40678206/angular-2-filter-search-list

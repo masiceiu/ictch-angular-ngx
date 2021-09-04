@@ -21,6 +21,7 @@
     "jquery": "3.6.0",
     "ngx-bootstrap": "6.2.0",
     "ngx-datatable": "1.0.3",
+    "ngx-infinite-scroll": "^10.0.1",
     "popper.js": "1.16.1",
     "rxjs": "^7.2.0",
     "save": "2.4.0",

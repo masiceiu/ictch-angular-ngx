@@ -47,16 +47,24 @@
 						<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">{{lang.id}}</span>
 						<span class="input-group-text">
 						<ng-template #popTemplate1>
+						<div class="scroller"
+							infinite-scroll
+							[infiniteScrollDistance]="1"
+							[infiniteScrollThrottle]="20"
+							[scrollWindow]="false"
+							(scrolled)="onScrollDown()"
+							>
 							<ul class="list-group list-group-flush">
-								<li class="list-group-item" *ngFor="let it of ayatIndexs; let i = index;">
-									<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
+								<li class="list-group-item" *ngFor="let it of scrollAyatIndexs; let i = index;">
+									<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.id}}.{{it.name}}</a>
 								</li>
 							</ul>
+						</div>
 						</ng-template>
-							<a href (click)="false" *ngIf="!ayatIndexs.length">
+							<a href (click)="false" *ngIf="!ayatIndexs.length" class="spin">
 								<i class="bi bi-question-circle"></i>
 							</a>
-							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="right" *ngIf="ayatIndexs.length" [popoverContext]="context">	
+							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="bottom" *ngIf="ayatIndexs.length" [popoverContext]="context">	
 								<i class="bi bi-question-circle"></i>
 							</a>
 						</span>
@@ -89,10 +97,10 @@
 						class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
 					</ng-container>
 					<ng-container *ngIf="isSuraSearch">
-						<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"       
-						typeaheadOptionField="name" [typeaheadScrollable]="true" 
-						[typeaheadOptionsInScrollableView]="10"  [typeaheadMinLength]="0" class="form-control" 
-						[disabled]='isSearchLoading'  [typeaheadOptionsLimit]="114" 
+						<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"
+						typeaheadOptionField="name" [typeaheadScrollable]="true"
+						[typeaheadOptionsInScrollableView]="10"  [typeaheadMinLength]="0" class="form-control"
+						[disabled]='isSearchLoading'  [typeaheadOptionsLimit]="114"
 						aria-describedby="inputGroup-sizing-sm" (click)="onClick($event,'sura-view')">
 					</ng-container>
 					<ng-container *ngIf="!isSearchLoading">

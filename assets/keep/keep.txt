@@ -27,7 +27,13 @@ https://stackblitz.com/edit/angular-google-maps-demo
   https://stackblitz.com/edit/angular-ivy-vw3r1b
 
   https://stackblitz.com/edit/search-list
+   /*scroll*/
+   https://stackblitz.com/edit/ngx-infinite-scroll
+  https://stackblitz.com/edit/ngx-perfect-scrollbar
+  https://stackblitz.com/edit/scroll-active-scroll
+  https://stackblitz.com/edit/angular-custom-scroll
   https://stackblitz.com/edit/scroll-list-items-into-view
+  https://stackblitz.com/edit/angular-scroll-to-bottom-load-more-items
   https://stackblitz.com/edit/angular-scroll-to-item-in-list-after-data-is-fetched-from-api
  /*Popover*/
   @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;

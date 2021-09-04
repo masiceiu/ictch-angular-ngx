@@ -7,6 +7,8 @@ import { PopoverModule } from 'ngx-bootstrap/popover';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import { SharedModule } from './../../../shared/shared.module';
 //Component
 import { ConfigComponent } from './config/config.component';
@@ -25,7 +27,8 @@ import { DynamicInputModule } from '../../../../../components/dynamic-input/dyna
     //BsDropdownModule.forRoot(),
     TypeaheadModule.forRoot(), 
     SharedModule,
-    DynamicInputModule
+    DynamicInputModule, 
+    InfiniteScrollModule
   ],
   exports: [
     AyatSearchComponent,

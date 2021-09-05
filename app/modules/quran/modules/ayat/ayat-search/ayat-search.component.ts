@@ -102,7 +102,7 @@ export class AyatSearchComponent implements OnInit {
     
     setTimeout((i:any)=>{
       this.setAyatIndex({},()=>{
-        //this.ayatIndexs.sort((a, b) => a.name.localeCompare(b.name));
+        this.ayatIndexs.sort((a, b) => a.name.localeCompare(b.name));
         this.scrollAyatIndexs = this.ayatIndexs.slice(0, this.takeItem);
       });
     },1000)
@@ -153,9 +153,6 @@ export class AyatSearchComponent implements OnInit {
     this.selected = $event;
     //console.log($event.item);
   } 
-  context = {
-    message: 'Hello there!'
-  };
   //@ViewChild(PopoverDirective) pop?: PopoverDirective;
   @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;
   onShow(): void {
@@ -282,7 +279,7 @@ export class AyatSearchComponent implements OnInit {
   }
   scrollPage = 1;
   takeItem = 10;
-  scrollAyatIndexs?: any[];
+  scrollAyatIndexs: any[] = [];
   onScrollDown() {
     setTimeout(() => {
     const skipItem = this.scrollPage * this.takeItem;
@@ -291,7 +288,7 @@ export class AyatSearchComponent implements OnInit {
     resItems.forEach((it:any) => {
       this.scrollAyatIndexs.push(it);
     });
-    /console.log('scrolled!!',skipItem,takeItem,this.scrollPage,this.scrollAyatIndexs, this.ayatIndexs.length);
+    //console.log('scrolled!!',skipItem,takeItem,this.scrollPage,this.scrollAyatIndexs, this.ayatIndexs.length);
     //this.scrollAyatIndexs = this.ayatIndexs.slice(skipItem, takeItem+1);
     //console.log('scrolled!!',this.scrollAyatIndexs);
     this.scrollPage++;

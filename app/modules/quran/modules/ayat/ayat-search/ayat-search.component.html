@@ -45,45 +45,6 @@
 				<div class="input-group input-group-sm">
 					<div class="input-group-append">
 						<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">{{lang.id}}</span>
-						<span class="input-group-text">
-						<ng-template #popTemplate1>
-						<div class="scroller"
-							infinite-scroll
-							[infiniteScrollDistance]="1"
-							[infiniteScrollThrottle]="20"
-							[scrollWindow]="false"
-							(scrolled)="onScrollDown()"
-							>
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item" *ngFor="let it of scrollAyatIndexs; let i = index;">
-									<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.id}}.{{it.name}}</a>
-								</li>
-							</ul>
-						</div>
-						</ng-template>
-							<a href (click)="false" *ngIf="!ayatIndexs.length" class="spin">
-								<i class="bi bi-question-circle"></i>
-							</a>
-							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="bottom" *ngIf="ayatIndexs.length" [popoverContext]="context">	
-								<i class="bi bi-question-circle"></i>
-							</a>
-						</span>
-						<!--
-							<div class="input-group-prepend" dropdown #dropdown="bs-dropdown" (isOpenChange)="onOpenChange($event)">
-							<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false">{{lang.id}}</button>
-
-						<button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" dropdownToggle aria-expanded="false" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')', 'background-size': 'contain'}">&nbsp;&nbsp;&nbsp;&nbsp;</button>
-
-						<div class="dropdown-menu" *dropdownMenu>
-							<a class="dropdown-item" *ngFor="let lang of langs" routerlink="/"
-								(click)="onClick(lang, 'iang-item')">
-								<span class="flags" [ngStyle]="{'background-image': 'url(' + lang.imageUrl + ')'}"></span>
-								{{lang.name}}
-							</a>
-							<div role="separator" class="dropdown-divider"></div>
-							<a class="dropdown-item" routerlink="/">Separated link</a>
-						</div>
-						</div>-->
 					</div>
 					<ng-container *ngIf="!isSuraSearch">
 						<!--[typeaheadMultipleSearch]="true"
@@ -105,10 +66,34 @@
 					</ng-container>
 					<ng-container *ngIf="!isSearchLoading">
 						<div class="input-group-append">
+								<span class="input-group-text">
+						<ng-template #popTemplate1><!--
+						<div class="scroller"
+							<!--infinite-scroll
+							[infiniteScrollDistance]="1"
+							[infiniteScrollThrottle]="20"
+							[scrollWindow]="false"
+							(scrolled)="onScrollDown()"
+							>-->
+							<div class="scroller">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item" *ngFor="let it of ayatIndexs; let i = index;">
+									<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
+								</li>
+							</ul>
+						</div>
+						</ng-template>
+							<a href (click)="false" *ngIf="!ayatIndexs.length" class="w3-spin">
+								<i class="bi bi-question-circle"></i>
+							</a>
+							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="bottom" *ngIf="ayatIndexs.length">	
+								<i class="bi bi-info-circle"></i>
+							</a>
+						</span>
 							<button type="button"
 							[disabled]="!search"
 							(click)="onClick($event,'search')"
-						class="btn btn-outline-secondary" style="padding-right: 38px;padding-left: 38px;">
+						class="btn btn-outline-secondary" style="padding-right: 24px;padding-left: 24px;">
 						<i class="bi bi-search"></i>
 						</button>
 						</div>
@@ -149,7 +134,7 @@
 			</div>-->
 			<div class="flex-child" style="border-top: 0px;text-align:center;">
 				<div class="mt-1">
-					<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange($event.target.value,'range')">
+				<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange(rangeFontSize,'range')">
 				</div>
 			</div>
 			<div class="flex-child" style="border-top: 0px;text-align:right;">

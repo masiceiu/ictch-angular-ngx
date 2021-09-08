@@ -51,3 +51,6 @@ https://www.w3schools.com/css/css_positioning.asp
 https://stackblitz.com/edit/hide-show-list-item-in-ngfor-angular-6-7
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav_buttons
 https://stackblitz.com/edit/how-to-hide-navigation-side-bar-in-login-page-in-angular-4-proj
+
+arrows
+https://stackblitz.com/edit/animated-arrows-button

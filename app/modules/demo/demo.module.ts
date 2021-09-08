@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { CssModule } from './css/css.module';
+
 import { DemoRoutingModule } from './demo-routing.module';
 import { DemoComponent } from './demo.component';
 
@@ -11,7 +13,8 @@ import { DemoComponent } from './demo.component';
   ],
   imports: [
     CommonModule,
-    DemoRoutingModule
+    DemoRoutingModule,
+    CssModule
   ]
 })
 export class DemoModule { }

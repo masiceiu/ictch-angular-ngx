@@ -5,7 +5,7 @@ a.left.carousel-control.carousel-control-prev,
 a.right.carousel-control.carousel-control-next{
   width: 30px  !important;
 }
-
+/*
 .arrowL:after {
 	content: '';
 	display: block;  
@@ -33,3 +33,4 @@ a.right.carousel-control.carousel-control-next{
 	border-bottom: 0 solid transparent;
 	border-left: 100px solid transparent;
 }
+*/

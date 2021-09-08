@@ -1,7 +1,9 @@
 <app-advice *ngIf="false"></app-advice>
+
+
 <!--<i class="bi bi-chevron-compact-left"></i>-->
 <!-- The social media icon bar -->
-<div class="icon-bar">
+<div class="icon-bar" *ngIf="content">
 <a href="#" class="facebook"><i class="fa fa-facebook"></i></a> 
 <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
 <a href="#" class="google"><i class="fa fa-google"></i></a> 
@@ -9,7 +11,7 @@
 <a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
 </div>
 
-<div class="content" *ngIf="false">
+<div class="content" *ngIf="content">
 <h3>Sticky Social Bar</h3>
 <p>The sticky social bar will stick to the screen when you scroll.</p>
 <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
@@ -20,20 +22,22 @@
 <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
 <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
 </div>
-<div id="sidebar" class="col-xs-6 col-sm-3 col-md-2 sidebar-offcanvas <!--collapse in-->" role="navigation" style="display: block;">
-<div class="list-group">
-            <a href="http://ictcarehome.com/index.php/generation" class="list-group-item  arrowL active">Generation</a>
-  <a href="http://ictcarehome.com/index.php/search" class="list-group-item ">Search</a>
-  <a href="http://ictcarehome.com/index.php/security/domain" class="list-group-item ">Saved Password</a>                     
-          </div>
-</div>
 
-<div id="app">
-<h1>Plot Arrow With Css</h1>
-</div>
+
 
 <div class="arrow">
 <div class="start"></div>
 <div class="line"></div>
 <div class="end"></div>
+</div>
+
+
+<div class="list-group" *ngIf="content">
+<a href="http://ictcarehome.com/index.php/generation" class="list-group-item  arrowL active">Generation</a>
+<a href="http://ictcarehome.com/index.php/search" class="list-group-item ">Search</a>
+<a href="http://ictcarehome.com/index.php/security/domain" class="list-group-item ">Saved Password</a>                     
+</div>
+<hr/>
+<div>
+        <a href class="arrowL" style="position: relative;"></a>
 </div>

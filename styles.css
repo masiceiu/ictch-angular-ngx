@@ -5,3 +5,31 @@ a.left.carousel-control.carousel-control-prev,
 a.right.carousel-control.carousel-control-next{
   width: 30px  !important;
 }
+
+.arrowL:after {
+	content: '';
+	display: block;  
+	position: absolute;
+	right: 100%;
+	top: 50%;
+	margin-top: -13px;
+	width: 0;
+	height: 0;
+	border-top: 13px solid transparent;
+	border-right: 10px solid #007bff;
+	border-bottom: 13px solid transparent;
+	border-left: 10px solid transparent;
+}
+.arrowB:after {
+	content: '';
+	display: block;  
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 0;
+	height: 0;
+	border-top: 20px solid darkcyan;
+	border-right: 100px solid transparent;
+	border-bottom: 0 solid transparent;
+	border-left: 100px solid transparent;
+}

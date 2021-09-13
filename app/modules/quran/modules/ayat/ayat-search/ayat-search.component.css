@@ -89,18 +89,15 @@
   overflow-y: scroll;
 }
 
-/* width */
+/**/
 ::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #eee;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #828682;
 }
-/*end scroller*/

@@ -9,14 +9,21 @@ const routes: Route[] = [
     path: 'quran', 
     loadChildren: () =>import("./modules/quran/quran.module").then(m => m.QuranModule),
     data: {
-      title: "quran"
+      title: "Q'uran"
     }
   },
   {
     path: 'demo', 
     loadChildren: () =>import("./modules/demo/demo.module").then(m => m.DemoModule),
     data: {
-      title: "demo"
+      title: "Demo"
+    }
+  },
+  {
+    path: 'contact', 
+    loadChildren: () =>import("./pages/contact/contact.module").then(m => m.ContactModule),
+    data: {
+      title: "Contact"
     }
   },
   { path: 'profile', component: ProfileComponent},

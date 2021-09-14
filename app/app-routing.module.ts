@@ -6,6 +6,13 @@ import { ProfileComponent } from "./pages/profile/profile.component";
 import { PageNotFoundComponent } from "./pages/page-not-found.component";
 const routes: Route[] = [
   {
+    path: 'admin', 
+    loadChildren: () =>import("./modules/admin/admin.module").then(m => m.AdminModule),
+    data: {
+      title: "Admin"
+    }
+  },
+  {
     path: 'quran', 
     loadChildren: () =>import("./modules/quran/quran.module").then(m => m.QuranModule),
     data: {

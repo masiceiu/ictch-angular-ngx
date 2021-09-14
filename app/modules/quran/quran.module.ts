@@ -30,10 +30,11 @@ import { QuranRoutingModule } from "./quran-routing.module";
 //import {} from './pages/index';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { PopoverComponent } from './shared/popover/popover.component';
-import { FeatureComponent } from './shared/feature/feature.component';
 import { CommonComponent } from './shared/components/common/common.component';
 import { ContainerComponent } from './shared/components/container/container.component';
-*/
+*/;
+import { FeatureComponent } from './shared/feature/feature.component';
+import { PopoverComponent } from './shared/popover/popover.component';
 
 @NgModule({
   imports: [
@@ -61,9 +62,9 @@ import { ContainerComponent } from './shared/components/container/container.comp
   ],
   declarations: [
     QuranComponent,
-    /*DropdownComponent,
     PopoverComponent,
     FeatureComponent,
+    /*DropdownComponent,
     CommonComponent,
     ContainerComponent,*/
     //AppStartupComponent

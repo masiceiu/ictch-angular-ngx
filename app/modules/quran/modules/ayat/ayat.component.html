@@ -1,8 +1,8 @@
 <app-nav-carousel></app-nav-carousel>
 <app-ayat-search *ngIf="true"></app-ayat-search>
 <!---->
-<div>
-<a href="#" (click)="false" class="text-decoration-none">
+<div style="border:1px solid green">
+<a href="#" (click)="onShow($event)" class="text-decoration-none" style="position: absolute;right: 0px; border:1px solid red">
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
     class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
     <path fill-rule="evenodd"
@@ -10,6 +10,8 @@
     </path>
   </svg>
 </a>
+<div style="border:1px solid yellow; min-height: 60vh;" *ngIf="show">
+</div>
 </div>
 
 <!--<app-ayat-search *ngIf="true"></app-ayat-search>

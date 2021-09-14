@@ -34,7 +34,7 @@ const routes: Route[] = [
     }
   },
   { path: 'profile', component: ProfileComponent},
-  { path: '', redirectTo: 'demo', pathMatch: 'full' },
+  { path: '', redirectTo: 'quran', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent}
 ];
 

@@ -1,0 +1,37 @@
+<div id="analyticsContainer" class="shown">
+  <div id="analyticsReminder">
+      <button id="popupUserConsentButton" type="button" aria-label="Popup User Consent" onclick="AnalyticsConsentBanner.toggle();">
+          <div class="analytics-icon" aria-hidden="true">
+              <svg class="analytics-icon-arrow" viewBox="0 0 512 512">
+                  <use xlink:href="#analytics-icon-arrow"></use>
+              </svg>
+          </div>
+      </button>
+  </div>
+  
+  <div id="userConsentContainer" class="consentContainer">
+      <button type="button" id="closeConsentContainer" aria-label="Close User Consent" class="closeConsent" onclick="AnalyticsConsentBanner.toggle();">×</button>
+      <div id="userConsentQuestion" class="consentDefault">
+          <div class="row">
+              <div class="col-sm-9">
+                  <p>cPanel, L.L.C. uses Interface Analytics to help us understand how our customers use cPanel &amp; WHM. We take your privacy very seriously, and you can stop data collection at any time. <a target="analytics" href="https://go.cpanel.net/analytics">Find out more about Interface Analytics.</a></p>
+                  <p>Will you allow Interface Analytics data collection for your account?</p>
+              </div>
+              <div class="col-sm-3">
+                  <div>
+                  <label>
+                      <input type="radio" id="analyticsAllowConsent" name="analyticsConsentOption" value="on" onclick="AnalyticsConsentBanner.approve()">
+                      Allow
+                  </label>
+                  </div>
+                  <div>
+                  <label>
+                      <input type="radio" id="analyticsDenyConsent" name="analyticsConsentOption" value="off" onclick="AnalyticsConsentBanner.deny()">
+                      Deny
+                  </label>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>

@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-toggler.component.css']
 })
 export class SideTogglerComponent implements OnInit {
-
+  toggler:boolean = true;
   constructor() { }
 
   ngOnInit() {
   }
+  toggle(){
+    this.toggler = !this.toggler;
+  }
+  //analyticsContainer = document.getElementById("analyticsContainer");
 /*
   (function() {
     var ConsentBanner = (function() {

@@ -1,6 +1,7 @@
-<div id="analyticsContainer" class="shown">
+<div id="analyticsContainer" class="shown" 
+[ngClass]="toggler?'shown':'peek'">
   <div id="analyticsReminder">
-      <button id="popupUserConsentButton" type="button" aria-label="Popup User Consent" onclick="AnalyticsConsentBanner.toggle();">
+      <button id="popupUserConsentButton" type="button" aria-label="Popup User Consent" (click)="toggle()">
           <div class="analytics-icon" aria-hidden="true">
               <svg class="analytics-icon-arrow" viewBox="0 0 512 512">
                   <use xlink:href="#analytics-icon-arrow"></use>
@@ -10,7 +11,7 @@
   </div>
   
   <div id="userConsentContainer" class="consentContainer">
-      <button type="button" id="closeConsentContainer" aria-label="Close User Consent" class="closeConsent" onclick="AnalyticsConsentBanner.toggle();">×</button>
+      <button type="button" id="closeConsentContainer" aria-label="Close User Consent" class="closeConsent" (click)="toggle()">×</button>
       <div id="userConsentQuestion" class="consentDefault">
           <div class="row">
               <div class="col-sm-9">

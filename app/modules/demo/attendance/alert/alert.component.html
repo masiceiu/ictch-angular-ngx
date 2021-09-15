@@ -1,0 +1,18 @@
+<div *ngIf="isShow" class="wrapper">
+<div class="wrapper__inner" [ngClass]="{'success': isSuccess, 'fail': !isSuccess}">
+  <div class="info">
+    <span *ngIf="isSuccess">Registro correcto</span>
+  </div>
+  <div class="grid">
+    <div>
+      <span
+        [ngClass]="{'message': true, 'success': isSuccess, 'fail': !isSuccess}"
+      ></span>
+      <span *ngIf="isSuccess">Juan Perez Salgado</span>
+      <span *ngIf="!isSuccess">No hemos podido registrar tus datos</span>
+      <div class="explaned-error" *ngIf="!isSuccess">Ha ocurrido un error, inténtelo nuevamente. Si el problema persiste contacte con su administrador.</div>
+    </div>
+    <div *ngIf="isSuccess">9:00 AM</div>
+  </div>
+</div>
+</div>

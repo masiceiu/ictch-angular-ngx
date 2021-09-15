@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 't1',
     component: SideTogglerComponent
   },
-  { path: '', redirectTo: 'css', pathMatch: 'full' }
+  { path: '', redirectTo: 't1', pathMatch: 'full' }
 ];
 
 @NgModule({

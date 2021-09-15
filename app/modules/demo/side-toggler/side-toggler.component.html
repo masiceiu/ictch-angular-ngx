@@ -1,4 +1,4 @@
-<div id="analyticsContainer" class="shown" 
+<div id="analyticsContainer" class="toggler" 
 [ngClass]="toggler?'shown':'peek'">
   <div id="analyticsReminder">
       <button id="popupUserConsentButton" type="button" aria-label="Popup User Consent" (click)="toggle()">
@@ -21,13 +21,13 @@
               <div class="col-sm-3">
                   <div>
                   <label>
-                      <input type="radio" id="analyticsAllowConsent" name="analyticsConsentOption" value="on" onclick="AnalyticsConsentBanner.approve()">
+                      <input type="radio" id="analyticsAllowConsent" name="analyticsConsentOption" value="on" >
                       Allow
                   </label>
                   </div>
                   <div>
                   <label>
-                      <input type="radio" id="analyticsDenyConsent" name="analyticsConsentOption" value="off" onclick="AnalyticsConsentBanner.deny()">
+                      <input type="radio" id="analyticsDenyConsent" name="analyticsConsentOption" value="off">
                       Deny
                   </label>
                   </div>

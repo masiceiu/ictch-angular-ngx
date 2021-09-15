@@ -11,5 +11,7 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
+//https://stackblitz.com/edit/angular-moment-example
+//https://stackblitz.com/edit/angular-attendance-mock
+//https://stackblitz.com/edit/employee-list

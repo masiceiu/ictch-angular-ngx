@@ -3,7 +3,7 @@ import moment, { Moment } from 'moment';
 import { TrackingService } from '../tracking.service';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-employee-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

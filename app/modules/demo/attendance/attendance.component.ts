@@ -4,7 +4,7 @@ const BATCHATTENDANCE: BatchMonthlyAttendance[] = [{
   Name: 'Sampatkumar Dixit',
   Attendance: [
     {
-      date: new Date(2017, 10, 2),
+      date: new Date(new Date().getFullYear(), new Date().getMonth()+1, 1),
       IsPresent: true,
       NoAttendance:false,
     }
@@ -15,7 +15,7 @@ const BATCHATTENDANCE: BatchMonthlyAttendance[] = [{
   Name:'Sachin Ramesh Tendulkar',
   Attendance:[
     {
-      date:new Date(2017,10,10),
+      date:new Date(new Date().getFullYear(),new Date().getMonth()+1,1),
       IsPresent:false,
       NoAttendance:false,
     }
@@ -34,22 +34,26 @@ export class AttendanceComponent implements OnInit {
   daysInMonth: Date[];
 
   constructor() {
-    this.yearmonth = new Date().getFullYear().toString() + '-' + (new Date().getMonth() + 1).toString();
+    
+    this.yearmonth = new Date().getFullYear().toString() + '-' + (new Date().getMonth()+1).toString();
+    //console.log("YearMonth=>",this.yearmonth);
     this.daysInMonth = new Array<Date>();
     this.getBatchAttendance();
     this.updateDaysInMonth();
 
-    console.log("YearMonth=>",this.yearmonth);
+    //console.log("YearMonth=>",this.yearmonth);
   }
 
+  ngOnInit() {
+  }
   getBatchAttendance() {  //this will call the http get service to get the attendance details from the DB
     this.batchMontlyAttendance = BATCHATTENDANCE;
   }
 
   monthChanged() {
     
-    console.log("YearMonth=>",this.yearmonth);
-    //this.updateDaysInMonth();
+    //console.log("YearMonth=>",this.yearmonth);
+    this.updateDaysInMonth();
 
   }
 
@@ -57,10 +61,12 @@ export class AttendanceComponent implements OnInit {
     let splitStr = this.yearmonth.split('-');
     let year = parseInt(splitStr[0]);
     let month = parseInt(splitStr[1]);
-    var date = new Date(year, month - 1, 1);
+    var date = new Date(year, month-1, 1);
+    //console.log(date.getMonth(),this.daysInMonth);
     while (date.getMonth() + 1 === month) {
-      this.daysInMonth.push(new Date(date));
       date.setDate(date.getDate() + 1);
+      //console.log(date,date);
+      this.daysInMonth.push(new Date(date));
     }
 
     this.updateBatchAttendance();
@@ -73,15 +79,17 @@ export class AttendanceComponent implements OnInit {
       /*
      this.batchMontlyAttendance[i].Attendance = _.orderBy(this.batchMontlyAttendance[i].Attendance,['date'],['asc']);*/
     }
-    console.log("MontOf=>",date);
+    //console.log("MontOf=>",date);
+    //console.log("DaysInMonth=>",this.daysInMonth);
     console.log("MontlyAttendance=>",this.batchMontlyAttendance);
   }
 
   updateBatchAttendance() {
     for (let studentAttendance of this.batchMontlyAttendance) {
+      console.log("studentAttendance=>",studentAttendance.Attendance,this.daysInMonth);
       for (let date of this.daysInMonth) {
         //if studentAttendance.Attendance array's date does not contain the daysInMonth's date then add a new AttendanceInMonth object to batchMonthlyAttendance array with isPreset as null
-
+        //console.log("MontOf=>",date,studentAttendance.Attendance);
         if (studentAttendance.Attendance.filter(e => e.date == date).length <= 0)
         {
           this.batchMontlyAttendance.filter(e => e.StudentID === studentAttendance.StudentID).forEach(it=>it.Attendance.push({date:date,IsPresent:null,NoAttendance:true})); 

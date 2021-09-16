@@ -5,6 +5,9 @@ import { AttendanceComponent } from './attendance.component';
 const routes: Routes = [{
   path: "",
   component: AttendanceComponent
+},{
+  path: "a1",
+  component: AttendanceComponent
 }];
 
 @NgModule({

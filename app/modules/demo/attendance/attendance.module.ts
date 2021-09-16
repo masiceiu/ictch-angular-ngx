@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";
 
 import { AttendanceComponent } from './attendance.component';
 import { AttendanceRoutingModule } from './attendance-routing.module';
@@ -11,7 +12,14 @@ import { AttendanceRoutingModule } from './attendance-routing.module';
     AttendanceRoutingModule
   ],
   declarations: [
-    AttendanceComponent
-  ]
+    AttendanceComponent,
+    EmployeeComponent,
+    AlertComponent,
+    RegisterComponent,
+    EmployeeListComponent,
+    EmployeeCountComponent,
+    TitlePipe
+  ],
+  providers: [TrackingService]
 })
 export class AttendanceModule { }

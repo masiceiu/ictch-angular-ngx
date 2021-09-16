@@ -4,15 +4,15 @@ import { AdminComponent } from './admin.component';
 
 const routes: Routes = [
   {
-    path: "css",
+    path: "dyn",
     //component: ?,
     children:[
       {
         path: "",
         loadChildren: () =>
-        import("./../demo/css/css.module").then(m => m.CssModule),
+        import("./modules/dyn/dyn.module").then(m => m.DynModule),
         data: {
-          feature: "CSS"
+          feature: "Dyn"
         }
       }
     ]

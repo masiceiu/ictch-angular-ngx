@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AttendanceComponent } from './attendance.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [{
-  path: "",
+  path: "1",
   component: AttendanceComponent
 },{
-  path: "a1",
-  component: AttendanceComponent
+  path: "",
+  component: EmployeeComponent
 }];
 
 @NgModule({

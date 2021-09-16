@@ -1,8 +1,9 @@
-<app-register></app-register>
-<employee-list></employee-list>
-
+<app-employee-register *ngIf=""></app-employee-register>
+<employee-list *ngIf="t"></employee-list>
+<ng-container *ngIf="">
 <h1>Days from 1/1/2017:<br />{{ daysFrom2017}}</h1>
 <h2>Humanized Diff:<br />{{ humanized }}</h2>
 <h3>Diff In Weeks:<br />{{ weeks }} weeks</h3>
 <h1>Current Time:<br />{{ currentTime }}</h1>
 <h2>Humanized Now Diff:<br />{{ humanizedNow }}</h2>
+</ng-container>

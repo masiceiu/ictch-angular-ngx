@@ -7,20 +7,19 @@ import { CssModule } from './css/css.module';
 import { DemoRoutingModule } from './demo-routing.module';
 import { DemoComponent } from './demo.component';
 import { SideTogglerComponent } from './side-toggler/side-toggler.component';
-import { AttendanceComponent } from './attendance/attendance.component';
+import { AttendanceModule } from './attendance/attendance.module';
 
 
 @NgModule({
   declarations: [
     DemoComponent,
     SideTogglerComponent,
-    AttendanceComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     DemoRoutingModule,
-    CssModule
+    CssModule,
   ]
 })
 export class DemoModule { }

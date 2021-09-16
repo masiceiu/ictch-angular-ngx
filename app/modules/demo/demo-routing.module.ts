@@ -28,8 +28,18 @@ const routes: Routes = [
     component: SideTogglerComponent
   },
   {
-    path: 't2',
-    component: AttendanceComponent
+    path: "t2",
+    //component: ?,
+    children:[
+      {
+        path: "",
+        loadChildren: () =>
+        import("./attendance/attendance.module").then(m => m.AttendanceModule),
+        data: {
+          feature: "Attendance"
+        }
+      }
+    ]
   },
   { path: '', redirectTo: 't2', pathMatch: 'full' }
 ];

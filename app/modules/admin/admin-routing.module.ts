@@ -18,10 +18,24 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'index',
+    path: "setup",
+    //component: ?,
+    children:[
+      {
+        path: "",
+        loadChildren: () =>
+        import("./modules/setup/setup.module").then(m => m.SetupModule),
+        data: {
+          feature: "Dyn"
+        }
+      }
+    ]
+  },
+  {
+    path: '',
     component: AdminComponent
   },
-  { path: '', redirectTo: 'index', pathMatch: 'full' }
+  { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

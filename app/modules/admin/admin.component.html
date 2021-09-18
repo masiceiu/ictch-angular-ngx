@@ -1,3 +1,22 @@
 <p>
 admin works!
 </p>
+<nav class="nav flex-column" style="white-space: nowrap;">
+<a class="nav-link active" routerLink="/admin" href (click)="false">
+  <i class="fa fa-hand-o-right"></i>
+  Admin
+</a>
+<a class="nav-link" routerLink="/admin/dyn" href (click)="false">
+  <i class="fa fa-hand-o-right"></i>
+  Dyn
+</a>
+<a class="nav-link" routerLink="/admin/setup" href (click)="false">
+  <i class="fa fa-hand-o-right"></i>
+  Setup
+</a>
+<!--
+<a class="nav-link" href (click)="false">Link</a>
+<a class="nav-link disabled"  href (click)="false">Up-Coming</a>
+-->
+<a class="nav-link disabled" href (click)="false">Disabled</a>
+</nav>

@@ -4,10 +4,10 @@ import { DynComponent } from './dyn.component';
 
 const routes: Routes = [
   {
-    path: 'index',
+    path: '',
     component: DynComponent
   },
-  { path: '', redirectTo: 'index', pathMatch: 'full' }
+  { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

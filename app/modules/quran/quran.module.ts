@@ -57,7 +57,7 @@ import { PopoverComponent } from './shared/popover/popover.component';
     //NavScrollerModule,
     //SelectedIlmModule,
   ],
-  exports:[
+  exports:[QuranComponent
     //SelectedIlmModule
   ],
   declarations: [

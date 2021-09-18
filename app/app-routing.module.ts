@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Route } from "@angular/router";
+
+import { AppComponent } from './app.component';
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { PageNotFoundComponent } from "./pages/page-not-found.component";
 const routes: Route[] = [
@@ -33,7 +35,8 @@ const routes: Route[] = [
     }
   },
   { path: 'profile', component: ProfileComponent},
-  { path: '', redirectTo: 'demo', pathMatch: 'full' },
+  //{ path: 'home', component: AppComponent},
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent}
 ];
 

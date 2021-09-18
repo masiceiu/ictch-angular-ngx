@@ -36,13 +36,13 @@ const routes: Route[] = [
     ]
   },
   { 
-    path: '', 
+    path: 'quran', 
     component: QuranComponent,
     data: {
       feature: 'Quran'
     }
   },
-  { path: '', redirectTo: 'ayat', pathMatch: 'full' }
+  { path: '', redirectTo: 'quran', pathMatch: 'full' }
 ];
 
 @NgModule({

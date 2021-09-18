@@ -12,34 +12,37 @@ const routes: Route[] = [
     component: QuranComponent,
     children:[
       {
-        path: "",//
+        path: '',//
         loadChildren: () =>
-          import("./modules/ayat/ayat.module").then(m => m.AyatModule),
+          import('./modules/ayat/ayat.module').then(m => m.AyatModule),
         data: {
-          feature: "Ayat"
+          feature: 'Ayat'
         }
       }
     ] 
   },
   {
-    path: "ilm",
+    path: 'ilm',
     component: QuranComponent,
     children:[
       {
-        path: "",//
+        path: '',
         loadChildren: () =>
-        import("./modules/ilm/ilm.module").then(m => m.IlmModule),
+        import('./modules/ilm/ilm.module').then(m => m.IlmModule),
         data: {
-          feature: "Ilm"
+          feature: 'Ilm'
         }
       }
     ]
-  },/*
-  {
-    path: 'selectedilms',
-    component: SelectedIlmComponent
-  },*/
-  { path: '', redirectTo: 'ayat', pathMatch: 'full' },
+  },
+  { 
+    path: '', 
+    component: QuranComponent,
+    data: {
+      feature: 'Quran'
+    }
+  },
+  { path: '', redirectTo: 'ayat', pathMatch: 'full' }
 ];
 
 @NgModule({

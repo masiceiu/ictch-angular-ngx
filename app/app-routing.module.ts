@@ -1,8 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Route } from "@angular/router";
-
-import { QuranComponent } from "./modules/quran/quran.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { PageNotFoundComponent } from "./pages/page-not-found.component";
 const routes: Route[] = [
@@ -15,7 +13,6 @@ const routes: Route[] = [
   },
   {
     path: 'quran',
-    component: QuranComponent,
     loadChildren: () =>import("./modules/quran/quran.module").then(m => m.QuranModule),
     data: {
       title: "Q'uran"

@@ -20,15 +20,11 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'home',
-    component: DemoComponent
-  },
-  {
-    path: 't1',
+    path: 'side-toggler',
     component: SideTogglerComponent
   },
   {
-    path: "t2",
+    path: "attendance",
     //component: ?,
     children:[
       {
@@ -41,7 +37,14 @@ const routes: Routes = [
       }
     ]
   },
-  { path: '', redirectTo: 't2', pathMatch: 'full' }
+  {
+    path: '',
+    component: DemoComponent, 
+    data: {
+       feature: 'Home'
+     } 
+  },
+  { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -33,7 +33,10 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: AdminComponent
+    component: AdminComponent, 
+    data: {
+       feature: 'Home'
+     } 
   },
   { path: '', redirectTo: '', pathMatch: 'full' }
 ];

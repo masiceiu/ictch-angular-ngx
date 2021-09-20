@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AttendanceComponent } from './attendance.component';
 import { EmployeeComponent } from './employee/employee.component';
 
-const routes: Routes = [{
+const routes: Routes = [
+{
   path: "1",
   component: AttendanceComponent
 },{

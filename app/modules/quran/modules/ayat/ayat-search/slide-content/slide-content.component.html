@@ -1,0 +1,17 @@
+<div id="analyticsContainer" class="toggler" 
+[ngClass]="toggler?'shown':'peek'">
+  <div id="analyticsReminder">
+      <button id="popupUserConsentButton" type="button" aria-label="Popup User Consent" (click)="toggle()">
+          <div class="analytics-icon" aria-hidden="true">
+              *
+          </div>
+      </button>
+  </div>
+  
+  <div id="userConsentContainer" class="consentContainer">
+      <button type="button" id="closeConsentContainer" aria-label="Close User Consent" class="closeConsent" (click)="toggle()">×</button>
+      <div id="userConsentQuestion" class="consentDefault">
+         ??
+      </div>
+  </div>
+  </div>

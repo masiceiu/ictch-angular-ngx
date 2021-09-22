@@ -1,0 +1,81 @@
+/* IE, yuno work better? */
+html {
+  -ms-overflow-style: scrollbar;
+}
+
+#analyticsContainer {
+  position: fixed;
+  width: 100%;
+  transition: .75s right, .75s left;
+  right: calc(-100% - 30px);
+  bottom: 0;
+  z-index: 99998;
+  box-sizing: border-box;
+}
+
+#analyticsContainer.peek {
+  right: -100%;
+}
+
+#analyticsContainer.shown {
+  right: 0;
+}
+
+#analyticsReminder {
+  position: absolute;
+  bottom: 5px;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  transition: .75s right, .75s left;
+  box-sizing: border-box;
+}
+#analyticsReminder.active {
+  right: 0;
+}
+
+#popupUserConsentButton {
+  border-radius: 5px 0 0 5px;
+  height: 30px;
+  width: 30px;
+  background-color: #2a3b49;
+  color: #ffffff;
+  border: 5px solid #2a3b49;
+  outline: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+.consentContainer {
+  width: 100%;
+  font-size: 14px;
+  transition: .75s right, .75s left;
+  box-sizing: border-box;
+}
+
+.consentContainer .closeConsent {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 24px;
+  color: #555;
+  font-weight: bold;
+  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 1;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.consentDefault {
+  padding: 25px 20px;
+  background-color: #F5F5F5;
+  border-left: 5px solid #2a3b49;
+  box-shadow: 13px 5px 25px #888888;
+  box-sizing: border-box;
+  color: #333333;
+  font-weight: normal;
+}

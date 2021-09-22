@@ -14,6 +14,7 @@ import { SharedModule } from './../../../shared/shared.module';
 import { ConfigComponent } from './config/config.component';
 import { AyatSearchComponent } from './ayat-search.component';
 import { SettingComponent } from './setting/setting.component';
+import { SlideContentComponent } from './slide-content/slide-content.component';
 import { DynamicInputModule } from '../../../../../components/dynamic-input/dynamic-input.module';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { DynamicInputModule } from '../../../../../components/dynamic-input/dyna
   declarations: [
     ConfigComponent,
     SettingComponent,
+    SlideContentComponent,
     AyatSearchComponent,
   ]
 })

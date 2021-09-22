@@ -160,11 +160,9 @@ export class AyatSearchComponent implements OnInit {
     //this.selected = $event;
     //console.log($event.item);
   }
-  onTest(data:any, switch_on:string): void {
-    console.log(data,switch_on);
-  }
   //list=[];
   onClick(data:any, switch_on:string): void {
+    console.log(data,switch_on);
     //console.log(this.selected);
     switch (switch_on) {
       case 'search': //আল্লাহ মধু মধুর
@@ -239,6 +237,9 @@ export class AyatSearchComponent implements OnInit {
         }
         break;
     }
+  }
+   onRemoteClick(data:any, switch_on:string): void {
+    console.log(data,switch_on);
   }
   private setAyatList(req:any, callBack:any=null): void {
     //console.log(req);

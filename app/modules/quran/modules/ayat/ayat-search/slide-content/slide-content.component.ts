@@ -19,11 +19,11 @@ export class SlideContentComponent implements OnInit {
     this.toggler = !this.toggler;
   }
   _onItemClick(data:any, switch_on:string){
-    console.log(data,switch_on);
+    //console.log(data,switch_on);
     this.toggle();
     data.$event.preventDefault();
-    //this.onItemClick.emit({a:data,b:switch_on});
-    this.onItemClick.emit("{a:data,b:switch_on}");
+    this.onItemClick.emit({data,switch_on});
+    //this.onItemClick.emit(data,switch_on);
   }
 
 }

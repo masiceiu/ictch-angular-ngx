@@ -196,7 +196,7 @@
 
 	<input type="range" min="1" max="100" value="5" [(ngModel)]='sad' (change)="onChange($event.target.value,'range')">	-->
 	<ng-container *ngIf="true">
-		<app-slide-content [list]="ayatIndexs" (onItemClick)="onTest(data)"></app-slide-content>
+		<app-slide-content [list]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)"></app-slide-content>
 	</ng-container>
 
 		<div class="list-group" *ngIf="0">

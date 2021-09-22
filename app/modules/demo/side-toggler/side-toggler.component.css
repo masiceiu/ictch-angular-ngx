@@ -171,8 +171,8 @@ svg.symbol {
 }
 
 /*
-Right-to-left styles
-*/
+//Right-to-left styles
+
 html[dir="rtl"] #analyticsContainer {
   left: calc(-100% - 30px);
   right: auto;
@@ -256,9 +256,9 @@ html[dir="rtl"] .consentContainer .closeConsent {
   }
 }
 
-/*
-Dark style
-*/
+
+//Dark style
+
 html[data-style="dark"] .consentDefault {
   background-color: #313131;
   box-shadow: 13px 5px 25px #060606;
@@ -303,3 +303,4 @@ html[data-style="dark"][dir="ltr"] button#popupUserConsentButton::after {
 html[data-style="dark"][dir="rtl"] button#popupUserConsentButton::after {
   right: -2px;
 }
+*/

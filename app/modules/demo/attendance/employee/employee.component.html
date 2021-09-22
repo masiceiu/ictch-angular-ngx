@@ -1,21 +1,5 @@
-
-<!--
-<select ng-options="item as item.label for item in [{id:'1', label':'1111111111111111111111'}] track by item.id" ng-model="selected"></select>-->
-<div class="form-group">
-  <label for="item">Select One Item:</label>
-  <select class="form-control form-control-sm" [(ngModel)]="selected" [value]="selected" >
-  <option value="1">Moment</option>
-  <option value="2">Employee-List</option>
-  <option value="3">Employee-Register</option>
-  </select>
-</div>
-<div class="clearfix"></div>
-<ng-container *ngIf="selected==1">
   <h1>Days from 1/1/2017:<br />{{ daysFrom2017}}</h1>
   <h2>Humanized Diff:<br />{{ humanized }}</h2>
   <h3>Diff In Weeks:<br />{{ weeks }} weeks</h3>
   <h1>Current Time:<br />{{ currentTime }}</h1>
   <h2>Humanized Now Diff:<br />{{ humanizedNow }}</h2>
-</ng-container>
-<employee-list *ngIf="selected==2"></employee-list>
-<app-employee-register *ngIf="selected==3"></app-employee-register>

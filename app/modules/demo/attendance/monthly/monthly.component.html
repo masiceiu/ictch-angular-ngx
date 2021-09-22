@@ -1,0 +1,50 @@
+<div class="container mt--1">
+<div class="row">
+  <div class="col-xs-6">
+    <div class="h4">For the month of :</div>
+    <input class="col-xs-12" type="month" [(ngModel)]="yearmonth" (change)="monthChanged()" />
+  </div>
+  <div class="col-xs-6">
+    <div class="row">
+    <div class="col-xs-6"><i class="fa fa-circle present">Present</i></div>
+    <div class="col-xs-6"><i class="fa fa-circle absent">Absent</i></div>
+    </div>
+    <div class="row">
+    <div class="col-xs-12"><i class="fa fa-circle-thin no-attendance">Not taken</i></div>
+    </div>
+    </div>
+</div>
+<hr/>
+<div class="container mt--1">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="row pad--b-8 type--bold">Student Name</div>
+      <div class="row" *ngFor="let attendance of batchMontlyAttendance">
+        <div class="pad--b-8 student-name">{{attendance.Name}}</div>
+      </div>
+    </div>
+    <div class="col-xs-6 scroll-x">
+      <div class="disp-flex">
+        <div class="day type--bold" *ngFor="let day of daysInMonth">
+        <div class="disp-block-attendance">
+          {{day|date:'dd'}}
+        </div>
+        </div>
+      </div>
+      <div class="text-center disp-flex" *ngFor="let attendance of batchMontlyAttendance">
+        <div class="day" *ngFor="let days of attendance.Attendance">
+          <!-- <div *ngIf="i==0">{{days.date|date:'dd'}}</div> -->
+          <div title="{{days.date|date:'dd'}}" class="disp-block-attendance" *ngIf="days.IsPresent"><i class="fa fa-circle present"></i></div>
+          <div title="{{days.date|date:'dd'}}" class="disp-block-attendance" *ngIf="!days.IsPresent && !days.NoAttendance"><i class="fa fa-circle absent"></i></div>
+          <div title="{{days.date|date:'dd'}}" class="disp-block-attendance" *ngIf="days.NoAttendance"><i class="fa fa-circle-thin no-attendance"></i></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Test Boxes -->
+  <div class="row mt--1">
+    <div>1</div>
+  </div>
+</div>

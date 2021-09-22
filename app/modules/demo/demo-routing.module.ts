@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DemoComponent } from './demo.component';
 import { SideTogglerComponent } from './side-toggler/side-toggler.component';
-import { AttendanceComponent } from './attendance/attendance.component';
+//import { AttendanceComponent } from './attendance/attendance.component';
+import { StateButtonComponent } from './state-button/state-button.component';
 
 const routes: Routes = [
   {
@@ -20,10 +21,6 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'side-toggler',
-    component: SideTogglerComponent
-  },
-  {
     path: "attendance",
     //component: ?,
     children:[
@@ -37,6 +34,8 @@ const routes: Routes = [
       }
     ]
   },
+  { path: 'side-toggler', component: SideTogglerComponent },
+  //{ path: 'app-state-button-tes', component: StateButtonComponent },
   {
     path: '',
     component: DemoComponent, 

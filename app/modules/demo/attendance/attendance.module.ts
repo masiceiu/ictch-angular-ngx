@@ -7,10 +7,12 @@ import { AttendanceRoutingModule } from './attendance-routing.module';
 import { TrackingService } from './employee/tracking.service';
 import { TitlePipe } from './employee/list/title.pipe';
 import { EmployeeComponent } from './employee/employee.component';
-import { AlertComponent } from './employee/alert/alert.component';
+import { MonthlyComponent } from './monthly/monthly.component';
 import { RegisterComponent } from './employee/register/register.component';
+import { AlertComponent } from './employee/register/alert/alert.component';
 import { EmployeeListComponent } from './employee/list/list.component';
-import { EmployeeCountComponent } from './employee/count/count.component';
+import { EmployeeCountComponent } from './employee/list/count/count.component';
+
 
 @NgModule({
   imports: [
@@ -21,6 +23,7 @@ import { EmployeeCountComponent } from './employee/count/count.component';
   declarations: [
     AttendanceComponent,
     EmployeeComponent,
+    MonthlyComponent,
     AlertComponent,
     RegisterComponent,
     EmployeeListComponent,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrackingService } from '../tracking.service';
+import { TrackingService } from './../../tracking.service';
 
 @Component({
   selector: 'app-employee-alert',

@@ -160,6 +160,9 @@ export class AyatSearchComponent implements OnInit {
     //this.selected = $event;
     //console.log($event.item);
   }
+  onTest(data:any, switch_on:string): void {
+    console.log(data,switch_on);
+  }
   //list=[];
   onClick(data:any, switch_on:string): void {
     //console.log(this.selected);
@@ -215,7 +218,7 @@ export class AyatSearchComponent implements OnInit {
         break;
       case 'suggest-item'://suggest Search
       //console.log(data)
-        data.$event.preventDefault()
+        data.$event.preventDefault();
         this.search = data.item.name;
         //data.popover.hide();
         //this.pop.show();

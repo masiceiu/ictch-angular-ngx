@@ -8,7 +8,7 @@ html {
   width: 100%;
   transition: .75s right, .75s left;
   right: calc(-100% - 30px);
-  bottom: 0;
+  /*bottom: 0;*/
   z-index: 99998;
   box-sizing: border-box;
 }
@@ -23,7 +23,7 @@ html {
 
 #analyticsReminder {
   position: absolute;
-  bottom: 5px;
+  /*bottom: 5px;*/
   left: -30px;
   width: 30px;
   height: 30px;
@@ -57,7 +57,7 @@ html {
 .consentContainer .closeConsent {
   position: absolute;
   right: 5px;
-  top: 5px;
+  top: 0px;
   font-size: 24px;
   color: #555;
   font-weight: bold;
@@ -73,9 +73,29 @@ html {
 .consentDefault {
   padding: 25px 20px;
   background-color: #F5F5F5;
-  border-left: 5px solid #2a3b49;
-  box-shadow: 13px 5px 25px #888888;
+  /*border-left: 5px solid #2a3b49;
+  box-shadow: 13px 5px 25px #888888;*/
   box-sizing: border-box;
   color: #333333;
   font-weight: normal;
 }
+/*scroller*/
+.scroller {
+  width: 100%;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+/*
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #828682;
+}
+*/

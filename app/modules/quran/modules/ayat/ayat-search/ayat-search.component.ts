@@ -238,7 +238,8 @@ export class AyatSearchComponent implements OnInit {
         break;
     }
   }
-   onRemoteClick(data:any, switch_on:string): void {
+  
+  onRemoteClick(data:any, switch_on:string): void {
     console.log(data,switch_on);
   }
   private setAyatList(req:any, callBack:any=null): void {

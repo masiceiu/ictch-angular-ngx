@@ -17,11 +17,13 @@
       <button type="button" id="closeConsentContainer" aria-label="Close User Consent" class="closeConsent" (click)="toggle()">×</button>
       <div id="userConsentQuestion" class="consentDefault">
         <div class="scroller" *ngIf="list.length">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item" *ngFor="let it of list; let i = index;">
-                    <a href (click)="_onItemClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
-                </li>
-            </ul>
+            <div class="flex-parent">
+                <div class="flex-child" *ngFor="let it of list; let i = index;" [hidden]="!i" >
+                    <span class="list-group-item" *ngIf="true">
+                        <a href (click)="_onItemClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
+                    </span>
+                </div>
+            </div>
         </div>
       </div>
   </div>

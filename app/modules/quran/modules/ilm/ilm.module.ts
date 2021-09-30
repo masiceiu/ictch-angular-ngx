@@ -5,6 +5,7 @@ import { IlmComponent } from './ilm.component';
 import { IlmRoutingModule } from './ilm-routing.module';
 
 import { AdviceComponent } from './advice/advice.component';
+import { SideSliderComponent } from '../../components/side-slider/side-slider.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { AdviceComponent } from './advice/advice.component';
   ],
   declarations: [
     IlmComponent,
-    AdviceComponent
+    AdviceComponent,
+    SideSliderComponent
   ]
 })
 export class IlmModule { }

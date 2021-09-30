@@ -6,9 +6,10 @@ import { CssModule } from './css/css.module';
 
 import { DemoRoutingModule } from './demo-routing.module';
 import { DemoComponent } from './demo.component';
-//import { AttendanceModule } from './attendance/attendance.module';
+import { AttendanceModule } from './attendance/attendance.module';
 import { StateButtonComponent } from './state-button/state-button.component';
 import { SideTogglerComponent } from './side-toggler/side-toggler.component';
+import { StateButtonTestComponent } from './state-button-test/state-button-test.component';
 
 
 @NgModule({
@@ -20,8 +21,9 @@ import { SideTogglerComponent } from './side-toggler/side-toggler.component';
   ],
   declarations: [
     DemoComponent,
-    //StateButtonComponent,
+    StateButtonComponent,
     SideTogglerComponent,
+    StateButtonTestComponent
   ]
 })
 export class DemoModule { }

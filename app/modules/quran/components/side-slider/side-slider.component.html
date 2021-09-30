@@ -1,6 +1,6 @@
 <div id="analyticsContainer" class="toggler" 
 [ngClass]="toggler?'peek':'shown'">
-  <div id="analyticsReminder">
+  <div id="analyticsReminder" [ngStyle]="{'top:positionTop+'px'}">
       <button id="popupUserConsentButton" type="button" aria-label="Popup User Consent" (click)="toggle()">
           <div class="analytics-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

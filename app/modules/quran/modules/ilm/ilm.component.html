@@ -1,6 +1,4 @@
 <app-advice *ngIf="false"></app-advice>
-
-
 <!--<i class="bi bi-chevron-compact-left"></i>-->
 <!-- The social media icon bar -->
 <div class="icon-bar" *ngIf="content">
@@ -10,7 +8,20 @@
 <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
 <a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
 </div>
-<app-side-slider></app-side-slider>
+<ng-template #tpr1>
+        <div class="content">
+        <h3>Sticky Social Bar-1</h3>
+        <p>The sticky social bar will stick to the screen when you scroll.</p>
+        </div>
+</ng-template>
+<app-side-slider [refTemplate]="tpr1"></app-side-slider>
+<ng-template #tpr2>
+<div class="content">
+<h3>Sticky Social Bar-2</h3>
+<p>The sticky social bar will stick to the screen when you scroll.</p>
+</div>
+</ng-template>
+<app-side-slider [refTemplate]="tpr2"></app-side-slider>
 <div class="content" *ngIf="content">
 <h3>Sticky Social Bar</h3>
 <p>The sticky social bar will stick to the screen when you scroll.</p>

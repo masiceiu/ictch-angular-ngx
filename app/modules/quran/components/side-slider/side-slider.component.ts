@@ -7,7 +7,8 @@ import { Component, Input, OnInit, TemplateRef,  } from '@angular/core';
 })
 export class SideSliderComponent implements OnInit {
 
-  toggler:boolean = true;
+  toggler:boolean = true;//style="top: 34px;"
+  @Input() positionTop = 0;
   @Input() refTemplate: TemplateRef<any>;
   /*@ViewChild('templateRef', { read: TemplateRef }) templateRef:TemplateRef<any>;
   constructor(private vref:ViewContainerRef) {

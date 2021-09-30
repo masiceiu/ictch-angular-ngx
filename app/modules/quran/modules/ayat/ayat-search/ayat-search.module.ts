@@ -16,7 +16,7 @@ import { AyatSearchComponent } from './ayat-search.component';
 import { SettingComponent } from './setting/setting.component';
 import { SlideContentComponent } from './slide-content/slide-content.component';
 import { DynamicInputModule } from '../../../../../components/dynamic-input/dynamic-input.module';
-import { SearchIndexContentComponent } from './search-index-content/search-index-content.component';
+import { IndexContentComponent } from './index-content/index-content.component';
 
 @NgModule({
   imports: [
@@ -41,7 +41,7 @@ import { SearchIndexContentComponent } from './search-index-content/search-index
     SettingComponent,
     SlideContentComponent,
     AyatSearchComponent,
-    SearchIndexContentComponent
+    IndexContentComponent
   ]
 })
 export class AyatSearchModule { }

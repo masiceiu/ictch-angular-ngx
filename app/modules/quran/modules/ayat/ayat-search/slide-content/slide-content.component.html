@@ -19,7 +19,7 @@
         <div class="scroller" *ngIf="list.length">
             <div class="flex-parent">
                 <div class="flex-child" *ngFor="let it of list; let i = index;" [hidden]="!i" >
-                    <span class="list-group-item" *ngIf="true">
+                    <span class="list-group-item" *ngIf="true" style="padding: 0.25rem .50rem;text-align: center;">
                         <a href (click)="_onItemClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
                     </span>
                 </div>

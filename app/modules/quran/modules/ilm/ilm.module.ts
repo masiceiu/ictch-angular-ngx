@@ -6,6 +6,7 @@ import { IlmRoutingModule } from './ilm-routing.module';
 
 import { AdviceComponent } from './advice/advice.component';
 import { SideSliderComponent } from '../../components/side-slider/side-slider.component';
+import { CardSliderComponent } from '../../components/card-slider/card-slider.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { SideSliderComponent } from '../../components/side-slider/side-slider.co
   declarations: [
     IlmComponent,
     AdviceComponent,
-    SideSliderComponent
+    SideSliderComponent,
+    CardSliderComponent
   ]
 })
 export class IlmModule { }

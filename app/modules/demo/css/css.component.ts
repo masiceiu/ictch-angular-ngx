@@ -11,8 +11,4 @@ export class CssComponent implements OnInit {
 
   ngOnInit() {
   }
-  doorClassToggled = false;
-  public toggleDoor() {
-    this.doorClassToggled = !this.doorClassToggled;  
-  }
 }

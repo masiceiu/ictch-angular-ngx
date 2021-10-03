@@ -1,17 +1,14 @@
-<div class="card direct-chat" [class.direct-chat-contacts-open]="doorClassToggled">
-  <div class="card-header with-border">
-    <h3 class="card-title">Card Header</h3>
-  </div>
-  <div class="card-body">
-    <div class="direct-chat-messages">
-      ?
-    </div>
-    <div class="direct-chat-contacts">
-      ??
-    </div>
-  </div>
-  <div class="card-footer">
-    <h3 class="card-title">Card Footer</h3>
-    <button (click)="toggleDoor()">door</button>
-  </div>
+<div class="form-group">
+<label for="item">Select One Item:</label>
+<select class="form-control form-control-sm" [(ngModel)]="selected" [value]="selected" >
+<option value="icon-bar">Moment</option>
+<option value="direct-chat">Employee-List</option>
+<option value="arrow">Employee-Register</option>
+<option value="attendance">Monthly-Attendance</option>
+</select>
 </div>
+<div class="clearfix"></div>
+<ng-container *ngIf="selected=='?'"></ng-container>
+<app-icon-bar *ngIf="selected=='icon-bar'"></app-icon-bar>
+<app-direct-chat *ngIf="selected=='direct-chat'"></app-icon-bar>
+<app-arrow *ngIf="selected=='arrow'"></app-arrow>

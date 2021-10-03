@@ -1,16 +1,11 @@
-<div class="arrow" *ngIf="content">
-<div class="start"></div>
-<div class="line"></div>
-<div class="end"></div>
-</div>
-
-
-<div class="list-group" *ngIf="content">
-<a href="http://ictcarehome.com/index.php/generation" class="list-group-item  arrowL active">Generation</a>
-<a href="http://ictcarehome.com/index.php/search" class="list-group-item ">Search</a>
-<a href="http://ictcarehome.com/index.php/security/domain" class="list-group-item ">Saved Password</a>                     
-</div>
-<hr/>
-<div *ngIf="content">
-        <a href class="arrowL" style="position: relative;"></a>
+<div class="arrow-container">
+        <div class="list-group" *ngIf="!content">
+        <a href="http://ictcarehome.com/index.php/generation" class="list-group-item  arrowL active">Generation</a>
+        <a href="http://ictcarehome.com/index.php/search" class="list-group-item ">Search</a>
+        <a href="http://ictcarehome.com/index.php/security/domain" class="list-group-item ">Saved Password</a>                     
+        </div>
+        <hr/>
+        <div *ngIf="!content">
+                <a href class="arrowL" style="position: relative;"></a>
+        </div>
 </div>

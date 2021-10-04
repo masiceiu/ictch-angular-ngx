@@ -54,7 +54,7 @@ export class AyatSearchComponent implements OnInit {
     private googleService: GoogleService
   ) {
     this.isMobile = window.innerWidth < 760;
-    this.scrollerMinHeight = window.innerHeight - 203;
+    this.scrollerMinHeight = window.innerHeight - 253;
   }
   ngOnInit() {
     let langs = this.ayatSearchModel.getLangList();
@@ -115,7 +115,7 @@ export class AyatSearchComponent implements OnInit {
     // = event.target.innerWidth;
     // = event.target.innerHeight;
     this.isMobile = event.target.innerWidth < 760;
-    this.scrollerMinHeight = event.target.innerHeight - 203;
+    this.scrollerMinHeight = event.target.innerHeight - 253;
   }
   onChange(data:any, switch_on:string) {
     switch (switch_on) {

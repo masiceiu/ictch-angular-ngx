@@ -86,19 +86,26 @@
 .scroller {
   width: 100%;
   height: 300px;
-  overflow-y: scroll;
+  margin: 0 auto;
+  /*overflow-y: auto;*/
+  overflow: hidden;
+}
+.scroller:hover {
+  /*overflow: hidden;*/
+  overflow-y: auto;/**/
+  /*overflow-y: scroll;*/
 }
 
-/*
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 1px;
 }
 
 ::-webkit-scrollbar-track {
   background: #eee;
+  /*background: transparent;*/
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #828682;
+  /*background: #828682;*/
+  background: #2a3b49;
 }
-*/

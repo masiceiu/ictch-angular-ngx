@@ -1,9 +1,16 @@
 body{
-  margin-bottom: 120px;
-}/**/
+  /*margin-bottom: 120px;*/
+  margin: 0;
+  padding: 0;
+}
 a.left.carousel-control.carousel-control-prev,
 a.right.carousel-control.carousel-control-next{
   width: 30px  !important;
+}
+.fixed-position {
+	position: fixed;
+	top: 0;
+	bottom: 60px;
 }
 /*
 .arrowL:after {

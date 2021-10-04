@@ -27,6 +27,7 @@ html {
   left: -30px;
   width: 30px;
   height: 30px;
+  opacity: .7;
   transition: .75s right, .75s left;
   box-sizing: border-box;
 }

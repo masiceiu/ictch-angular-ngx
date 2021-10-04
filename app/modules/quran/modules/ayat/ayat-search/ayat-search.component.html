@@ -198,7 +198,9 @@
 	<ng-container *ngIf="true">
 		<app-slide-content [list]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)"></app-slide-content>
 	</ng-container>
-
+	</div>
+	<div class="col-12">
+	<div class="scroller" style="min-height:{{scrollerMinHeight}}px">
 		<div class="list-group" *ngIf="0">
 			<div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="0">
 				<div class="d-flex w-100 justify-content-between">
@@ -210,7 +212,8 @@
 			</div>
 
 			<!--mockup design-->
-			<div class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted" routerlink="/">
+			<div class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted" routerlink="/" 
+			*ngFor="let it of [1,2,3]">
 				<p class="text-center ayath">
 					<small>
 						"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;1)"
@@ -325,6 +328,7 @@
 				<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
 				<small class="text-muted">Donec id elit non mi porta.</small>
 			</a>-->
+</div>
 		</div>
 	</div>
 </div>

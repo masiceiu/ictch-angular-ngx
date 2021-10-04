@@ -35,6 +35,7 @@ import { ContainerComponent } from './shared/components/container/container.comp
 */;
 import { FeatureComponent } from './shared/feature/feature.component';
 import { PopoverComponent } from './shared/popover/popover.component';
+import { SideSliderComponent } from './components/side-slider/side-slider.component';
 
 @NgModule({
   imports: [
@@ -57,8 +58,10 @@ import { PopoverComponent } from './shared/popover/popover.component';
     //NavScrollerModule,
     //SelectedIlmModule,
   ],
-  exports:[QuranComponent
+  exports:[
+    //QuranComponent,
     //SelectedIlmModule
+    //SideSliderComponent
   ],
   declarations: [
     QuranComponent,
@@ -68,6 +71,7 @@ import { PopoverComponent } from './shared/popover/popover.component';
     CommonComponent,
     ContainerComponent,*/
     //AppStartupComponent
+    //SideSliderComponent
   ]
 })
 export class QuranModule {

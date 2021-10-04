@@ -5,13 +5,14 @@ import { IlmComponent } from './ilm.component';
 import { IlmRoutingModule } from './ilm-routing.module';
 
 import { AdviceComponent } from './advice/advice.component';
-import { SideSliderComponent } from '../../components/side-slider/side-slider.component';
+import { SideSliderModule } from '../../components/side-slider/side-slider.module';
 import { CardSliderComponent } from '../../components/card-slider/card-slider.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    IlmRoutingModule
+    IlmRoutingModule,
+    SideSliderModule,
   ],
   exports: [
     IlmComponent,
@@ -20,7 +21,6 @@ import { CardSliderComponent } from '../../components/card-slider/card-slider.co
   declarations: [
     IlmComponent,
     AdviceComponent,
-    SideSliderComponent,
     CardSliderComponent
   ]
 })

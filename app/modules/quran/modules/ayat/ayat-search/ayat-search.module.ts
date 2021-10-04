@@ -17,6 +17,7 @@ import { SettingComponent } from './setting/setting.component';
 import { SlideContentComponent } from './slide-content/slide-content.component';
 import { DynamicInputModule } from '../../../../../components/dynamic-input/dynamic-input.module';
 import { IndexContentComponent } from './index-content/index-content.component';
+import { SideSliderComponent } from '../../../components/side-slider/side-slider.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { IndexContentComponent } from './index-content/index-content.component';
     SettingComponent,
     SlideContentComponent,
     AyatSearchComponent,
-    IndexContentComponent
+    IndexContentComponent,
+    SideSliderComponent
   ]
 })
 export class AyatSearchModule { }

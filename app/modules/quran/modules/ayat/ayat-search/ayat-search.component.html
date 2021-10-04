@@ -229,9 +229,22 @@
 				<hr class="hrh" *ngIf="config.eShow">
 				<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">
 					In the name of Allah, most benevolent, ever-merciful.</p>
+					<hr class="hrh mb-0" *ngIf="1">
 				<div class="flex-parent">
-					<div class="flex-child"></div>
-					<div class="flex-child" style="text-align:center;">
+						<div class="flex-child" style="text-align:left;">
+							<a href (click)="false">
+								<i class="bi bi-arrow-left-circle"></i>
+							</a>
+						</div>
+						<div class="flex-child" style="text-align:center;">
+							<a href (click)="false">
+								<i class="bi bi-check-circle"></i>
+							</a>
+						</div>
+						<div class="flex-child" style="text-align:center;">
+							<a href (click)="false">
+								<i class="bi bi-star"></i>
+							</a>
 						<div class="btn-group btn-group-sm" role="group" aria-label="..." *ngIf="0">
 							<button type="button" class="btn btn-secondary">Left</button>
 							<button type="button" class="btn btn-secondary">Middle</button>
@@ -263,7 +276,25 @@
 						<pagination [totalItems]="35" *ngIf="0" [directionLinks]="false" [(ngModel)]="currentPage" [maxSize]="3">
 						</pagination>
 					</div>
-					<div class="flex-child"></div>
+					<div class="flex-child" style="text-align:right;">
+						<a href (click)="false">
+						<small>
+							More <i class="bi bi-caret-down"></i>
+						</small>
+					</a>
+					</div>
+					<div class="flex-child" style="text-align:right;">
+						<a href (click)="false">
+							<small>
+								Go <i class="bi bi-caret-down"></i>
+							</small>
+						</a>
+					</div>
+					<div class="flex-child" style="text-align:right;">
+						<a href (click)="false">
+							<i class="bi bi-arrow-right-circle"></i>
+						</a>
+					</div>
 				</div>
 				<!--
 				<p class="text-center m-0">

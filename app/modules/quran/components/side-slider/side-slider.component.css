@@ -27,6 +27,7 @@ html {
   left: -30px;
   width: 30px;
   height: 30px;
+  opacity: .7;
   transition: .75s right, .75s left;
   box-sizing: border-box;
 }
@@ -38,12 +39,26 @@ html {
   border-radius: 5px 0 0 5px;
   height: 30px;
   width: 30px;
-  background-color: #2a3b49;
+  background-color: #6c757d;
   color: #ffffff;
-  border: 5px solid #2a3b49;
+  border: 1px solid #6c757d;
   outline: 0;
   box-sizing: border-box;
-  padding: 0;
+  padding: 4px;
+  margin: 0;
+  display: block;
+  cursor: pointer;
+}
+#popupUserConsentButton-info {
+  border-radius: 5px 0 0 5px;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #6c757d;
+  outline: 0;
+  box-sizing: border-box;
+  padding: 4px;
   margin: 0;
   display: block;
   cursor: pointer;

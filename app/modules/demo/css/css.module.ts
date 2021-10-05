@@ -8,6 +8,7 @@ import { ArrowComponent } from './arrow/arrow.component';
 import { ArrowListComponent } from './arrow-list/arrow-list.component';
 import { IconBarComponent } from './icon-bar/icon-bar.component';
 import { DirectChatComponent } from './direct-chat/direct-chat.component';
+import { DynamicInputModule } from './../../../components/dynamic-input/dynamic-input.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { DirectChatComponent } from './direct-chat/direct-chat.component';
     IconBarComponent,
     DirectChatComponent,
     ArrowComponent,
-    ArrowListComponent
+    ArrowListComponent,
+    DynamicInputModule
 
   ]
 })

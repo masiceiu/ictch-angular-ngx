@@ -5,6 +5,7 @@
 <option value="direct-chat">Direct Chat</option>
 <option value="arrow">Arrow</option>
 <option value="arrow-list">Arrow List</option>
+<option value="dynamic-input">Dynamic Input</option>
 </select>
 </div>
 <div class="clearfix"></div>
@@ -13,3 +14,5 @@
 <app-direct-chat *ngIf="selected=='direct-chat'"></app-direct-chat>
 <app-arrow *ngIf="selected=='arrow'"></app-arrow>
 <app-arrow-list *ngIf="selected=='arrow-list'"></app-arrow-list>
+<app-dynamic-input></app-dynamic-input>
+<!--<app-dynamic-input [showTitle]="false"></app-dynamic-input>-->

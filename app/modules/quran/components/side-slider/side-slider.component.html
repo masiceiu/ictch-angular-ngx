@@ -1,7 +1,7 @@
 <div id="analyticsContainer" class="toggler" 
 [ngClass]="toggler?'peek':'shown'">
   <div id="analyticsReminder" [ngStyle]="{'top':positionTop+'px'}">
-      <button id="popupUserConsentButton" type="button" aria-label="Popup User Consent" (click)="toggle()">
+      <button id="popupUserConsentButton" type="button" aria-label="Popup User Consent" (click)="toggle()" *ngIf="!icon">
           <div class="analytics-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
             class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
@@ -11,6 +11,11 @@
             </svg>
           </div>
       </button>
+      <button id="popupUserConsentButton{{icon?'-info':''}}" type="button" aria-label="Popup User Consent" (click)="toggle()" *ngIf="icon">
+        <div class="analytics-icon" aria-hidden="true" style="margin-top: -{{iconMarginTop}}px;"> 
+		    <small><i class="bi bi-{{icon}}"></i></small> 
+        </div>
+    </button>
   </div>
   
   <div id="userConsentContainer" class="consentContainer">

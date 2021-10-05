@@ -85,10 +85,10 @@
 /*scroller*/
 .scroller {
   width: 100%;
-  height: 300px;
+  max-height: 300px;
   margin: 0 auto;
-  /*overflow-y: auto;*/
   overflow: hidden;
+  /*overflow-y: auto;*/
 }
 .scroller:hover {
   /*overflow: hidden;*/

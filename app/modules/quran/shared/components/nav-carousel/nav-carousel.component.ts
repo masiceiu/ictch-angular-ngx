@@ -63,26 +63,40 @@ export class NavCarouselComponent implements OnInit, AfterViewInit {
       //console.log(log, self.size);
     })(this);
   }
+  
+  public isExternalLink(link) {
+    return link.url.substring(0, 4) === 'http' ? true : false
+  }
   slides = [
     {
       text: 'বাংলা হাদিস',
       url: 'https://www.hadithbd.com/',
-      image: ''
+      image: '',
+      status: false
     },
     {
       text: 'ইমাম বাতায়ন',
       url: 'http://imam.gov.bd/',
-      image: ''
+      image: '',
+      status: false
     },
     {
       text: 'ইসলাম জিজ্ঞাসা',
       url: 'https://islamqa.info/bn',
-      image: ''
+      image: '',
+      status: false
     },
     {
       text: 'TANZIL QURAN',
       url: 'https://tanzil.net/',
-      image: ''
+      image: '',
+      status: false
+    },
+    {
+      text: 'দোয়া ও যিকিরের',
+      url: '/quran/ilm',
+      image: '',
+      status: true
     },/*
     {
       text: 'Islamway',
@@ -90,7 +104,6 @@ export class NavCarouselComponent implements OnInit, AfterViewInit {
       image:''
     }*/
   ];
-
   slides1 = [
     {
       text: 'Item',

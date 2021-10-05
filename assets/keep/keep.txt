@@ -66,3 +66,5 @@ https://stackblitz.com/edit/angular-get-audiofile-info
 https://stackblitz.com/edit/ngx-speech-recognition
 https://stackblitz.com/edit/angular-custom-audio-recorder-md4xef
 https://stackblitz.com/edit/angular-custom-audio-recorder
+//G
+https://stackblitz.com/edit/snake

@@ -22,8 +22,7 @@ import { DynamicInputModule } from './../../../components/dynamic-input/dynamic-
     IconBarComponent,
     DirectChatComponent,
     ArrowComponent,
-    ArrowListComponent,
-    DynamicInputModule
+    ArrowListComponent
 
   ]
 })

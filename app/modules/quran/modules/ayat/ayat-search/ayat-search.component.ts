@@ -171,7 +171,7 @@ export class AyatSearchComponent implements OnInit {
   }
   //list=[];
   onClick(data:any, switch_on:string): void {
-    console.log(data,switch_on);
+    //console.log(data,switch_on);
     //console.log(this.selected);
     switch (switch_on) {
       case 'search': //আল্লাহ মধু মধুর
@@ -244,6 +244,9 @@ export class AyatSearchComponent implements OnInit {
             suggestion: data.item.name
           }
         }
+        setTimeout(() => {
+          this.onClick(data.$event,'search');
+        },500);
         break;
     }
   }

@@ -3,7 +3,7 @@ import { Observer, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { AyatSearchModel } from './ayat-search.model';
-import { AyatService, GoogleService } from './../.././../services';
+import { AyatService, GoogleService, StorageService } from './../.././../services';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
@@ -51,7 +51,8 @@ export class AyatSearchComponent implements OnInit {
   currentPage = 2
   constructor(
     private ayatService: AyatService,
-    private googleService: GoogleService
+    private googleService: GoogleService,
+    private storageService: StorageService
   ) {
     this.isMobile = window.innerWidth < 760;
     this.scrollerMinHeight = window.innerHeight - 253;
@@ -60,6 +61,7 @@ export class AyatSearchComponent implements OnInit {
     let langs = this.ayatSearchModel.getLangList();
     let suras = this.ayatSearchModel.getSuraList();
     let translates = this.ayatSearchModel.getTranslateList();
+    this.ayatIndexSearched = this.storageService.ayatIndexSearched;
 
     this.suras = suras;
     this.sura = suras[1];
@@ -247,6 +249,16 @@ export class AyatSearchComponent implements OnInit {
         setTimeout(() => {
           this.onClick(data.$event,'search');
         },500);
+
+        let it = this.ayatIndexSearched.find(it => it.id == data.item.id);
+        if(!it){
+          this.ayatIndexSearched.push(data.item);
+        }
+        this.storageService.ayatIndexSearched = this.ayatIndexSearched;
+        break;
+      case 'suggest-item-remove':
+        //data as index;
+        this.storageService.ayatIndexSearched = this.ayatIndexSearched.splice(data, 1);
         break;
     }
   }
@@ -275,6 +287,7 @@ export class AyatSearchComponent implements OnInit {
   }
   
   ayatIndexs: any[] = [];
+  ayatIndexSearched: any[] = [];
   private setAyatIndex(req:any, callBack:any=null): void {
     let lang = this.translate.id;
     this.ayatIndexs = [];

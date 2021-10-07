@@ -1,5 +1,6 @@
 export { UrlService } from './url.service';
 export { HttpService } from './http.service';
+export { StorageService } from './storage.service';
 
 export * from './qurn';
 export * from './other';

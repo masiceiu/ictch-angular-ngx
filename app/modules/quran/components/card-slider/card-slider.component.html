@@ -32,7 +32,7 @@
     </ng-container>
   </div>
 </div>
-<div class="card-footer">
+<div class="card-footer" *ngIf="cardHeader">
   <ng-template #footerRef>
     <div class="flex-parent">
       <div class="flex-child" style="text-align:left;" *ngIf="cardFooter">

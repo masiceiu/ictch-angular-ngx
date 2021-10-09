@@ -24,8 +24,8 @@
   bottom: 0;
   max-height: 250px;
   width: 100%;
-  background: #222d32;
-  color: #fff;
+  /*background: #222d32;
+  color: #fff;*/
   overflow: auto;
 }
 .slider-card-content, .slider-card-index {

@@ -28,7 +28,7 @@ import {
     PopoverModule.forRoot(),
     TooltipModule.forRoot(),
     PaginationModule.forRoot(),
-    //BsDropdownModule.forRoot(),
+    BsDropdownModule.forRoot(),
     TypeaheadModule.forRoot(), 
     SharedModule,
     DynamicInputModule, 

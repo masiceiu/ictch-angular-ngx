@@ -160,7 +160,7 @@ export class AyatSearchComponent implements OnInit {
     console.log(data);
   }
   onSelect($event: any): void {
-    //console.log($event);
+    console.log($event);
     this.selected = $event;
     //console.log($event.item);
   } 
@@ -184,7 +184,7 @@ export class AyatSearchComponent implements OnInit {
           }else{
             req.search = this.selected.item.suggestion
           }
-          //console.log(req);
+          /console.log(req);
           //let req = { sura:this.selected.suggestion }
           this.setAyatList(req);
         }
@@ -205,7 +205,6 @@ export class AyatSearchComponent implements OnInit {
         break;
       case 'test':
         this.langs.forEach((it, i) => {
-
           //console.log('lang:',it.id);
           let res = this.googleService.inputTools('a', it.id).then(
             data => {
@@ -225,8 +224,8 @@ export class AyatSearchComponent implements OnInit {
           this.search = '';
         }
         break;
-      case 'suggest-item'://suggest Search
-      //console.log(data)
+        case 'suggest-item'://suggest Search
+        //console.log(data)
         data.$event.preventDefault();
         this.search = data.item.name;
         //data.popover.hide();
@@ -246,15 +245,46 @@ export class AyatSearchComponent implements OnInit {
             suggestion: data.item.name
           }
         }
-        setTimeout(() => {
+        setTimeout(() => { 
           this.onClick(data.$event,'search');
         },500);
-
-        let it = this.ayatIndexSearched.find(it => it.id == data.item.id);
-        if(!it){
-          this.ayatIndexSearched.push(data.item);
+        if(switch_on=='suggest-item'){
+          let it = this.ayatIndexSearched.find(it => it.id == data.item.id);
+          if(!it){
+            this.ayatIndexSearched.push(data.item);
+            this.storageService.ayatIndexSearched = this.ayatIndexSearched;
+          }
         }
-        this.storageService.ayatIndexSearched = this.ayatIndexSearched;
+        break;
+        case 'suggest-item-sura'://suggest Search
+        //console.log(data)
+        data.$event.preventDefault();
+        this.search = data.item.name;
+        //data.popover.hide();
+        //this.pop.show();
+        //console.log(this.pop)
+        //console.log(this.popovers.length)
+        this.popovers.forEach((popover: PopoverDirective) => {
+          if(popover.isOpen){
+            popover.hide();
+          }
+        });
+        this.selected = {
+        header: false,
+        value: data.item.name,
+        item: data.item
+        }
+        setTimeout(() => { 
+          if(switch_on=='suggest-item-sura'){
+            this.isSuraSearch = true;
+            //console.log(switch_on, this.isSuraSearch);
+          }
+          this.onClick(data.$event,'search');
+          if(switch_on=='suggest-item-sura'){
+            this.isSuraSearch = false;
+            //console.log(switch_on, this.isSuraSearch);
+          }
+        },500);
         break;
       case 'suggest-item-remove':
         //data as index;

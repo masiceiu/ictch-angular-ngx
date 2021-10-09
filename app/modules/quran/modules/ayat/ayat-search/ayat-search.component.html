@@ -22,14 +22,29 @@
 				</div>
 				-->
 				<div class="input-group-append">
+					<span class="input-group-text">
+					<ng-template #popTemplateSura>						
+						<div class="scroller">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item" *ngFor="let it of suras; let i = index;">
+									<a href (click)="onClick({$event:$event, item:it},'suggest-item-sura')" >{{it.name}}</a>
+								</li>
+							</ul>
+						</div>
+					</ng-template>
+						<a href (click)="false" [popover]="popTemplateSura" popoverTitle="" [outsideClick]="true" placement="auto">	
+						Sura<i class="bi bi-caret-down"></i>
+						</a>
+					</span>
+					<!---->
 					<div class="input-group-text">
 						<input [(ngModel)]="isSuraSearch" (change)="onChange(isSuraSearch,'sura')" type="checkbox" aria-label="Checkbox forinput">
 						<label class="form-check-label">&nbsp;Sura</label>
 					</div>
 					<span class="input-group-text">
-					<ng-template #popTemplate0>
-						<app-setting></app-setting>
-					</ng-template>
+						<ng-template #popTemplate0>
+							<app-setting></app-setting>
+						</ng-template>
 						<a href (click)="false" [popover]="popTemplate0" popoverTitle="Serch Settings" [outsideClick]="true" placement="auto" class="w3-spin">	
 							<i class="bi bi-gear"></i>
 						</a>
@@ -41,6 +56,7 @@
 	</div>
 	<div class="flex-parent">
 		<div class="flex-child" style="border-bottom: 0px;">
+			
 			<div class="input-group input-group-sm">
 				<div class="input-group-append">
 					<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">{{lang.id}}</span>

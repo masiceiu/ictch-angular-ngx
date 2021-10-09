@@ -37,7 +37,7 @@
 						</a>
 					</span>
 					<!---->
-					<div class="input-group-text">
+					<div class="input-group-text" *ngIf=""">
 						<input [(ngModel)]="isSuraSearch" (change)="onChange(isSuraSearch,'sura')" type="checkbox" aria-label="Checkbox forinput">
 						<label class="form-check-label">&nbsp;Sura</label>
 					</div>

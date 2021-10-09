@@ -184,7 +184,7 @@ export class AyatSearchComponent implements OnInit {
           }else{
             req.search = this.selected.item.suggestion
           }
-          /console.log(req);
+          //console.log(req);
           //let req = { sura:this.selected.suggestion }
           this.setAyatList(req);
         }
@@ -248,12 +248,10 @@ export class AyatSearchComponent implements OnInit {
         setTimeout(() => { 
           this.onClick(data.$event,'search');
         },500);
-        if(switch_on=='suggest-item'){
-          let it = this.ayatIndexSearched.find(it => it.id == data.item.id);
-          if(!it){
-            this.ayatIndexSearched.push(data.item);
-            this.storageService.ayatIndexSearched = this.ayatIndexSearched;
-          }
+        let it = this.ayatIndexSearched.find(it => it.id == data.item.id);
+        if(!it){
+          this.ayatIndexSearched.push(data.item);
+          this.storageService.ayatIndexSearched = this.ayatIndexSearched;
         }
         break;
         case 'suggest-item-sura'://suggest Search
@@ -275,15 +273,9 @@ export class AyatSearchComponent implements OnInit {
         item: data.item
         }
         setTimeout(() => { 
-          if(switch_on=='suggest-item-sura'){
-            this.isSuraSearch = true;
-            //console.log(switch_on, this.isSuraSearch);
-          }
+          this.isSuraSearch = true;
           this.onClick(data.$event,'search');
-          if(switch_on=='suggest-item-sura'){
-            this.isSuraSearch = false;
-            //console.log(switch_on, this.isSuraSearch);
-          }
+          this.isSuraSearch = false;
         },500);
         break;
       case 'suggest-item-remove':

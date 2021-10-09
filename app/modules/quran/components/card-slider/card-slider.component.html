@@ -32,14 +32,14 @@
     </ng-container>
   </div>
 </div>
-<div class="card-footer" *ngIf="cardHeader">
+<div class="card-footer" *ngIf="cardFooter">
   <ng-template #footerRef>
     <div class="flex-parent">
-      <div class="flex-child" style="text-align:left;" *ngIf="cardFooter">
+      <div class="flex-child" style="text-align:left;">
         <a href (click)="false" *ngIf="">
           <i class="bi bi-arrow-left-circle"></i>
         </a>
-        <h3 class="card-title m-0">Card Footer</h3>
+        <h3 class="card-title m-0">{{cardFooter}}</h3>
       </div>
       <div class="flex-child" style="text-align:center;">
         <a href (click)="false" *ngIf="">

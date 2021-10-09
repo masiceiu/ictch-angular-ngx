@@ -119,3 +119,5 @@ html {
   -ms-flex-positive: 1;
   -ms-flex-preferred-size: 0;
 }
+.w3-spin{animation:w3-spin 2s infinite linear;}
+@keyframes w3-spin{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}

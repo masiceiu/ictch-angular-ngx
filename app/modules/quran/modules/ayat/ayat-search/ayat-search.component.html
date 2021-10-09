@@ -36,11 +36,6 @@
 						Sura<i class="bi bi-caret-down"></i>
 						</a>
 					</span>
-					<!---->
-					<div class="input-group-text" *ngIf="">
-						<input [(ngModel)]="isSuraSearch" (change)="onChange(isSuraSearch,'sura')" type="checkbox" aria-label="Checkbox forinput">
-						<label class="form-check-label">&nbsp;Sura</label>
-					</div>
 					<span class="input-group-text">
 						<ng-template #popTemplate0>
 							<app-setting></app-setting>
@@ -49,7 +44,6 @@
 							<i class="bi bi-gear"></i>
 						</a>
 					</span>
-					<!--<span class="input-group-text">0.00</span>-->
 				</div>
 			</div>
 		</div>
@@ -61,7 +55,7 @@
 				<div class="input-group-append">
 					<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">{{lang.id}}</span>
 				</div>
-				<ng-container *ngIf="!isSuraSearch">
+				<ng-container>
 					<!--[typeaheadMultipleSearch]="true"
 				typeaheadMultipleSearchDelimiters="','"-->
 					<input type="text"
@@ -72,46 +66,27 @@
 					[typeaheadAsync]="true"
 					class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
 				</ng-container>
-				<ng-container *ngIf="isSuraSearch">
-					<input [(ngModel)]="search" (typeaheadOnSelect)="onSelect($event)"[typeahead]="suras"
-					typeaheadOptionField="name" [typeaheadScrollable]="true"
-					[typeaheadOptionsInScrollableView]="10"  [typeaheadMinLength]="0" class="form-control"
-					[disabled]='isSearchLoading'  [typeaheadOptionsLimit]="114"
-					aria-describedby="inputGroup-sizing-sm" (click)="onClick($event,'sura-view')">
-				</ng-container>
 				<ng-container *ngIf="!isSearchLoading">
 					<div class="input-group-append">
 						<span class="input-group-text">
-						<ng-template #popTemplate1><!--
-						<div class="scroller"
-							<!--infinite-scroll
-							[infiniteScrollDistance]="1"
-							[infiniteScrollThrottle]="20"
-							[scrollWindow]="false"
-							(scrolled)="onScrollDown()"
-							>-->
+						<ng-template #popTemplate1>
 							<div class="scroller">
-							<ul class="list-group list-group-flush" *ngIf="">
-								<li class="list-group-item" *ngFor="let it of ayatIndexSearched; let i = index;">
-									<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
-								</li>
-							</ul>
-							<div class="flex-parent" *ngFor="let it of ayatIndexSearched; let i = index;">
-							<div class="flex-child" style="text-align:left;">
-							<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
+								<div class="flex-parent" *ngFor="let it of ayatIndexSearched; let i = index;">
+									<div class="flex-child" style="text-align:left;">
+										<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
+									</div>
+									<div class="flex-child" style="text-align:right;margin-top:-3px">
+										<span class="close" aria-label="Close" (click)="onClick(i,'suggest-item-remove')">
+											<span aria-hidden="true">&times;</span>
+										</span>
+									</div>
 							</div>
-							<div class="flex-child" style="text-align:right;margin-top:-3px">
-								<span class="close" aria-label="Close" (click)="onClick(i,'suggest-item-remove')">
-									<span aria-hidden="true">&times;</span>
-								</span>
-							</div>
-						</div>
 						</div>
 						</ng-template>
-						<a href (click)="false" *ngIf="!ayatIndexs.length" class="w3-spin">
+						<a href (click)="false" *ngIf="" class="w3-spin">
 							<i class="bi bi-question-circle"></i>
 						</a>
-						<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="bottom" *ngIf="ayatIndexs.length">	
+						<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="bottom">	
 							<i class="bi bi-info-circle"></i>
 						</a>
 					 </span>
@@ -124,12 +99,6 @@
 					</div>
 				</ng-container>
 				<ng-container *ngIf="isSearchLoading">
-					<!--<div class="input-group-append">
-						<button type="button"
-						class="btn btn-outline-secondary" style="padding-right: 38px;padding-left: 38px;">
-						<span class="flags" [ngStyle]="{'background-image': 'url(https://ictcarehome.com/Content/fancybox/fancybox_loading.gif)'}"></span>
-						</button>
-					</div>-->
 					<div class="input-group-append">
 						<span class="input-group-text">
 							<span (click)="false" class="w3-spin" style="padding-right: 30px;padding-left: 30px;">	
@@ -139,24 +108,12 @@
 					</div>
 				</ng-container>
 			</div>
-			<!--<div class="form-group">
-				<div class="input-group input-group-sm">
-					<div class="input-group-prepend">
-						<span class="input-group-text"><i class="bi bi-search"></i></span>
-					</div>
-					<input type="text" class="form-control">
-				</div>
-			</div>-->
 		</div>
 	</div>
 	<div class="flex-parent mb-2">
 		<div class="flex-child" style="border-top: 0px;">
 			<small>Search result : {{ayatList?.length}}</small>
 		</div>
-		<!--
-		<div class="flex-child" style="border-top: 0px;text-align:right;">
-			<small>Search result : {{ayatList.length}}</small>
-		</div>-->
 		<div class="flex-child" style="border-top: 0px;text-align:center;">
 			<div class="mt-1">
 			<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange(rangeFontSize,'range')">
@@ -195,31 +152,7 @@
 				</small>
 			</a>
 		</div>
-		<!--
-		<div class="flex-child" style="border-top: 0px;text-align:right;">
-			<input type="number" [(ngModel)]="config.aFontSize" />
-		</div>
-		<div class="flex-child" style="border-top: 0px;text-align:right;">
-			<small>Search result : {{ayatList.length}}</small>
-		</div>-->
-	</div>
-	<!--
-	<div>
-		<button type="button"
-				(click)="onClick($event,'test')"
-				class="btn btn-block">
-				search
-				</button>
-		<p *ngFor="let it of list; let i = index;">
-		{{i+1}}| {{it}}<br>
-		</p>
-	</div>
-	<div class="spin-ayat circle">
-		1
-	</div>
-	<p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p>
 
-<input type="range" min="1" max="100" value="5" [(ngModel)]='sad' (change)="onChange($event.target.value,'range')">	-->
 <ng-container *ngIf="true">
 	<app-slide-content [list]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)"></app-slide-content>
 	
@@ -232,6 +165,7 @@
 	<app-side-slider [refTemplate]="tpr2" [positionTop]="35" [icon]="'star'" [iconMarginTop]="3"></app-side-slider>
 </ng-container>
 </div>
+
 <div class="col-12">
 <div class="scroller" style="max-height:{{scrollerMinHeight}}px">
 	<div class="list-group" *ngIf="0">

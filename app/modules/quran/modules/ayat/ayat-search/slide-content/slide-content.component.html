@@ -12,8 +12,11 @@
           </div>
       </button>
       <button id="popupUserConsentButton" type="button" aria-label="Popup User Consent" (click)="toggle()">
-        <div class="analytics-icon" aria-hidden="true" style="margin-top: -2px;"> 
+        <div class="analytics-icon" aria-hidden="true" style="margin-top: -2px;" *ngIf="list.length"> 
 		    <small><i class="bi bi-search"></i></small> 
+        </div> 
+        <div class="analytics-icon" aria-hidden="true" style="margin-top: -2px;" *ngIf="!list.length" class="w3-spin"> 
+		    <i class="bi bi-question-circle"></i>
         </div>
     </button>
   </div>

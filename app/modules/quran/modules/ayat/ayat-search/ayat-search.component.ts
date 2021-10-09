@@ -280,6 +280,7 @@ export class AyatSearchComponent implements OnInit {
         break;
       case 'suggest-item-remove':
         //data as index;
+        console.log(data, 1);
         this.storageService.ayatIndexSearched = this.ayatIndexSearched.splice(data, 1);
         break;
     }

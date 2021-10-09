@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class SlideContentComponent implements OnInit {
   
+  @Input() positionTop = 35;
   @Input() list:any[] = [];
   @Output() onItemClick = new EventEmitter<any>();
   //@Output addEvent = new EventEmitter<{make: string, name: string}>();

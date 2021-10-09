@@ -4,23 +4,10 @@
 		<div class="flex-child">
 			<div class="input-group input-group-sm mb-0">
 				<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')">
-				<option *ngFor="let it of translates" [ngValue]="it">
-					{{it.name}}
-				</option>
-		</select>
-				<!--
-				<div class="input-group-append" dropdown container="body">
-					<button id="button-container" class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-controls="dropdown-container" dropdownToggle>
-					<i class="bi bi-chevron-down"></i>&nbsp;{{translate.name}}
-					</button>
-					<div id="dropdown-container" class="dropdown-menu" aria-labelledby="button-container" *dropdownMenu>
-						<a *ngFor="let it of translates" routerlink="/" (click)="onClick(it, 'translate-item')"
-							class="dropdown-item">
+						<option *ngFor="let it of translates" [ngValue]="it">
 							{{it.name}}
-						</a>
-					</div>
-				</div>
-				-->
+						</option>
+				</select>
 				<div class="input-group-append">
 					<span class="input-group-text">
 					<ng-template #popTemplateSura>						
@@ -162,7 +149,7 @@
 	<p>The sticky social bar will stick to the screen when you scroll.</p>
 	</div>
 	</ng-template>
-	<app-side-slider [refTemplate]="tpr2" [positionTop]="35" [icon]="'star'" [iconMarginTop]="3"></app-side-slider>
+	<app-side-slider [refTemplate]="tpr2" [positionTop]="70" [icon]="'star'" [iconMarginTop]="3"></app-side-slider>
 </ng-container>
 </div>
 

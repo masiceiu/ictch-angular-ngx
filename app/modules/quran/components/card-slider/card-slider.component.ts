@@ -7,10 +7,13 @@ import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 })
 export class CardSliderComponent implements OnInit {
 
+  @Input() maxHeight = 250;
   doorClassToggled = false;
   @Input() refContent: TemplateRef<any>;
   @Input() refIndex: TemplateRef<any>;
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit() {
   }

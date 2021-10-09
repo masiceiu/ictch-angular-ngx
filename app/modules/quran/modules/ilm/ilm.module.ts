@@ -5,6 +5,7 @@ import { IlmComponent } from './ilm.component';
 import { IlmRoutingModule } from './ilm-routing.module';
 
 import { AdviceComponent } from './advice/advice.component';
+import { MahramComponent } from './mahram/mahram.component';
 import { SideSliderModule } from '../../components/side-slider/side-slider.module';
 import { CardSliderComponent } from '../../components/card-slider/card-slider.component';
 
@@ -21,6 +22,7 @@ import { CardSliderComponent } from '../../components/card-slider/card-slider.co
   declarations: [
     IlmComponent,
     AdviceComponent,
+    MahramComponent,
     CardSliderComponent
   ]
 })

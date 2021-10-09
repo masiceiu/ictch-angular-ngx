@@ -16,7 +16,7 @@ export class AyatSearchComponent implements OnInit {
   
   //atextFontSize = 40;
   //ayatListConfig = {};
-  scrollerMinHeight = 495;
+  scrollerMaxHeight = 495;
   isMobile: boolean = false;
   config = {
     aFontSize:30,//
@@ -55,7 +55,7 @@ export class AyatSearchComponent implements OnInit {
     private storageService: StorageService
   ) {
     this.isMobile = window.innerWidth < 760;
-    this.scrollerMinHeight = window.innerHeight - 253;
+    this.scrollerMaxHeight = window.innerHeight - 253;
   }
   ngOnInit() {
     let langs = this.ayatSearchModel.getLangList();
@@ -117,7 +117,7 @@ export class AyatSearchComponent implements OnInit {
     // = event.target.innerWidth;
     // = event.target.innerHeight;
     this.isMobile = event.target.innerWidth < 760;
-    this.scrollerMinHeight = event.target.innerHeight - 253;
+    this.scrollerMaxHeight = event.target.innerHeight - 253;
   }
   onChange(data:any, switch_on:string) {
     switch (switch_on) {

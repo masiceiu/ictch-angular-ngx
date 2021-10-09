@@ -80,7 +80,7 @@
 						<button type="button"
 						[disabled]="!search"
 						(click)="onClick($event,'search')"
-					class="btn btn-secondary" style="padding-right: 24px;padding-left: 24px;">
+					class="btn btn-secondary" style="padding-right: 22px;padding-left: 22px;">
 					<i class="bi bi-search"></i>
 					</button>
 					</div>
@@ -144,17 +144,17 @@
 	<app-slide-content [list]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)"></app-slide-content>
 	
 	<ng-template #tpr2>
-	<div class="content">
-	<h3>Sticky Social Bar-2</h3>
-	<p>The sticky social bar will stick to the screen when you scroll.</p>
-	</div>
+		<div class="content">
+			<h3>Sticky Social Bar-2</h3>
+			<p>The sticky social bar will stick to the screen when you scroll.</p>
+		</div>
 	</ng-template>
 	<app-side-slider [refTemplate]="tpr2" [positionTop]="70" [icon]="'star'" [iconMarginTop]="3"></app-side-slider>
 </ng-container>
 </div>
 
 <div class="col-12">
-<div class="scroller" style="max-height:{{scrollerMinHeight}}px">
+<div class="scroller" style="max-height:{{scrollerMaxHeight}}px">
 	<div class="list-group" *ngIf="0">
 		<div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="1">
 			<div class="d-flex w-100 justify-content-between">

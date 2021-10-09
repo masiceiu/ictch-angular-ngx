@@ -1,21 +1,55 @@
 <div class="card slider-card" [class.slider-card-index-open]="doorClassToggled">
 <div class="card-header with-border">
-  <h3 class="card-title">Card Header</h3>
+  <div class="flex-parent">
+    <div class="flex-child" style="text-align:left;">
+      <a href (click)="false" *ngIf="">
+        <i class="bi bi-arrow-left-circle"></i>
+      </a>
+      <h3 class="card-title m-0">Card Header</h3>
+    </div>
+    <div class="flex-child" style="text-align:center;">
+      <a href (click)="false" *ngIf="">
+        <i class="bi bi-check-circle"></i>
+      </a>
+    </div>
+    <div class="flex-child" style="text-align:right;">
+      <a href (click)="false" *ngIf="">
+        <i class="bi bi-star"></i>
+      </a>
+    </div>
+  </div>
 </div>
 <div class="card-body">
-  <div class="slider-card-content">
+  <div class="slider-card-content" style="max-height:{{maxHeight}}px">
     <ng-template #contentRef></ng-template>
     <ng-container *ngTemplateOutlet="refContent?refContent:contentRef">
     </ng-container>
   </div>
-  <div class="slider-card-index">
+  <div class="slider-card-index" style="max-height:{{maxHeight}}px">
     <ng-template #indexRef></ng-template>
     <ng-container *ngTemplateOutlet="refIndex?refIndex:indexRef">
     </ng-container>
   </div>
 </div>
 <div class="card-footer">
-  <h3 class="card-title">Card Footer</h3>
-  <button (click)="toggleDoor()">door</button>
+  <div class="flex-parent">
+    <div class="flex-child" style="text-align:left;">
+      <a href (click)="false" *ngIf="">
+        <i class="bi bi-arrow-left-circle"></i>
+      </a>
+      <h3 class="card-title m-0">Card Footer</h3>
+    </div>
+    <div class="flex-child" style="text-align:center;">
+      <a href (click)="false" *ngIf="">
+        <i class="bi bi-check-circle"></i>
+      </a>
+    </div>
+    <div class="flex-child" style="text-align:right;">
+      <a href (click)="false" *ngIf="">
+        <i class="bi bi-star"></i>
+      </a>
+      <button (click)="toggleDoor()">door</button>
+    </div>
+  </div>
 </div>
 </div>

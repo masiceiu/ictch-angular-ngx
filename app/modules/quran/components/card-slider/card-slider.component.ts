@@ -6,11 +6,15 @@ import { Component, Input, OnInit, TemplateRef } from '@angular/core';
   styleUrls: ['./card-slider.component.css']
 })
 export class CardSliderComponent implements OnInit {
-
+  
   @Input() maxHeight = 250;
-  doorClassToggled = false;
+  @Input() cardHeader = "";
+  @Input() cardFooter = "";
+  @Input() refFooter: TemplateRef<any>;
+  @Input() refHeader: TemplateRef<any>;
   @Input() refContent: TemplateRef<any>;
   @Input() refIndex: TemplateRef<any>;
+  doorClassToggled = false;
   constructor() { 
     
   }

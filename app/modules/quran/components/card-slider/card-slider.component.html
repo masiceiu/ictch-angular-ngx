@@ -1,11 +1,9 @@
 <div class="card slider-card" [class.slider-card-index-open]="doorClassToggled">
-<div class="card-header with-border">
-  <div class="flex-parent">
+<div class="card-header with-border" *ngIf="cardHeader">
+  <ng-template #headerRef>
+   <div class="flex-parent">
     <div class="flex-child" style="text-align:left;">
-      <a href (click)="false" *ngIf="">
-        <i class="bi bi-arrow-left-circle"></i>
-      </a>
-      <h3 class="card-title m-0">Card Header</h3>
+      <h3 class="card-title m-0">{{cardHeader}}</h3>
     </div>
     <div class="flex-child" style="text-align:center;">
       <a href (click)="false" *ngIf="">
@@ -18,6 +16,9 @@
       </a>
     </div>
   </div>
+</ng-template>
+<ng-container *ngTemplateOutlet="refHeader?refHeader:headerRef">
+  </ng-container>
 </div>
 <div class="card-body">
   <div class="slider-card-content" style="max-height:{{maxHeight}}px">
@@ -32,24 +33,28 @@
   </div>
 </div>
 <div class="card-footer">
-  <div class="flex-parent">
-    <div class="flex-child" style="text-align:left;">
-      <a href (click)="false" *ngIf="">
-        <i class="bi bi-arrow-left-circle"></i>
-      </a>
-      <h3 class="card-title m-0">Card Footer</h3>
+  <ng-template #footerRef>
+    <div class="flex-parent">
+      <div class="flex-child" style="text-align:left;" *ngIf="cardFooter">
+        <a href (click)="false" *ngIf="">
+          <i class="bi bi-arrow-left-circle"></i>
+        </a>
+        <h3 class="card-title m-0">Card Footer</h3>
+      </div>
+      <div class="flex-child" style="text-align:center;">
+        <a href (click)="false" *ngIf="">
+          <i class="bi bi-check-circle"></i>
+        </a>
+      </div>
+      <div class="flex-child" style="text-align:right;">
+        <a href (click)="false" *ngIf="">
+          <i class="bi bi-star"></i>
+        </a>
+        <button (click)="toggleDoor()">door</button>
+      </div>
     </div>
-    <div class="flex-child" style="text-align:center;">
-      <a href (click)="false" *ngIf="">
-        <i class="bi bi-check-circle"></i>
-      </a>
-    </div>
-    <div class="flex-child" style="text-align:right;">
-      <a href (click)="false" *ngIf="">
-        <i class="bi bi-star"></i>
-      </a>
-      <button (click)="toggleDoor()">door</button>
-    </div>
-  </div>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="refFooter?refFooter:footerRef">
+    </ng-container>
 </div>
 </div>

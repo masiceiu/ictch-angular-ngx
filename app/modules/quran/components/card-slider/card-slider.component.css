@@ -24,6 +24,7 @@
   bottom: 0;
   max-height: 250px;
   width: 100%;
+  background: aliceblue;
   /*background: #222d32;
   color: #fff;*/
   overflow: auto;

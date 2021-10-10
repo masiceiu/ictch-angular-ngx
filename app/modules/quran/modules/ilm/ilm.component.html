@@ -21,8 +21,10 @@
     <app-mahram *ngIf="1"></app-mahram>
   </ng-template>
   <app-card-slider
+    [cardHeader]="'সত্য ও মিথ্যার মিশ্রণ করা যাবে না'"
     [refContent]="tpr3"
     [refIndex]="tpr4"
     [maxHeight]="height - fixedHeight"
+    [showFooter] = "true"
   ></app-card-slider>
 </div>

@@ -1,5 +1,5 @@
 <div class="card slider-card" [class.slider-card-index-open]="doorClassToggled">
-<div class="card-header with-border" *ngIf="cardHeader">
+<div class="card-header with-border py-1 px-2" *ngIf="cardHeader">
   <ng-template #headerRef>
    <div class="flex-parent">
     <div class="flex-child" style="text-align:left;">
@@ -21,36 +21,44 @@
   </ng-container>
 </div>
 <div class="card-body">
-  <div class="slider-card-content" style="max-height:{{maxHeight}}px">
+  <div class="slider-card-content" style="max-height:{{maxHeight-((cardHeader?50:0)+(showFooter?50:0))}}px">
     <ng-template #contentRef></ng-template>
     <ng-container *ngTemplateOutlet="refContent?refContent:contentRef">
     </ng-container>
   </div>
-  <div class="slider-card-index" style="max-height:{{maxHeight}}px">
+  <div class="slider-card-index" style="max-height:{{maxHeight-((cardHeader?50:0)+(showFooter?50:0))}}px">
     <ng-template #indexRef></ng-template>
     <ng-container *ngTemplateOutlet="refIndex?refIndex:indexRef">
     </ng-container>
   </div>
 </div>
-<div class="card-footer" *ngIf="cardFooter">
+<div class="card-footer py-1 px-2" *ngIf="showFooter">
   <ng-template #footerRef>
     <div class="flex-parent">
-      <div class="flex-child" style="text-align:left;">
-        <a href (click)="false" *ngIf="">
-          <i class="bi bi-arrow-left-circle"></i>
+      <div class="flex-child" style="text-align:left;" *ngIf="onClickL.observed">
+      <a href (click)="_onClickL($event)">
+          <i class="bi bi-chat-left-fill"></i>
         </a>
-        <h3 class="card-title m-0">{{cardFooter}}</h3>
       </div>
-      <div class="flex-child" style="text-align:center;">
-        <a href (click)="false" *ngIf="">
-          <i class="bi bi-check-circle"></i>
+      <div class="flex-child" style="text-align:center;" *ngIf="onClickC.observed">
+      <a href (click)="_onClickC($event)">
+          <i class="bi bi-chat-square-fill"></i>
+        </a>
+      </div>
+      <div class="flex-child" style="text-align:right;" *ngIf="onClickR.observed">
+        <a href (click)="_onClickR($event)">
+          <i class="bi bi-chat-right-fill"></i>
+        </a>
+      </div>
+      <div class="flex-child" style="text-align:right;" *ngIf="onClick.observed">
+        <a href (click)="_onClick($event)">
+          <i class="bi bi-check-lg"></i>
         </a>
       </div>
       <div class="flex-child" style="text-align:right;">
-        <a href (click)="false" *ngIf="">
-          <i class="bi bi-star"></i>
+        <a href (click)="toggleDoor($event)" *ngIf="1">
+          <i class="bi bi-chevron-compact-{{doorClassToggled?'right':'left'}}"></i>
         </a>
-        <button (click)="toggleDoor()">door</button>
       </div>
     </div>
   </ng-template>

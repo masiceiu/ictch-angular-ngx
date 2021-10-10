@@ -10,6 +10,7 @@ export class IlmComponent implements OnInit {
 
   width = 250;
   height = 250;
+  fixedHeight = 1;
   constructor() { 
     this.width = window.innerWidth;
     this.height = window.innerHeight;

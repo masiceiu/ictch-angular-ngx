@@ -1,38 +1,27 @@
-
-.content {
-  margin: 0 50px 0 0;
-  text-justify: auto;
-  font-size: 30px;
+/*scroller*/
+.scroller {
+  width: 100%;
+  max-height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  /*overflow-y: auto;*/
+}
+.scroller:hover {
+  /*overflow: hidden;*/
+  overflow-y: auto;/**/
+  /*overflow-y: scroll;*/
 }
 
-/*
-.arrow {
-  display: flex;
-  align-items: center;
-  transform: rotate(45deg);
-  transform-origin: 0;
-  left: 100px;
-  top: 100px;
-  position: absolute;
-  width: 300px;
+::-webkit-scrollbar {
+  width: 1px;
 }
 
-.start {
-  width: 12px;
-  height: 12px;
-  border-radius: 6px;
-  background-color: blue;
+::-webkit-scrollbar-track {
+  background: #eee;
+  /*background: transparent;*/
 }
 
-.line {
-    flex: 1;
-    background:blue;
-    height:10px;
+::-webkit-scrollbar-thumb {
+  /*background: #828682;*/
+  background: #2a3b49;
 }
-.end {	
-  width: 0; 
-	height: 0; 
-	border-top: 15px solid transparent;
-	border-bottom: 15px solid transparent;
-	border-left: 20px solid blue;
-}*/

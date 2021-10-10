@@ -14,9 +14,9 @@ import { PopoverDirective } from 'ngx-bootstrap/popover';
 })
 export class AyatSearchComponent implements OnInit {
   
-  //atextFontSize = 40;
-  //ayatListConfig = {};
-  scrollerMaxHeight = 495;
+  width = 250;
+  height = 250;
+  fixedHeight = 253;
   isMobile: boolean = false;
   config = {
     aFontSize:30,//
@@ -54,8 +54,9 @@ export class AyatSearchComponent implements OnInit {
     private googleService: GoogleService,
     private storageService: StorageService
   ) {
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
     this.isMobile = window.innerWidth < 760;
-    this.scrollerMaxHeight = window.innerHeight - 253;
   }
   ngOnInit() {
     let langs = this.ayatSearchModel.getLangList();
@@ -114,10 +115,9 @@ export class AyatSearchComponent implements OnInit {
     },1000)
   }
   onWindowResize(event) {
-    // = event.target.innerWidth;
-    // = event.target.innerHeight;
-    this.isMobile = event.target.innerWidth < 760;
-    this.scrollerMaxHeight = event.target.innerHeight - 253;
+    this.width = event.target.innerWidth;
+    this.height = event.target.innerHeight;
+    this.isMobile = this.width < 760;
   }
   onChange(data:any, switch_on:string) {
     switch (switch_on) {

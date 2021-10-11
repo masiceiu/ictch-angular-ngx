@@ -1,11 +1,19 @@
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">১	পুরুষদের মাহরাম
+  <li class="list-group-item" *ngFor="let it1 of data.items; let i = index;">
+    {{i+1+'.'}} {{it1.name}}
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">১.১	মায়ের মত ৫ জন</li>
-      <li class="list-group-item">১.২	বোনের মত ৫ জন</li>
-      <li class="list-group-item">১.৩	মেয়ের মত ৪ জন</li>
+      <li class="list-group-item" *ngFor="let it2 of it1.items; let j = index;">
+      {{(i+1)+'.'+(j+1)+'.'}} {{it2.name}}
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let it3 of it2.items; let k = index;">
+          {{(i+1)+'.'+(j+1)+'.'+(k+1)+'.'}} {{it3.name}}
+          </li>
+        </ul>
+      </li>
     </ul>
-  </li>
+  </li><!--১.১	মায়ের মত ৫ জন ২.১	বাবার মত ৪ জন
+  <li class="list-group-item">১.২	বোনের মত ৫ জন</li>
+  <li class="list-group-item">১.৩	মেয়ের মত ৪ জন</li>
   <li class="list-group-item">২	মহিলাদের মাহরাম
     <ul class="list-group list-group-flush">
       <li class="list-group-item">২.১	বাবার মত ৪ জন</li>
@@ -13,7 +21,11 @@
       <li class="list-group-item">২.৩	ছেলের মত ৫ জন</li>
     </ul>
   </li>
-  <!--
+  
+  <li *ngFor="let it of relatives.items; let i = index;">
+  {{it}}
+  </li> 
+  
 <li class="list-group-item"><small>https://www.islamicqa.org/2138</small></li>
 <li class="list-group-item"><small>https://www.hadithbd.com/mahram/</small></li>
 <li class="list-group-item"><small>http://www.imam.gov.bd/singlepost/5368</small></li>

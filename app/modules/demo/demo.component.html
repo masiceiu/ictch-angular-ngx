@@ -345,7 +345,18 @@
         </a>
       </nav>
       <div class="container">
-        <router-outlet></router-outlet>
+        <div class="form-group">
+          <label for="item">Select One Item:</label>
+          <select class="form-control form-control-sm" [(ngModel)]="selected" [value]="selected" >
+            <option value="?">NONE</option>
+            <option value="side-toggler">Side Toggler</option>
+            <option value="state-button">State Button</option>
+          </select>
+        </div>
+        <div class="clearfix"></div>
+          <ng-container *ngIf="selected=='?'"></ng-container>
+          <app-side-toggler *ngIf="selected=='side-toggler'"></app-side-toggler>
+          <app-state-button-test *ngIf="selected=='state-button'"></app-state-button-test>
       </div>
       <div class="content" role="main">
         <!-- Highlight Card -->

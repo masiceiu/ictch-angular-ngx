@@ -10,6 +10,7 @@ const routes: Routes = [
   {
     path: "css",
     //component: ?,
+    //component: DemoComponent, 
     children:[
       {
         path: "",
@@ -24,6 +25,7 @@ const routes: Routes = [
   {
     path: "attendance",
     //component: ?,
+    //component: DemoComponent, 
     children:[
       {
         path: "",

@@ -4,7 +4,7 @@
   align-items: center;
   transform: rotate(45deg);
   transform-origin: 0;
-  left: 100px;
+  left: 50%;
   top: 100px;
   position: absolute;
   width: 300px;
@@ -30,3 +30,4 @@
 	border-bottom: 15px solid transparent;
 	border-left: 20px solid blue;
 }
+

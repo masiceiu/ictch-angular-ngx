@@ -1,18 +1,19 @@
-
-<!--
-<select ng-options="item as item.label for item in [{id:'1', label':'1111111111111111111111'}] track by item.id" ng-model="selected"></select>-->
-<div class="form-group">
-  <label for="item">Select One Item:</label>
-  <select class="form-control form-control-sm" [(ngModel)]="selected" [value]="selected" >
-  <option value="employee">Moment</option>
-  <option value="employeeList">Employee-List</option>
-  <option value="employeeRegister">Employee-Register</option>
-  <option value="attendance">Monthly-Attendance</option>
-  </select>
-</div>
-<div class="clearfix"></div>
-<ng-container *ngIf="selected=='?'"></ng-container>
-<app-employee *ngIf="selected=='employee'"></app-employee>
-<app-employee-list *ngIf="selected=='employeeList'"></app-employee-list>
-<app-employee-register *ngIf="selected=='employeeRegister'"></app-employee-register>
-<app-monthly-attendance *ngIf="selected=='attendance'"></app-monthly-attendance>
+<main class="container">
+  <!--
+  <select ng-options="item as item.label for item in [{id:'1', label':'1111111111111111111111'}] track by item.id" ng-model="selected"></select>-->
+  <div class="form-group">
+    <label for="item">Select One Item:</label>
+    <select class="form-control form-control-sm" [(ngModel)]="selected" [value]="selected" >
+    <option value="employee">Moment</option>
+    <option value="employeeList">Employee-List</option>
+    <option value="employeeRegister">Employee-Register</option>
+    <option value="attendance">Monthly-Attendance</option>
+    </select>
+  </div>
+  <div class="clearfix"></div>
+  <ng-container *ngIf="selected=='?'"></ng-container>
+  <app-employee *ngIf="selected=='employee'"></app-employee>
+  <app-employee-list *ngIf="selected=='employeeList'"></app-employee-list>
+  <app-employee-register *ngIf="selected=='employeeRegister'"></app-employee-register>
+  <app-monthly-attendance *ngIf="selected=='attendance'"></app-monthly-attendance>
+</main>

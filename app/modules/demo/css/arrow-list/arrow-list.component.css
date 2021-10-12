@@ -5,7 +5,7 @@
 	margin-right: auto;
 	margin-left: auto;
 }
-.arrow-container.arrowL:after {
+.arrow-container .arrowL:after {
 	content: '';
 	display: block;  
 	position: absolute;

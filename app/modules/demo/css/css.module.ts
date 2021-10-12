@@ -14,7 +14,8 @@ import { DynamicInputModule } from './../../../components/dynamic-input/dynamic-
   imports: [
     CommonModule,
     FormsModule,
-    CssRoutingModule
+    CssRoutingModule,
+    DynamicInputModule
   ],
   declarations: [
     ArrowComponent,
@@ -23,7 +24,6 @@ import { DynamicInputModule } from './../../../components/dynamic-input/dynamic-
     DirectChatComponent,
     ArrowComponent,
     ArrowListComponent
-
   ]
 })
 export class CssModule { }

@@ -141,7 +141,7 @@
 		</div>
 
 <ng-container *ngIf="true">
-	<app-slide-content [list]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)"></app-slide-content>
+	<app-slide-content [list]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)" [maxHeight]="height-fixedHeight"></app-slide-content>
 	
 	<ng-template #tpr2>
 		<div class="content">

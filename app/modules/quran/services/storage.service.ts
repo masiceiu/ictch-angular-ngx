@@ -24,6 +24,16 @@ export class StorageService {
   Set(key:string, value:IStorage) {
     localStorage.setItem(key,JSON.stringify(value));
   }
+  HasKey(key:string): Boolean{
+    return localStorage.hasOwnProperty(key);
+  }
+  HasVal(key:string): Boolean{
+    let val = localStorage[key];
+    return (val!==undefined && val!==0 && val!==null && val!==false && val!=='')
+  }
+  Remove(key:string): void{
+    localStorage.removeItem(key);
+  }
   private parse(key:string) {
     return JSON.parse(localStorage.getItem(key));
   }

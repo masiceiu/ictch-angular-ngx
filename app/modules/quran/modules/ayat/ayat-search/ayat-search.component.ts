@@ -283,6 +283,41 @@ export class AyatSearchComponent implements OnInit {
         console.log(data, 1);
         this.storageService.ayatIndexSearched = this.ayatIndexSearched.splice(data, 1);
         break;
+        case 'star-item':  
+          data.$event.preventDefault();
+          //delete person.age;
+          let star_id = data.item.index;
+          let star_key = "star-item";
+          //this.storageService.Remove("star-item");
+          let star_val = this.storageService.Get("star-item");
+          //let star_val = this.storageService.HasKey("star-item");
+          if(star_val){
+            if(!star_val.hasOwnProperty(star_id)){
+              star_val[star_id] = data.item;
+              this.storageService.Set(star_key, star_val);
+              //console.log('g1',star_val);
+            }//console.log('g2',star_val);
+          }else{
+            star_val = {};
+            star_val[star_id] = data.item;
+            this.storageService.Set(star_key, star_val);
+            //console.log('g3',star_val);
+          }
+          for (const key in star_val){
+          }
+          /*star_val.map(key => { 
+            console.log(key,star_val[key]);
+          });*/
+         //let g1 = this.storageService.Get("star-item");
+         //console.log('g1',star_val);
+          //let g2 = this.storageService.Get("star-item");
+         //console.log('g1',g2);
+         //console.log('g1',g2);
+          //this.search = data.item.name;
+        break;
+        default:
+          console.log(data);
+        break;
     }
   }
   

@@ -285,7 +285,14 @@
 			</p>
 			<hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
 			<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
-
+			<hr class="hrh mb-0" *ngIf="1">
+			<div class="flex-parent">
+				<div class="flex-child" style="text-align:center;">
+					<a href (click)="onClick({$event:$event, item:it},'star-item')">
+						<i class="bi bi-star"></i>
+					</a>
+				</div>
+			</div>
 		</div>
 		<!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
 			class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">

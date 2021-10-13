@@ -25,7 +25,7 @@
 					</span>
 					<span class="input-group-text">
 						<ng-template #popTemplate0>
-							<app-setting></app-setting>
+							<app-setting (onSubmit)="onSubmit($event,'add-group')"></app-setting>
 						</ng-template>
 						<a href (click)="false" [popover]="popTemplate0" popoverTitle="Serch Settings" [outsideClick]="true" placement="auto" class="w3-spin">	
 							<i class="bi bi-gear"></i>
@@ -149,7 +149,7 @@
 			<p>The sticky social bar will stick to the screen when you scroll.</p>
 		</div>
 	</ng-template>
-	<app-side-slider [refTemplate]="tpr2" [positionTop]="70" [icon]="'star'" [iconMarginTop]="3"></app-side-slider>
+	<app-side-slider [refTemplate]="tpr2" [positionTop]="70" [icon]="'star-fill'" [iconMarginTop]="4"></app-side-slider>
 </ng-container>
 </div>
 

@@ -72,7 +72,14 @@ export class AyatSearchComponent implements OnInit {
 
     this.translates = translates;
     this.translate = translates[10];
-
+    
+    setTimeout(()=>{
+      let group = this.storageService.Get("ayat_group")||{};
+      for (const key in group){
+            //console.log(key,star_val[key]);
+            //this.ayatGroup
+      }
+    },1000)
     this.suggestions$ = new Observable((observer: Observer<string>) => {
       observer.next(this.search);
     }).pipe(
@@ -159,11 +166,27 @@ export class AyatSearchComponent implements OnInit {
   onOpenChange(data: boolean): void {
     console.log(data);
   }
-  onSelect($event: any): void {
-    console.log($event);
-    this.selected = $event;
-    //console.log($event.item);
-  } 
+  onSelect($event: any, switch_on:string): void {
+    switch (switch_on) {
+      case '':
+        break;
+      default:
+        console.log($event);
+        this.selected = $event;
+        //console.log($event.item);
+        break;
+    }
+  }
+  onSubmit(data:any, switch_on:string): void {
+    switch (switch_on) {
+      case 'add-group':
+          console.log(data);
+          //this.storageService.Get("ayat_group")||{};
+        break;
+      default:
+        break;
+      }  
+  }  
   //@ViewChild(PopoverDirective) pop?: PopoverDirective;
   @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;
   onShow(): void {
@@ -171,7 +194,7 @@ export class AyatSearchComponent implements OnInit {
     //this.selected = $event;
     //console.log($event.item);
   }
-  star: any = {};
+  ayatGroup: any = {};
   ayatIndexs: any[] = [];
   ayatIndexSearched: any[] = [];
   onClick(data:any, switch_on:string): void {
@@ -285,7 +308,8 @@ export class AyatSearchComponent implements OnInit {
         console.log(data, 1);
         this.storageService.ayatIndexSearched = this.ayatIndexSearched.splice(data, 1);
         break;
-        case 'star-item':  
+        case 'ayat-group':  
+          //this.ayatGroup[data.group] = star
           data.$event.preventDefault();
           //delete person.age;
           let star_id = data.item.index;

@@ -171,7 +171,9 @@ export class AyatSearchComponent implements OnInit {
     //this.selected = $event;
     //console.log($event.item);
   }
-  //list=[];
+  star: any = {};
+  ayatIndexs: any[] = [];
+  ayatIndexSearched: any[] = [];
   onClick(data:any, switch_on:string): void {
     //console.log(data,switch_on);
     //console.log(this.selected);
@@ -289,28 +291,28 @@ export class AyatSearchComponent implements OnInit {
           let star_id = data.item.index;
           let star_key = "star-item";
           //this.storageService.Remove("star-item");
-          let star_val = this.storageService.Get("star-item");
-          //let star_val = this.storageService.HasKey("star-item");
+          let star_val = this.storageService.Get(star_key);
           if(star_val){
             if(!star_val.hasOwnProperty(star_id)){
               star_val[star_id] = data.item;
               this.storageService.Set(star_key, star_val);
-              //console.log('g1',star_val);
-            }//console.log('g2',star_val);
+            }
           }else{
             star_val = {};
             star_val[star_id] = data.item;
             this.storageService.Set(star_key, star_val);
-            //console.log('g3',star_val);
           }
-          for (const key in star_val){
-          }
+          
+          //console.log('g1',Object.keys(star_val));
+          //for (const key in star_val){
+            //console.log(key,star_val[key]);
+          //}
           /*star_val.map(key => { 
             console.log(key,star_val[key]);
           });*/
          //let g1 = this.storageService.Get("star-item");
          //console.log('g1',star_val);
-          //let g2 = this.storageService.Get("star-item");
+         //let g2 = this.storageService.Get("star-item");
          //console.log('g1',g2);
          //console.log('g1',g2);
           //this.search = data.item.name;
@@ -320,7 +322,9 @@ export class AyatSearchComponent implements OnInit {
         break;
     }
   }
-  
+  hasProperty(it:any, key:string): Boolean{
+    return it.hasOwnProperty(key);
+  }
   onRemoteClick(data:any, switch_on:string): void {
     console.log(data,switch_on);
   }
@@ -344,8 +348,6 @@ export class AyatSearchComponent implements OnInit {
     );
   }
   
-  ayatIndexs: any[] = [];
-  ayatIndexSearched: any[] = [];
   private setAyatIndex(req:any, callBack:any=null): void {
     let lang = this.translate.id;
     this.ayatIndexs = [];

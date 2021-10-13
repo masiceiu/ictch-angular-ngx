@@ -289,7 +289,7 @@
 			<div class="flex-parent">
 				<div class="flex-child" style="text-align:center;">
 					<a href (click)="onClick({$event:$event, item:it},'star-item')">
-						<i class="bi bi-star"></i>
+						<i class="bi bi-star{{0?'':'-fill'}}"></i>
 					</a>
 				</div>
 			</div>

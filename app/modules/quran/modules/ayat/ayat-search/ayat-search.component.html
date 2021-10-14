@@ -49,8 +49,7 @@
 		</div>
 	</div>
 	<div class="flex-parent">
-		<div class="flex-child" style="border-bottom: 0px;">
-			
+		<div class="flex-child" style="border-bottom: 0px;">			
 			<div class="input-group input-group-sm">
 				<div class="input-group-append">
 					<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">{{lang.id}}</span>
@@ -301,7 +300,7 @@
 			<hr class="hrh mb-0" *ngIf="1">
 			<div class="flex-parent">
 				<div class="flex-child" style="text-align:center;">
-					<a href (click)="onClick({$event:$event,group:'star', item:it},'ayat-group')">
+					<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
 						<i class="bi bi-star{{0?'':'-fill'}}"></i>
 					</a>
 				</div>

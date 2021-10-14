@@ -2,9 +2,10 @@ import { Component, OnInit, QueryList, ViewChild, ViewChildren, ɵConsole } from
 import { Observer, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
+import { PopoverDirective } from 'ngx-bootstrap/popover';
+
 import { AyatSearchModel } from './ayat-search.model';
 import { AyatService, GoogleService, StorageService } from './../.././../services';
-import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
   selector: 'app-ayat-search',
@@ -45,6 +46,7 @@ export class AyatSearchComponent implements OnInit {
   ayatList: any[] = [];
   translate: any;
   translates: any[] = [];
+  ayatIndexs: any[] = [];
 
   isSuraSearch = false;
   isSearchLoading = false;
@@ -58,11 +60,21 @@ export class AyatSearchComponent implements OnInit {
     this.height = window.innerHeight;
     this.isMobile = window.innerWidth < 760;
   }
+
+  ayatGroup: any = {};
+  ayat_group_key = "ayat_group_key";
+  ayatGroups: any[] = [];
+  ayat_groups_key = "ayat_groups_key";
+  ayat_searchs: any[] = [];
+  ayat_search_key = "ayat_search_key";
   ngOnInit() {
     let langs = this.ayatSearchModel.getLangList();
     let suras = this.ayatSearchModel.getSuraList();
     let translates = this.ayatSearchModel.getTranslateList();
-    this.ayatIndexSearched = this.storageService.ayatIndexSearched;
+
+    this.ayatGroup = this.storageService.Get(this.ayat_group_key)||this.ayatGroup;
+    this.ayatGroups = this.storageService.GetList(this.ayat_groups_key)||this.ayatGroups;
+    this.ayat_searchs = this.storageService.GetList(this.ayat_search_key)||this.ayat_searchs;
 
     this.suras = suras;
     this.sura = suras[1];
@@ -182,20 +194,21 @@ export class AyatSearchComponent implements OnInit {
     return str.replace(/[.*+?^${}()/|\\[\]\s]/g,by);
     //ref:https://stackblitz.com/edit/find-and-replace?file=src%2Fapp%2Fapp.component.ts
   }
-  ayatGroup: any = {};
-  ayatGroups: any[] = [];
-  ayat_Group_key = "ayat_group_key";
   onSubmit(data:any, switch_on:string): void {
     switch (switch_on) {
-      case 'add-group':
+      case 'add-group'://.toLowerCase()
         let group = this.stringReplace(data['name']);
         if(!this.ayatGroup.hasOwnProperty(group)){
           data['id'] = group;
           this.ayatGroup[group] = {};
           this.ayatGroups.push(data);
-          //this.storageService.Set(this.ayat_Group_key, this.ayatGroup);
-          //this.storageService.Set(this.ayat_Group_key, this.ayatGroup);
+          this.storageService.Set(this.ayat_group_key, this.ayatGroup);
+          this.storageService.Set(this.ayat_groups_key, this.ayatGroups);
         }
+        console.log(this.storageService.Keys);
+        //this.storageService.Remove(this.ayat_group_key);
+        //this.storageService.Remove(this.ayat_groups_key);
+        //this.storageService.Remove(this.ayat_search_key);
         break;
       case 'group-item':
         break;
@@ -212,8 +225,6 @@ export class AyatSearchComponent implements OnInit {
     //this.selected = $event;
     //console.log($event.item);
   }
-  ayatIndexs: any[] = [];
-  ayatIndexSearched: any[] = [];
   onClick(data:any, switch_on:string): void {
     //console.log(data,switch_on);
     //console.log(this.selected);
@@ -290,10 +301,10 @@ export class AyatSearchComponent implements OnInit {
         setTimeout(() => { 
           this.onClick(data.$event,'search');
         },500);
-        let it = this.ayatIndexSearched.find(it => it.id == data.item.id);
+        let it = this.ayat_searchs.find(it => it.id == data.item.id);
         if(!it){
-          this.ayatIndexSearched.push(data.item);
-          this.storageService.ayatIndexSearched = this.ayatIndexSearched;
+          this.ayat_searchs.push(data.item);
+          this.storageService.SetList(this.ayat_search_key,this.ayat_searchs);
         }
         break;
         case 'suggest-item-sura'://suggest Search
@@ -322,28 +333,25 @@ export class AyatSearchComponent implements OnInit {
         break;
       case 'suggest-item-remove':
         //data as index;
-        console.log(data, 1);
-        this.storageService.ayatIndexSearched = this.ayatIndexSearched.splice(data, 1);
+        //console.log(data, 1);
+        this.storageService.SetList(this.ayat_search_key,this.ayat_searchs.splice(data, 1));
         break;
-        case 'ayat-group':  
-          //this.ayatGroup[data.group] = star
-          data.$event.preventDefault();
+        case 'ayat-group':
           //delete person.age;
-          let star_id = data.item.index;
-          let star_key = "star-item";
-          //this.storageService.Remove("star-item");
-          let star_val = this.storageService.Get(star_key);
-          if(star_val){
-            if(!star_val.hasOwnProperty(star_id)){
-              star_val[star_id] = data.item;
-              this.storageService.Set(star_key, star_val);
-            }
-          }else{
-            star_val = {};
-            star_val[star_id] = data.item;
-            this.storageService.Set(star_key, star_val);
+          data.$event.preventDefault();
+          let group = data.group;
+          if(group.toLowerCase() === "star".toLowerCase()){
+            group = "MyLife";
           }
-          
+          let index = data.item.index;
+          if(!this.ayatGroup[group].hasOwnProperty(index)){
+            this.ayatGroup[group][index] = data.item;
+            this.storageService.Set(this.ayat_group_key, this.ayatGroup[group]);
+          }else{
+            this.ayatGroup[group][index] = data.item;
+            this.storageService.Set(this.ayat_group_key, this.ayatGroup[group]);
+          }
+          console.log(group,this.ayatGroup[group]);
           //console.log('g1',Object.keys(star_val));
           //for (const key in star_val){
             //console.log(key,star_val[key]);
@@ -351,12 +359,6 @@ export class AyatSearchComponent implements OnInit {
           /*star_val.map(key => { 
             console.log(key,star_val[key]);
           });*/
-         //let g1 = this.storageService.Get("star-item");
-         //console.log('g1',star_val);
-         //let g2 = this.storageService.Get("star-item");
-         //console.log('g1',g2);
-         //console.log('g1',g2);
-          //this.search = data.item.name;
         break;
         default:
           console.log(data);

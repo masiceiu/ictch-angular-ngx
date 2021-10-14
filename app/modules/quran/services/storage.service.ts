@@ -6,7 +6,7 @@ export interface IStorage {
   providedIn: 'root'
 })
 export class StorageService {
-  get ayatIndexSearched():any[]{
+  /*get ayatIndexSearched():any[]{
     let key = 'ayatIndexSearched';
     let storage = this.parse(key);
     if (!storage) {
@@ -17,15 +17,33 @@ export class StorageService {
   set ayatIndexSearched(list:any[]) {
     let key = 'ayatIndexSearched';
     localStorage.setItem(key,JSON.stringify(list));
-  }
+  }*/
   Get(key:string):IStorage {
+    return JSON.parse(localStorage.getItem(key));
+  }
+  GetAny(key:string):any {
+    return JSON.parse(localStorage.getItem(key));
+  }
+  GetList(key:string):any[] {
+    return JSON.parse(localStorage.getItem(key));
+  }
+  GetItems(key:string):IStorage[] {
     return JSON.parse(localStorage.getItem(key));
   }
   Set(key:string, value:IStorage) {
     localStorage.setItem(key,JSON.stringify(value));
   }
+  SetAny(key:string, value:any) {
+    localStorage.setItem(key,JSON.stringify(value));
+  }
+  SetList(key:string, list:any[]) {
+    localStorage.setItem(key,JSON.stringify(list));
+  }
   HasKey(key:string): Boolean{
     return localStorage.hasOwnProperty(key);
+  }
+  SetItems(key:string, list:IStorage[]) {
+    localStorage.setItem(key,JSON.stringify(list));
   }
   HasVal(key:string): Boolean{
     let val = localStorage[key];

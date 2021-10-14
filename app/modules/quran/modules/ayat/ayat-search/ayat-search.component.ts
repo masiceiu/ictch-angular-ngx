@@ -193,7 +193,8 @@ export class AyatSearchComponent implements OnInit {
           data['id'] = group;
           this.ayatGroup[group] = {};
           this.ayatGroups.push(data);
-          this.storageService.Set(this.ayat_Group_key, this.ayatGroup);
+          //this.storageService.Set(this.ayat_Group_key, this.ayatGroup);
+          //this.storageService.Set(this.ayat_Group_key, this.ayatGroup);
         }
         break;
       case 'group-item':

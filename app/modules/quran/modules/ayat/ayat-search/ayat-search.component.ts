@@ -132,7 +132,7 @@ export class AyatSearchComponent implements OnInit {
         this.translate = data;
         let id = data.id.split('_')[0];
         let item = this.langs.find(it => it.id == id);
-        console.log('?',item);
+         console.log('?',item);
         this.lang = item;
         break;
       case 'lang':
@@ -177,11 +177,28 @@ export class AyatSearchComponent implements OnInit {
         break;
     }
   }
+  stringReplace(str:string,by:string='') {
+    //wordExp = /(([a-zA-Z\s])?\w+)/;
+    return str.replace(/[.*+?^${}()/|\\[\]\s]/g,by);
+    //ref:https://stackblitz.com/edit/find-and-replace?file=src%2Fapp%2Fapp.component.ts
+  }
+  ayatGroup: any = {};
+  ayatGroups: any[] = [];
+  ayat_Group_key = "ayat_group_key";
   onSubmit(data:any, switch_on:string): void {
     switch (switch_on) {
       case 'add-group':
-          console.log(data);
-          //this.storageService.Get("ayat_group")||{};
+        let group = this.stringReplace(data['name']);
+        if(!this.ayatGroup.hasOwnProperty(group)){
+          data['id'] = group;
+          this.ayatGroup[group] = {};
+          this.ayatGroups.push(data);
+          this.storageService.Set(this.ayat_Group_key, this.ayatGroup);
+        }
+        break;
+      case 'group-item':
+        break;
+      case 'group-item-remove':
         break;
       default:
         break;
@@ -194,7 +211,6 @@ export class AyatSearchComponent implements OnInit {
     //this.selected = $event;
     //console.log($event.item);
   }
-  ayatGroup: any = {};
   ayatIndexs: any[] = [];
   ayatIndexSearched: any[] = [];
   onClick(data:any, switch_on:string): void {

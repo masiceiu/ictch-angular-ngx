@@ -68,7 +68,7 @@ export class SettingComponent implements OnInit {
 
     const inputs: InputBase<string>[] = [
       new TextboxInput({
-        key: 'a_group',
+        key: 'name',
         label: 'Group Name',
         type: 'text',
         value: '',

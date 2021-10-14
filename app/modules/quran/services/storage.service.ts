@@ -34,7 +34,18 @@ export class StorageService {
   Remove(key:string): void{
     localStorage.removeItem(key);
   }
+  get Keys():string[]{
+    return Object.keys(localStorage);
+    /*let keys:string[] = [];
+    for (var key in localStorage){
+      keys.push(key);
+      //console.log(key)
+    }
+    return keys;*/
+    //return Object.entries(localStorage)
+  }
   private parse(key:string) {
     return JSON.parse(localStorage.getItem(key));
   }
+  //ref: https://stackoverflow.com/questions/8419354/get-html5-localstorage-keys
 }

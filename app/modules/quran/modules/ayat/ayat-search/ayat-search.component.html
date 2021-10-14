@@ -24,10 +24,23 @@
 						</a>
 					</span>
 					<span class="input-group-text">
-						<ng-template #popTemplate0>
+						<ng-template #popTemplateGear>
 							<app-setting (onSubmit)="onSubmit($event,'add-group')"></app-setting>
+							<hr class="mb-1" />
+							<div class="scroller">
+								<div class="flex-parent" *ngFor="let it of ayatGroups; let i = index;">
+									<div class="flex-child" style="text-align:left;">
+										<a href (click)="onSubmit({$event:$event, item:it},'group-item')" >{{it.name}}</a>
+									</div>
+									<div class="flex-child" style="text-align:right;margin-top:-3px">
+										<span class="close" aria-label="Close" (click)="onSubmit(i,'group-item-remove')">
+											<span aria-hidden="true">&times;</span>
+										</span>
+									</div>
+							</div>
+						</div>
 						</ng-template>
-						<a href (click)="false" [popover]="popTemplate0" popoverTitle="Serch Settings" [outsideClick]="true" placement="auto" class="w3-spin">	
+						<a href (click)="false" [popover]="popTemplateGear" popoverTitle="" [outsideClick]="true" placement="auto" class="w3-spin">	
 							<i class="bi bi-gear"></i>
 						</a>
 					</span>
@@ -288,7 +301,7 @@
 			<hr class="hrh mb-0" *ngIf="1">
 			<div class="flex-parent">
 				<div class="flex-child" style="text-align:center;">
-					<a href (click)="onClick({$event:$event, item:it},'star-item')">
+					<a href (click)="onClick({$event:$event,group:'star', item:it},'ayat-group')">
 						<i class="bi bi-star{{0?'':'-fill'}}"></i>
 					</a>
 				</div>

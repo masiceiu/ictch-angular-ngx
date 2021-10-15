@@ -70,7 +70,7 @@
 						<span class="input-group-text">
 						<ng-template #popTemplate1>
 							<div class="scroller">
-								<div class="flex-parent" *ngFor="let it of ayat_searchsayatIndexSearched; let i = index;">
+								<div class="flex-parent" *ngFor="let it of ayat_searchs; let i = index;">
 									<div class="flex-child" style="text-align:left;">
 										<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
 									</div>

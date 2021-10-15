@@ -205,9 +205,10 @@ export class AyatSearchComponent implements OnInit {
           this.storageService.Set(this.ayat_group_key, this.ayatGroup);
           this.storageService.Set(this.ayat_groups_key, this.ayatGroups);
         }
+        console.log(this.ayatGroup);
         console.log(this.storageService.Keys);
-        //this.storageService.Remove(this.ayat_group_key);
-        //this.storageService.Remove(this.ayat_groups_key);
+        this.storageService.Remove(this.ayat_group_key);
+        this.storageService.Remove(this.ayat_groups_key);
         //this.storageService.Remove(this.ayat_search_key);
         break;
       case 'group-item':
@@ -344,14 +345,14 @@ export class AyatSearchComponent implements OnInit {
             group = "MyLife";
           }
           let index = data.item.index;
-          if(!this.ayatGroup[group].hasOwnProperty(index)){
+          /*if(!this.ayatGroup[group].hasOwnProperty(index)){
             this.ayatGroup[group][index] = data.item;
             this.storageService.Set(this.ayat_group_key, this.ayatGroup[group]);
           }else{
             this.ayatGroup[group][index] = data.item;
             this.storageService.Set(this.ayat_group_key, this.ayatGroup[group]);
-          }
-          console.log(group,this.ayatGroup[group]);
+          }*/
+          console.log(group,this.ayatGroup);
           //console.log('g1',Object.keys(star_val));
           //for (const key in star_val){
             //console.log(key,star_val[key]);
@@ -367,6 +368,11 @@ export class AyatSearchComponent implements OnInit {
   }
   hasProperty(it:any, key:string): Boolean{
     return it.hasOwnProperty(key);
+  }
+  map(it:any): any[]{
+    return Object.keys(it).map(index => {
+      return it[index];
+    });
   }
   onRemoteClick(data:any, switch_on:string): void {
     console.log(data,switch_on);

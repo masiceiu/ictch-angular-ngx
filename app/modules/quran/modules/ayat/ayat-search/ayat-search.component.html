@@ -177,7 +177,7 @@
 			<div class="flex-parent">
 				<div class="flex-child" style="text-align:center;">
 					<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
-						<i class="bi bi-star{{0?'':'-fill'}}"></i>
+						<i class="bi bi-star-fill"></i>
 					</a>
 				</div>
 			</div>
@@ -348,7 +348,7 @@
 			<div class="flex-parent">
 				<div class="flex-child" style="text-align:center;">
 					<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
-						<i class="bi bi-star{{0?'':'-fill'}}"></i>
+						<i class="bi bi-star{{star_ayats[it.index]?'-fill':''}}"></i>
 					</a>
 				</div>
 			</div>

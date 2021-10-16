@@ -398,13 +398,14 @@ export class AyatSearchComponent implements OnInit {
         break;
     }
   }
-  hasProperty(it:any, key:string): Boolean{
-    return it.hasOwnProperty(key);
-  }
   map(it:any): any[]{
     return Object.keys(it).map(index => {
       return it[index];
     });
+  }
+  hasProperty(it:any, key:string): Boolean{ 
+    console.log(it,key);
+    return it.hasOwnProperty(key);
   }
   onRemoteClick(data:any, switch_on:string): void {
     console.log(data,switch_on);

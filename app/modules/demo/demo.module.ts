@@ -6,10 +6,10 @@ import { CssModule } from './css/css.module';
 
 import { DemoRoutingModule } from './demo-routing.module';
 import { DemoComponent } from './demo.component';
-import { AttendanceModule } from './attendance/attendance.module';
 import { StateButtonComponent } from './state-button/state-button.component';
 import { SideTogglerComponent } from './side-toggler/side-toggler.component';
 import { StateButtonTestComponent } from './state-button-test/state-button-test.component';
+import { EmojiComponent } from './emoji/emoji.component';
 
 
 @NgModule({
@@ -23,7 +23,8 @@ import { StateButtonTestComponent } from './state-button-test/state-button-test.
     DemoComponent,
     StateButtonComponent,
     SideTogglerComponent,
-    StateButtonTestComponent
+    StateButtonTestComponent,
+    EmojiComponent
   ]
 })
 export class DemoModule { }

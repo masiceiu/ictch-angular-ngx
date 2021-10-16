@@ -343,12 +343,14 @@
             <option value="?">NONE</option>
             <option value="side-toggler">Side Toggler</option>
             <option value="state-button">State Button</option>
+            <option value="emoji">Emoji</option>
           </select>
         </div>
         <div class="clearfix"></div>
           <ng-container *ngIf="selected=='?'"></ng-container>
           <app-side-toggler *ngIf="selected=='side-toggler'"></app-side-toggler>
           <app-state-button-test *ngIf="selected=='state-button'"></app-state-button-test>
+          <app-emoji></app-emoji>
       </div>
       <div class="content" role="main">
         <!-- Highlight Card -->

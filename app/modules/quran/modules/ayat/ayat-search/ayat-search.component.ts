@@ -61,12 +61,20 @@ export class AyatSearchComponent implements OnInit {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
     this.isMobile = window.innerWidth < 760;
-  }
 
+    this.ayatGroups = [
+      {id:"a",name:"G1",icon:"emoji-frown",ayats:{}},
+      {id:"b",name:"G2",icon:"emoji-smile",ayats:{}}
+    ];
+  }
+  star_ayats: any = {};
+  star_ayats_key = "ayat_star_key";
+  /*ayat_stars: any[];
+  ayat_stars_key = "ayat_star_key";
   ayatGroup: any = {};
   ayat_group_key = "ayat_group_key";
-  ayatGroups: any[] = [{id:"a",name:"G1"},{id:"b",name:"G2"}];
-  ayat_groups_key = "ayat_groups_key";
+  ayatGroups: any[];
+  ayat_groups_key = "ayat_groups_key";*/
   ayat_searchs: any[] = [];
   ayat_search_key = "ayat_search_key";
   ngOnInit() {
@@ -76,6 +84,7 @@ export class AyatSearchComponent implements OnInit {
 
     //this.ayatGroup = this.storageService.Get(this.ayat_group_key)||this.ayatGroup;
     //this.ayatGroups = this.storageService.GetList(this.ayat_groups_key)||this.ayatGroups;
+    this.star_ayats = this.storageService.GetList(this.star_ayats_key)||this.star_ayats;
     this.ayat_searchs = this.storageService.GetList(this.ayat_search_key)||this.ayat_searchs;
 
     this.suras = suras;
@@ -215,13 +224,15 @@ export class AyatSearchComponent implements OnInit {
   onSubmit(data:any, switch_on:string): void {
     switch (switch_on) {
       case 'add-group'://.toLowerCase()
-        let group = this.stringReplace(data['name']);
+      console.log(this.storageService.Keys);
+        /*let group = this.stringReplace(data['name']);
         let it = this.ayatGroups.find(it => it.id == group);
         if(!it){
           data['id'] = group;
           this.ayatGroups.push(data);
           //this.storageService.Set(this.ayat_groups_key, this.ayatGroups);
-        }
+        }*/
+
         /*if(!this.ayatGroup.hasOwnProperty(group)){
           data['id'] = group;
           this.ayatGroup[group] = {};
@@ -230,7 +241,6 @@ export class AyatSearchComponent implements OnInit {
           //this.storageService.Set(this.ayat_groups_key, this.ayatGroups);
         }
         console.log(this.ayatGroup,this.ayatGroups);
-        console.log(this.storageService.Keys);
         this.storageService.Remove(this.ayat_group_key);
         this.storageService.Remove(this.ayat_groups_key);
         //this.storageService.Remove(this.ayat_search_key);
@@ -321,8 +331,8 @@ export class AyatSearchComponent implements OnInit {
           this.onClick(data.$event,'search');
         },500);
 
-        let it = this.ayat_searchs.find(it => it.id == data.item.id);
-        if(!it){
+        let ayat_search = this.ayat_searchs.find(it => it.id == data.item.id);
+        if(!ayat_search){
           this.ayat_searchs.push(data.item);
           this.storageService.SetList(this.ayat_search_key,this.ayat_searchs);
         }
@@ -354,8 +364,15 @@ export class AyatSearchComponent implements OnInit {
         case 'ayat-group':
           //delete person.age;
           data.$event.preventDefault();
+          let index = data.item.index;
+          let has_star_ayat = this.star_ayats.hasOwnProperty(index);
+          if(!has_star_ayat){
+            this.star_ayats[index] = data.item;
+            this.storageService.SetList(this.star_ayats_key,this.star_ayats);
+          }
+           /*
           let group = data.group;
-           /*if(group.toLowerCase() === "star".toLowerCase()){
+           if(group.toLowerCase() === "star".toLowerCase()){
             group = "MyLife";
           }
           let index = data.item.index;

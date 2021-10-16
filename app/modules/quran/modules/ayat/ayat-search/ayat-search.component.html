@@ -162,11 +162,25 @@
 		</div>
 	</ng-template>
 	<app-side-slider [refTemplate]="tpr2" [positionTop]="70" [icon]="'star-fill'" [iconMarginTop]="4"></app-side-slider>
+	
+	<ng-template #tpra *ngFor="let it of ayatGroups; let i=index;">
+		<h3>Social a</h3>
+	</ng-template>
+	<app-side-slider *ngFor="let it of ayatGroups; let i=index;" [refTemplate]="tpra" [positionTop]="(70+(35*(i+1)))" [icon]="'star-fill'" [iconMarginTop]="4"></app-side-slider>
 </ng-container>
 </div>
 <!--mockup design-->
 <div class="col-12">
 <div class="scroller" style="max-height:{{height-fixedHeight}}px">
+	<div class="list-group" *ngIf="spin" >
+		<div class="flex-parent">
+			<div class="flex-child" style="text-align:center;">
+				<button class="m-0 spin-ayat circle">
+					<i class="bi bi-brightness-high-fill"></i>
+				</button>
+			</div>
+		</div>
+	</div>
 	<div class="list-group" *ngIf="0">
 		<div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="1">
 			<div class="d-flex w-100 justify-content-between">
@@ -176,6 +190,9 @@
 			<hr>
 		</div>
 
+		<ng-template ngFor let-item [ngForOf]="ayatGroups" let-currentElementIndex="(index + 1)">
+			{{index}} Something
+		</ng-template>
 		<div *ngFor="let it of map(ayatGroup)">{{it|json}}</div>
 		
 		<div class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted" routerlink="/" 

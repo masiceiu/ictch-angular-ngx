@@ -38,16 +38,18 @@ export class AyatSearchComponent implements OnInit {
 
   selectedLanguage = {};//'bn_bengali'
   ayatSearchModel = new AyatSearchModel();
-
+  
   sura: any;
   suras: any[] = [];
   lang: any;
   langs: any[] = [];
+  ayatAll: any[] = [];
   ayatList: any[] = [];
   translate: any;
   translates: any[] = [];
   ayatIndexs: any[] = [];
 
+  spin = false;
   isSuraSearch = false;
   isSearchLoading = false;
   currentPage = 2
@@ -63,7 +65,7 @@ export class AyatSearchComponent implements OnInit {
 
   ayatGroup: any = {};
   ayat_group_key = "ayat_group_key";
-  ayatGroups: any[] = [];
+  ayatGroups: any[] = [{id:"a",name:"G1"},{id:"b",name:"G2"}];
   ayat_groups_key = "ayat_groups_key";
   ayat_searchs: any[] = [];
   ayat_search_key = "ayat_search_key";
@@ -92,6 +94,7 @@ export class AyatSearchComponent implements OnInit {
             //this.ayatGroup
       }
     },1000)
+
     this.suggestions$ = new Observable((observer: Observer<string>) => {
       observer.next(this.search);
     }).pipe(
@@ -125,11 +128,26 @@ export class AyatSearchComponent implements OnInit {
 
       })
     );
-    
+    //setTimeout(()=>{
+     this.spin = false;
+     let fn = function(s,t,self){
+      let limit = ""+s+","+t+"";
+      //console.log("limit:",limit);
+      self.setAyatAll({limit:limit}).then((res:any)=>{
+        //console.log("res:",res);
+        self.spin = res>0;
+        if(self.spin){
+          fn((s+t),t,self);
+        }
+      })
+    }
+    //fn(0,7000,this);
+    //},1000)
     setTimeout((i:any)=>{
       this.setAyatIndex({},()=>{
         this.ayatIndexs.sort((a, b) => a.name.localeCompare(b.name));
         this.scrollAyatIndexs = this.ayatIndexs.slice(0, this.takeItem);
+        //console.log('this.scrollAyatIndexs:',this.scrollAyatIndexs);
       });
     },1000)
   }
@@ -374,6 +392,28 @@ export class AyatSearchComponent implements OnInit {
   onRemoteClick(data:any, switch_on:string): void {
     console.log(data,switch_on);
   }
+  //ref: https://stackoverflow.com/questions/34094806/return-from-a-promise-then
+  private setAyatAll(req:any): Promise<any> {
+    //console.log(req);
+    this.ayatAll = [];
+    let lang = this.translate.id;
+    return this.ayatService.getAll(lang,req).then(
+      res => {
+        this.ayatAll = res;
+        //console.log(res);
+        return new Promise(function(resolve, reject) { 
+          return resolve(res.length);
+        });
+      },
+      ex => {
+        console.log(ex.name /*, ex*/);
+        return new Promise(function(resolve, reject) { 
+          return resolve(0);
+        });
+      }
+    );
+  }
+
   private setAyatList(req:any, callBack:any=null): void {
     //console.log(req);
     this.ayatList = [];

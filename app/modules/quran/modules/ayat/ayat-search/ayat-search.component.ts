@@ -52,7 +52,10 @@ export class AyatSearchComponent implements OnInit {
   spin = false;
   isSuraSearch = false;
   isSearchLoading = false;
-  currentPage = 2
+  currentPage = 2;
+
+  ayatGroups: any[];
+  ayat_groups_key = "ayat_groups_key";
   constructor(
     private ayatService: AyatService,
     private googleService: GoogleService,

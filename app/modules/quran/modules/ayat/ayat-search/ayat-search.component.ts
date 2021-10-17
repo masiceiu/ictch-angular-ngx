@@ -487,7 +487,9 @@ export class AyatSearchComponent implements OnInit {
     console.log ('Count is ' + this.count,i);
   }
   init(){
-    this.start(()=>{});
+    this.start(()=>{
+      
+    });
   }
   start(callBack=()=>null,interval:number=1000):any {
     if(callBack){

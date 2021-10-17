@@ -477,6 +477,7 @@ export class AyatSearchComponent implements OnInit {
   /*********************************/
   count = 0;
   marquees=[];
+  marqueeId=0;
   private checkMarquees() {
     let i = this.count%2;
     if(i){
@@ -484,6 +485,9 @@ export class AyatSearchComponent implements OnInit {
     }
     this.count++;
     console.log ('Count is ' + this.count,i);
+  }
+  init(){
+    this.start(()=>{});
   }
   start(callBack=()=>null,interval:number=1000):any {
     if(callBack){

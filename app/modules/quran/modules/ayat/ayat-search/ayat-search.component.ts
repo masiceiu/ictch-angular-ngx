@@ -141,7 +141,7 @@ export class AyatSearchComponent implements OnInit {
       })
     );
     //setTimeout(()=>{
-     this.spin = false;
+     //this.spin = false;
      let fn = function(s,t,self){
       let limit = ""+s+","+t+"";
       //console.log("limit:",limit);
@@ -150,10 +150,11 @@ export class AyatSearchComponent implements OnInit {
         self.spin = res>0;
         if(self.spin){
           fn((s+t),t,self);
+        }else{
         }
       })
     }
-    //fn(0,7000,this);
+    //fn(0,2000,this);
     //},1000)
     setTimeout((i:any)=>{
       this.setAyatIndex({},()=>{
@@ -162,6 +163,8 @@ export class AyatSearchComponent implements OnInit {
         //console.log('this.scrollAyatIndexs:',this.scrollAyatIndexs);
       });
     },1000)
+    
+    this.init();
   }
   onWindowResize(event) {
     this.width = event.target.innerWidth;
@@ -476,22 +479,24 @@ export class AyatSearchComponent implements OnInit {
   }
   /*********************************/
   count = 0;
+  marquee:any={};
   marquees=[];
   marqueeId=0;
   private checkMarquees() {
     let i = this.count%2;
     if(i){
-      this.marquees[i].index = this.count;
+      //this.marquees[i].index = this.count;
     }
     this.count++;
     console.log ('Count is ' + this.count,i);
   }
   init(){
-    this.start(()=>{
-      
+    this.marquee = this.ayatSearchModel.getMarqueeModel();
+    this.marqueeId = this.start(()=>{
+      this.marquee.recents[0] = this.marquee.marquees[0];
     });
   }
-  start(callBack=()=>null,interval:number=1000):any {
+  start(callBack=()=>null,interval:number=1000):number {
     if(callBack){
       callBack();
       return setInterval(() => {

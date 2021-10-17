@@ -200,7 +200,8 @@
 <!--mockup design-->
 <div class="col-12">
 <div class="scroller" style="max-height:{{height-fixedHeight}}px">
-	<div class="list-group" *ngIf="spin" >
+	
+	<div class="list-group"  *ngIf="spin">
 		<div class="flex-parent">
 			<div class="flex-child" style="text-align:center;">
 				<button class="m-0 spin-ayat circle">
@@ -209,6 +210,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="list-group" *ngIf="0">
 		<div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="1">
 			<div class="d-flex w-100 justify-content-between">
@@ -325,16 +327,12 @@
 		</div>
 	</div>
 	<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee -->
-	<div style="border:1px solid #EEE; margin:5px 0px; padding:30px 0px;">
-		<marquee behavior="alternate" *ngIf="1">
-		<img src="https://conveyoneverse.org/images/bismillah.png" width="151" height="70" />
+	<marquee [direction]="marquee.direction" height="{{height-fixedHeight}}" [behavior]="'alternate'" style="border:solid">
+		<marquee *ngFor="let it of marquee.recents" [behavior]="it.behavior" [direction]="it.direction">
+			{{it.text}}-{{it.index}}
 		</marquee>
-		<h3><marquee behavior="alternate">Alternate Marquee Tag</marquee></h3>
-		<h3><marquee behavior='scroll' direction='left' scrollamount='5' onmouseover='this.stop()' onmouseout='this.start()'> Mouse Over Stop Marquee Tag</marquee></h3>
-		<h3><marquee scrolldelay="150">Marquee Tag</marquee></h3>
-		<h3><marquee direction="down" scrolldelay="300">Marquee Tag (Direction :  Down)</marquee></h3>
-		<h3><marquee direction="up" scrolldelay="300">Marquee Tag (Direction : Up)</marquee></h3>
-	</div>
+		{{marquee.text}}
+	</marquee>
 	<!--real design-->
 	<div class="list-group">
 		<div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">

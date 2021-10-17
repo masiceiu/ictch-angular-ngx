@@ -308,12 +308,22 @@ export class AyatSearchModel {
       { id : '114', name : '114.An-Nass'}
     ];
   }
-  public getMarqueeList():any[] {
-    //return [];
-    return [
-      { id:1, text:"This text will bounce", index:11, behavior:"alternate", direction:"left" },
-      { id:2, text:"This text will bounce", index:12, behavior:"alternate", direction:"right" }
-    ];
+  public getMarqueeModel():any {
+    return { 
+      id:1, text:"", 
+      index:1, behavior:"alternate", direction:"down", 
+      marquees:[
+      { 
+        id:1, text:"This text will bounce", 
+        index:11, behavior:"alternate", direction:"left" 
+      },
+      { 
+        id:2, text:"This text will bounce", 
+        index:12, behavior:"alternate", direction:"right" 
+      }
+    ],
+    recents:[]
+  };
     /*marquee = { id:1, text:"", index:1, behavior:"alternate", direction:"down", 
     marquees:[
       { id:1, text:"This text will bounce", index:11, behavior:"alternate", direction:"left" },

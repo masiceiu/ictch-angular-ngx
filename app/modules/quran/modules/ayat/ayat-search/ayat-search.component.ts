@@ -474,6 +474,31 @@ export class AyatSearchComponent implements OnInit {
       }
     );
   }
+  /*********************************/
+  count = 0;
+  marquees=[];
+  private checkMarquees() {
+    let i = this.count%2;
+    if(i){
+      this.marquees[i].index = this.count;
+    }
+    this.count++;
+    console.log ('Count is ' + this.count,i);
+  }
+  start(callBack=()=>null,interval:number=1000):any {
+    if(callBack){
+      callBack();
+      return setInterval(() => {
+        callBack(); 
+      }, interval);
+    }
+  }
+  stop(id:number):void {
+    if (id) {
+      clearInterval(id);
+    }
+  }
+  /********************************/
   scrollPage = 1;
   takeItem = 10;
   scrollAyatIndexs: any[] = [];

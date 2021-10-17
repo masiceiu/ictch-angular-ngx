@@ -1,0 +1,41 @@
+<div *ngIf="1">
+<marquee [direction]="marquee.direction" height="200" [behavior]="'alternate'" style="border:solid">
+	<marquee *ngFor="let it of marquee.marquees" [behavior]="it.behavior" [direction]="it.direction">
+		{{it.text}}-{{it.index}}
+	</marquee>
+	{{marquee.text}}
+</marquee>
+<button (click)="startInterval()">Start</button>
+<button (click)="stopInterval()">Push</button>
+<button (click)="logInterval()">Log</button>
+<button (click)="addInterval()">Info</button>
+<button (click)="delInterval()">Info</button>
+</div>
+<hr />
+<div *ngIf="1">
+	<marquee direction="left" style="font-family: Calibri, sans-serif; color: #FFFFFF" bgcolor="#00224f" scrolldelay="50"
+		behavior="loop">
+		<span *ngFor="let line of lines">
+			{{line}}
+		</span>
+	</marquee>
+	<marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
+		<marquee behavior="alternate" direction="left">
+			This text will bounce-0
+		</marquee>
+		<marquee behavior="alternate" direction="right">
+			This text will bounce-1
+		</marquee>
+	</marquee>
+</div>
+<hr />
+  <div style="border:1px solid #EEE; margin:5px 0px; padding:30px 0px;" *ngIf="1">
+		<marquee behavior="alternate" *ngIf="1">
+		<img src="https://conveyoneverse.org/images/bismillah.png" width="151" height="70" />
+		</marquee>
+		<h3><marquee behavior="alternate">Alternate Marquee Tag</marquee></h3>
+		<h3><marquee behavior='scroll' direction='left' scrollamount='5' onmouseover='this.stop()' onmouseout='this.start()'> Mouse Over Stop Marquee Tag</marquee></h3>
+		<h3><marquee scrolldelay="150">Marquee Tag</marquee></h3>
+		<h3><marquee direction="down" scrolldelay="300">Marquee Tag (Direction :  Down)</marquee></h3>
+		<h3><marquee direction="up" scrolldelay="300">Marquee Tag (Direction : Up)</marquee></h3>
+	</div>

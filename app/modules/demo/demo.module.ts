@@ -10,6 +10,7 @@ import { StateButtonComponent } from './state-button/state-button.component';
 import { SideTogglerComponent } from './side-toggler/side-toggler.component';
 import { StateButtonTestComponent } from './state-button-test/state-button-test.component';
 import { EmojiComponent } from './emoji/emoji.component';
+import { MarqueeComponent } from './marquee/marquee.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EmojiComponent } from './emoji/emoji.component';
     StateButtonComponent,
     SideTogglerComponent,
     StateButtonTestComponent,
-    EmojiComponent
+    EmojiComponent,
+    MarqueeComponent
   ]
 })
 export class DemoModule { }

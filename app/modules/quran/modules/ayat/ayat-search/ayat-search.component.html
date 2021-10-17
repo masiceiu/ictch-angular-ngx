@@ -327,9 +327,9 @@
 		</div>
 	</div>
 	<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee -->
-	<marquee [direction]="marquee.direction" height="{{height-fixedHeight}}" [behavior]="'alternate'" style="border:solid">
-		<marquee *ngFor="let it of marquee.recents" [behavior]="it.behavior" [direction]="it.direction">
-			{{it.text}}-{{it.index}}
+	<marquee [direction]="marquee.direction" height="{{height-fixedHeight}}" [behavior]="'alternate'" *ngIf="0">
+		<marquee *ngFor="let it of marquee.recents" [behavior]="it.behavior" [direction]="it.direction" scrolldelay="160" [loop]="10">
+			<span class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.text}}</span>
 		</marquee>
 		{{marquee.text}}
 	</marquee>

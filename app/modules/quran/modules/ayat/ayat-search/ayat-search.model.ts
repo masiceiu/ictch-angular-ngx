@@ -314,7 +314,7 @@ export class AyatSearchModel {
       index:1, behavior:"alternate", direction:"down", 
       marquees:[
       { 
-        id:1, text:"This text will bounce", 
+        id:1, text:"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", 
         index:11, behavior:"alternate", direction:"left" 
       },
       { 

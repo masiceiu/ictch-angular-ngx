@@ -343,6 +343,10 @@
 			class="list-group-item list-group-item-action flex-column align-items-start">
 			<p class="text-center texth" *ngIf="!isSuraSearch">
 				<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
+				<a href (click)="false" style="float:right;padding:0 4px;" [tooltip]="popTemplate">
+					<i class="fa fa-angle-down" aria-hidden="true"></i>
+				</a>
+
 			</p>
 			<hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
 			<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>

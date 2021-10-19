@@ -346,7 +346,15 @@
 				<a href (click)="false" style="float:right;padding:0 4px;" [tooltip]="popTemplate">
 					<i class="fa fa-angle-down" aria-hidden="true"></i>
 				</a>
-
+				<span dropdown>
+				<a href id="basic-link" dropdownToggle (click)="false"
+					aria-controls="basic-link-dropdown">
+					yo!<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				<span id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
+						role="menu" aria-labelledby="basic-link">
+						<ng-container *ngTemplateOutlet="popTemplate"></ng-container>
+				</span>
+			</span>
 			</p>
 			<hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
 			<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>

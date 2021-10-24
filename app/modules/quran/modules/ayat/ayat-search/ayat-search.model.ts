@@ -190,7 +190,7 @@ export class AyatSearchModel {
       { id : 'uz_sodik', name : 'Uzbek(Мухаммад Содик)'}
     ];
   }
-  public getSuraList():any[] {
+  public getSuraList(lang:string):any[] {
     return [
       { id : '1', name : '1.Al-Fatiha'},
       { id : '2', name : '2.Al-Baqarah'},

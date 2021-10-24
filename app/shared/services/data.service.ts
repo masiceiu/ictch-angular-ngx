@@ -30,7 +30,7 @@ export class DataService {
     }
     getUsersProfile(query: string): Observable<any> {
         return this.http.get(`https://api.github.com/search/users?q=${query}`)
-          .map(res => res.json());
+          .map(res => res);
           /*.subscribe(x=> console.log(x))*/
     }
     getRandomUsers(limit: number = 10): Observable<any> {

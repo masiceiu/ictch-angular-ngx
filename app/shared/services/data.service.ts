@@ -28,7 +28,11 @@ export class DataService {
             return of([]);
         }
     }
-
+    getUsersProfile(query: string): Observable<any> {
+        return this.http.get(`https://api.github.com/search/users?q=${query}`)
+          .map(res => res.json());
+          /*.subscribe(x=> console.log(x))*/
+    }
     getAlbums() {
         return this.http.get<any[]>('https://jsonplaceholder.typicode.com/albums');
     }

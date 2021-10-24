@@ -81,23 +81,22 @@ export class AyatSearchComponent implements OnInit {
   ayat_searchs: any[] = [];
   ayat_search_key = "ayat_search_key";
   ngOnInit() {
-    let langs = this.ayatSearchModel.getLangList();
-    let suras = this.ayatSearchModel.getSuraList();
+    
     let translates = this.ayatSearchModel.getTranslateList();
+    this.translates = translates;
+    this.translate = translates[10];
 
+    let langs = this.ayatSearchModel.getLangList();
+    this.langs = langs;
+    this.lang = langs[5];
+
+    let suras = this.ayatSearchModel.getSuraList(this.lang.id);
+    this.suras = suras;
+    this.sura = suras[1];
     //this.ayatGroup = this.storageService.Get(this.ayat_group_key)||this.ayatGroup;
     //this.ayatGroups = this.storageService.GetList(this.ayat_groups_key)||this.ayatGroups;
     this.star_ayats = this.storageService.GetList(this.star_ayats_key)||this.star_ayats;
     this.ayat_searchs = this.storageService.GetList(this.ayat_search_key)||this.ayat_searchs;
-
-    this.suras = suras;
-    this.sura = suras[1];
-
-    this.langs = langs;
-    this.lang = langs[5];
-
-    this.translates = translates;
-    this.translate = translates[10];
     
     setTimeout(()=>{
       let group = this.storageService.Get("ayat_group")||{};

@@ -33,6 +33,10 @@ export class DataService {
           .map(res => res.json());
           /*.subscribe(x=> console.log(x))*/
     }
+    getRandomUsers(limit: number = 10): Observable<any> {
+        return this.http.get(`https://randomUser.me/api/?results=${limit}`)
+          .map(res => res.json());
+    }
     getAlbums() {
         return this.http.get<any[]>('https://jsonplaceholder.typicode.com/albums');
     }
@@ -40,7 +44,6 @@ export class DataService {
     getPhotos() {
         return this.http.get<any[]>('https://jsonplaceholder.typicode.com/photos');
     }
-
     getPeople(term: string = null): Observable<Person[]> {
         let items = getMockPeople();
         if (term) {

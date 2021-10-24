@@ -4,9 +4,12 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2018", "dom"],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "mapRoot": "./",
-    "module": "esnext", 
+    "module": "esnext",
     "moduleResolution": "node",
     "outDir": "../docs/out-tsc",
     "sourceMap": true,
@@ -14,5 +17,8 @@
     "typeRoots": [
       "../node_modules/@types"
     ]
+  },
+  "angularCompilerOptions": {
+    "enableIvy": false
   }
 }

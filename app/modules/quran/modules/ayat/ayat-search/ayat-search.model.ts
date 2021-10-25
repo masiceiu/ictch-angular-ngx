@@ -191,6 +191,12 @@ export class AyatSearchModel {
     ];
   }
   public getSuraList(lang:string):any[] {
+    switch(lang){
+      case"bn": return [
+      ];
+      default: return [
+      ];
+  }
     return [
       { id : '1', name : '1.Al-Fatiha'},
       { id : '2', name : '2.Al-Baqarah'},

@@ -35,7 +35,7 @@ const routes: Route[] = [
     }
   },
   { path: 'profile', component: ProfileComponent},
-  { path: '', component: AppComponent},
+  //{ path: '', component: AppComponent},
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent}
 ];

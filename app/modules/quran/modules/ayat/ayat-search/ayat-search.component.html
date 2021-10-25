@@ -14,7 +14,9 @@
 						<div class="scroller">
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item" *ngFor="let it of suras; let i = index;">
-									<a href (click)="onClick({$event:$event, item:it},'suggest-item-sura')" >{{it.name}}</a>
+									<a href (click)="onClick({$event:$event, item:it},'suggest-item-sura')" >
+										{{it.id}}. {{it.name}}-{{it.ayat}}
+									</a>
 								</li>
 							</ul>
 						</div>

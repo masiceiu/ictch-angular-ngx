@@ -7,10 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PopoverComponent implements OnInit {
 
+  @Input() switch_on = 0;
   @Input() title:any="";//Popover&nbsp;Title
   html = `<span class="btn btn-danger">Never trust not sanitized HTML!!!</span>`;
   constructor() { }
-
   ngOnInit() {
   }
 

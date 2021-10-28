@@ -17,16 +17,45 @@
     <!--<app-dropdown></app-dropdown>
     <app-popover></app-popover>
     <a class="btn btn-success"  routerLink="/quran/ilm">Ilm</a>
-    <app-app-startup></app-app-startup>-->
+    <app-app-startup></app-app-startup>
     <app-popover></app-popover>
+  -->
+    <app-popover [switch_on]="1"></app-popover>
+    <div class="flex-parent">
+      <div class="flex-child" style="text-align:left;">
+        <a href (click)="(false)">
+          <i class="bi bi-arrow-left-circle"></i>
+        </a>
+      </div>
+      <div class="flex-child" style="text-align:center;">
+        <a href (click)="(false)">
+          <i class="bi bi-check-circle"></i>
+        </a>
+      </div>
+      <div class="flex-child" style="text-align:center;">
+        <a href (click)="(false)">
+          <i class="bi bi-star"></i>
+        </a>
+      </div>
+      <div class="flex-child" style="text-align:right;">
+        <a href (click)="(false)">
+          <i class="bi bi-filter-circle"></i>
+        </a>
+      </div>
+      <div class="flex-child" style="text-align:right;">
+        <a href (click)="(false)">
+          <i class="bi bi-arrow-right-circle"></i>
+        </a>
+      </div>
+    </div>
     <div class="btn-group">
       <ng-template #popTemplate>
         <nav class="nav flex-column" style="white-space: nowrap;">
-          <a class="nav-link active" routerLink="/" href (click)="false">
+          <a class="nav-link active" routerLink="/" href (click)="(false)">
             <i class="fa fa-home"></i>
             Home
           </a>
-          <a class="nav-link" routerLink="/quran/ilm" href (click)="false">
+          <a class="nav-link" routerLink="/quran/ilm" href (click)="(false)">
             <i class="fa fa-hand-o-right"></i>
             Ilm (علم)
           </a>
@@ -34,13 +63,17 @@
         <a class="nav-link" href (click)="false">Link</a>
         <a class="nav-link disabled"  href (click)="false">Up-Coming</a>
         -->
-          <a class="nav-link disabled" href (click)="false">Disabled</a>
+          <a class="nav-link disabled" href (click)="(false)">Disabled</a>
         </nav>
       </ng-template>
-      <button type="button" class="btn btn-outline-secondary"
-          [popover]="popTemplate"
-          placement="auto" [outsideClick]="true">
-          <span class="navbar-toggler-icon"></span>
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        [popover]="popTemplate"
+        placement="auto"
+        [outsideClick]="true"
+      >
+        <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </div>

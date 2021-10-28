@@ -1,7 +1,8 @@
-<div class="btn-group">
-  <ng-template #popTemplate>
-    <app-feature></app-feature>
-  </ng-template>
+<ng-template #popTemplate>
+  <app-feature></app-feature>
+</ng-template>
+<ng-container [ngSwitch]="switch_on">
+  <div class="btn-group"  *ngSwitchCase="0">
   <button type="button" class="btn btn-success" 
           [popover]="popTemplate" 
           [popoverTitle]="title"
@@ -9,4 +10,12 @@
           <span class="navbar-toggler-icon"></span>
     <!--||<span class="navbar-toggler-icon"></span>||-->
   </button>
-</div>
+  </div>
+  <div class="btn-group"  *ngSwitchCase="1">
+  <a href (click)="(false)" [popover]="popTemplate" 
+    [popoverTitle]="title"
+    placement="top middle" [outsideClick]="true">
+    <i class="bi bi-filter-circle"></i>
+  </a>
+  </div>
+</ng-container>

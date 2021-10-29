@@ -45,8 +45,11 @@ export class AyatSearchComponent implements OnInit {
 
   lang: any;
   langs: any[] = [];
+  
   ayatAll: any[] = [];
   ayatList: any[] = [];
+  ayatAllIndex: any = {};
+
   translate: any;
   translates: any[] = [];
   ayatIndexs: any[] = [];
@@ -152,14 +155,19 @@ export class AyatSearchComponent implements OnInit {
       //console.log("limit:",limit);
       self.setAyatAll({limit:limit}).then((res:any)=>{
         //console.log("res:",res);
-        self.spin = res>0;
-        if(self.spin){
+        let next = res>0;
+        //self.spin = res>0;
+        //if(self.spin){
+        if(next){
           fn((s+t),t,self);
         }else{
+          //console.log("res:",self.ayatAll.length);
+          //console.log("res:",self.ayatAllIndex[200]);
         }
-      })
+      });
     }
     //fn(0,2000,this);
+    fn(0,7000,this);
     //},1000)
     setTimeout((i:any)=>{
       this.setAyatIndex({},()=>{
@@ -424,12 +432,13 @@ export class AyatSearchComponent implements OnInit {
   //ref: https://stackoverflow.com/questions/34094806/return-from-a-promise-then
   private setAyatAll(req:any): Promise<any> {
     //console.log(req);
-    this.ayatAll = [];
     let lang = this.translate.id;
     return this.ayatService.getAll(lang,req).then(
-      res => {
-        this.ayatAll = res;
-        //console.log(res);
+      res => { 
+        res.forEach((it, i) => {
+          this.ayatAll.push(it);
+          this.ayatAllIndex[it.index] = it;
+        });
         return new Promise(function(resolve, reject) { 
           return resolve(res.length);
         });

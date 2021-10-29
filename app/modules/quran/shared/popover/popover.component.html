@@ -12,10 +12,11 @@
   </button>
   </div>
   <div class=""  *ngSwitchCase="1">
-  <a href (click)="(false)" [popover]="popTemplate" 
-    [popoverTitle]="title" style="padding: 0 6px;"
-    placement="top middle" [outsideClick]="true">
-    <i class="bi bi-filter-circle"></i>
-  </a>
+    <a href (click)="(false)" 
+      [popover]="refPopover?refPopover:popTemplate" 
+      [popoverTitle]="title" style="padding: 0 6px;"
+      placement="top middle" [outsideClick]="true">
+      <i class="bi bi-filter-circle"></i>
+    </a>
   </div>
 </ng-container>

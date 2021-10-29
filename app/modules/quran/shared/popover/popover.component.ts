@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-popover',
@@ -9,6 +9,7 @@ export class PopoverComponent implements OnInit {
 
   @Input() switch_on = 0;
   @Input() title:any="";//Popover&nbsp;Title
+  @Input() refPopover: TemplateRef<any>;
   html = `<span class="btn btn-danger">Never trust not sanitized HTML!!!</span>`;
   constructor() { }
   ngOnInit() {

@@ -359,20 +359,26 @@
 			</span>
 			</p>
 			<div class="flex-parent">
-				<div class="flex-child" style="text-align:left;">
+				<div class="flex-child" style="text-align:left;">	
+					<a href (click)="(false)" style="padding: 0 6px;">
+						<i class="bi bi-arrow-left-circle"></i>
+					</a>
 					<a href (click)="false">
 					&nbsp;
 					</a>
 				</div>
 				<div class="flex-child" style="text-align:center;">
 					<a href (click)="false">
-						<small></small>
-						<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
+						<span>{{suraIndex[it.sura].name}}&nbsp;[{{it.sura}}|{{suraIndex[it.sura].ayat}}-{{it.aya}}]</span>
+						<small *ngIf="0">"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
 					</a>
 				</div>
 				<div class="flex-child" style="text-align:right;">
 					<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')" style="padding: 0 6px;">
 						<i class="bi bi-star{{star_ayats[it.index]?'-fill':''}}"></i>
+					</a>
+					<a href (click)="(false)" style="padding: 0 6px;">
+						<i class="bi bi-arrow-right-circle"></i>
 					</a>
 					<a href (click)="false" [popover]="popTemplate" placement="auto" 
 					[outsideClick]="true" style="padding: 0 6px;border: 1px lightgray dotted;">

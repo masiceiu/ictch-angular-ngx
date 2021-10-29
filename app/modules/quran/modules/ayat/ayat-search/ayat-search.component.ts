@@ -41,6 +41,8 @@ export class AyatSearchComponent implements OnInit {
   
   sura: any;
   suras: any[] = [];
+  suraIndex: any = {};
+
   lang: any;
   langs: any[] = [];
   ayatAll: any[] = [];
@@ -93,6 +95,10 @@ export class AyatSearchComponent implements OnInit {
     let suras = this.ayatSearchModel.getSuraList(this.lang.id);
     this.suras = suras;
     this.sura = suras[1];
+    suras.forEach((it:any) => {
+      this.suraIndex[it.id] = it;
+    });
+
     //this.ayatGroup = this.storageService.Get(this.ayat_group_key)||this.ayatGroup;
     //this.ayatGroups = this.storageService.GetList(this.ayat_groups_key)||this.ayatGroups;
     this.star_ayats = this.storageService.GetList(this.star_ayats_key)||this.star_ayats;

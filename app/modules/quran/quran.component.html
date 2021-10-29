@@ -20,30 +20,30 @@
     <app-app-startup></app-app-startup>
     <app-popover></app-popover>
   -->
-    <app-popover [switch_on]="1"></app-popover>
     <div class="flex-parent">
       <div class="flex-child" style="text-align:left;">
-        <a href (click)="(false)">
+        <a href (click)="(false)" style="padding: 0 6px;">
           <i class="bi bi-arrow-left-circle"></i>
         </a>
       </div>
-      <div class="flex-child" style="text-align:center;">
-        <a href (click)="(false)">
+      <div class="flex-child" style="text-align:center;" *ngIf="0">
+        <a href (click)="(false)" style="padding: 0 6px;">
           <i class="bi bi-check-circle"></i>
         </a>
       </div>
       <div class="flex-child" style="text-align:center;">
-        <a href (click)="(false)">
+        <!--<a href (click)="(false)" style="padding: 0 6px;">
+          <i class="bi bi-filter-circle"></i>
+        </a>-->
+        <app-popover [switch_on]="1"></app-popover>
+      </div>
+      <div class="flex-child" style="text-align:right;" *ngIf="0">
+        <a href (click)="(false)" style="padding: 0 6px;">
           <i class="bi bi-star"></i>
         </a>
       </div>
       <div class="flex-child" style="text-align:right;">
-        <a href (click)="(false)">
-          <i class="bi bi-filter-circle"></i>
-        </a>
-      </div>
-      <div class="flex-child" style="text-align:right;">
-        <a href (click)="(false)">
+        <a href (click)="(false)" style="padding: 0 6px;">
           <i class="bi bi-arrow-right-circle"></i>
         </a>
       </div>

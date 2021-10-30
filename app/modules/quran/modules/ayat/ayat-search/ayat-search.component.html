@@ -56,7 +56,12 @@
 		<div class="flex-child" style="border-bottom: 0px;">			
 			<div class="input-group input-group-sm">
 				<div class="input-group-append">
-					<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">{{lang.id}}</span>
+					<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">
+						<ng-template #popTemplateAyts>
+							Ayats:{{ayatAll.length?ayatAll.length:'Loading...'}}
+						</ng-template>			
+						<a href (click)="false" [tooltip]="popTemplateAyts">{{lang.id}}</a>
+					</span>
 				</div>
 				<ng-container>
 					<!--[typeaheadMultipleSearch]="true"

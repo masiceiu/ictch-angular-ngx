@@ -9,7 +9,7 @@ html {
   transition: .75s right, .75s left;
   right: calc(-100% - 30px);
   /*bottom: 0;*/
-  z-index: 99998;
+  z-index: 1070;
   box-sizing: border-box;
 }
 

@@ -1,4 +1,10 @@
-
+ <ng-template #refTemplate>
+    <ng-container *ngFor="let it of map(searchIndex);">
+        <span class="list-group-item m-0" style="padding: 0.1rem .50rem;text-align: center;"  *ngIf="it">
+            <a href (click)="false">{{it}}</a>
+        </span>
+    </ng-container>
+</ng-template>
 <div id="analyticsContainer" class="toggler" 
 [ngClass]="toggler?'peek':'shown'">
   <div id="analyticsReminder" [ngStyle]="{'top':positionTop+'px'}">
@@ -24,7 +30,7 @@
   <div id="userConsentContainer" class="consentContainer">
       <button type="button" id="closeConsentContainer" aria-label="Close User Consent" class="closeConsent" (click)="toggle()">×</button>
       <div id="userConsentQuestion" class="consentDefault">
-      <app-nav-scroller *ngIf="true" ></app-nav-scroller>
+      <app-nav-scroller *ngIf="true" [refTemplate]="refTemplate"></app-nav-scroller>
       <sub-slide-content *ngIf="false" [index]="it.name.charAt(0)"></sub-slide-content>
       <div class="scroller" *ngIf="list.length"  style="max-height:{{maxHeight}}px">
             <div class="flex-parent"><!-- it.name.charAt(0) -->

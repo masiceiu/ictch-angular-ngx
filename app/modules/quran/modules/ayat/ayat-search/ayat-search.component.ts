@@ -48,7 +48,7 @@ export class AyatSearchComponent implements OnInit {
   
   ayatAll: any[] = [];
   ayatList: any[] = [];
-  ayatAllIndex: any = {};
+  //ayatAllIndex: any = {};
 
   translate: any;
   translates: any[] = [];
@@ -437,7 +437,7 @@ export class AyatSearchComponent implements OnInit {
       res => { 
         res.forEach((it, i) => {
           this.ayatAll.push(it);
-          this.ayatAllIndex[it.index] = it;
+          //this.ayatAllIndex[it.index] = it;
         });
         return new Promise(function(resolve, reject) { 
           return resolve(res.length);

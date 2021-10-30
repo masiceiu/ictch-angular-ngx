@@ -3,7 +3,7 @@
 	<div class="flex-parent">
 		<div class="flex-child">
 			<div class="input-group input-group-sm mb-0">
-				<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')">
+				<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')" [disabled]="!ayatAll.length">
 						<option *ngFor="let it of translates" [ngValue]="it">
 							{{it.name}}
 						</option>

@@ -71,8 +71,8 @@ export class AyatSearchComponent implements OnInit {
     this.isMobile = window.innerWidth < 760;
 
     this.ayatGroups = [
-      {id:"a",name:"G1",icon:"emoji-frown",ayats:{}},
-      {id:"b",name:"G2",icon:"emoji-smile",ayats:{}}
+      {id:"a",name:"Group Emoji Frown",icon:"emoji-frown",ayats:{}},
+      {id:"b",name:"Group Emoji Smile",icon:"emoji-smile",ayats:{}}
     ];
   }
   star_ayats: any = {};

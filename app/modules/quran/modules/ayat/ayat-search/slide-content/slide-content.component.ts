@@ -76,8 +76,8 @@ export class SlideContentComponent implements OnInit {
     //this.onItemClick.emit(data,switch_on);
   }
   map(it:any): any[]{
-    return Object.keys(it).map(index => {
-      return it[index];
+    return Object.keys(it).map(key => {
+      return key;
     });
   }
   /*

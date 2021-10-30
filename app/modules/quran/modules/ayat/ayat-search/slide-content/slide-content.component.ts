@@ -2,22 +2,33 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
 	selector: 'sub-slide-content',
-	template: `
-	  AllowDays = {{_allowDays}}
- `
+	template: ``
+	//template: `AllowDays = {{_allowDays}}`
 })
 export class SubSlideContentComponent {
+
   @Input('index')
   set in(val) {
-    console.log('allowDays = '+val);
+    console.log('index:', val);
   }
-  
+  @Input() data!: number | string;
+  @Output() dataChange = new EventEmitter<number>();
+
+  dec() { this.resize(-1); }
+  inc() { this.resize(+1); }
+
+  resize(delta: number) {
+    //this.data = Math.min(40, Math.max(8, +this.size + delta));
+    //this.dataChange.emit(this.data);
+  }
+  /*
   _allowDays:boolean = true;
   @Input('allowDays')
   set in(val) {
     console.log('allowDays = '+val);
     this._allowDays = val;
-  }
+  }*/
+  //ref: https://angular.io/guide/two-way-binding
 }
 @Component({
   selector: 'app-slide-content',
@@ -33,8 +44,26 @@ export class SlideContentComponent implements OnInit {
   //@Output addEvent = new EventEmitter<{make: string, name: string}>();
   toggler:boolean = true;
   constructor() { }
-
+  
+  searchIndex:any = {};
   ngOnInit() {
+    /*this.list.forEach((it:any) => {
+      let char = it.name.charAt(0);
+      this.searchIndex[char] = '';
+    });
+    console.log('this.searchIndex:',this.searchIndex);*/
+  }
+  @Input('data')
+  set in(list:any[]) {
+    this.list = list;
+    if(list.length>0){
+      this.list.forEach((it:any) => {
+        let char = it.name.charAt(0);
+        this.searchIndex[char] = '';
+      });
+      //console.log('this.searchIndex:',this.searchIndex);
+    }
+    //console.log('data:', list.length);
   }
   toggle(){
     this.toggler = !this.toggler;
@@ -45,6 +74,11 @@ export class SlideContentComponent implements OnInit {
     data.$event.preventDefault();
     this.onItemClick.emit({data,switch_on});
     //this.onItemClick.emit(data,switch_on);
+  }
+  map(it:any): any[]{
+    return Object.keys(it).map(index => {
+      return it[index];
+    });
   }
   /*
   _allowDay: boolean;

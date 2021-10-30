@@ -27,7 +27,17 @@ export class SlideContentComponent implements OnInit {
     this.onItemClick.emit({data,switch_on});
     //this.onItemClick.emit(data,switch_on);
   }
-
+  _allowDay: boolean;
+  get allowDay(): boolean {
+      return this._allowDay;
+  }
+  @Input() set allowDay(value: boolean) {
+      this._allowDay = value;
+      //this.updatePeriodTypes();
+  }
+  @Input() set id(value: string) {
+    console.log(value);
+  }
 }
 /*
 this.addModel.emit({make: make, name: name});

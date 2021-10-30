@@ -19,6 +19,7 @@ import { DynamicInputModule } from '../../../../../components/dynamic-input/dyna
 import { IndexContentComponent } from './index-content/index-content.component';
 import { 
   SideSliderModule} from '../../../components/side-slider/side-slider.module';
+  import { NavScrollerModule } from './../../../shared/components/nav-scroller/nav-scroller.module';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {
     SharedModule,
     DynamicInputModule, 
     InfiniteScrollModule,
-    SideSliderModule
+    SideSliderModule,
+    NavScrollerModule
   ],
   exports: [
     AyatSearchComponent,

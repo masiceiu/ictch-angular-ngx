@@ -9,7 +9,7 @@ export class NavScrollerComponent implements OnInit {
 
   @Input() marginClass = 'm-0';
   @Input() paddingClass = 'p-0';
-  @Input() refTemplate: TemplateRef<any>;
+  //@Input() refTemplate: TemplateRef<any>;
   constructor() { }
 
   ngOnInit() {

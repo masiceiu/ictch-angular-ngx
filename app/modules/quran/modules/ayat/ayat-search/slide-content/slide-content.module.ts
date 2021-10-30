@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 
-import { SlideContentComponent } from './slide-content.component';
+import { 
+  SlideContentComponent,
+  SubSlideContentComponent,
+ } from './slide-content.component';
 import { NavScrollerModule } from './../../../../shared/components/nav-scroller/nav-scroller.module';
 
 @NgModule({
@@ -11,8 +14,12 @@ import { NavScrollerModule } from './../../../../shared/components/nav-scroller/
     FormsModule,
     NavScrollerModule,
   ],
+  exports:[
+    SlideContentComponent,
+  ],
   declarations: [
-    SlideContentComponent
+    SlideContentComponent,
+    SubSlideContentComponent
   ]
 })
 export class SlideContentModule { }

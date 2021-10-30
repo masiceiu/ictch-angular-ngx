@@ -7,8 +7,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
  `
 })
 export class SubSlideContentComponent {
-  _allowDays:boolean;
+  @Input('index')
+  set in(val) {
+    console.log('allowDays = '+val);
+  }
   
+  _allowDays:boolean = true;
   @Input('allowDays')
   set in(val) {
     console.log('allowDays = '+val);

@@ -1,9 +1,24 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
+	selector: 'sub-slide-content',
+	template: `
+	  AllowDays = {{_allowDays}}
+ `
+})
+export class SubSlideContentComponent {
+  _allowDays:boolean;
+  
+  @Input('allowDays')
+  set in(val) {
+    console.log('allowDays = '+val);
+    this._allowDays = val;
+  }
+}
+@Component({
   selector: 'app-slide-content',
   templateUrl: './slide-content.component.html',
-  styleUrls: ['./slide-content.component.css']
+  styleUrls: ['./slide-content.component.css'],
 })
 export class SlideContentComponent implements OnInit {
   
@@ -27,6 +42,7 @@ export class SlideContentComponent implements OnInit {
     this.onItemClick.emit({data,switch_on});
     //this.onItemClick.emit(data,switch_on);
   }
+  /*
   _allowDay: boolean;
   get allowDay(): boolean {
       return this._allowDay;
@@ -38,6 +54,14 @@ export class SlideContentComponent implements OnInit {
   @Input() set id(value: string) {
     console.log(value);
   }
+  
+  _allowDays:boolean:
+  @Input('allowDays')
+  set in(val) {
+    console.log('allowDays = '+val);
+    this._allowDays = val;
+  }
+  <sub [allowDays]="val"></sub>*/
 }
 /*
 this.addModel.emit({make: make, name: name});

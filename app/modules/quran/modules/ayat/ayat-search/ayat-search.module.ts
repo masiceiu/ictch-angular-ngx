@@ -14,13 +14,12 @@ import { SharedModule } from './../../../shared/shared.module';
 import { ConfigComponent } from './config/config.component';
 import { AyatSearchComponent } from './ayat-search.component';
 import { SettingComponent } from './setting/setting.component';
-import { SlideContentComponent } from './slide-content/slide-content.component';
-import { DynamicInputModule } from '../../../../../components/dynamic-input/dynamic-input.module';
 import { IndexContentComponent } from './index-content/index-content.component';
+import { SlideContentModule } from './slide-content/slide-content.module';
+import { DynamicInputModule } from '../../../../../components/dynamic-input/dynamic-input.module';
 import { 
   SideSliderModule} from '../../../components/side-slider/side-slider.module';
-  import { NavScrollerModule } from './../../../shared/components/nav-scroller/nav-scroller.module';
-
+  
 @NgModule({
   imports: [
     CommonModule,
@@ -35,7 +34,7 @@ import {
     DynamicInputModule, 
     InfiniteScrollModule,
     SideSliderModule,
-    NavScrollerModule
+    SlideContentModule
   ],
   exports: [
     AyatSearchComponent,
@@ -44,7 +43,6 @@ import {
   declarations: [
     ConfigComponent,
     SettingComponent,
-    SlideContentComponent,
     AyatSearchComponent,
     IndexContentComponent,
   ]

@@ -5,7 +5,12 @@ import { switchMap } from 'rxjs/operators';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 import { AyatSearchModel } from './ayat-search.model';
-import { AyatService, GoogleService, StorageService } from './../.././../services';
+import { 
+  AyatService, 
+  GoogleService, 
+  StorageService,
+  AudioService 
+} from './../.././../services';
 
 @Component({
   selector: 'app-ayat-search',
@@ -64,7 +69,8 @@ export class AyatSearchComponent implements OnInit {
   constructor(
     private ayatService: AyatService,
     private googleService: GoogleService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private audioService: AudioService
   ) {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
@@ -86,7 +92,7 @@ export class AyatSearchComponent implements OnInit {
   ayat_searchs: any[] = [];
   ayat_search_key = "ayat_search_key";
   ngOnInit() {
-    
+    this.audioService.play();
     let translates = this.ayatSearchModel.getTranslateList();
     this.translates = translates;
     this.translate = translates[10];

@@ -26,4 +26,5 @@ export class AyatService{
     const url = "https://ictcarehome.com/api/qurn/ayat/index/"+lang;
     return this.httpService.get(url);
   }
+  
 }

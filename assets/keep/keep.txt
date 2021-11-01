@@ -73,3 +73,7 @@ https://www.w3.org/TR/mediaqueries-4/#range-context
 /*overlay
 https://stackblitz.com/edit/css-overlay-position
 https://stackblitz.com/edit/angular-append-and-remove-element-using-directive
+
+/*Bowser***************************/
+https://stackblitz.com/edit/angular-bowser-1uh33i
+https://stackblitz.com/edit/browser-detection

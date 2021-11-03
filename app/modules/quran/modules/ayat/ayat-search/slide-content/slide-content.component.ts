@@ -94,7 +94,7 @@ export class SlideContentComponent implements OnInit {
   public handleScrollClick($event:any, key: string) {
     $event.preventDefault();
     console.log($event, key);
-    const item = this.scrollableItems.find(x => x.key === key)
+    const item = this.scrollableItems.find(x => x.key.startsWith(key))
     item.scrollIntoView();
   }
   /*

@@ -1,7 +1,7 @@
  <ng-template #refTemplate>
     <ng-container *ngFor="let it of map(searchIndex);">
         <span class="list-group-item m-0" style="padding: 0.1rem .50rem;text-align: center;"  *ngIf="it">
-            <a href (click)="false">{{it}}</a>
+            <a href (click)="handleScrollClick($event, it)">{{it}}</a>
         </span>
     </ng-container>
 </ng-template>

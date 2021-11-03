@@ -6,6 +6,7 @@ import {
   SlideContentComponent,
   SubSlideContentComponent,
  } from './slide-content.component';
+ import { SharedModule } from './../../../../shared/shared.module';
 import { NavScrollerModule } from './../../../../shared/components/nav-scroller/nav-scroller.module';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { NavScrollerModule } from './../../../../shared/components/nav-scroller/
     CommonModule,
     FormsModule,
     NavScrollerModule,
+    SharedModule
   ],
   exports:[
     SlideContentComponent,

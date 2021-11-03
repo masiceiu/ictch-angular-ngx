@@ -91,9 +91,10 @@ export class SlideContentComponent implements OnInit {
     { key: '2019-03-05', value: 'G' },
   ]
   @ViewChildren(ScrollableItemDirective) scrollableItems: QueryList<ScrollableItemDirective>
-
-  public handleDayClick(day: string) {
-    const item = this.scrollableItems.find(x => x.key === day)
+  public handleScrollClick($event:any, key: string) {
+    $event.preventDefault();
+    console.log($event, key);
+    const item = this.scrollableItems.find(x => x.key === key)
     item.scrollIntoView();
   }
   /*

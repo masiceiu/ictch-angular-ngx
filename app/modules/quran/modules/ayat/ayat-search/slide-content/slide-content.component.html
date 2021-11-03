@@ -28,37 +28,38 @@
     </button>
   </div>
   <div id="userConsentContainer" class="consentContainer">
-      <button type="button" id="closeConsentContainer" aria-label="Close User Consent" class="closeConsent" (click)="toggle()">×</button>
-      <div id="userConsentQuestion" class="consentDefault" *ngIf="">
-      <app-nav-scroller *ngIf="true" [refTemplate]="refTemplate"></app-nav-scroller>
-      <sub-slide-content *ngIf="false" [index]="it.name.charAt(0)"></sub-slide-content>
-      <div class="scroller" *ngIf="list.length"  style="max-height:{{maxHeight}}px">
-            <div class="flex-parent"><!-- it.name.charAt(0) -->
-                <div class="flex-child" *ngFor="let it of list; let i = index;" [hidden]="!i">
-                    <span class="list-group-item" *ngIf="true" [id] ="i" style="padding: 0.25rem .50rem;text-align: center;" >
-                        <a href (click)="_onItemClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
-                    </span>
-                </div>
+  <button type="button" id="closeConsentContainer" aria-label="Close User Consent" class="closeConsent" (click)="toggle()">×</button>
+  <div id="userConsentQuestion" class="consentDefault">
+  <app-nav-scroller *ngIf="true" [refTemplate]="refTemplate"></app-nav-scroller>
+  <sub-slide-content *ngIf="false" [index]="it.name.charAt(0)"></sub-slide-content>
+  <div class="scroller" *ngIf="list.length"  style="max-height:{{maxHeight}}px">
+        <div class="flex-parent"><!-- it.name.charAt(0) -->
+            <div class="flex-child" *ngFor="let it of list; let i = index;" [hidden]="!i"[appScrollableItem]="it.name">
+                <span class="list-group-item" *ngIf="true" [id] ="i" style="padding: 0.25rem .50rem;text-align: center;" >
+                    <a href (click)="_onItemClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
+                </span>
             </div>
         </div>
-        <div class="scroller" *ngIf="!list.length" style="text-align: center">
-            Please wait, Loading...
+    </div>
+    <div class="scroller" *ngIf="!list.length" style="text-align: center">
+        Please wait, Loading...
+    </div>
+  </div>
+
+  <div id="userConsentQuestion" class="consentDefault" *ngIf="">
+    <div class="container">
+        <div *ngFor="let item of items" class="item" [appScrollableItem]="item.key">
+            {{item.key}} {{item.value}}
         </div>
-      </div>
-      <div id="userConsentQuestion" class="consentDefault">
-        <div class="container">
-            <div *ngFor="let item of items" class="item" [appScrollableItem]="item.key">
-                {{item.key}} {{item.value}}
-            </div>
-        </div>
-        
-        
-        <div style="margin: 30px;">
-          <button (click)="handleDayClick('2019-03-02')">02</button>
-          <button (click)="handleDayClick('2019-03-03')">03</button>
-          <button (click)="handleDayClick('2019-03-04')">04</button>
-          <button (click)="handleDayClick('2019-03-05')">05</button>
-        </div>
-      </div>
+    </div>
+    
+    
+    <div style="margin: 30px;">
+      <button (click)="handleDayClick('2019-03-02')">02</button>
+      <button (click)="handleDayClick('2019-03-03')">03</button>
+      <button (click)="handleDayClick('2019-03-04')">04</button>
+      <button (click)="handleDayClick('2019-03-05')">05</button>
+    </div>
+  </div>
   </div>
   </div>

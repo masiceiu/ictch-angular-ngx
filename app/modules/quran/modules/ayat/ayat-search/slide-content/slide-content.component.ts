@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
+import { ScrollableItemDirective } from './../../../../shared/directives/scrollable-item.directive';
 
 @Component({
 	selector: 'sub-slide-content',
@@ -79,6 +80,21 @@ export class SlideContentComponent implements OnInit {
     return Object.keys(it).map(key => {
       return key;
     });
+  }
+  public items = [
+    { key: '2019-03-02', value: 'A' },
+    { key: '2019-03-02', value: 'B' },
+    { key: '2019-03-02', value: 'C' },
+    { key: '2019-03-03', value: 'D' },
+    { key: '2019-03-03', value: 'E' },
+    { key: '2019-03-04', value: 'F' },
+    { key: '2019-03-05', value: 'G' },
+  ]
+  @ViewChildren(ScrollableItemDirective) scrollableItems: QueryList<ScrollableItemDirective>
+
+  public handleDayClick(day: string) {
+    const item = this.scrollableItems.find(x => x.key === day)
+    item.scrollIntoView();
   }
   /*
   _allowDay: boolean;

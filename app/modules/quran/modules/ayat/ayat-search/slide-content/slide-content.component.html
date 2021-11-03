@@ -29,7 +29,7 @@
   </div>
   <div id="userConsentContainer" class="consentContainer">
       <button type="button" id="closeConsentContainer" aria-label="Close User Consent" class="closeConsent" (click)="toggle()">×</button>
-      <div id="userConsentQuestion" class="consentDefault">
+      <div id="userConsentQuestion" class="consentDefault" *ngIf="">
       <app-nav-scroller *ngIf="true" [refTemplate]="refTemplate"></app-nav-scroller>
       <sub-slide-content *ngIf="false" [index]="it.name.charAt(0)"></sub-slide-content>
       <div class="scroller" *ngIf="list.length"  style="max-height:{{maxHeight}}px">
@@ -43,6 +43,21 @@
         </div>
         <div class="scroller" *ngIf="!list.length" style="text-align: center">
             Please wait, Loading...
+        </div>
+      </div>
+      <div id="userConsentQuestion" class="consentDefault">
+        <div class="container">
+            <div *ngFor="let item of items" class="item" [appScrollableItem]="item.key">
+                {{item.key}} {{item.value}}
+            </div>
+        </div>
+        
+        
+        <div style="margin: 30px;">
+          <button (click)="handleDayClick('2019-03-02')">02</button>
+          <button (click)="handleDayClick('2019-03-03')">03</button>
+          <button (click)="handleDayClick('2019-03-04')">04</button>
+          <button (click)="handleDayClick('2019-03-05')">05</button>
         </div>
       </div>
   </div>

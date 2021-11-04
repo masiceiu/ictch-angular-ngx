@@ -1,4 +1,4 @@
-export class AyatSearchModel {
+export class AyatModel {
   //[key: string]: any;
   private data = {};
   public getConfig():any {

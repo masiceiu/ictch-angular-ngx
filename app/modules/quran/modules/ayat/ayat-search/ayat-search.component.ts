@@ -4,7 +4,7 @@ import { switchMap } from 'rxjs/operators';
 
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
-import { AyatSearchModel } from './ayat-search.model';
+import { AyatModel } from './../ayat.model';
 import { 
   AyatService, 
   GoogleService, 
@@ -42,7 +42,7 @@ export class AyatSearchComponent implements OnInit {
   suggestions$!: any;// Observable<string[]>;
 
   selectedLanguage = {};//'bn_bengali'
-  ayatSearchModel = new AyatSearchModel();
+  ayatModel = new AyatModel();
   
   sura: any;
   suras: any[] = [];
@@ -93,15 +93,15 @@ export class AyatSearchComponent implements OnInit {
   ayat_search_key = "ayat_search_key";
   ngOnInit() {
     this.audioService.play();
-    let translates = this.ayatSearchModel.getTranslateList();
+    let translates = this.ayatModel.getTranslateList();
     this.translates = translates;
     this.translate = translates[10];
 
-    let langs = this.ayatSearchModel.getLangList();
+    let langs = this.ayatModel.getLangList();
     this.langs = langs;
     this.lang = langs[5];
 
-    let suras = this.ayatSearchModel.getSuraList(this.lang.id);
+    let suras = this.ayatModel.getSuraList(this.lang.id);
     this.suras = suras;
     this.sura = suras[1];
     suras.forEach((it:any) => {
@@ -511,7 +511,7 @@ export class AyatSearchComponent implements OnInit {
     console.log ('Count is ' + this.count,i);
   }
   init(){
-    this.marquee = this.ayatSearchModel.getMarqueeModel();
+    this.marquee = this.ayatModel.getMarqueeModel();
     this.marqueeId = this.start(()=>{
       this.marquee.recents[0] = this.marquee.marquees[0];
     });

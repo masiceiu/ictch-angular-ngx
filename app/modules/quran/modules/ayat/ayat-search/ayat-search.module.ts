@@ -17,8 +17,12 @@ import { DynamicInputModule } from '../../../../../components/dynamic-input/dyna
 //Component 
 import { ConfigComponent } from './config/config.component';
 import { SettingComponent } from './setting/setting.component';
+
 import { AyatSearchComponent } from './ayat-search.component';
+
+import { AyatContentComponent } from './ayat-content/ayat-content.component';
 import { IndexContentComponent } from './index-content/index-content.component';
+import { SearchContentComponent } from './search-content/search-content.component';
   
 @NgModule({
   imports: [
@@ -38,14 +42,16 @@ import { IndexContentComponent } from './index-content/index-content.component';
     AyatSearchRoutingModule
   ],
   exports: [
-    SettingComponent,
+    /SettingComponent,
     AyatSearchComponent,
   ],
   declarations: [
     ConfigComponent,
     SettingComponent,
     AyatSearchComponent,
+    AyatContentComponent,
     IndexContentComponent,
+    SearchContentComponent
   ]
 })
 export class AyatSearchModule { }

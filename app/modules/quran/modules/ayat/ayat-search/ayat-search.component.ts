@@ -64,6 +64,8 @@ export class AyatSearchComponent implements OnInit {
   isSearchLoading = false;
   currentPage = 2;
 
+  groups: any[];
+
   ayatGroups: any[];
   ayat_groups_key = "ayat_groups_key";
   constructor(
@@ -76,9 +78,13 @@ export class AyatSearchComponent implements OnInit {
     this.height = window.innerHeight;
     this.isMobile = window.innerWidth < 760;
 
+    this.groups = [
+      { id:"a", name:"Group Emoji Frown", icon:"emoji-frown" },
+      { id:"b", name:"Group Emoji Smile", icon:"emoji-smile" }
+    ];
     this.ayatGroups = [
-      {id:"a",name:"Group Emoji Frown",icon:"emoji-frown",ayats:{}},
-      {id:"b",name:"Group Emoji Smile",icon:"emoji-smile",ayats:{}}
+      { id:"a", name:"Group Emoji Frown", icon:"emoji-frown", ayats:{} },
+      { id:"b", name:"Group Emoji Smile", icon:"emoji-smile", ayats:{} }
     ];
   }
   star_ayats: any = {};
@@ -441,10 +447,11 @@ export class AyatSearchComponent implements OnInit {
     let lang = this.translate.id;
     return this.ayatService.getAll(lang,req).then(
       res => { 
-        res.forEach((it, i) => {
+        /*res.forEach((it, i) => {
           this.ayatAll.push(it);
-          //this.ayatAllIndex[it.index] = it;
-        });
+          this.ayatAllIndex[it.index] = it;
+        });*/
+        this.ayatAll = res;
         return new Promise(function(resolve, reject) { 
           return resolve(res.length);
         });

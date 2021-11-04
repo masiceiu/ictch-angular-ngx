@@ -41,10 +41,6 @@ import { SearchContentComponent } from './search-content/search-content.componen
     SlideContentModule,
     AyatSearchRoutingModule
   ],
-  exports: [
-    /SettingComponent,
-    AyatSearchComponent,
-  ],
   declarations: [
     ConfigComponent,
     SettingComponent,

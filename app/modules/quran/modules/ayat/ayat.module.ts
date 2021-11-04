@@ -2,10 +2,10 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 //Module
 import { AyatRoutingModule } from "./ayat-routing.module";
-import { AyatSearchModule } from "./ayat-search/ayat-search.module";
+//import { AyatSearchModule } from "./ayat-search/ayat-search.module";
 
 import { NavCarouselModule } from './../../shared/components/nav-carousel/nav-carousel.module';
-import { NavScrollerModule } from './../../shared/components/nav-scroller/nav-scroller.module';
+//import { NavScrollerModule } from './../../shared/components/nav-scroller/nav-scroller.module';
 //Component
 import { AyatComponent } from "./ayat.component";
 
@@ -14,8 +14,8 @@ import { AyatComponent } from "./ayat.component";
     CommonModule, 
     AyatRoutingModule,
     NavCarouselModule,
-    AyatSearchModule, 
-    NavScrollerModule,
+    //AyatSearchModule, 
+    //NavScrollerModule,
   ],
   declarations: [
     AyatComponent, 

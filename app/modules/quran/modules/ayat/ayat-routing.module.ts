@@ -6,7 +6,7 @@ import { AyatComponent } from "./ayat.component";
 const routes: Route[] = [
   {
     path: '',
-    Component : AyatComponent,
+    component : AyatComponent,
     loadChildren: () =>
       import('./ayat-search/ayat-search.module').then(
         (m) => m.AyatSearchModule

@@ -10,15 +10,15 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { SharedModule } from './../../../shared/shared.module';
-//Component
-import { ConfigComponent } from './config/config.component';
-import { AyatSearchComponent } from './ayat-search.component';
-import { SettingComponent } from './setting/setting.component';
-import { IndexContentComponent } from './index-content/index-content.component';
+import { AyatSearchRoutingModule } from './ayat-search-routing.module';
 import { SlideContentModule } from './slide-content/slide-content.module';
+import { SideSliderModule} from '../../../components/side-slider/side-slider.module';
 import { DynamicInputModule } from '../../../../../components/dynamic-input/dynamic-input.module';
-import { 
-  SideSliderModule} from '../../../components/side-slider/side-slider.module';
+//Component 
+import { ConfigComponent } from './config/config.component';
+import { SettingComponent } from './setting/setting.component';
+import { AyatSearchComponent } from './ayat-search.component';
+import { IndexContentComponent } from './index-content/index-content.component';
   
 @NgModule({
   imports: [
@@ -34,11 +34,12 @@ import {
     DynamicInputModule, 
     InfiniteScrollModule,
     SideSliderModule,
-    SlideContentModule
+    SlideContentModule,
+    AyatSearchRoutingModule
   ],
   exports: [
+    SettingComponent,
     AyatSearchComponent,
-    SettingComponent
   ],
   declarations: [
     ConfigComponent,

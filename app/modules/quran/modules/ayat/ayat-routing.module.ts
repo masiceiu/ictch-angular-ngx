@@ -14,7 +14,6 @@ const routes: Route[] = [
     },
   },
 ];
-
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule],

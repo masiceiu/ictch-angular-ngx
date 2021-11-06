@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
+import { AppService } from './app.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,13 +18,13 @@ export class AppComponent implements OnInit {
 
     }
     ngOnInit() {
-    this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      this.payload.previousUrl = this.payload.currentUrl;
-      this.payload.currentUrl = event.url;
-    });
-    this.tracking.update(this.payload);
-    console.log("tracking",this.payload);
-  }
+      this.router.events.pipe(
+        filter((event) => event instanceof NavigationEnd)
+      ).subscribe((event: NavigationEnd) => {
+        this.payload.previousUrl = this.payload.currentUrl;
+        this.payload.currentUrl = event.url;
+      });
+      this.tracking.update(this.payload);
+      console.log("tracking",this.payload);
+    }
 }

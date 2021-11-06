@@ -19,7 +19,7 @@ export class AyatDynamicComponent implements OnInit, AfterViewInit {
   }
 
   private loadList(): void{
-    this.service.getList().then(res => {
+    this.service.getList({}).then(res => {
         this.ayatList = res;
     },ex=>{console.log(ex.name/*, ex*/);});
   }

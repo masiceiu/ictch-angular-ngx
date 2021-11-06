@@ -8,13 +8,13 @@ import { AyatService } from './../../../services';
 })
 export class AyatSelectComponent implements OnInit {
   selectedItem;
-  selectedLanguage = 'en_ahmedali';
-  selectedSura = '1';
+  selectedLanguage = 'bn_bengali';
+  selectedSura = 1;
   selectedAyat;
   index1 = 1;
   private ayatList = [];
   constructor(private service: AyatService) {
-    this.setAyatList({ sura: 1 });
+    this.setAyatList({ sura: this.selectedSura,lang: this.selectedLanguage });
   }
 
   ngOnInit() {}
@@ -69,7 +69,7 @@ export class AyatSelectComponent implements OnInit {
   onChangeItem($event, switch_on) {
     switch (switch_on) {
       case 'sura':
-        let req = { sura: this.selectedSura };
+        let req = { sura: this.selectedSura, lang: this.selectedLanguage };
         this.setAyatList(req);
         break;
       case 'ayat':
@@ -100,11 +100,12 @@ export class AyatSelectComponent implements OnInit {
         //console.log(indexAsId);
         if(indexAsId){
           ref.setAyat(indexAsId, function(self) {
-            let req = { sura: self.selectedSura };
+            let req = { sura: self.selectedSura, lang: self.selectedLanguage };
             self.setAyatList(req);
           });          
         }
       }
+      console.log(ref.item);
     }
     let index = (this.selectedAyat.aya - 0);
     //console.log(index);

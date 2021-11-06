@@ -10,7 +10,9 @@ export class AddBtnFixedComponent implements OnInit {
   @Input() text = '+';
   @Input() size = 50;
   @Input() opacity = .5;
+  @Input() isLine = false;
   @Input() isCircle = true;
+
   @Input() positionBottom = 10;
   @Output() onAddClick = new EventEmitter<any>();
   constructor() { }

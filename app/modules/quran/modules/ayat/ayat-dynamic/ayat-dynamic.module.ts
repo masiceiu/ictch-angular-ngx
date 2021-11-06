@@ -5,10 +5,14 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+
 import { SharedModule } from './../../../shared/shared.module';
+import { AyatCardModule } from '../../../shared/components/ayat-card/ayat-card.module';
+import { AddBtnFixedModule } from '../../../shared/components/add-btn-fixed/add-btn-fixed.module';
+
 import { AyatDynamicRoutingModule } from './ayat-dynamic-routing.module';
 //Component
-import { AyatCardModule } from '../../../shared/components/ayat-card/ayat-card.module';
+
 import { AyatDynamicComponent } from './ayat-dynamic.component';
 
 @NgModule({
@@ -22,6 +26,7 @@ import { AyatDynamicComponent } from './ayat-dynamic.component';
     TypeaheadModule.forRoot(), 
     SharedModule,
     AyatCardModule,
+    AddBtnFixedModule,
   ],
   exports: [
   ],

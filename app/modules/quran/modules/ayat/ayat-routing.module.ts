@@ -34,7 +34,7 @@ const routes: Route[] = [{
       feature: 'select',
     },
   },
-  { path: '', redirectTo: 'select', pathMatch: 'full' },
+  { path: '', redirectTo: 'search', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes)],

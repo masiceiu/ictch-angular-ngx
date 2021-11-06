@@ -14,13 +14,13 @@ export class AyatSelectComponent implements OnInit {
   selectedAyat;
   index1 = 1;
   private ayatList = [];
+  private payload:any = {};
   constructor(private service: AyatService, private tracking: AppService) {
     this.setAyatList({ sura: this.selectedSura,lang: this.selectedLanguage });
-    this.tracking.data.subscribe((res: any) => {
-      console.log('res: ', res);
-      /res.Hi='?';
-      //this.tracking.update(res);
+    this.tracking.data.subscribe((payload: any) => {
+      this.payload = Object.assign(this.payload, payload);
     });
+    this.tracking.update({app_nav_show : false});
   }
 
   ngOnInit() {}

@@ -451,7 +451,9 @@ export class AyatSearchComponent implements OnInit {
           this.ayatAll.push(it);
           this.ayatAllIndex[it.index] = it;
         });*/
-        this.ayatAll = res;
+        if(res.length>0){
+          this.ayatAll = res;
+        }
         return new Promise(function(resolve, reject) { 
           return resolve(res.length);
         });

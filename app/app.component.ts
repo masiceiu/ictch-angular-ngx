@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
       ).subscribe((event: NavigationEnd) => {
         this.payload.previousUrl = this.payload.currentUrl;
         this.payload.currentUrl = event.url;
+        this.tracking.update(this.payload);
+        console.log("tracking",this.payload);
       });
-      this.tracking.update(this.payload);
-      console.log("tracking",this.payload);
     }
 }

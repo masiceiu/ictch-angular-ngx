@@ -18,13 +18,9 @@ export class AppComponent implements OnInit {
     private tracking: AppService) {
       //console.log("router",this.router);
       this.tracking.data.subscribe((payload: any) => {
-        /*if(payload.hasOwnProperty('app_nav_show')){
-          this.payload.app_nav_show = payload.app_nav_show;
-        }*/
         this.payload = Object.assign(this.payload, payload);
-        console.log('res: ', payload);
-        console.log("tracking",this.payload);
-        //console.log("route",this.route);
+        //console.log('app-res: ', payload);
+        //console.log("app-tracking",this.payload);
       });
     }
     ngOnInit() {

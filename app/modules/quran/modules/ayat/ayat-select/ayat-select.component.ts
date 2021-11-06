@@ -14,11 +14,13 @@ export class AyatSelectComponent implements OnInit {
   selectedAyat;
   index1 = 1;
   private ayatList = [];
-  private payload:any = {};
+  private payload:any = {g:{}};
   constructor(private service: AyatService, private tracking: AppService) {
     this.setAyatList({ sura: this.selectedSura,lang: this.selectedLanguage });
     this.tracking.data.subscribe((payload: any) => {
       this.payload = Object.assign(this.payload, payload);
+      //console.log('sel-res: ', payload);
+      //console.log("sel-tracking",this.payload);
     });
     this.tracking.update({app_nav_show : false});
   }

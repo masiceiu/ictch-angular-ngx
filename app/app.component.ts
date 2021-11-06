@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router, 
     private tracking: AppService) {
-
+      console.log("router",this.router);
     }
     ngOnInit() {
       this.router.events.pipe(

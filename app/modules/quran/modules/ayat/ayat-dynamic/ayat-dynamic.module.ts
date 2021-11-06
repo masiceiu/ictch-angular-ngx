@@ -6,6 +6,7 @@ import { PopoverModule } from 'ngx-bootstrap/popover';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { SharedModule } from './../../../shared/shared.module';
+import { AyatDynamicRoutingModule } from './ayat-dynamic-routing.module';
 //Component
 import { AyatCardModule } from '../../../shared/components/ayat-card/ayat-card.module';
 import { AyatDynamicComponent } from './ayat-dynamic.component';
@@ -15,11 +16,12 @@ import { AyatDynamicComponent } from './ayat-dynamic.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    AyatDynamicRoutingModule,
     PopoverModule.forRoot(),
     BsDropdownModule.forRoot(),
     TypeaheadModule.forRoot(), 
     SharedModule,
-    AyatCardModule
+    AyatCardModule,
   ],
   exports: [
   ],

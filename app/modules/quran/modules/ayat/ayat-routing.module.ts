@@ -8,10 +8,10 @@ const routes: Route[] = [{
     component : AyatComponent,
     loadChildren: () =>
       import('./ayat-dynamic/ayat-dynamic.module').then(
-        (m) => m.AyatSearchModule
+        (m) => m.AyatDynamichModule
       ),
     data: {
-      feature: 'Ayat',
+      feature: 'dynamic',
     },
   },{
     path: 'search',
@@ -21,20 +21,20 @@ const routes: Route[] = [{
         (m) => m.AyatSearchModule
       ),
     data: {
-      feature: 'Ayat',
+      feature: 'search',
     },
   },{
     path: 'select',
     component : AyatComponent,
     loadChildren: () =>
       import('./ayat-select/ayat-select.module').then(
-        (m) => m.AyatSearchModule
+        (m) => m.AyatSelecthModule
       ),
     data: {
-      feature: 'Ayat',
+      feature: 'select',
     },
   },
-  { path: '', redirectTo: 'select', pathMatch: 'full' },
+  { path: '', redirectTo: 'dynamic', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes)],

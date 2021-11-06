@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AyatService } from './../../../services';
+import { AppService } from './../../../../../app.service';
 
 @Component({
   selector: 'app-ayat-select',
@@ -13,8 +14,13 @@ export class AyatSelectComponent implements OnInit {
   selectedAyat;
   index1 = 1;
   private ayatList = [];
-  constructor(private service: AyatService) {
+  constructor(private service: AyatService, private tracking: AppService) {
     this.setAyatList({ sura: this.selectedSura,lang: this.selectedLanguage });
+    this.tracking.data.subscribe((res: any) => {
+      console.log('res: ', res);
+      /res.Hi='?';
+      //this.tracking.update(res);
+    });
   }
 
   ngOnInit() {}

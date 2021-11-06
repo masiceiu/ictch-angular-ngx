@@ -8,7 +8,7 @@ const routes: Route[] = [{
     component : AyatComponent,
     loadChildren: () =>
       import('./ayat-dynamic/ayat-dynamic.module').then(
-        (m) => m.AyatDynamichModule
+        (m) => m.AyatDynamicModule
       ),
     data: {
       feature: 'dynamic',
@@ -28,7 +28,7 @@ const routes: Route[] = [{
     component : AyatComponent,
     loadChildren: () =>
       import('./ayat-select/ayat-select.module').then(
-        (m) => m.AyatSelecthModule
+        (m) => m.AyatSelectModule
       ),
     data: {
       feature: 'select',

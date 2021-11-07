@@ -206,7 +206,11 @@
 </div>
 <div class="col-12 p-0">
 <div class="scroller" style="max-height:{{height-fixedHeight}}px">
-	
+	<div class="list-group">	
+		<ng-container *ngFor="let it of ayatList; let i = index;">
+			<app-ayat-content></app-ayat-content>
+		</ng-container>	
+	</div>
 	<!--mockup design-->
 	<div class="list-group"  *ngIf="spin">
 		<div class="flex-parent">

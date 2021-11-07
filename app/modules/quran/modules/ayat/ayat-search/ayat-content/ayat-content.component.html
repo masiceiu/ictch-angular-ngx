@@ -1,3 +1,49 @@
-<p>
-ayat-content works!{{data|json}}
-</p>
+<ng-container *ngIf="0">
+    <div routerlink="/" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="flex-parent">
+        <div class="flex-child" style="text-align:left;">	
+          <a href (click)="(false)" style="padding: 0 6px;">
+            <i class="bi bi-arrow-left-circle"></i>
+          </a>
+          <a href (click)="false">
+          &nbsp;
+          </a>
+        </div>
+        <div class="flex-child" style="text-align:center;">
+          <a href (click)="false">
+            <span>{{suraIndex[it.sura].name}}&nbsp;[{{it.sura}}|{{suraIndex[it.sura].ayat}}-{{it.aya}}]</span>
+            <small *ngIf="0">"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
+          </a>
+        </div>
+        <div class="flex-child" style="text-align:right;">
+          <a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')" style="padding: 0 6px;">
+            <i class="bi bi-star{{star_ayats[it.index]?'-fill':''}}"></i>
+          </a>
+          <a href (click)="(false)" style="padding: 0 6px;">
+            <i class="bi bi-arrow-right-circle"></i>
+          </a>
+          <a href (click)="false" [popover]="popTemplate" placement="auto" 
+          [outsideClick]="true" style="padding: 0 6px;border: 1px lightgray dotted;">
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </a>				
+        </div>
+      </div>
+      <hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
+      <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
+      <hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
+      <p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
+        [ngStyle]="{'font-size': config.mFontSize+'px'}">
+        {{it.mtext}}
+      </p>
+      <hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
+      <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
+      <hr class="hrh mb-0" *ngIf="0">
+      <div class="flex-parent" *ngIf="0">
+        <div class="flex-child" style="text-align:center;">
+          <a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
+            <i class="bi bi-star{{star_ayats[it.index]?'-fill':''}}"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-container>

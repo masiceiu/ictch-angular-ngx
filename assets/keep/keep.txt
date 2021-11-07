@@ -86,3 +86,5 @@ https://stackblitz.com/edit/ang-jsoneditor
 /*json
 https://stackblitz.com/edit/angular-change-json-add-node
 https://stackblitz.com/edit/json-import-example
+/*child-guards Object.assign
+https://stackblitz.com/edit/angular-can-activate-and-can-activate-child-guards

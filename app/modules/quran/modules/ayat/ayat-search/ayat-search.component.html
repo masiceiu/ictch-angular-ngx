@@ -1,431 +1,217 @@
 <div class="row mt-0">
-<div class="col-12">
-	<div class="flex-parent">
-		<div class="flex-child">
-			<div class="input-group input-group-sm mb-0">
-				<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')" [disabled]="!ayatAll.length">
-						<option *ngFor="let it of translates" [ngValue]="it">
-							{{it.name}}
-						</option>
-				</select>
-				<div class="input-group-append">
-					<span class="input-group-text">
-					<ng-template #popTemplateSura>						
-						<div class="scroller">
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item" *ngFor="let it of suras; let i = index;">
-									<a href (click)="onClick({$event:$event, item:it},'suggest-item-sura')" >
-										{{it.id}}. {{it.name}}-{{it.ayat}}
-									</a>
-								</li>
-							</ul>
-						</div>
-					</ng-template>
-						<a href (click)="false" [popover]="popTemplateSura" popoverTitle="" [outsideClick]="true" placement="auto">	
-						Sura<i class="bi bi-caret-down"></i>
-						</a>
-					</span>
-					<span class="input-group-text">
-						<ng-template #popTemplateGear>
-							<app-setting (onSubmit)="onSubmit($event,'add-group')"></app-setting>
-							<hr class="mb-1" />
+	<div class="col-12">
+		<div class="flex-parent">
+			<div class="flex-child">
+				<div class="input-group input-group-sm mb-0">
+					<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')" [disabled]="!ayatAll.length">
+							<option *ngFor="let it of translates" [ngValue]="it">
+								{{it.name}}
+							</option>
+					</select>
+					<div class="input-group-append">
+						<span class="input-group-text">
+						<ng-template #popTemplateSura>						
 							<div class="scroller">
-								<div class="flex-parent" *ngFor="let it of ayatGroups; let i = index;">
-									<div class="flex-child" style="text-align:left;">
-										<a href (click)="onSubmit({$event:$event, item:it},'group-item')" >
-											<i class="bi bi-{{it.icon}}"></i> {{it.name}}
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item" *ngFor="let it of suras; let i = index;">
+										<a href (click)="onClick({$event:$event, item:it},'suggest-item-sura')" >
+											{{it.id}}. {{it.name}}-{{it.ayat}}
 										</a>
-									</div>
-									<div class="flex-child" style="text-align:right;margin-top:-3px">
-										<span class="close" aria-label="Close" (click)="onSubmit(i,'group-item-remove')">
-											<span aria-hidden="true">&times;</span>
-										</span>
+									</li>
+								</ul>
+							</div>
+						</ng-template>
+							<a href (click)="false" [popover]="popTemplateSura" popoverTitle="" [outsideClick]="true" placement="auto">	
+							Sura<i class="bi bi-caret-down"></i>
+							</a>
+						</span>
+						<span class="input-group-text">
+							<ng-template #popTemplateGear>
+								<app-setting (onSubmit)="onSubmit($event,'add-group')"></app-setting>
+								<hr class="mb-1" />
+								<div class="scroller">
+									<div class="flex-parent" *ngFor="let it of ayatGroups; let i = index;">
+										<div class="flex-child" style="text-align:left;">
+											<a href (click)="onSubmit({$event:$event, item:it},'group-item')" >
+												<i class="bi bi-{{it.icon}}"></i> {{it.name}}
+											</a>
+										</div>
+										<div class="flex-child" style="text-align:right;margin-top:-3px">
+											<span class="close" aria-label="Close" (click)="onSubmit(i,'group-item-remove')">
+												<span aria-hidden="true">&times;</span>
+											</span>
+										</div>
 									</div>
 								</div>
-							</div>
-						</ng-template>
-						<a href (click)="false" [popover]="popTemplateGear" popoverTitle="" [outsideClick]="true" placement="auto" class="w3-spin">	
-							<i class="bi bi-gear"></i>
-						</a>
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="flex-parent">
-		<div class="flex-child" style="border-bottom: 0px;">			
-			<div class="input-group input-group-sm">
-				<div class="input-group-append">
-					<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">
-						<ng-template #popTemplateAyts>
-							Ayats:{{ayatAll.length?ayatAll.length:'Loading...'}}
-						</ng-template>			
-						<a href (click)="false" [tooltip]="popTemplateAyts">{{lang.id}}</a>
-					</span>
-				</div>
-				<ng-container>
-					<!--[typeaheadMultipleSearch]="true"
-				typeaheadMultipleSearchDelimiters="','"-->
-					<input type="text"
-					[(ngModel)]="search"
-					(typeaheadOnSelect)="onSelect($event)"
-					typeaheadOptionField="suggestion"
-					[typeahead]="suggestions$"
-					[typeaheadAsync]="true"
-					class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
-				</ng-container>
-				<ng-container *ngIf="!isSearchLoading">
-					<div class="input-group-append">
-						<span class="input-group-text">
-						<ng-template #popTemplate1>
-							<div class="scroller">
-								<div class="flex-parent" *ngFor="let it of ayat_searchs; let i = index;">
-									<div class="flex-child" style="text-align:left;">
-										<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
-									</div>
-									<div class="flex-child" style="text-align:right;margin-top:-3px">
-										<span class="close" aria-label="Close" (click)="onClick(i,'suggest-item-remove')">
-											<span aria-hidden="true">&times;</span>
-										</span>
-									</div>
-							</div>
-						</div>
-						</ng-template>
-						<a href (click)="false" *ngIf="" class="w3-spin">
-							<i class="bi bi-question-circle"></i>
-						</a>
-						<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="bottom">	
-							<i class="bi bi-info-circle"></i>
-						</a>
-					 </span>
-						<button type="button"
-						[disabled]="!search"
-						(click)="onClick($event,'search')"
-					class="btn btn-secondary" style="padding-right: 22px;padding-left: 22px;">
-					<i class="bi bi-search"></i>
-					</button>
-					</div>
-				</ng-container>
-				<ng-container *ngIf="isSearchLoading">
-					<div class="input-group-append">
-						<span class="input-group-text">
-							<span (click)="false" class="w3-spin" style="padding-right: 30px;padding-left: 30px;">	
-								<i class="bi bi-hourglass-split"></i>
-							</span>
+							</ng-template>
+							<a href (click)="false" [popover]="popTemplateGear" popoverTitle="" [outsideClick]="true" placement="auto" class="w3-spin">	
+								<i class="bi bi-gear"></i>
+							</a>
 						</span>
 					</div>
-				</ng-container>
-			</div>
-		</div>
-	</div>
-	<div class="flex-parent mb-2">
-		<div class="flex-child" style="border-top: 0px;">
-			<small>Search result : {{ayatList?.length}}</small>
-		</div>
-		<div class="flex-child" style="border-top: 0px;text-align:center;">
-			<div class="mt-1">
-			<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange(rangeFontSize,'range')">
-			</div>
-		</div>
-		<div class="flex-child" style="border-top: 0px;text-align:right;">
-			<ng-template #popTemplate>
-				<div class="form-group">
-					<div class="form-check">
-						<input type="checkbox" [(ngModel)]="config.aShow"
-						id="aShow"  class="form-check-input mt-1">
-						<label for="aShow" class="form-check-label">
-							Show Arabic Text
-						</label>
-					</div>
-					<div class="form-check">
-						<input type="checkbox" [(ngModel)]="config.mShow"
-						id="mShow"  class="form-check-input mt-1">
-						<label for="mShow" class="form-check-label">
-							Show {{lang.name}} Text
-						</label>
-					</div>
-					<div class="form-check">
-						<input type="checkbox" [(ngModel)]="config.eShow"
-						id="eShow"  class="form-check-input mt-1">
-						<label for="eShow" class="form-check-label">
-							Show English Text
-						</label>
-					</div>
-				</div>
-			</ng-template>
-			<a href (click)="false" [popover]="popTemplate" placement="auto" popoverTitle="More Search Settings"
-				[outsideClick]="true">
-				<small>
-					More <i class="bi bi-caret-down"></i>
-				</small>
-			</a>
-		</div>
-
-<ng-container *ngIf="true">
-	<app-slide-content [data]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)" [maxHeight]="height-fixedHeight"></app-slide-content>
-	
-	<ng-template #tprStar>
-	<div class="scroller" style="max-height:{{height-fixedHeight}}px">
-		<div routerlink="/" *ngFor="let it of map(star_ayats); let i = index;"
-			class="list-group-item list-group-item-action flex-column align-items-start">
-			<p class="text-center texth" *ngIf="!isSuraSearch">
-				<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
-			</p>
-			<hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
-			<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
-			<hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
-			<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
-				[ngStyle]="{'font-size': config.mFontSize+'px'}">
-				{{it.mtext}}
-			</p>
-			<hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
-			<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
-			<hr class="hrh mb-0" *ngIf="1">
-			<div class="flex-parent">
-				<div class="flex-child" style="text-align:center;">
-					<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
-						<i class="bi bi-star-fill"></i>
-					</a>
 				</div>
 			</div>
 		</div>
-	</div>
-	</ng-template>
-	<app-side-slider [refTemplate]="tprStar" [positionTop]="70" [icon]="'star-fill'" [iconMarginTop]="4"></app-side-slider>
-
-		<div *ngFor="let it of ayatGroups; let i=index;">
-			<ng-template #tpr_>
-				<div class="content">
-					<h3>Sticky Social Bar-{{i}}</h3>
-					<p>The sticky social bar will stick to the screen when you scroll.</p>
-				</div>
-		</ng-template>
-		<app-side-slider [refTemplate]="tpr_" [positionTop]="(70+(35*(i+1)))" [icon]="it.icon" [iconMarginTop]="4"></app-side-slider>
-	</div>
-</ng-container>
-</div>
-<div class="col-12 p-0">
-<div class="scroller" style="max-height:{{height-fixedHeight}}px">
-	<div class="list-group">	
-		<ng-container *ngFor="let it of ayatList; let i = index;">
-			<app-ayat-content></app-ayat-content>
-		</ng-container>	
-	</div>
-	<!--mockup design-->
-	<div class="list-group"  *ngIf="spin">
 		<div class="flex-parent">
-			<div class="flex-child" style="text-align:center;">
-				<button class="m-0 spin-ayat circle">
-					<i class="bi bi-brightness-high-fill"></i>
-				</button>
-			</div>
-		</div>
-	</div>
-
-	<div class="list-group" *ngIf="0">
-		<div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="1">
-			<div class="d-flex w-100 justify-content-between">
-				<h5 class="mb-1">List group item heading</h5>
-				<small class="text-muted">3 days ago</small>
-			</div>
-			<hr>
-		</div>
-
-		<ng-template ngFor let-item [ngForOf]="ayatGroups" let-currentElementIndex="(index + 1)">
-			{{index}} Something
-		</ng-template>
-
-		<div *ngFor="let it of map(ayatGroup)">{{it|json}}</div>
-		
-		<div class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted" routerlink="/" 
-		*ngFor="let it of [1,2,3]">
-			<p class="text-center ayath">
-				<small>
-					"Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;1)"
-				</small>
-			</p>
-			<hr class="hrh" *ngIf="config.mShow">
-			<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">
-				بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-			</p>
-			<hr class="hrh" *ngIf="config.mShow">
-			<p class="mtext" *ngIf="config.mShow" [ngStyle]="{'font-size': config.mFontSize+'px'}">
-				শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p>
-			<hr class="hrh" *ngIf="config.eShow">
-			<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">
-				In the name of Allah, most benevolent, ever-merciful.</p>
-				<hr class="hrh mb-0" *ngIf="1">
-			<div class="flex-parent">
-					<div class="flex-child" style="text-align:left;">
-						<a href (click)="false">
-							<i class="bi bi-arrow-left-circle"></i>
-						</a>
+			<div class="flex-child" style="border-bottom: 0px;">			
+				<div class="input-group input-group-sm">
+					<div class="input-group-append">
+						<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">
+							<ng-template #popTemplateAyts>
+								Ayats:{{ayatAll.length?ayatAll.length:'Loading...'}}
+							</ng-template>			
+							<a href (click)="false" [tooltip]="popTemplateAyts">{{lang.id}}</a>
+						</span>
 					</div>
-					<div class="flex-child" style="text-align:center;">
-						<a href (click)="false">
-							<i class="bi bi-check-circle"></i>
-						</a>
-					</div>
-					<div class="flex-child" style="text-align:center;">
-						<a href (click)="false">
-							<i class="bi bi-star"></i>
-						</a>
-					<div class="btn-group btn-group-sm" role="group" aria-label="..." *ngIf="0">
-						<button type="button" class="btn btn-secondary">Left</button>
-						<button type="button" class="btn btn-secondary">Middle</button>
-						<button type="button" class="btn btn-secondary">Right</button>
-					</div>
-					<ul class="pagination" *ngIf="0">
-						<li class="pagination-page page-item">
-							<a href="" class="page-link">1</a>
-						</li>
-						<li class="pagination-page page-item">
-							<a href="" class="page-link">2</a>
-						</li>
-						<li class="pagination-page page-item">
-							<a href="" class="page-link">3</a>
-						</li>
-						<li class="pagination-page page-item">
-							<a href="" class="page-link">4</a>
-						</li>
-						<li class="pagination-page page-item active">
-							<a href="" class="page-link">5</a>
-						</li>
-						<li class="pagination-page page-item">
-							<a href="" class="page-link">6</a>
-						</li>
-						<li class="pagination-page page-item">
-							<a href="" class="page-link">7</a>
-						</li>
-					</ul>
-					<pagination [totalItems]="35" *ngIf="0" [directionLinks]="false" [(ngModel)]="currentPage" [maxSize]="3">
-					</pagination>
+					<ng-container>
+						<!--[typeaheadMultipleSearch]="true"
+					typeaheadMultipleSearchDelimiters="','"-->
+						<input type="text"
+						[(ngModel)]="search"
+						(typeaheadOnSelect)="onSelect($event)"
+						typeaheadOptionField="suggestion"
+						[typeahead]="suggestions$"
+						[typeaheadAsync]="true"
+						class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
+					</ng-container>
+					<ng-container *ngIf="!isSearchLoading">
+						<div class="input-group-append">
+							<span class="input-group-text">
+							<ng-template #popTemplate1>
+								<div class="scroller">
+									<div class="flex-parent" *ngFor="let it of ayat_searchs; let i = index;">
+										<div class="flex-child" style="text-align:left;">
+											<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
+										</div>
+										<div class="flex-child" style="text-align:right;margin-top:-3px">
+											<span class="close" aria-label="Close" (click)="onClick(i,'suggest-item-remove')">
+												<span aria-hidden="true">&times;</span>
+											</span>
+										</div>
+								</div>
+							</div>
+							</ng-template>
+							<a href (click)="false" *ngIf="" class="w3-spin">
+								<i class="bi bi-question-circle"></i>
+							</a>
+							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="bottom">	
+								<i class="bi bi-info-circle"></i>
+							</a>
+						</span>
+							<button type="button"
+							[disabled]="!search"
+							(click)="onClick($event,'search')"
+						class="btn btn-secondary" style="padding-right: 22px;padding-left: 22px;">
+						<i class="bi bi-search"></i>
+						</button>
+						</div>
+					</ng-container>
+					<ng-container *ngIf="isSearchLoading">
+						<div class="input-group-append">
+							<span class="input-group-text">
+								<span (click)="false" class="w3-spin" style="padding-right: 30px;padding-left: 30px;">	
+									<i class="bi bi-hourglass-split"></i>
+								</span>
+							</span>
+						</div>
+					</ng-container>
 				</div>
-				<div class="flex-child" style="text-align:right;">
-					<a href (click)="false">
+			</div>
+		</div>
+		<div class="flex-parent mb-2">
+			<div class="flex-child" style="border-top: 0px;">
+				<small>Search result : {{ayatList?.length}}</small>
+			</div>
+			<div class="flex-child" style="border-top: 0px;text-align:center;">
+				<div class="mt-1">
+				<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange(rangeFontSize,'range')">
+				</div>
+			</div>
+			<div class="flex-child" style="border-top: 0px;text-align:right;">
+				<ng-template #popTemplate>
+					<div class="form-group">
+						<div class="form-check">
+							<input type="checkbox" [(ngModel)]="config.aShow"
+							id="aShow"  class="form-check-input mt-1">
+							<label for="aShow" class="form-check-label">
+								Show Arabic Text
+							</label>
+						</div>
+						<div class="form-check">
+							<input type="checkbox" [(ngModel)]="config.mShow"
+							id="mShow"  class="form-check-input mt-1">
+							<label for="mShow" class="form-check-label">
+								Show {{lang.name}} Text
+							</label>
+						</div>
+						<div class="form-check">
+							<input type="checkbox" [(ngModel)]="config.eShow"
+							id="eShow"  class="form-check-input mt-1">
+							<label for="eShow" class="form-check-label">
+								Show English Text
+							</label>
+						</div>
+					</div>
+				</ng-template>
+				<a href (click)="false" [popover]="popTemplate" placement="auto" popoverTitle="More Search Settings"
+					[outsideClick]="true">
 					<small>
 						More <i class="bi bi-caret-down"></i>
 					</small>
 				</a>
-				</div>
-				<div class="flex-child" style="text-align:right;">
-					<a href (click)="false">
-						<small>
-							Go <i class="bi bi-caret-down"></i>
-						</small>
-					</a>
-				</div>
-				<div class="flex-child" style="text-align:right;">
-					<a href (click)="false">
-						<i class="bi bi-arrow-right-circle"></i>
-					</a>
-				</div>
 			</div>
-			<!--
-			<p class="text-center m-0">
-				<a href (click)="false" class="badge badge-secondary badge-pill" routerlink="/"
-					style="padding: 10px;background-color: #96989a;">
-					{{it.aya}}
-				</a>
-			</p>
-			<div class="flex-parent">
-				<div class="flex-child"></div>
-				<div class="flex-child">
-					<pagination [totalItems]="it.aya-0+35" [directionLinks]="false" [(ngModel)]="currentPage" [maxSize]="3"></pagination>
-				</div>	
-				<div class="flex-child"></div>
-			</div>-->
-		</div>
-	</div>
-	<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee -->
-	<marquee [direction]="marquee.direction" height="{{height-fixedHeight}}" [behavior]="'alternate'" *ngIf="0">
-		<marquee *ngFor="let it of marquee.recents" [behavior]="it.behavior" [direction]="it.direction" scrolldelay="160" [loop]="10">
-			<span class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.text}}</span>
-		</marquee>
-		{{marquee.text}}
-	</marquee>
-	<!--real design-->
-	<div class="list-group">
-		<div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">
-			<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
-				Ayat:&nbsp;{{ayatList?.length}})"</h6>
-		</div>
-		<ng-container *ngFor="let it of ayatList; let i = index;">
-			
-			<div routerlink="/" class="list-group-item list-group-item-action flex-column align-items-start">
-				<div class="flex-parent">
-					<div class="flex-child" style="text-align:left;">	
-						<a href (click)="(false)" style="padding: 0 6px;">
-							<i class="bi bi-arrow-left-circle"></i>
-						</a>
-						<a href (click)="false">
-						&nbsp;
-						</a>
-					</div>
-					<div class="flex-child" style="text-align:center;">
-						<a href (click)="false">
-							<span>{{suraIndex[it.sura].name}}&nbsp;[{{it.sura}}|{{suraIndex[it.sura].ayat}}-{{it.aya}}]</span>
-							<small *ngIf="0">"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
-						</a>
-					</div>
-					<div class="flex-child" style="text-align:right;">
-						<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')" style="padding: 0 6px;">
-							<i class="bi bi-star{{star_ayats[it.index]?'-fill':''}}"></i>
-						</a>
-						<a href (click)="(false)" style="padding: 0 6px;">
-							<i class="bi bi-arrow-right-circle"></i>
-						</a>
-						<a href (click)="false" [popover]="popTemplate" placement="auto" 
-						[outsideClick]="true" style="padding: 0 6px;border: 1px lightgray dotted;">
-							<i class="fa fa-angle-down" aria-hidden="true"></i>
-						</a>				
+
+		<ng-container *ngIf="true">
+			<app-slide-content [data]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)" [maxHeight]="height-fixedHeight"></app-slide-content>
+			<ng-template #tprStar>
+				<div class="scroller" style="max-height:{{height-fixedHeight}}px">
+					<div class="list-group" *ngIf="0">	
+						<ng-container *ngFor="let it of map(star_ayats); let i = index;">
+							<div class="list-group-item list-group-item-action flex-column align-items-start">
+								<p class="text-center texth" *ngIf="!isSuraSearch">
+									<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
+								</p>
+								<hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
+								<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
+								<hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
+								<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
+									[ngStyle]="{'font-size': config.mFontSize+'px'}">
+									{{it.mtext}}
+								</p>
+								<hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
+								<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
+								<hr class="hrh mb-0" *ngIf="1">
+								<div class="flex-parent">
+									<div class="flex-child" style="text-align:center;">
+										<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
+											<i class="bi bi-star-fill"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</ng-container>
 					</div>
 				</div>
-				<hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
-				<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
-				<hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
-				<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
-					[ngStyle]="{'font-size': config.mFontSize+'px'}">
-					{{it.mtext}}
-				</p>
-				<hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
-				<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
-				<hr class="hrh mb-0" *ngIf="0">
-				<div class="flex-parent" *ngIf="0">
-					<div class="flex-child" style="text-align:center;">
-						<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
-							<i class="bi bi-star{{star_ayats[it.index]?'-fill':''}}"></i>
-						</a>
+			</ng-template>
+			<app-side-slider [refTemplate]="tprStar" [positionTop]="70" [icon]="'star-fill'" [iconMarginTop]="4"></app-side-slider>
+			<div *ngFor="let it of ayatGroups; let i=index;">
+				<ng-template #tpr_>
+					<div class="content">
+						<h3>Sticky Social Bar-{{i}}</h3>
+						<p>The sticky social bar will stick to the screen when you scroll.</p>
 					</div>
-				</div>
+				</ng-template>
+				<app-side-slider [refTemplate]="tpr_" [positionTop]="(70+(35*(i+1)))" [icon]="it.icon" [iconMarginTop]="4"></app-side-slider>
 			</div>
 		</ng-container>
-		<!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
-			class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
-			<div class="d-flex w-100 justify-content-between">
-				<h5 class="mb-1">{{it.index}}.List group item heading</h5>
-				<small>{{it.aya}}/{{it.sura}} Ayat/Sura</small>
-			</div>
-			<p class="mb-1">{{it.text}}</p>
-			<small>{{it.etext}}</small>
-		</a>
-		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-			<div class="d-flex w-100 justify-content-between">
-				<h5 class="mb-1">List group item heading</h5>
-				<small class="text-muted">3 days ago</small>
-			</div>
-			<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			<small class="text-muted">Donec id elit non mi porta.</small>
-		</a>
-		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-			<div class="d-flex w-100 justify-content-between">
-				<h5 class="mb-1">List group item heading</h5>
-				<small class="text-muted">3 days ago</small>
-			</div>
-			<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			<small class="text-muted">Donec id elit non mi porta.</small>
-		</a>-->
 	</div>
+	<div class="col-12 p-0">
+		<div class="scroller" style="max-height:{{height-fixedHeight}}px">
+				<div class="list-group">	
+					<ng-container *ngFor="let it of ayatList; let i = index;">
+						<app-ayat-content [it]="it" [config]="config"></app-ayat-content>
+					</ng-container>	
+				</div>		
+		</div>
 	</div>
-</div>
 </div>

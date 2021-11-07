@@ -204,12 +204,19 @@
 				<app-side-slider [refTemplate]="tpr_" [positionTop]="(70+(35*(i+1)))" [icon]="it.icon" [iconMarginTop]="4"></app-side-slider>
 			</div>
 		</ng-container>
+		<!--{{suraIndex[it.sura].name}}&nbsp;[{{it.sura}}|{{suraIndex[it.sura].ayat}}-{{it.aya}}]
+			{{data.suraName}}&nbsp;[{{data.suraNo}}|{{data.totalAyat}}-{{data.ayatNo}}]-->
 	</div>
 	<div class="col-12 p-0">
 		<div class="scroller" style="max-height:{{height-fixedHeight}}px">
+					<div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">
+					<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
+						Ayat:&nbsp;{{ayatList?.length}})"</h6>
+				</div>
 				<div class="list-group">	
 					<ng-container *ngFor="let it of ayatList; let i = index;">
-						<app-ayat-content [it]="it" [config]="config"></app-ayat-content>
+						<app-ayat-content [config]="config"
+						[data]="{ayat:it, sura:suraIndex[it.sura]}"></app-ayat-content>
 					</ng-container>	
 				</div>		
 		</div>

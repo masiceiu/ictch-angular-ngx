@@ -17,6 +17,7 @@ export class AyatContentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

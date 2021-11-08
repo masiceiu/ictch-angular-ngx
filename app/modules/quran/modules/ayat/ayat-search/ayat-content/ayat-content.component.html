@@ -15,12 +15,12 @@
     </div>
     <div class="flex-child" style="text-align:right;">
       <a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')" style="padding: 0 6px;">
-        <i class="bi bi-star{{star_ayats[it.index]?'-fill':''}}"></i>
+        <i class="bi bi-star{{data.isStar?'-fill':''}}"></i>
       </a>
       <a href (click)="(false)" style="padding: 0 6px;">
         <i class="bi bi-arrow-right-circle"></i>
       </a>
-      <a href (click)="false" [popover]="popTemplate" placement="auto" 
+      <a href (click)="false" [popover]="refMore" placement="auto" 
       [outsideClick]="true" style="padding: 0 6px;border: 1px lightgray dotted;">
         <i class="fa fa-angle-down" aria-hidden="true"></i>
       </a>				
@@ -31,7 +31,7 @@
       <hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
       <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{data.ayat.atext}}</p>
       <hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
-      <p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
+      <p class="mtext" appTextHighlight [content]="data.ayat.mtext" [searchTerm]="data.search" *ngIf="config.mShow"
         [ngStyle]="{'font-size': config.mFontSize+'px'}">
         {{data.ayat.mtext}}
       </p>

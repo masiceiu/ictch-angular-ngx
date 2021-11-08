@@ -40,6 +40,33 @@
     </div>
   </div>
 </div>
+<!-------------------------------------------------------------------------------------->
+<div class="list-group" *ngIf="0">	
+<ng-container *ngFor="let it of map(star_ayats); let i = index;">
+  <div class="list-group-item list-group-item-action flex-column align-items-start">
+    <p class="text-center texth" *ngIf="!isSuraSearch">
+      <small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
+    </p>
+    <hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
+    <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
+    <hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
+    <p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
+      [ngStyle]="{'font-size': config.mFontSize+'px'}">
+      {{it.mtext}}
+    </p>
+    <hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
+    <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
+    <hr class="hrh mb-0" *ngIf="1">
+    <div class="flex-parent">
+      <div class="flex-child" style="text-align:center;">
+        <a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
+          <i class="bi bi-star-fill"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</ng-container>
+</div>
 
 <div *ngIf="0">
 <!--mockup design-->

@@ -171,32 +171,6 @@
 							[refMore]="popTemplate" (onItemClick)="onClick($event.data,$event.switch_on)"></app-ayat-content>
 						</ng-container>	
 					</div>
-					<div class="list-group" *ngIf="0">	
-						<ng-container *ngFor="let it of map(star_ayats); let i = index;">
-							<div class="list-group-item list-group-item-action flex-column align-items-start">
-								<p class="text-center texth" *ngIf="!isSuraSearch">
-									<small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
-								</p>
-								<hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
-								<p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
-								<hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
-								<p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
-									[ngStyle]="{'font-size': config.mFontSize+'px'}">
-									{{it.mtext}}
-								</p>
-								<hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
-								<p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
-								<hr class="hrh mb-0" *ngIf="1">
-								<div class="flex-parent">
-									<div class="flex-child" style="text-align:center;">
-										<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
-											<i class="bi bi-star-fill"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						</ng-container>
-					</div>
 				</div>
 			</ng-template>
 			<app-side-slider [refTemplate]="tprStar" [positionTop]="70" [icon]="'star-fill'" [iconMarginTop]="4"></app-side-slider>
@@ -215,7 +189,7 @@
 	</div>
 	<div class="col-12 p-0">
 		<div class="scroller" style="max-height:{{height-fixedHeight}}px">
-					<div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">
+					<div class="list-group-item text-center" *ngIf="isSuraSearch && ayatList?.length">
 					<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
 						Ayat:&nbsp;{{ayatList?.length}})"</h6>
 				</div>

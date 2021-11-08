@@ -297,15 +297,14 @@ export class AyatSearchComponent implements OnInit {
     //console.log(this.selected);
     switch (switch_on) {
       case 'search': //আল্লাহ মধু মধুর
+        //console.log(this.selected.value,this.search);
         if (this.selected.value==this.search) {
           let req:any = {lang: this.translate.id};
-          if(this.isSuraSearch){
+          if(this.selected.item.id){
             req.sura = this.selected.item.id
           }else{
             req.search = this.selected.item.suggestion
           }
-          //console.log(req);
-          //let req = { sura:this.selected.suggestion }
           this.setAyatList(req);
         }
         break;

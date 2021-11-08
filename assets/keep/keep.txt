@@ -88,3 +88,11 @@ https://stackblitz.com/edit/angular-change-json-add-node
 https://stackblitz.com/edit/json-import-example
 /*child-guards Object.assign
 https://stackblitz.com/edit/angular-can-activate-and-can-activate-child-guards
+/*file-upload
+https://stackblitz.com/edit/angular-file-upload-image
+https://stackblitz.com/edit/angular-upload-file-with-progress-bar
+https://stackblitz.com/edit/angular-file-upload
+https://stackblitz.com/edit/angular-file-upload-custom
+/* form and json data
+https://stackblitz.com/edit/angular-read-local-json-file
+https://stackblitz.com/edit/angular-express-app

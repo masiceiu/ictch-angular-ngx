@@ -151,6 +151,14 @@
 								Show English Text
 							</label>
 						</div>
+						<div class="form-check">
+						<input type="checkbox" [(ngModel)]="config.isSuraSearch"
+						id="eShow"  class="form-check-input mt-1">
+						<label for="eShow" class="form-check-label">
+							Show As Sura Text
+						</label>
+					</div>
+						
 					</div>
 				</ng-template>
 				<a href (click)="false" [popover]="popTemplate" placement="auto" popoverTitle="More Search Settings"
@@ -189,7 +197,7 @@
 	</div>
 	<div class="col-12 p-0">
 		<div class="scroller" style="max-height:{{height-fixedHeight}}px">
-					<div class="list-group-item text-center" *ngIf="isSuraSearch && ayatList?.length">
+					<div class="list-group-item text-center" *ngIf="config.isSuraSearch && ayatList?.length">
 					<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
 						Ayat:&nbsp;{{ayatList?.length}})"</h6>
 				</div>

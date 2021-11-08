@@ -14,6 +14,7 @@ import {
 })
 export class NavCarouselComponent implements OnInit, AfterViewInit {
   @Input() size: any = '';
+  @Input() interval = 1000;
   itemsPerSlide = 0;
   constructor(private cdRef: ChangeDetectorRef) {
 

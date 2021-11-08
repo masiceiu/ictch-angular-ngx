@@ -28,14 +28,14 @@
   </div>
   <div class="flex-parent">
     <div class="flex-child" style="text-align:center;">
-      <hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
+      <hr class="hrh" *ngIf="config.aShow && (!config.isSuraSearch)">
       <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{data.ayat.atext}}</p>
-      <hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
+      <hr class="hrh" *ngIf="config.mShow && (!config.isSuraSearch)">
       <p class="mtext" appTextHighlight [content]="data.ayat.mtext" [searchTerm]="data.search" *ngIf="config.mShow"
         [ngStyle]="{'font-size': config.mFontSize+'px'}">
         {{data.ayat.mtext}}
       </p>
-      <hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
+      <hr class="hrh" *ngIf="config.eShow && (!config.isSuraSearch)">
       <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{data.ayat.etext}}</p>
     </div>
   </div>

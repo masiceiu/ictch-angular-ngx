@@ -255,7 +255,7 @@ export class AyatSearchComponent implements OnInit {
   onSubmit(data:any, switch_on:string): void {
     switch (switch_on) {
       case 'add-group'://.toLowerCase()
-      console.log(this.storageService.Keys);
+        //console.log(this.storageService.Keys);
         /*let group = this.stringReplace(data['name']);
         let it = this.ayatGroups.find(it => it.id == group);
         if(!it){
@@ -392,16 +392,16 @@ export class AyatSearchComponent implements OnInit {
         this.storageService.SetList(this.ayat_search_key,this.ayat_searchs.splice(data, 1));
         break;
         case 'ayat-group':
-          console.log(data.$event, data.item,this.star_ayats);
-          
+          //console.log(data.$event, data.item,this.star_ayats);          
           //delete person.age;
-          /*data.$event.preventDefault();
+          /**/
+          data.$event.preventDefault();
           let index = data.item.index;
           let has_star_ayat = this.star_ayats.hasOwnProperty(index);
           if(!has_star_ayat){
             this.star_ayats[index] = data.item;
             this.storageService.SetList(this.star_ayats_key,this.star_ayats);
-          }*/
+          }
 
            /*
           let group = data.group;

@@ -24,6 +24,5 @@ export class AyatContentComponent implements OnInit {
     //console.log(data,switch_on);
     data.$event.preventDefault();
     this.onItemClick.emit({data,switch_on});
-    //this.onItemClick.emit(data,switch_on);
   }
 }

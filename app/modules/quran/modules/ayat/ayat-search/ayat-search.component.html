@@ -164,7 +164,13 @@
 		<ng-container *ngIf="true">
 			<app-slide-content [data]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)" [maxHeight]="height-fixedHeight"></app-slide-content>
 			<ng-template #tprStar>
-				<div class="scroller" style="max-height:{{height-fixedHeight}}px">
+				<div class="scroller" style="max-height:{{height-fixedHeight}}px">				
+					<div class="list-group">	
+						<ng-container *ngFor="let it of map(star_ayats); let i = index;">
+							<app-ayat-content [config]="config"	[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}"
+							[refMore]="popTemplate" (onItemClick)="onClick($event.data,$event.switch_on)"></app-ayat-content>
+						</ng-container>	
+					</div>
 					<div class="list-group" *ngIf="0">	
 						<ng-container *ngFor="let it of map(star_ayats); let i = index;">
 							<div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -183,7 +189,7 @@
 								<hr class="hrh mb-0" *ngIf="1">
 								<div class="flex-parent">
 									<div class="flex-child" style="text-align:center;">
-										<a href (onItemClick)="onClick($event.data,$event.switch_on)">
+										<a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
 											<i class="bi bi-star-fill"></i>
 										</a>
 									</div>
@@ -204,6 +210,8 @@
 				<app-side-slider [refTemplate]="tpr_" [positionTop]="(70+(35*(i+1)))" [icon]="it.icon" [iconMarginTop]="4"></app-side-slider>
 			</div>
 		</ng-container>
+		<!--{{suraIndex[it.sura].name}}&nbsp;[{{it.sura}}|{{suraIndex[it.sura].ayat}}-{{it.aya}}]
+			{{data.suraName}}&nbsp;[{{data.suraNo}}|{{data.totalAyat}}-{{data.ayatNo}}]-->
 	</div>
 	<div class="col-12 p-0">
 		<div class="scroller" style="max-height:{{height-fixedHeight}}px">
@@ -211,10 +219,10 @@
 					<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
 						Ayat:&nbsp;{{ayatList?.length}})"</h6>
 				</div>
-				<div class="list-group">
+				<div class="list-group">	
 					<ng-container *ngFor="let it of ayatList; let i = index;">
 						<app-ayat-content [config]="config"	[data]="{ayat:it, sura:suraIndex[it.sura], isStar:star_ayats[it.index],search:search}"
-						[refMore]="popTemplate"></app-ayat-content>
+						[refMore]="popTemplate" (onItemClick)="onClick($event.data,$event.switch_on)"></app-ayat-content>
 					</ng-container>	
 				</div>		
 		</div>

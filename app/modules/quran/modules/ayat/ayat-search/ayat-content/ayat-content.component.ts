@@ -20,5 +20,10 @@ export class AyatContentComponent implements OnInit {
   ngOnInit() {
     
   }
-
+  _onItemClick(data:any, switch_on:string){
+    //console.log(data,switch_on);
+    data.$event.preventDefault();
+    this.onItemClick.emit({data,switch_on});
+    //this.onItemClick.emit(data,switch_on);
+  }
 }

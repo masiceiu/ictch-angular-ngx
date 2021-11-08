@@ -393,14 +393,17 @@ export class AyatSearchComponent implements OnInit {
         this.storageService.SetList(this.ayat_search_key,this.ayat_searchs.splice(data, 1));
         break;
         case 'ayat-group':
+          console.log(data.$event, data.item,this.star_ayats);
+          
           //delete person.age;
-          data.$event.preventDefault();
+          /*data.$event.preventDefault();
           let index = data.item.index;
           let has_star_ayat = this.star_ayats.hasOwnProperty(index);
           if(!has_star_ayat){
             this.star_ayats[index] = data.item;
             this.storageService.SetList(this.star_ayats_key,this.star_ayats);
-          }
+          }*/
+
            /*
           let group = data.group;
            if(group.toLowerCase() === "star".toLowerCase()){

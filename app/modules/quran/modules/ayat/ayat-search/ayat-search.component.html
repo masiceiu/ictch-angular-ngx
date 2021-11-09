@@ -209,5 +209,11 @@
 				</div>		
 		</div>
 	</div>
-	<app-side-slider [positionTop]="-35" [hideToggleIcon]="true"></app-side-slider>
+	<ng-template #tpr_1>
+		<div class="content">
+			<h3>Sticky Social Bar-{{idata}}</h3>
+			<p>The sticky social bar will stick to the screen when you scroll.</p>
+		</div>
+	</ng-template>
+	<app-side-slider [positionTop]="-35" [hideToggleIcon]="true"  [refTemplate]="tpr_1" [dataSync]="dataSync1"></app-side-slider>
 </div>

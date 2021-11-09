@@ -1,7 +1,7 @@
 <div class="list-group-item list-group-item-action pl-1">
   <div class="d-flex" *ngIf="!config.isSuraSearch">
     <div class="w-100" style="text-align:left;">
-      <a href (click)="(false)" style="padding: 0 6px;">
+      <a href (click)="_onItemClick({$event:$event, item:data.ayat},'ayat-left')" style="padding: 0 6px;">
         <i class="bi bi-arrow-left-circle"></i>
       </a>
       <a href (click)="false">

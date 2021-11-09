@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef,  } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-side-slider',
@@ -13,23 +14,31 @@ export class SideSliderComponent implements OnInit {
   @Input() iconMarginTop = 0;
   @Input() hideToggleIcon = false;
   @Input() refTemplate: TemplateRef<any>;
-  @Output() onItemClick = new EventEmitter<any>();
+  @Input() dataSync = new Subject<any>();
+  //@Output() onItemClick = new EventEmitter<any>();
   /*@ViewChild('templateRef', { read: TemplateRef }) templateRef:TemplateRef<any>;
   constructor(private vref:ViewContainerRef) {
   }
   ngAfterViewInit() {
     this.vref.createEmbeddedView(this.templateRef);
   }*/
-
+  constructor() {
+    this.dataSync.subscribe(res =>{
+      //this.toggle()
+      console.log(res);
+    });
+  }
   ngOnInit() {
   }
 
-  toggle(){
+  toggle(){console.log('data');
     this.toggler = !this.toggler;
   }
+  /*
   _onItemClick(data:any, switch_on:string){
-    this.toggle();
-    data.$event.preventDefault();
-    this.onItemClick.emit({data,switch_on});
-  }
+    //this.toggle();
+    console.log(data,switch_on);
+    //data.$event.preventDefault();
+    //this.onItemClick.emit({data,switch_on});
+  }*/
 }

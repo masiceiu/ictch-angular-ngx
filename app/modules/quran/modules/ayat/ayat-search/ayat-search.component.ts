@@ -1,5 +1,5 @@
 import { Component, OnInit, QueryList, ViewChild, ViewChildren, ɵConsole } from '@angular/core';
-import { Observer, Observable, of } from 'rxjs';
+import {Subject, Observer, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { PopoverDirective } from 'ngx-bootstrap/popover';
@@ -24,6 +24,7 @@ export class AyatSearchComponent implements OnInit {
   height = 250;
   fixedHeight = 253;
   isMobile: boolean = false;
+  dataSync1 = new Subject<any>();
   config = {
     aFontSize:30,//
     mFontSize:16,//
@@ -292,6 +293,7 @@ export class AyatSearchComponent implements OnInit {
     //this.selected = $event;
     //console.log($event.item);
   }
+  idata:any
   onClick(data:any, switch_on:string): void {
     //console.log(data,switch_on);
     //console.log(this.selected);
@@ -426,6 +428,12 @@ export class AyatSearchComponent implements OnInit {
             console.log(key,star_val[key]);
           });*/
         break;
+        case 'ayat-left':
+          data.$event.preventDefault();
+          this.idata = data.item.index;
+          this.dataSync1.next(data);
+          console.log(data);
+          break;
         default:
           console.log(data);
         break;
@@ -565,3 +573,7 @@ export class AyatSearchComponent implements OnInit {
 //https://stackoverflow.com/questions/40678206/angular-2-filter-search-list
 //https://stackoverflow.com/questions/37969984/angular-2-typescript-how-to-find-element-in-array
 //https://stackoverflow.com/questions/39152071/cant-bind-to-formgroup-since-it-isnt-a-known-property-of-form
+
+//https://stackblitz.com/edit/angular-parent-child-subject
+//https://stackoverflow.com/questions/38974896/call-child-component-method-from-parent-class-angular
+//

@@ -10,7 +10,7 @@ export class AyatContentComponent implements OnInit {
   //@Input() it:any = {};
   @Input() data:any = {};
   @Input() config:any = {};
-  @Input() isSuraSearch = false;
+  //@Input() isSuraSearch = false;
   //@Input() suraIndex:any = {1:{name:"aa"}};
   //@Input() star_ayats:any[] = [];
   @Input() refMore: TemplateRef<any>;

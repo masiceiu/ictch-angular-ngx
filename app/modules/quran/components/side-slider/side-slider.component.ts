@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef,  } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef,  } from '@angular/core';
 
 @Component({
   selector: 'app-side-slider',
@@ -11,7 +11,9 @@ export class SideSliderComponent implements OnInit {
   @Input() positionTop = 35;
   @Input() icon = "";
   @Input() iconMarginTop = 0;
+  @Input() hideToggleIcon = false;
   @Input() refTemplate: TemplateRef<any>;
+  @Output() onItemClick = new EventEmitter<any>();
   /*@ViewChild('templateRef', { read: TemplateRef }) templateRef:TemplateRef<any>;
   constructor(private vref:ViewContainerRef) {
   }
@@ -24,5 +26,10 @@ export class SideSliderComponent implements OnInit {
 
   toggle(){
     this.toggler = !this.toggler;
+  }
+  _onItemClick(data:any, switch_on:string){
+    this.toggle();
+    data.$event.preventDefault();
+    this.onItemClick.emit({data,switch_on});
   }
 }

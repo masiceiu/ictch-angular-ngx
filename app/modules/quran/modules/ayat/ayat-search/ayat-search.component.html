@@ -77,7 +77,7 @@
 					<ng-container *ngIf="!isSearchLoading">
 						<div class="input-group-append">
 							<span class="input-group-text">
-							<ng-template #popTemplate1>
+							<ng-template #refInfo>
 								<div class="scroller">
 									<div class="flex-parent" *ngFor="let it of ayat_searchs; let i = index;">
 										<div class="flex-child" style="text-align:left;">
@@ -94,7 +94,7 @@
 							<a href (click)="false" *ngIf="" class="w3-spin">
 								<i class="bi bi-question-circle"></i>
 							</a>
-							<a href (click)="false" [popover]="popTemplate1" #pop="bs-popover" [outsideClick]="true"  placement="bottom">	
+							<a href (click)="false" [popover]="refInfo" #pop="bs-popover" [outsideClick]="true"  placement="bottom">	
 								<i class="bi bi-info-circle"></i>
 							</a>
 						</span>
@@ -128,7 +128,7 @@
 				</div>
 			</div>
 			<div class="flex-child" style="border-top: 0px;text-align:right;">
-				<ng-template #popTemplate>
+				<ng-template #refMore>
 					<div class="form-group">
 						<div class="form-check">
 							<input type="checkbox" [(ngModel)]="config.aShow"
@@ -161,7 +161,7 @@
 						
 					</div>
 				</ng-template>
-				<a href (click)="false" [popover]="popTemplate" placement="auto" popoverTitle="More Search Settings"
+				<a href (click)="false" [popover]="refMore" placement="auto" popoverTitle="More Search Settings"
 					[outsideClick]="true">
 					<small>
 						More <i class="bi bi-caret-down"></i>
@@ -176,7 +176,7 @@
 					<div class="list-group">	
 						<ng-container *ngFor="let it of map(star_ayats); let i = index;">
 							<app-ayat-content [config]="config"	[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}"
-							[refMore]="popTemplate" (onItemClick)="onClick($event.data,$event.switch_on)"></app-ayat-content>
+							[refMore]="refMore" (onItemClick)="onClick($event.data,$event.switch_on)"></app-ayat-content>
 						</ng-container>	
 					</div>
 				</div>
@@ -204,9 +204,10 @@
 				<div class="list-group">	
 					<ng-container *ngFor="let it of ayatList; let i = index;">
 						<app-ayat-content [config]="config"	[data]="{ayat:it, sura:suraIndex[it.sura], isStar:star_ayats[it.index],search:search}"
-						[refMore]="popTemplate" (onItemClick)="onClick($event.data,$event.switch_on)"></app-ayat-content>
+						[refMore]="refMore" (onItemClick)="onClick($event.data,$event.switch_on)"></app-ayat-content>
 					</ng-container>	
 				</div>		
 		</div>
 	</div>
+	<app-side-slider [positionTop]="-35" [hideToggleIcon]="true"></app-side-slider>
 </div>

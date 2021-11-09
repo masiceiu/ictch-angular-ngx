@@ -1,6 +1,6 @@
-<div class="list-group-item list-group-item-action flex-column align-items-start">
-  <div class="flex-parent">
-    <div class="flex-child" style="text-align:left;">	
+<div class="list-group-item list-group-item-action pl-1">
+  <div class="d-flex" *ngIf="!config.isSuraSearch">
+    <div class="w-100" style="text-align:left;">
       <a href (click)="(false)" style="padding: 0 6px;">
         <i class="bi bi-arrow-left-circle"></i>
       </a>
@@ -8,12 +8,12 @@
       &nbsp;
       </a>
     </div>
-    <div class="flex-child" style="text-align:center;">
+    <div class="w-100" style="text-align:center;">
       <a href (click)="false">
         <span>{{data.sura.name}}&nbsp;[{{data.ayat.sura}}|{{data.sura.ayat}}-{{data.ayat.aya}}]</span>
       </a>
     </div>
-    <div class="flex-child" style="text-align:right;">
+    <div class="w-100" style="text-align:right;">
       <a href (click)="_onItemClick({$event:$event, group:'star', item:data.ayat},'ayat-group')" style="padding: 0 6px;">
         <i class="bi bi-star{{data.isStar?'-fill':''}}"></i>
       </a>
@@ -23,11 +23,16 @@
       <a href (click)="false" [popover]="refMore" placement="auto" 
       [outsideClick]="true" style="padding: 0 6px;border: 1px lightgray dotted;">
         <i class="fa fa-angle-down" aria-hidden="true"></i>
-      </a>				
+      </a>			  
     </div>
   </div>
-  <div class="flex-parent">
-    <div class="flex-child" style="text-align:center;">
+  <div class="d-flex">
+    <div class="flex-shrink-1 p-1" *ngIf="config.isSuraSearch" style="display: flex;align-items: center;border-right: 1px solid lightgray;">
+      <a href (click)="false">
+      {{data.ayat.index}}
+      </a>
+    </div>
+    <div class="w-100" style="text-align:center;">
       <hr class="hrh" *ngIf="config.aShow && (!config.isSuraSearch)">
       <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{data.ayat.atext}}</p>
       <hr class="hrh" *ngIf="config.mShow && (!config.isSuraSearch)">
@@ -38,249 +43,5 @@
       <hr class="hrh" *ngIf="config.eShow && (!config.isSuraSearch)">
       <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{data.ayat.etext}}</p>
     </div>
-  </div>
-</div>
-<!-------------------------------------------------------------------------------------->
-<div class="list-group" *ngIf="0">	
-<ng-container *ngFor="let it of map(star_ayats); let i = index;">
-  <div class="list-group-item list-group-item-action flex-column align-items-start">
-    <p class="text-center texth" *ngIf="!isSuraSearch">
-      <small>"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
-    </p>
-    <hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
-    <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
-    <hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
-    <p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
-      [ngStyle]="{'font-size': config.mFontSize+'px'}">
-      {{it.mtext}}
-    </p>
-    <hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
-    <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
-    <hr class="hrh mb-0" *ngIf="1">
-    <div class="flex-parent">
-      <div class="flex-child" style="text-align:center;">
-        <a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
-          <i class="bi bi-star-fill"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</ng-container>
-</div>
-
-<div *ngIf="0">
-<!--mockup design-->
-<div class="list-group"  *ngIf="spin">
-  <div class="flex-parent">
-    <div class="flex-child" style="text-align:center;">
-      <button class="m-0 spin-ayat circle">
-        <i class="bi bi-brightness-high-fill"></i>
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="list-group" *ngIf="0">
-<div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="1">
-  <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1">List group item heading</h5>
-    <small class="text-muted">3 days ago</small>
-  </div>
-  <hr>
-</div>
-
-<ng-template ngFor let-item [ngForOf]="ayatGroups" let-currentElementIndex="(index + 1)">
-  {{index}} Something
-</ng-template>
-
-<div *ngFor="let it of map(ayatGroup)">{{it|json}}</div>
-
-<div class="list-group-item list-group-item-action flex-column align-items-start ng-star-inserted" routerlink="/" 
-*ngFor="let it of [1,2,3]">
-  <p class="text-center ayath">
-    <small>
-      "Al-Qur'an (Sura no:&nbsp;1.Al-Fatiha, Ayat no:&nbsp;1)"
-    </small>
-  </p>
-  <hr class="hrh" *ngIf="config.mShow">
-  <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">
-    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-  </p>
-  <hr class="hrh" *ngIf="config.mShow">
-  <p class="mtext" *ngIf="config.mShow" [ngStyle]="{'font-size': config.mFontSize+'px'}">
-    শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।</p>
-  <hr class="hrh" *ngIf="config.eShow">
-  <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">
-    In the name of Allah, most benevolent, ever-merciful.</p>
-    <hr class="hrh mb-0" *ngIf="1">
-  <div class="flex-parent">
-      <div class="flex-child" style="text-align:left;">
-        <a href (click)="false">
-          <i class="bi bi-arrow-left-circle"></i>
-        </a>
-      </div>
-      <div class="flex-child" style="text-align:center;">
-        <a href (click)="false">
-          <i class="bi bi-check-circle"></i>
-        </a>
-      </div>
-      <div class="flex-child" style="text-align:center;">
-        <a href (click)="false">
-          <i class="bi bi-star"></i>
-        </a>
-      <div class="btn-group btn-group-sm" role="group" aria-label="..." *ngIf="0">
-        <button type="button" class="btn btn-secondary">Left</button>
-        <button type="button" class="btn btn-secondary">Middle</button>
-        <button type="button" class="btn btn-secondary">Right</button>
-      </div>
-      <ul class="pagination" *ngIf="0">
-        <li class="pagination-page page-item">
-          <a href="" class="page-link">1</a>
-        </li>
-        <li class="pagination-page page-item">
-          <a href="" class="page-link">2</a>
-        </li>
-        <li class="pagination-page page-item">
-          <a href="" class="page-link">3</a>
-        </li>
-        <li class="pagination-page page-item">
-          <a href="" class="page-link">4</a>
-        </li>
-        <li class="pagination-page page-item active">
-          <a href="" class="page-link">5</a>
-        </li>
-        <li class="pagination-page page-item">
-          <a href="" class="page-link">6</a>
-        </li>
-        <li class="pagination-page page-item">
-          <a href="" class="page-link">7</a>
-        </li>
-      </ul>
-      <pagination [totalItems]="35" *ngIf="0" [directionLinks]="false" [(ngModel)]="currentPage" [maxSize]="3">
-      </pagination>
-    </div>
-    <div class="flex-child" style="text-align:right;">
-      <a href (click)="false">
-      <small>
-        More <i class="bi bi-caret-down"></i>
-      </small>
-    </a>
-    </div>
-    <div class="flex-child" style="text-align:right;">
-      <a href (click)="false">
-        <small>
-          Go <i class="bi bi-caret-down"></i>
-        </small>
-      </a>
-    </div>
-    <div class="flex-child" style="text-align:right;">
-      <a href (click)="false">
-        <i class="bi bi-arrow-right-circle"></i>
-      </a>
-    </div>
-  </div>
-  <!--
-  <p class="text-center m-0">
-    <a href (click)="false" class="badge badge-secondary badge-pill" routerlink="/"
-      style="padding: 10px;background-color: #96989a;">
-      {{it.aya}}
-    </a>
-  </p>
-  <div class="flex-parent">
-    <div class="flex-child"></div>
-    <div class="flex-child">
-      <pagination [totalItems]="it.aya-0+35" [directionLinks]="false" [(ngModel)]="currentPage" [maxSize]="3"></pagination>
-    </div>	
-    <div class="flex-child"></div>
-  </div>-->
-</div>
-</div>
-<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee -->
-<marquee [direction]="marquee.direction" height="{{height-fixedHeight}}" [behavior]="'alternate'" *ngIf="0">
-<marquee *ngFor="let it of marquee.recents" [behavior]="it.behavior" [direction]="it.direction" scrolldelay="160" [loop]="10">
-  <span class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.text}}</span>
-</marquee>
-{{marquee.text}}
-</marquee>
-<!--real design-->
-<div class="list-group">
-  <div class="list-group-item  text-center" *ngIf="isSuraSearch && ayatList?.length">
-    <h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
-      Ayat:&nbsp;{{ayatList?.length}})"</h6>
-  </div>
-  <ng-container *ngFor="let it of ayatList; let i = index;">		
-    <div routerlink="/" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="flex-parent">
-        <div class="flex-child" style="text-align:left;">	
-          <a href (click)="(false)" style="padding: 0 6px;">
-            <i class="bi bi-arrow-left-circle"></i>
-          </a>
-          <a href (click)="false">
-          &nbsp;
-          </a>
-        </div>
-        <div class="flex-child" style="text-align:center;">
-          <a href (click)="false">
-            <span>{{suraIndex[it.sura].name}}&nbsp;[{{it.sura}}|{{suraIndex[it.sura].ayat}}-{{it.aya}}]</span>
-            <small *ngIf="0">"Al-Qur'an (Sura no:&nbsp;{{it.sura}}.{{it.stext}}, Ayat no:&nbsp;{{it.aya}})"</small>
-          </a>
-        </div>
-        <div class="flex-child" style="text-align:right;">
-          <a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')" style="padding: 0 6px;">
-            <i class="bi bi-star{{star_ayats[it.index]?'-fill':''}}"></i>
-          </a>
-          <a href (click)="(false)" style="padding: 0 6px;">
-            <i class="bi bi-arrow-right-circle"></i>
-          </a>
-          <a href (click)="false" [popover]="popTemplate" placement="auto" 
-          [outsideClick]="true" style="padding: 0 6px;border: 1px lightgray dotted;">
-            <i class="fa fa-angle-down" aria-hidden="true"></i>
-          </a>				
-        </div>
-      </div>
-      <hr class="hrh" *ngIf="config.aShow && (!isSuraSearch)">
-      <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{it.atext}}</p>
-      <hr class="hrh" *ngIf="config.mShow && (!isSuraSearch)">
-      <p class="mtext" appTextHighlight [content]="it.mtext" [searchTerm]="search" *ngIf="config.mShow"
-        [ngStyle]="{'font-size': config.mFontSize+'px'}">
-        {{it.mtext}}
-      </p>
-      <hr class="hrh" *ngIf="config.eShow && (!isSuraSearch)">
-      <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{it.etext}}</p>
-      <hr class="hrh mb-0" *ngIf="0">
-      <div class="flex-parent" *ngIf="0">
-        <div class="flex-child" style="text-align:center;">
-          <a href (click)="onClick({$event:$event, group:'star', item:it},'ayat-group')">
-            <i class="bi bi-star{{star_ayats[it.index]?'-fill':''}}"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </ng-container>
-  <!--<a routerlink="/" *ngFor="let it of ayatList; let i = index;"
-    class="list-group-item list-group-item-action flex-column align-items-start {{i?'':'active'}}">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{it.index}}.List group item heading</h5>
-      <small>{{it.aya}}/{{it.sura}} Ayat/Sura</small>
-    </div>
-    <p class="mb-1">{{it.text}}</p>
-    <small>{{it.etext}}</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small class="text-muted">Donec id elit non mi porta.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small class="text-muted">Donec id elit non mi porta.</small>
-  </a>-->
   </div>
 </div>

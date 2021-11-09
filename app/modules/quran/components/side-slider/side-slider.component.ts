@@ -23,12 +23,11 @@ export class SideSliderComponent implements OnInit {
     this.vref.createEmbeddedView(this.templateRef);
   }*/
   constructor() {
-    this.dataSync.subscribe(res =>{
-      //this.toggle()
-      console.log(res);
-    });
   }
   ngOnInit() {
+    this.dataSync.subscribe(res =>{
+      this.toggle();
+    });
   }
 
   toggle(){console.log('data');

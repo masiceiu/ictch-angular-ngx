@@ -24,7 +24,7 @@ export class AyatSearchComponent implements OnInit {
   height = 250;
   fixedHeight = 253;
   isMobile: boolean = false;
-  dataSync1 = new Subject<any>();
+  dataSync = new Subject<any>();
   config = {
     aFontSize:30,//
     mFontSize:16,//
@@ -431,8 +431,8 @@ export class AyatSearchComponent implements OnInit {
         case 'ayat-left':
           data.$event.preventDefault();
           this.idata = data.item.index;
-          this.dataSync1.next(data);
-          console.log(data);
+          this.dataSync.next({});
+          //console.log(data);
           break;
         default:
           console.log(data);

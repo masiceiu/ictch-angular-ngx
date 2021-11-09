@@ -190,7 +190,14 @@
 					</div>
 				</ng-template>
 				<app-side-slider [refTemplate]="tpr_" [positionTop]="(70+(35*(i+1)))" [icon]="it.icon" [iconMarginTop]="4"></app-side-slider>
-			</div>
+			</div>			
+			<ng-template #tprSync>
+				<div class="content">
+					<h3>Sticky Social Bar-{{idata}}</h3>
+					<p>The sticky social bar will stick to the screen when you scroll.</p>
+				</div>
+			</ng-template>
+			<app-side-slider [positionTop]="-35" [hideToggleIcon]="true" [refTemplate]="tprSync" [dataSync]="dataSync"></app-side-slider>
 		</ng-container>
 		<!--{{suraIndex[it.sura].name}}&nbsp;[{{it.sura}}|{{suraIndex[it.sura].ayat}}-{{it.aya}}]
 			{{data.suraName}}&nbsp;[{{data.suraNo}}|{{data.totalAyat}}-{{data.ayatNo}}]-->
@@ -209,11 +216,4 @@
 				</div>		
 		</div>
 	</div>
-	<ng-template #tpr_1>
-		<div class="content">
-			<h3>Sticky Social Bar-{{idata}}</h3>
-			<p>The sticky social bar will stick to the screen when you scroll.</p>
-		</div>
-	</ng-template>
-	<app-side-slider [positionTop]="-35" [hideToggleIcon]="true"  [refTemplate]="tpr_1" [dataSync]="dataSync1"></app-side-slider>
 </div>

@@ -106,7 +106,7 @@ export class AyatSearchComponent implements OnInit {
 
     let langs = this.ayatModel.getLangList();
     this.langs = langs;
-    this.lang = langs[5];console.log(this.lang);
+    this.lang = langs[5];
 
     let suras = this.ayatModel.getSuraList(this.lang.id);
     this.suras = suras;

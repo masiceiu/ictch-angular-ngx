@@ -41,8 +41,9 @@ export class SlideContentComponent implements OnInit {
   
   @Input() maxHeight = 300
   @Input() positionTop = 35;
-  @Input() list:any[] = [];
   @Output() onItemClick = new EventEmitter<any>();
+
+  list:any[] = [];
   toggler:boolean = true;
   constructor() { }
   
@@ -73,5 +74,12 @@ export class SlideContentComponent implements OnInit {
     return Object.keys(it).map(key => {
       return key;
     });
+  }
+  @ViewChildren(ScrollableItemDirective) scrollableItems: QueryList<ScrollableItemDirective>
+  public handleScrollClick($event:any, key: string) {
+    $event.preventDefault();
+    console.log($event, key);
+    const item = this.scrollableItems.find(x => x.key.startsWith(key))
+    item.scrollIntoView();
   }
 }

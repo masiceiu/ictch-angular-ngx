@@ -1,11 +1,8 @@
 <div class="list-group-item list-group-item-action pl-1">
   <div class="d-flex" *ngIf="!config.isSuraSearch">
-    <div class="w-100" style="text-align:left;">
+    <div class="flex-shrink-1" style="text-align:left;">
       <a href (click)="_onItemClick({$event:$event, item:data.ayat},'ayat-left')" style="padding: 0 6px;">
         <i class="bi bi-arrow-left-circle"></i>
-      </a>
-      <a href (click)="false">
-      &nbsp;
       </a>
     </div>
     <div class="w-100" style="text-align:center;">
@@ -13,7 +10,7 @@
         <span>{{data.sura.name}}&nbsp;[{{data.ayat.sura}}|{{data.sura.ayat}}-{{data.ayat.aya}}]</span>
       </a>
     </div>
-    <div class="w-100" style="text-align:right;">
+    <div class="flex-shrink-1" style="text-align:right;white-space: nowrap;">
       <a href (click)="_onItemClick({$event:$event, group:'star', item:data.ayat},'ayat-group')" style="padding: 0 6px;">
         <i class="bi bi-star{{data.isStar?'-fill':''}}"></i>
       </a>

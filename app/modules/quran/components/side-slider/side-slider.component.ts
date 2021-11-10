@@ -22,8 +22,9 @@ export class SideSliderComponent implements OnInit {
   ngAfterViewInit() {
     this.vref.createEmbeddedView(this.templateRef);
   }*/
+  i=0;
   @HostListener('document:click', ['$event'])
-  clickout(event) {
+  clickout(event) {this.i++;
     if(this.eRef.nativeElement.contains(event.target)) {
       //this.text = "clicked inside";
     } else {
@@ -33,20 +34,21 @@ export class SideSliderComponent implements OnInit {
           //this._onAction('hide');
         //}
       }else if(!this.toggler){
-        this._onAction('hide');
+        this._onAction('hide',);
       }else{
 
       }
     }
+    console.log(this.i);
   }
   skip=false;
   constructor(private eRef: ElementRef) {
     //this.text = 'no clicks yet';
   }
   ngOnInit() {
-    this.dataSync.subscribe((res:string) =>this._onAction(res));
+    this.dataSync.subscribe((res:string) =>this._onAction(res,'ser'));
   }
-  private _onAction(res:string){
+  private _onAction(res:string,from:string){
     switch(res){
       case"hide":
         this.toggler = true;

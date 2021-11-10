@@ -1,5 +1,5 @@
 <div class="list-group-item list-group-item-action pl-1">
-  <div class="d-flex" *ngIf="!config.isSuraSearch">
+  <div class="d-flex" *ngIf="!isSuraAllow">
     <div class="flex-shrink-1" style="text-align:left;">
       <a href (click)="_onItemClick({$event:$event, item:data.ayat},'ayat-left')" style="padding: 0 6px;">
         <i class="bi bi-arrow-left-circle"></i>
@@ -24,20 +24,20 @@
     </div>
   </div>
   <div class="d-flex">
-    <div class="flex-shrink-1 p-1" *ngIf="config.isSuraSearch" style="display: flex;align-items: center;border-right: 1px solid lightgray;">
+    <div class="flex-shrink-1 p-1" *ngIf="isSuraAllow" style="display: flex;align-items: center;border-right: 1px solid lightgray;">
       <a href (click)="false">
       {{data.ayat.index}}
       </a>
     </div>
     <div class="w-100" style="text-align:center;">
-      <hr class="hrh" *ngIf="config.aShow && (!config.isSuraSearch)">
+      <hr class="hrh" *ngIf="config.aShow && (!isSuraAllow)">
       <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{data.ayat.atext}}</p>
-      <hr class="hrh" *ngIf="config.mShow && (!config.isSuraSearch)">
+      <hr class="hrh" *ngIf="config.mShow && (!isSuraAllow)">
       <p class="mtext" appTextHighlight [content]="data.ayat.mtext" [searchTerm]="data.search" *ngIf="config.mShow"
         [ngStyle]="{'font-size': config.mFontSize+'px'}">
         {{data.ayat.mtext}}
       </p>
-      <hr class="hrh" *ngIf="config.eShow && (!config.isSuraSearch)">
+      <hr class="hrh" *ngIf="config.eShow && (!isSuraAllow)">
       <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{data.ayat.etext}}</p>
     </div>
   </div>

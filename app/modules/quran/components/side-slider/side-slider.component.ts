@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef,  } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ElementRef, HostListener  } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ export class SideSliderComponent implements OnInit {
   @Input() iconMarginTop = 0;
   @Input() hideToggleIcon = false;
   @Input() refTemplate: TemplateRef<any>;
-  @Input() dataSync = new Subject<any>();
+  @Input() dataSync = new Subject<string>();
   //@Output() onItemClick = new EventEmitter<any>();
   /*@ViewChild('templateRef', { read: TemplateRef }) templateRef:TemplateRef<any>;
   constructor(private vref:ViewContainerRef) {
@@ -22,17 +22,56 @@ export class SideSliderComponent implements OnInit {
   ngAfterViewInit() {
     this.vref.createEmbeddedView(this.templateRef);
   }*/
-  constructor() {
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    if(this.eRef.nativeElement.contains(event.target)) {
+      //this.text = "clicked inside";
+    } else {
+      if(this.hideToggleIcon){      
+        console.log('this.toggler',this.toggler);
+        //if(this.toggler){
+          //this._onAction('hide');
+        //}
+      }else if(!this.toggler){
+        this._onAction('hide');
+      }else{
+
+      }
+    }
+  }
+  skip=false;
+  constructor(private eRef: ElementRef) {
+    //this.text = 'no clicks yet';
   }
   ngOnInit() {
-    this.dataSync.subscribe(res =>{
-      this.toggle();
-    });
+    this.dataSync.subscribe((res:string) =>this._onAction(res));
   }
-
-  toggle(){console.log('data');
+  private _onAction(res:string){
+    switch(res){
+      case"hide":
+        this.toggler = true;
+      break;
+      case"show":
+        this.toggler = false;
+      break;
+      default:
+        this.toggle();
+      break;
+    }
+  }
+  toggle(){
     this.toggler = !this.toggler;
   }
+  /*
+  let i = 0;
+  (function repeat(){
+    if (++i > 5) return;
+    setTimeout(function(){
+      document.write("Iteration" + i + "<br />");
+      repeat();
+    }, 5000);
+  })();
+  */
   /*
   _onItemClick(data:any, switch_on:string){
     //this.toggle();

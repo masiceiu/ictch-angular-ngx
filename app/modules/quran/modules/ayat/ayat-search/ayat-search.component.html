@@ -176,7 +176,7 @@
 					<div class="list-group">	
 						<ng-container *ngFor="let it of map(star_ayats); let i = index;">
 							<app-ayat-content [config]="config"	[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}"
-							[refMore]="refMore" (onItemClick)="onClick($event.data,$event.switch_on)"></app-ayat-content>
+							[refMore]="refMore" (onItemClick)="onClick($event.data,$event.switch_on)"[isSuraAllow]="false"></app-ayat-content>
 						</ng-container>	
 					</div>
 				</div>

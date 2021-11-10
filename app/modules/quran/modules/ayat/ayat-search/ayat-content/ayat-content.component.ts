@@ -10,7 +10,7 @@ export class AyatContentComponent implements OnInit {
   //@Input() it:any = {};
   @Input() data:any = {};
   @Input() config:any = {};
-  //@Input() isSuraSearch = false;
+  //@Input() isSuraAllow = false;
   //@Input() suraIndex:any = {1:{name:"aa"}};
   //@Input() star_ayats:any[] = [];
   @Input() refMore: TemplateRef<any>;
@@ -24,5 +24,11 @@ export class AyatContentComponent implements OnInit {
     //console.log(data,switch_on);
     data.$event.preventDefault();
     this.onItemClick.emit({data,switch_on});
+  }
+  _isSuraAllow:boolean = true;
+  get isSuraAllow() { return this.config.isSuraSearch && this._isSuraAllow }
+  @Input('isSuraAllow')
+  set in(val:boolean) {
+    this._isSuraAllow = val;
   }
 }

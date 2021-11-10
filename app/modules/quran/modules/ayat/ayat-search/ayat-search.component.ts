@@ -24,7 +24,7 @@ export class AyatSearchComponent implements OnInit {
   height = 250;
   fixedHeight = 253;
   isMobile: boolean = false;
-  dataSync = new Subject<any>();
+  dataSync = new Subject<string>();
   config = {
     aFontSize:30,//
     mFontSize:16,//
@@ -387,6 +387,7 @@ export class AyatSearchComponent implements OnInit {
           this.onClick(data.$event,'search');
           this.isSuraSearch = false;
         },500);
+        //this.dataSync.next('hide');
         break;
       case 'suggest-item-remove':
         //data as index;
@@ -431,7 +432,7 @@ export class AyatSearchComponent implements OnInit {
         case 'ayat-left':
           data.$event.preventDefault();
           this.idata = data.item.index;
-          this.dataSync.next({});
+          this.dataSync.next("");
           //console.log(data);
           break;
         default:

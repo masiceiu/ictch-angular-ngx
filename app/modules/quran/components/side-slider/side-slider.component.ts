@@ -29,24 +29,23 @@ export class SideSliderComponent implements OnInit {
       //this.text = "clicked inside";
     } else {
       if(this.hideToggleIcon){      
-        console.log('this.toggler',this.toggler);
+        //console.log('this.toggler',this.toggler);
         //if(this.toggler){
           //this._onAction('hide');
         //}
       }else if(!this.toggler){
-        this._onAction('hide',);
+        this._onAction('hide','outside');
       }else{
 
       }
     }
     console.log(this.i);
   }
-  skip=false;
   constructor(private eRef: ElementRef) {
     //this.text = 'no clicks yet';
   }
   ngOnInit() {
-    this.dataSync.subscribe((res:string) =>this._onAction(res,'ser'));
+    this.dataSync.subscribe((res:string) =>this._onAction(res,'sync'));
   }
   private _onAction(res:string,from:string){
     switch(res){

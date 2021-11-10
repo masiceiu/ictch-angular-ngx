@@ -151,7 +151,7 @@
 								Show English Text
 							</label>
 						</div>
-						<div class="form-check" *ngIf="selected.item.id">
+						<div class="form-check" *ngIf="selected.item  && selected.item.id">
 						<input type="checkbox" [(ngModel)]="config.isSuraSearch"
 						id="eShow"  class="form-check-input mt-1">
 						<label for="eShow" class="form-check-label">

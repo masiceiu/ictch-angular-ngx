@@ -22,9 +22,8 @@ export class SideSliderComponent implements OnInit {
   ngAfterViewInit() {
     this.vref.createEmbeddedView(this.templateRef);
   }*/
-  i=0;
   @HostListener('document:click', ['$event'])
-  clickout(event) {this.i++;
+  clickout(event) {
     if(this.eRef.nativeElement.contains(event.target)) {
       //this.text = "clicked inside";
     } else {
@@ -39,7 +38,6 @@ export class SideSliderComponent implements OnInit {
 
       }
     }
-    console.log(this.i);
   }
   constructor(private eRef: ElementRef) {
     //this.text = 'no clicks yet';

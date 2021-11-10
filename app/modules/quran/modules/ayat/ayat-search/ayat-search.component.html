@@ -152,13 +152,12 @@
 							</label>
 						</div>
 						<div class="form-check" *ngIf="selected.item  && selected.item.id">
-						<input type="checkbox" [(ngModel)]="config.isSuraSearch"
-						id="eShow"  class="form-check-input mt-1">
-						<label for="eShow" class="form-check-label">
-							Show As Sura Text
-						</label>
-					</div>
-						
+							<input type="checkbox" [(ngModel)]="config.isSuraSearch"
+							id="eShow"  class="form-check-input mt-1">
+							<label for="eShow" class="form-check-label">
+								Show As Sura Text
+							</label>
+						</div>						
 					</div>
 				</ng-template>
 				<a href (click)="false" [popover]="refMore" placement="auto" popoverTitle="More Search Settings"
@@ -169,19 +168,47 @@
 				</a>
 			</div>
 
-		<ng-container *ngIf="true">
 			<app-slide-content [data]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)" [maxHeight]="height-fixedHeight"></app-slide-content>
+
+			<ng-template #refMoreSub>
+				<div class="form-group">
+					<div class="form-check">
+						<input type="checkbox" [(ngModel)]="config.aShow"
+						id="aShow"  class="form-check-input mt-1">
+						<label for="aShow" class="form-check-label">
+							Show Arabic Text
+						</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" [(ngModel)]="config.mShow"
+						id="mShow"  class="form-check-input mt-1">
+						<label for="mShow" class="form-check-label">
+							Show {{lang.name}} Text
+						</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" [(ngModel)]="config.eShow"
+						id="eShow"  class="form-check-input mt-1">
+						<label for="eShow" class="form-check-label">
+							Show English Text
+						</label>
+					</div>				
+				</div>
+			</ng-template>
 			<ng-template #tprStar>
 				<div class="scroller" style="max-height:{{height-fixedHeight}}px">				
 					<div class="list-group">	
 						<ng-container *ngFor="let it of map(star_ayats); let i = index;">
-							<app-ayat-content [config]="config"	[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}"
-							[refMore]="refMore" (onItemClick)="onClick($event.data,$event.switch_on)"[isSuraAllow]="false"></app-ayat-content>
+							<app-ayat-content [config]="config"	
+							[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}"
+							[refMore]="refMoreSub" (onItemClick)="onClick($event.data,$event.switch_on)" 
+							></app-ayat-content>
 						</ng-container>	
 					</div>
 				</div>
 			</ng-template>
 			<app-side-slider [refTemplate]="tprStar" [positionTop]="70" [icon]="'star-fill'" [iconMarginTop]="4"></app-side-slider>
+
 			<div *ngFor="let it of ayatGroups; let i=index;">
 				<ng-template #tpr_>
 					<div class="content">
@@ -190,7 +217,8 @@
 					</div>
 				</ng-template>
 				<app-side-slider [refTemplate]="tpr_" [positionTop]="(70+(35*(i+1)))" [icon]="it.icon" [iconMarginTop]="4"></app-side-slider>
-			</div>			
+			</div>	
+
 			<ng-template #tprSync>
 				<div class="content">
 					<h3>Sticky Social Bar-{{idata}}</h3>
@@ -198,9 +226,6 @@
 				</div>
 			</ng-template>
 			<app-side-slider [positionTop]="-35" [hideToggleIcon]="true" [refTemplate]="tprSync" [dataSync]="dataSync"></app-side-slider>
-		</ng-container>
-		<!--{{suraIndex[it.sura].name}}&nbsp;[{{it.sura}}|{{suraIndex[it.sura].ayat}}-{{it.aya}}]
-			{{data.suraName}}&nbsp;[{{data.suraNo}}|{{data.totalAyat}}-{{data.ayatNo}}]-->
 	</div>
 	<div class="col-12 p-0">
 		<div class="scroller" style="max-height:{{height-fixedHeight}}px">
@@ -210,8 +235,10 @@
 				</div>
 				<div class="list-group">	
 					<ng-container *ngFor="let it of ayatList; let i = index;">
-						<app-ayat-content [config]="config"	[data]="{ayat:it, sura:suraIndex[it.sura], isStar:star_ayats[it.index],search:search}"
-						[refMore]="refMore" (onItemClick)="onClick($event.data,$event.switch_on)"></app-ayat-content>
+						<app-ayat-content [config]="config"	
+						[data]="{ayat:it, sura:suraIndex[it.sura], isStar:star_ayats[it.index],search:search}"
+						[refMore]="refMore" (onItemClick)="onClick($event.data,$event.switch_on)"
+						[isWithSuraView]="(selected.item && selected.item.id)"></app-ayat-content>
 					</ng-container>	
 				</div>		
 		</div>

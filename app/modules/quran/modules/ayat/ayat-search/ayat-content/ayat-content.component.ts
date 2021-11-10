@@ -25,10 +25,10 @@ export class AyatContentComponent implements OnInit {
     data.$event.preventDefault();
     this.onItemClick.emit({data,switch_on});
   }
-  _isSuraAllow:boolean = true;
-  get isSuraAllow() { return this.config.isSuraSearch && this._isSuraAllow }
-  @Input('isSuraAllow')
+  _isWithSuraView:boolean = false;
+  get isWithSuraView() { return this.config.isSuraSearch && this._isWithSuraView }
+  @Input('isWithSuraView')
   set in(val:boolean) {
-    this._isSuraAllow = val;
+    this._isWithSuraView = val;
   }
 }

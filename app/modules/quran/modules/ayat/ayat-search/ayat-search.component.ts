@@ -452,7 +452,7 @@ export class AyatSearchComponent implements OnInit {
           break;          
         case 'ayat-right':
           data.$event.preventDefault();
-          this.idata = data.item.index;
+          this.idata = data.item.index-2;
           this.dataSync.next("");
           //console.log(data);
           break;

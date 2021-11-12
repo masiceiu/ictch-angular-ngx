@@ -1,1 +1,44 @@
-<p>search content</p>
+<div class="list-group-item list-group-item-action pl-1">
+<div class="d-flex" *ngIf="!isWithSuraView">
+  <div class="flex-shrink-1" style="text-align:left;">
+    <a href (click)="_onItemClick({$event:$event, item:data.ayat},'ayat-left')" style="padding: 0 6px;">
+      <i class="bi bi-arrow-left-circle"></i>
+    </a>
+  </div>
+  <div class="w-100" style="text-align:center;">
+    <a href (click)="false">
+      <span>{{data.sura.name}}&nbsp;[{{data.ayat.sura}}|{{data.sura.ayat}}-{{data.ayat.aya}}]</span>
+    </a>
+  </div>
+  <div class="flex-shrink-1" style="text-align:right;white-space: nowrap;">
+    <a href (click)="_onItemClick({$event:$event, group:'star', item:data.ayat},'ayat-group')" style="padding: 0 6px;">
+      <i class="bi bi-star{{data.isStar?'-fill':''}}"></i>
+    </a>
+    <a href (click)="(false)" style="padding: 0 6px;">
+      <i class="bi bi-arrow-right-circle"></i>
+    </a>
+    <a href (click)="false" [popover]="refMore" placement="auto" 
+    [outsideClick]="true" style="padding: 0 6px;border: 1px lightgray dotted;">
+      <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </a>			  
+  </div>
+</div>
+<div class="d-flex">
+  <div class="flex-shrink-1 p-1" *ngIf="isWithSuraView" style="display: flex;align-items: center;border-right: 1px solid lightgray;">
+    <a href (click)="false">
+    {{data.ayat.index}}
+    </a>
+  </div>
+  <div class="w-100" style="text-align:center;">
+    <hr class="hrh" *ngIf="config.aShow && !isWithSuraView">
+    <p class="atext" *ngIf="config.aShow" [ngStyle]="{'font-size': config.aFontSize+'px'}">{{data.ayat.atext}}</p>
+    <hr class="hrh" *ngIf="config.mShow && !isWithSuraView">
+    <p class="mtext" appTextHighlight [content]="data.ayat.mtext" [searchTerm]="data.search" *ngIf="config.mShow"
+      [ngStyle]="{'font-size': config.mFontSize+'px'}">
+      {{data.ayat.mtext}}
+    </p>
+    <hr class="hrh" *ngIf="config.eShow && !isWithSuraView">
+    <p class="etext" *ngIf="config.eShow" [ngStyle]="{'font-size': config.eFontSize+'px'}">{{data.ayat.etext}}</p>
+  </div>
+</div>
+</div>

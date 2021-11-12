@@ -1,0 +1,16 @@
+.texth,.atext,.mtext,.etext{
+  margin: 0;
+  font-family:Lucida Sans Unicode;
+}
+.hrh{
+  margin-top: 0;
+}
+.atext{
+  font-size: 30px;
+}
+.mtext{
+  font-size: 16px;
+}
+.etext{
+  font-size: 17px;
+}

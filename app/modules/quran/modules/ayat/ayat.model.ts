@@ -192,6 +192,7 @@ export class AyatModel {
   }
   public getSuraList(lang:string):any[] {
     switch(lang){
+      case"ar": return [ ];
       case"bn": return [
         { id : 1, name : "আল ফাতিহা", ayat : 7 },
         { id : 2, name : "আল বাকারা", ayat : 286 },
@@ -448,6 +449,13 @@ export class AyatModel {
       { id:2, text:"This text will bounce", index:12, behavior:"alternate", direction:"right" }
     ]
     };*/
+  }
+  public getNameOfAllah(lang:string):any[] {
+    switch(lang){
+      case"ar": return [];
+      case"bn": return [];
+      case"en": return [];
+    }
   }
 }
 /*

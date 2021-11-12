@@ -1,188 +1,134 @@
 <div class="row mt-0">
-	<div class="col-12">
-		<div class="flex-parent">
-			<div class="flex-child">
-				<div class="input-group input-group-sm mb-0">
-					<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')" [disabled]="!ayatAll.length">
-							<option *ngFor="let it of translates" [ngValue]="it">
-								{{it.name}}
-							</option>
-					</select>
-					<div class="input-group-append">
-						<span class="input-group-text">
-						<ng-template #popTemplateSura>						
+<div class="col-12">
+	<div class="flex-parent">
+		<div class="flex-child">
+			<div class="input-group input-group-sm mb-0">
+				<select class="custom-select form-control-sm" [(ngModel)]="translate" (change)="onChange(translate,'translate')" [disabled]="!ayatAll.length">
+						<option *ngFor="let it of translates" [ngValue]="it">
+							{{it.name}}
+						</option>
+				</select>
+				<div class="input-group-append">
+					<span class="input-group-text">
+					<ng-template #popTemplateSura>						
+						<div class="scroller">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item" *ngFor="let it of suras; let i = index;">
+									<a href (click)="onClick({$event:$event, item:it},'suggest-item-sura')" >
+										{{it.id}}. {{it.name}}-{{it.ayat}}
+									</a>
+								</li>
+							</ul>
+						</div>
+					</ng-template>
+						<a href (click)="false" [popover]="popTemplateSura" popoverTitle="" [outsideClick]="true" placement="auto">	
+						Sura<i class="bi bi-caret-down"></i>
+						</a>
+					</span>
+					<span class="input-group-text">
+						<ng-template #popTemplateGear>
+							<app-setting (onSubmit)="onSubmit($event,'add-group')"></app-setting>
+							<hr class="mb-1" />
 							<div class="scroller">
-								<ul class="list-group list-group-flush">
-									<li class="list-group-item" *ngFor="let it of suras; let i = index;">
-										<a href (click)="onClick({$event:$event, item:it},'suggest-item-sura')" >
-											{{it.id}}. {{it.name}}-{{it.ayat}}
+								<div class="flex-parent" *ngFor="let it of ayatGroups; let i = index;">
+									<div class="flex-child" style="text-align:left;">
+										<a href (click)="onSubmit({$event:$event, item:it},'group-item')" >
+											<i class="bi bi-{{it.icon}}"></i> {{it.name}}
 										</a>
-									</li>
-								</ul>
+									</div>
+									<div class="flex-child" style="text-align:right;margin-top:-3px">
+										<span class="close" aria-label="Close" (click)="onSubmit(i,'group-item-remove')">
+											<span aria-hidden="true">&times;</span>
+										</span>
+									</div>
+								</div>
 							</div>
 						</ng-template>
-							<a href (click)="false" [popover]="popTemplateSura" popoverTitle="" [outsideClick]="true" placement="auto">	
-							Sura<i class="bi bi-caret-down"></i>
-							</a>
-						</span>
-						<span class="input-group-text">
-							<ng-template #popTemplateGear>
-								<app-setting (onSubmit)="onSubmit($event,'add-group')"></app-setting>
-								<hr class="mb-1" />
-								<div class="scroller">
-									<div class="flex-parent" *ngFor="let it of ayatGroups; let i = index;">
-										<div class="flex-child" style="text-align:left;">
-											<a href (click)="onSubmit({$event:$event, item:it},'group-item')" >
-												<i class="bi bi-{{it.icon}}"></i> {{it.name}}
-											</a>
-										</div>
-										<div class="flex-child" style="text-align:right;margin-top:-3px">
-											<span class="close" aria-label="Close" (click)="onSubmit(i,'group-item-remove')">
-												<span aria-hidden="true">&times;</span>
-											</span>
-										</div>
-									</div>
-								</div>
-							</ng-template>
-							<a href (click)="false" [popover]="popTemplateGear" popoverTitle="" [outsideClick]="true" placement="auto" class="w3-spin">	
-								<i class="bi bi-gear"></i>
-							</a>
-						</span>
-					</div>
+						<a href (click)="false" [popover]="popTemplateGear" popoverTitle="" [outsideClick]="true" placement="auto" class="w3-spin">	
+							<i class="bi bi-gear"></i>
+						</a>
+					</span>
 				</div>
 			</div>
 		</div>
-		<div class="flex-parent">
-			<div class="flex-child" style="border-bottom: 0px;">			
-				<div class="input-group input-group-sm">
+	</div>
+	<div class="flex-parent">
+		<div class="flex-child" style="border-bottom: 0px;">			
+			<div class="input-group input-group-sm">
+				<div class="input-group-append">
+					<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">
+						<ng-template #popTemplateAyts>
+							Ayats:{{ayatAll.length?ayatAll.length:'Loading...'}}
+						</ng-template>			
+						<a href (click)="false" [tooltip]="popTemplateAyts">{{lang.id}}</a>
+					</span>
+				</div>
+				<ng-container>
+					<!--[typeaheadMultipleSearch]="true"
+				typeaheadMultipleSearchDelimiters="','"-->
+					<input type="text"
+					[(ngModel)]="search"
+					(typeaheadOnSelect)="onSelect($event)"
+					typeaheadOptionField="suggestion"
+					[typeahead]="suggestions$"
+					[typeaheadAsync]="true"
+					class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
+				</ng-container>
+				<ng-container *ngIf="!isSearchLoading">
 					<div class="input-group-append">
-						<span class="input-group-text" [ngStyle]="{'color':(lang.suggestion?'':'red')}" id="inputGroup-sizing-sm">
-							<ng-template #popTemplateAyts>
-								Ayats:{{ayatAll.length?ayatAll.length:'Loading...'}}
-							</ng-template>			
-							<a href (click)="false" [tooltip]="popTemplateAyts">{{lang.id}}</a>
-						</span>
-					</div>
-					<ng-container>
-						<!--[typeaheadMultipleSearch]="true"
-					typeaheadMultipleSearchDelimiters="','"-->
-						<input type="text"
-						[(ngModel)]="search"
-						(typeaheadOnSelect)="onSelect($event)"
-						typeaheadOptionField="suggestion"
-						[typeahead]="suggestions$"
-						[typeaheadAsync]="true"
-						class="form-control" [disabled]='isSearchLoading' aria-describedby="inputGroup-sizing-sm">
-					</ng-container>
-					<ng-container *ngIf="!isSearchLoading">
-						<div class="input-group-append">
-							<span class="input-group-text">
-							<ng-template #refInfo>
-								<div class="scroller">
-									<div class="flex-parent" *ngFor="let it of ayat_searchs; let i = index;">
-										<div class="flex-child" style="text-align:left;">
-											<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
-										</div>
-										<div class="flex-child" style="text-align:right;margin-top:-3px">
-											<span class="close" aria-label="Close" (click)="onClick(i,'suggest-item-remove')">
-												<span aria-hidden="true">&times;</span>
-											</span>
-										</div>
-								</div>
-							</div>
-							</ng-template>
-							<a href (click)="false" *ngIf="" class="w3-spin">
-								<i class="bi bi-question-circle"></i>
-							</a>
-							<a href (click)="false" [popover]="refInfo" #pop="bs-popover" [outsideClick]="true"  placement="bottom">	
-								<i class="bi bi-info-circle"></i>
-							</a>
-						</span>
-							<button type="button"
-							[disabled]="!search"
-							(click)="onClick($event,'search')"
-						class="btn btn-secondary" style="padding-right: 22px;padding-left: 22px;">
-						<i class="bi bi-search"></i>
-						</button>
-						</div>
-					</ng-container>
-					<ng-container *ngIf="isSearchLoading">
-						<div class="input-group-append">
-							<span class="input-group-text">
-								<span (click)="false" class="w3-spin" style="padding-right: 30px;padding-left: 30px;">	
-									<i class="bi bi-hourglass-split"></i>
-								</span>
-							</span>
-						</div>
-					</ng-container>
-				</div>
-			</div>
-		</div>
-		<div class="flex-parent mb-2">
-			<div class="flex-child" style="border-top: 0px;">
-				<small>Search result : {{ayatList?.length}}</small>
-			</div>
-			<div class="flex-child" style="border-top: 0px;text-align:center;">
-				<div class="mt-1">
-				<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange(rangeFontSize,'range')">
-				</div>
-			</div>
-			<div class="flex-child" style="border-top: 0px;text-align:right;">
-				<ng-template #refMore>
-					<div class="form-group">
-						<div class="form-check">
-							<input type="checkbox" [(ngModel)]="config.aShow"
-							id="aShow"  class="form-check-input mt-1">
-							<label for="aShow" class="form-check-label">
-								Show Arabic Text
-							</label>
-						</div>
-						<div class="form-check">
-							<input type="checkbox" [(ngModel)]="config.mShow"
-							id="mShow"  class="form-check-input mt-1">
-							<label for="mShow" class="form-check-label">
-								Show {{lang.name}} Text
-							</label>
-						</div>
-						<div class="form-check">
-							<input type="checkbox" [(ngModel)]="config.eShow"
-							id="eShow"  class="form-check-input mt-1">
-							<label for="eShow" class="form-check-label">
-								Show English Text
-							</label>
-						</div>
-						<div class="form-check" *ngIf="selected.item  && selected.item.id">
-							<input type="checkbox" [(ngModel)]="config.isSuraSearch"
-							id="eShow"  class="form-check-input mt-1">
-							<label for="eShow" class="form-check-label">
-								Show As Sura Text
-							</label>
-						</div>	
-						<div class="scroller" *ngIf="selected.item  && selected.item.id">
-							<hr class="m-0" />
-							<strong>Jump To Ayat</strong>					
-							<div class="flex-parent">
-									<div class="flex-child" 
-									*ngFor="let i=index of [].constructor(selected.item.ayat)">
-											<span class="list-group-item" [id]="i" style="padding: 0.25rem .50rem;text-align: center;" >
-													<a href (click)="handleScrollClick($event, (i+1))" >{{(i+1)}}</a>
-											</span>
+						<span class="input-group-text">
+						<ng-template #refInfo>
+							<div class="scroller">
+								<div class="flex-parent" *ngFor="let it of ayat_searchs; let i = index;">
+									<div class="flex-child" style="text-align:left;">
+										<a href (click)="onClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
+									</div>
+									<div class="flex-child" style="text-align:right;margin-top:-3px">
+										<span class="close" aria-label="Close" (click)="onClick(i,'suggest-item-remove')">
+											<span aria-hidden="true">&times;</span>
+										</span>
 									</div>
 							</div>
-						</div>								
+						</div>
+						</ng-template>
+						<a href (click)="false" *ngIf="" class="w3-spin">
+							<i class="bi bi-question-circle"></i>
+						</a>
+						<a href (click)="false" [popover]="refInfo" #pop="bs-popover" [outsideClick]="true"  placement="bottom">	
+							<i class="bi bi-info-circle"></i>
+						</a>
+					</span>
+						<button type="button"
+						[disabled]="!search"
+						(click)="onClick($event,'search')"
+					class="btn btn-secondary" style="padding-right: 22px;padding-left: 22px;">
+					<i class="bi bi-search"></i>
+					</button>
 					</div>
-				</ng-template>
-				<a href (click)="false" [popover]="refMore" placement="auto" popoverTitle="More Search Settings"
-					[outsideClick]="true">
-					<small>
-						More <i class="bi bi-caret-down"></i>
-					</small>
-				</a>
+				</ng-container>
+				<ng-container *ngIf="isSearchLoading">
+					<div class="input-group-append">
+						<span class="input-group-text">
+							<span (click)="false" class="w3-spin" style="padding-right: 30px;padding-left: 30px;">	
+								<i class="bi bi-hourglass-split"></i>
+							</span>
+						</span>
+					</div>
+				</ng-container>
 			</div>
-
-			<app-slide-content [data]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)" [maxHeight]="height-fixedHeight"></app-slide-content>
-
-			<ng-template #refMoreSub>
+		</div>
+	</div>
+	<div class="flex-parent mb-2">
+		<div class="flex-child" style="border-top: 0px;">
+			<small>Search result : {{ayatList?.length}}</small>
+		</div>
+		<div class="flex-child" style="border-top: 0px;text-align:center;">
+			<div class="mt-1">
+			<input type="range" min="1" max="30" [(ngModel)]='rangeFontSize' (change)="onChange(rangeFontSize,'range')">
+			</div>
+		</div>
+		<div class="flex-child" style="border-top: 0px;text-align:right;">
+			<ng-template #refMore>
 				<div class="form-group">
 					<div class="form-check">
 						<input type="checkbox" [(ngModel)]="config.aShow"
@@ -204,63 +150,121 @@
 						<label for="eShow" class="form-check-label">
 							Show English Text
 						</label>
-					</div>				
+					</div>
+					<div class="form-check" *ngIf="selected.item  && selected.item.id">
+						<input type="checkbox" [(ngModel)]="config.isSuraSearch"
+						id="eShow"  class="form-check-input mt-1">
+						<label for="eShow" class="form-check-label">
+							Show As Sura Text
+						</label>
+					</div>	
+					<div class="scroller" *ngIf="selected.item  && selected.item.id">
+						<hr class="m-0" />
+						<strong>Jump To Ayat</strong>					
+						<div class="flex-parent">
+								<div class="flex-child" 
+								*ngFor="let i=index of [].constructor(selected.item.ayat)">
+										<span class="list-group-item" [id]="i" style="padding: 0.25rem .50rem;text-align: center;" >
+												<a href (click)="handleScrollClick($event, (i+1))" >{{(i+1)}}</a>
+										</span>
+								</div>
+						</div>
+					</div>								
 				</div>
 			</ng-template>
-			<ng-template #tprStar>
-				<div class="scroller" style="max-height:{{height-fixedHeight}}px">				
-					<div class="list-group">	
-						<ng-container *ngFor="let it of map(star_ayats); let i = index;">
-							<app-search-content [config]="config"	
-							[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}"
-							[refMore]="refMoreSub" (onItemClick)="onClick($event.data,$event.switch_on)" 
-							></app-search-content>
-						</ng-container>	
-					</div>
-				</div>
-			</ng-template>
-			<app-side-slider [refTemplate]="tprStar" [positionTop]="70" [icon]="'star-fill'" [iconMarginTop]="4"></app-side-slider>
-
-			<div *ngFor="let it of ayatGroups; let i=index;">
-				<ng-template #tpr_>
-					<div class="content">
-						<h3>Sticky Social Bar-{{i}}</h3>
-						<p>The sticky social bar will stick to the screen when you scroll.</p>
-					</div>
-				</ng-template>
-				<app-side-slider [refTemplate]="tpr_" [positionTop]="(70+(35*(i+1)))" [icon]="it.icon" [iconMarginTop]="4"></app-side-slider>
-			</div>	
-
-			<ng-template #tprSync>
-				<div class="scroller" style="max-height:{{height-fixedHeight}}px">			
-					<div class="list-group" *ngIf="(ayatAll.length && idata)">	
-					<ng-container *ngFor="let it of [ayatAll[idata]];">
-						<app-ayat-content [config]="config"	
-						[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}" (onItemClick)="onClick($event.data,$event.switch_on)" 
-						(click)="idata=(idata-0+1)" ></app-ayat-content>
-					</ng-container>	
-					</div>
-				</div>
-				<div class="content" *ngIf="!(ayatAll.length && idata)">
-					<h3>Ayat:Loading...</h3>
-				</div>
-			</ng-template>
-			<app-side-slider [positionTop]="-35" [hideToggleIcon]="true" [refTemplate]="tprSync" [dataSync]="dataSync"></app-side-slider>
-	</div>
-	<div class="col-12 p-0">
-		<div class="scroller" style="max-height:{{height-fixedHeight}}px">
-					<div class="list-group-item text-center" *ngIf="config.isSuraSearch && ayatList?.length">
-					<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
-						Ayat:&nbsp;{{ayatList?.length}})"</h6>
-				</div>
-				<div class="list-group">	
-					<ng-container *ngFor="let it of ayatList; let i = index;">
-						<app-search-content [config]="config" [appScrollableItem]="it.aya"
-						[data]="{ayat:it, sura:suraIndex[it.sura], isStar:star_ayats[it.index],search:search}"
-						[refMore]="refMore" (onItemClick)="onClick($event.data,$event.switch_on)"
-						[isWithSuraView]="(selected.item && selected.item.id)"></app-search-content>
-					</ng-container>	
-				</div>		
+			<a href (click)="false" [popover]="refMore" placement="auto" popoverTitle="More Search Settings"
+				[outsideClick]="true">
+				<small>
+					More <i class="bi bi-caret-down"></i>
+				</small>
+			</a>
 		</div>
+
+		<app-slide-content [data]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)" [maxHeight]="height-fixedHeight"></app-slide-content>
+
+		<ng-template #refMoreSub>
+			<div class="form-group">
+				<div class="form-check">
+					<input type="checkbox" [(ngModel)]="config.aShow"
+					id="aShow"  class="form-check-input mt-1">
+					<label for="aShow" class="form-check-label">
+						Show Arabic Text
+					</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" [(ngModel)]="config.mShow"
+					id="mShow"  class="form-check-input mt-1">
+					<label for="mShow" class="form-check-label">
+						Show {{lang.name}} Text
+					</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" [(ngModel)]="config.eShow"
+					id="eShow"  class="form-check-input mt-1">
+					<label for="eShow" class="form-check-label">
+						Show English Text
+					</label>
+				</div>				
+			</div>
+		</ng-template>
+		<ng-template #tprStar>
+			<div class="scroller" style="max-height:{{height-fixedHeight}}px">				
+				<div class="list-group">	
+					<ng-container *ngFor="let it of map(star_ayats); let i = index;">
+						<app-search-content [config]="config"	
+						[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}"
+						[refMore]="refMoreSub" (onItemClick)="onClick($event.data,$event.switch_on)" 
+						></app-search-content>
+					</ng-container>	
+				</div>
+			</div>
+		</ng-template>
+		<app-side-slider [refTemplate]="tprStar" [positionTop]="70" [icon]="'star-fill'" [iconMarginTop]="4"></app-side-slider>
+
+		<div *ngFor="let it of ayatGroups; let i=index;">
+			<ng-template #tpr_>
+				<div class="content">
+					<h3>Sticky Social Bar-{{i}}</h3>
+					<p>The sticky social bar will stick to the screen when you scroll.</p>
+				</div>
+			</ng-template>
+			<app-side-slider [refTemplate]="tpr_" [positionTop]="(70+(35*(i+1)))" [icon]="it.icon" [iconMarginTop]="4"></app-side-slider>
+		</div>	
+
+		<ng-template #tprSync>
+			<div class="scroller" style="max-height:{{height-fixedHeight}}px">			
+				<div class="list-group" *ngIf="(ayatAll.length && idata)">	
+				<ng-container *ngFor="let it of [ayatAll[idata]];">
+					<app-ayat-content [config]="config"	
+					[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}" 
+					(starClick)="onClick($event.data,$event.switch_on)" [refMore]="refMoreSub" 
+					(leftClick)="idata=(idata-0+1)"
+					(rightClick)="idata=(idata-0-1)" ></app-ayat-content>
+				</ng-container>	
+				</div>
+			</div>
+			<div class="content" *ngIf="!(ayatAll.length && idata)">
+				<h3 class="text-center">سُبْحَانَ ٱللَّٰهِ</h3>
+				<h3 class="text-center">ٱلْحَمْدُ لِلَّٰهِ</h3>
+				<h3 class="text-center">Ayat:Loading...</h3>
+			</div>
+		</ng-template>
+		<app-side-slider [positionTop]="-35" [hideToggleIcon]="true" [refTemplate]="tprSync" [dataSync]="dataSync"></app-side-slider>
+</div>
+<div class="col-12 p-0">
+	<div class="scroller" style="max-height:{{height-fixedHeight}}px">
+				<div class="list-group-item text-center" *ngIf="config.isSuraSearch && ayatList?.length">
+				<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
+					Ayat:&nbsp;{{ayatList?.length}})"</h6>
+			</div>
+			<div class="list-group">	
+				<ng-container *ngFor="let it of ayatList; let i = index;">
+					<app-search-content [config]="config" [appScrollableItem]="it.aya"
+					[data]="{ayat:it, sura:suraIndex[it.sura], isStar:star_ayats[it.index],search:search}"
+					[refMore]="refMore" (onItemClick)="onClick($event.data,$event.switch_on)"
+					[isWithSuraView]="(selected.item && selected.item.id)"></app-search-content>
+				</ng-container>	
+			</div>		
 	</div>
+</div>
 </div>

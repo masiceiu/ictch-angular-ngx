@@ -9,20 +9,26 @@ export class AyatContentComponent implements OnInit {
   
   @Input() data:any = {};
   @Input() config:any = {};
-  @Output() click = new EventEmitter<any>();
-  @Output() onItemClick = new EventEmitter<any>();
+  @Input() refMore: TemplateRef<any>;
+  @Output() leftClick = new EventEmitter<any>();
+  @Output() rightClick = new EventEmitter<any>();
+  @Output() starClick = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
   }
-  _onClick(ev:any){
+  _leftClick(ev:any){
     ev.preventDefault();
-    this.click.emit(ev);
+    this.leftClick.emit(ev);
   }
-  _onItemClick(data:any, switch_on:string){
+  _rightClick(ev:any){
+    ev.preventDefault();
+    this.rightClick.emit(ev);
+  }
+  _starClickClick(data:any, switch_on:string){
     //console.log(data,switch_on);
     data.$event.preventDefault();
-    this.onItemClick.emit({data,switch_on});
+    this.starClick.emit({data,switch_on});
   }
   /*
   @Input('data')

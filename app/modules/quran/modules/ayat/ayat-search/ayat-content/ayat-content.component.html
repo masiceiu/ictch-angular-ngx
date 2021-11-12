@@ -6,15 +6,19 @@
       </a>
     </div>
     <div class="flex-shrink-1" style="text-align:right;white-space: nowrap;">   
-      <a href (click)="_onClick($event)" style="padding: 0 6px;">
+      <a href (click)="_leftClick($event)" style="padding: 0 6px;">
         <i class="bi bi-arrow-left-circle"></i>
       </a>
-      <a href (click)="_onItemClick({$event:$event, group:'star', item:data.ayat},'ayat-group')" style="padding: 0 6px;">
+      <a href (click)="_starClickClick({$event:$event, group:'star', item:data.ayat},'ayat-group')" style="padding: 0 6px;">
         <i class="bi bi-star{{data.isStar?'-fill':''}}"></i>
       </a>
-      <a href (click)="(false)" style="padding: 0 6px;">
+      <a href (click)="_rightClick($event)" style="padding: 0 6px;">
         <i class="bi bi-arrow-right-circle"></i>
-      </a>		  
+      </a>
+      <a href (click)="false" [popover]="refMore" placement="auto" 
+      [outsideClick]="true" style="padding: 0 6px;border: 1px lightgray dotted;">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </a>			  
     </div>
   </div>
   <div class="d-flex">

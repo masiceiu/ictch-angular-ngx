@@ -33,7 +33,7 @@ export class SideSliderComponent implements OnInit {
           //this._onAction('hide');
         //}
       }else if(!this.toggler){
-        this._onAction('hide','outside');
+        //this._onAction('hide','outside');
       }else{
 
       }

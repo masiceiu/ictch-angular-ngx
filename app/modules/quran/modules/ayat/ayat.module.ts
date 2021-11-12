@@ -8,6 +8,7 @@ import { NavCarouselModule } from './../../shared/components/nav-carousel/nav-ca
 //import { NavScrollerModule } from './../../shared/components/nav-scroller/nav-scroller.module';
 //Component
 import { AyatComponent } from "./ayat.component";
+import { AyatGroupsComponent } from "./ayat-groups/ayat-groups.component";
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { AyatComponent } from "./ayat.component";
   ],
   declarations: [
     AyatComponent, 
+    AyatGroupsComponent
   ]
 })
 export class AyatModule {}

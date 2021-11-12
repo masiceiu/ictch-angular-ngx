@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
 
 import { AyatComponent } from "./ayat.component";
+import { AyatGroupsComponent } from "./ayat-groups/ayat-groups.component";
 const routes: Route[] = [{
     path: 'dynamic',
     component : AyatComponent,
@@ -33,6 +34,10 @@ const routes: Route[] = [{
     data: {
       feature: 'select',
     },
+  },
+  {
+    path: 'groups/:group',
+    component: AyatGroupsComponent
   },
   { path: '', redirectTo: 'search', pathMatch: 'full' },
 ];

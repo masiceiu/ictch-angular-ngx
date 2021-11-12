@@ -98,6 +98,12 @@ export class NavCarouselComponent implements OnInit, AfterViewInit {
       url: '/quran/ilm',
       image: '',
       status: true
+    },
+    {
+      text: 'তওহীদ(توحيد‎)',
+      url: '/quran/ayat/groups/tawhid',
+      image: '',
+      status: true
     },/*
     {
       text: 'Islamway',

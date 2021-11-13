@@ -21,6 +21,20 @@ const routes: Routes = [
         }
       }
     ]
+  },{
+    path: "rnd",
+    //component: ?,
+    //component: DemoComponent, 
+    children:[
+      {
+        path: "",
+        loadChildren: () =>
+        import("./rnd/rnd.module").then(m => m.RndModule),
+        data: {
+          feature: "RND"
+        }
+      }
+    ]
   },
   {
     path: "attendance",

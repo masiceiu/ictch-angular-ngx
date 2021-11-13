@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 
 import { CssModule } from './css/css.module';
+import { RndModule } from './rnd/rnd.module';
 
 import { DemoRoutingModule } from './demo-routing.module';
 import { DemoComponent } from './demo.component';
@@ -18,7 +19,8 @@ import { MarqueeComponent } from './marquee/marquee.component';
     CommonModule,
     FormsModule,
     DemoRoutingModule,
-    CssModule,
+    //CssModule,
+    //RndModule
   ],
   declarations: [
     DemoComponent,

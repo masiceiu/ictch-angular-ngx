@@ -3,11 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { RndRoutingModule } from './rnd-routing.module';
 import { RndComponent } from './rnd.component';
+import { CommentsComponent } from './comments/comments.component';
+
 @NgModule({
   imports: [
     CommonModule,
     RndRoutingModule
   ],
-  declarations: [RndComponent]
+  declarations: [
+    RndComponent,
+    CommentsComponent
+  ]
 })
-export class RndModule { }
+export class RndModule { 
+  
+}

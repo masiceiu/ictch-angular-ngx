@@ -7,13 +7,14 @@ import { IlmRoutingModule } from './ilm-routing.module';
 import { AdviceComponent } from './advice/advice.component';
 import { MahramComponent } from './mahram/mahram.component';
 import { SideSliderModule } from '../../components/side-slider/side-slider.module';
-import { CardSliderComponent } from '../../components/card-slider/card-slider.component';
+import { CardSliderModule } from '../../components/card-slider/card-slider.module';
 
 @NgModule({
   imports: [
     CommonModule,
     IlmRoutingModule,
     SideSliderModule,
+    CardSliderModule
   ],
   exports: [
     IlmComponent,
@@ -23,7 +24,6 @@ import { CardSliderComponent } from '../../components/card-slider/card-slider.co
     IlmComponent,
     AdviceComponent,
     MahramComponent,
-    CardSliderComponent
   ]
 })
 export class IlmModule { }

@@ -9,12 +9,16 @@ import { AyatService } from './../../../services';
 })
 export class AyatGroupsComponent implements OnInit {
 
+	width = 250;
+  height = 250;
+  fixedHeight = 100;
   constructor(private service: AyatService, private route: ActivatedRoute) {
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
 	}
 
 	private ayatGroups: any[] = [];
 	private groupAyats: any[] = [];
-
 	private subscriber: any;
 	ngOnInit()
 	{
@@ -33,4 +37,8 @@ export class AyatGroupsComponent implements OnInit {
 	  });
 	}
 
+  onWindowResize(event) {
+    this.width = event.target.innerWidth;
+    this.height = event.target.innerHeight;
+  }
 }

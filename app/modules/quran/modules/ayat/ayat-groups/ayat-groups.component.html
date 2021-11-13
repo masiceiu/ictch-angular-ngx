@@ -1,17 +1,31 @@
+<ng-template #tpr1>
+  <div class="scroller" style="max-height:{{ height - fixedHeight }}px">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let it of ayatGroups; let i = index">
+        {{ it.name }}
+      </li>
+    </ul>
+  </div>
+</ng-template>
+<app-side-slider [refTemplate]="tpr1" [positionTop]="0"></app-side-slider>
+
 <ul class="list-group list-group-flush">
-  <li class="list-group-item" *ngFor="let it of ayatGroups; let i = index;">
-    {{it.name}}
+  <li class="list-group-item" *ngFor="let it of ayatGroups; let i = index">
+    {{ it.name }}
   </li>
 </ul>
 <ul class="list-group list-group-flush" *ngIf="">
-  <li class="list-group-item" *ngFor="let it1 of data.items; let i = index;">
-    {{i+1+'.'}} {{it1.name}}
+  <li class="list-group-item" *ngFor="let it1 of data.items; let i = index">
+    {{ i + 1 + '.' }} {{ it1.name }}
     <ul class="list-group list-group-flush">
-      <li class="list-group-item" *ngFor="let it2 of it1.items; let j = index;">
-      {{(i+1)+'.'+(j+1)+'.'}} {{it2.name}}
+      <li class="list-group-item" *ngFor="let it2 of it1.items; let j = index">
+        {{ i + 1 + '.' + (j + 1) + '.' }} {{ it2.name }}
         <ul class="list-group list-group-flush">
-          <li class="list-group-item" *ngFor="let it3 of it2.items; let k = index;">
-          {{(i+1)+'.'+(j+1)+'.'+(k+1)+'.'}} {{it3.name}}
+          <li
+            class="list-group-item"
+            *ngFor="let it3 of it2.items; let k = index"
+          >
+            {{ i + 1 + '.' + (j + 1) + '.' + (k + 1) + '.' }} {{ it3.name }}
           </li>
         </ul>
       </li>

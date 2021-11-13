@@ -1,0 +1,20 @@
+<ul class="list-group list-group-flush">
+  <li class="list-group-item" *ngFor="let it of ayatGroups; let i = index;">
+    {{it.name}}
+  </li>
+</ul>
+<ul class="list-group list-group-flush" *ngIf="">
+  <li class="list-group-item" *ngFor="let it1 of data.items; let i = index;">
+    {{i+1+'.'}} {{it1.name}}
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let it2 of it1.items; let j = index;">
+      {{(i+1)+'.'+(j+1)+'.'}} {{it2.name}}
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let it3 of it2.items; let k = index;">
+          {{(i+1)+'.'+(j+1)+'.'+(k+1)+'.'}} {{it3.name}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>

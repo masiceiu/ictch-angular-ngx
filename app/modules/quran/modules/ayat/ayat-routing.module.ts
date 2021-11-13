@@ -34,10 +34,16 @@ const routes: Route[] = [{
     data: {
       feature: 'select',
     },
-  },
-  {
+  },{
     path: 'groups/:group',
-    component: AyatGroupsComponent
+    component : AyatComponent,
+    loadChildren: () =>
+      import('./ayat-groups/ayat-groups.module').then(
+        (m) => m.AyatGroupsModule
+      ),
+    data: {
+      feature: 'groups',
+    },
   },
   { path: '', redirectTo: 'search', pathMatch: 'full' },
 ];

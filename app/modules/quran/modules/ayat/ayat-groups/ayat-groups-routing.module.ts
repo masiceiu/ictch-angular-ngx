@@ -14,4 +14,4 @@ const routes: Route[] = [
   imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AyatGroupsModule {}
+export class AyatGroupsRoutingModule {}

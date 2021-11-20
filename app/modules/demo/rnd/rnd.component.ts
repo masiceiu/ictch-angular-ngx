@@ -11,5 +11,9 @@ export class RndComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  component = ['navbar','carousel-button'];
+  activeComponent = 'navbar';
+  onComponent(component:string){
+    this.activeComponent = component;
+  }
 }

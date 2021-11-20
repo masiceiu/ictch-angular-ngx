@@ -6,6 +6,7 @@ import { RndRoutingModule } from './rnd-routing.module';
 import { RndComponent } from './rnd.component';
 import { CommentsComponent } from './comments/comments.component';
 import { PlayMediaComponent } from './play-media/play-media.component';
+import { AppendToElementComponent } from './append-to-element/append-to-element.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,7 +17,8 @@ import { PlayMediaComponent } from './play-media/play-media.component';
   declarations: [
     RndComponent,
     CommentsComponent,
-    PlayMediaComponent
+    PlayMediaComponent,
+    AppendToElementComponent
   ]
 })
 export class RndModule { 

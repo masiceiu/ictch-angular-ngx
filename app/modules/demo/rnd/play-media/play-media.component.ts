@@ -31,7 +31,7 @@ export class PlayMediaComponent implements OnInit {
     this.audio.play();
   }
   stop(): void {
-    this.audio.stop();
+    this.audio.pause(;();
   }
   //https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio
 }

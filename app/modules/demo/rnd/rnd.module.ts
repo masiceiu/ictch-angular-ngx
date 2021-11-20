@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RndRoutingModule } from './rnd-routing.module';
 import { RndComponent } from './rnd.component';
 import { CommentsComponent } from './comments/comments.component';
+import { PlayMediaComponent } from './play-media/play-media.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,7 @@ import { CommentsComponent } from './comments/comments.component';
   declarations: [
     RndComponent,
     CommentsComponent,
+    PlayMediaComponent
   ]
 })
 export class RndModule { 

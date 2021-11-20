@@ -80,7 +80,6 @@ https://stackblitz.com/edit/browser-detection
 /*video
 https://stackblitz.com/edit/angular-video-url-angular
 https://stackblitz.com/edit/angular-youtube-video-in-iframe
-https://stackblitz.com/edit/ng-download-media-from-other-origin
 https://stackblitz.com/edit/angular-json-pipe
 https://stackblitz.com/edit/ang-jsoneditor
 /*json
@@ -96,3 +95,17 @@ https://stackblitz.com/edit/angular-file-upload-custom
 /* form and json data
 https://stackblitz.com/edit/angular-read-local-json-file
 https://stackblitz.com/edit/angular-express-app
+/*tree
+https://stackblitz.com/edit/angular-family-tree
+https://stackblitz.com/edit/angular-tree-component-demo
+https://stackblitz.com/edit/angular-tree
+https://stackblitz.com/edit/tree-recursive-component
+https://stackblitz.com/edit/treeview
+/*multi
+https://stackblitz.com/edit/multi-language
+https://stackblitz.com/edit/angular-multiple-dynamic-forms-i6zv7a
+/*blob
+https://stackblitz.com/edit/ng-download-media-from-other-origin
+https://pretagteam.com/question/how-to-create-and-download-file-from-angular-app-issue-with-blob
+https://stackblitz.com/edit/angular-blob-to-safe-url
+https://stackblitz.com/edit/angular-s7c1nz

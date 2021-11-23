@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user-form',
@@ -15,14 +15,14 @@ export class InputUserFormComponent implements OnInit {
 	userForm: FormGroup;
 	guid: string;
 	serviceErrors:any = {};
-
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router)
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router)
   {
+    /*
   	this.http.get('/api/v1/generate_uid').subscribe((data:any) => {
       this.guid = data.guid;
     }, error => {
         console.log("There was an error generating the proper GUID on the server", error);
-    });
+    });*/
   }
 
   invalidFirstName()
@@ -72,7 +72,7 @@ export class InputUserFormComponent implements OnInit {
   	else
   	{
   		let data: any = Object.assign({guid: this.guid}, this.userForm.value);
-
+      /*
   		this.http.post('/api/v1/customer', data).subscribe((data:any) => {
 	      
 	      let path = '/user/' + data.customer.uid;
@@ -82,7 +82,7 @@ export class InputUserFormComponent implements OnInit {
 	    {
 	    	this.serviceErrors = error.error.error;
         });
-
+      */
   		this.registered = true;
 
   	}

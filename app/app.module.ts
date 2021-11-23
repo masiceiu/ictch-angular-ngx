@@ -8,10 +8,12 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
+import { DefaultLayoutComponent } from './layouts/default/default.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DefaultLayoutComponent
     ],
   imports: [
     CommonModule,

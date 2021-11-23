@@ -1,38 +1,14 @@
-<legend>User Information</legend>
-<div>
-	<div class="form-group row"> <!-- GUD -->
-		<label class="col-xs-6 col-form-label">GUID</label>
-		<div class="col-xs-6">{{user.guid}}</div>
-	</div>
+<a routerLink="/">Go to list</a><br><br>
 
-	<div class="form-group row"> <!-- Customer UID -->
-		<label class="col-xs-6 col-form-label">Customer UID</label>
-		<div class="col-xs-6">{{user.uid}}</div>
-	</div>
-
-	<div class="form-group row"> <!-- First Name -->
-		<label class="col-xs-6 col-form-label">First Name</label>
-		<div class="col-xs-6">{{user.first_name}}</div>
-	</div>
-
-	<div class="form-group row"> <!-- Last Name -->
-		<label class="col-xs-6 col-form-label">Last Name</label>
-		<div class="col-xs-6">{{user.last_name}}</div>
-	</div>
-
-	<div class="form-group row"> <!-- E-mail -->
-		<label class="col-xs-6 col-form-label">E-mail</label>
-		<div class="col-xs-6">{{user.email}}</div>
-	</div>
-
-	<div class="form-group row"> <!-- Zip Code -->
-		<label class="col-xs-6 col-form-label">Zip Code</label>
-		<div class="col-xs-6">{{user.zipcode}}</div>
-	</div>
-
-	<div class="form-group row"> <!-- Password -->
-		<label class="col-xs-6 col-form-label">Password</label>
-		<div class="col-xs-6">{{user.password}}</div>
-	</div>
-
-</div>	
+<div class="detail" *ngIf="!showSpinner && user; else loading">
+  <img class="avatar" [src]="user.avatar">
+  <div class="info">
+    <h1 class="title">{{ user.first_name + ' ' + user.last_name }}</h1>
+    <p class="description">
+      {{ user.email }}
+    </p>
+  </div>
+</div>
+<ng-template #loading>
+    Loading...
+</ng-template>

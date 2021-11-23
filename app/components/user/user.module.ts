@@ -4,8 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UserComponent } from './user.component';
+import { UserListDataComponent } from './list-data/list-data.component';
 import { InputUserFormComponent } from './input-form/input-form.component';
 import { DisplayUserDataComponent } from './display-data/display-data.component';
+
+import { UserService } from './services/user.service';
 
 const routes: Routes = [
   {
@@ -30,13 +33,16 @@ const routes: Routes = [
   ],
   exports: [
     UserComponent,
+    UserListDataComponent,
     InputUserFormComponent,
     DisplayUserDataComponent
   ],
   declarations: [
     UserComponent,
+    UserListDataComponent,
     InputUserFormComponent,
     DisplayUserDataComponent
-  ]
+  ],
+  providers:[UserService]
 })
 export class UserModule { }

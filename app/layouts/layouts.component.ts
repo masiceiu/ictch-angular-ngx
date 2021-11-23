@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutsComponent implements OnInit {
 
-  constructor() { }
+  width = 250;
+  height = 250;
+  fixedHeight = 100;
+  cardHeader = 'Toggi';
+  showFooter = true;
+  constructor() { 
+    //this.cardHeader = 'Toggi';
+    //this.showFooter = true;
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+  }
 
   ngOnInit() {
   }
+  onWindowResize(event) {
+    this.width = event.target.innerWidth;
+    this.height = event.target.innerHeight;
+  }
+  /*get getHeight():number{ 
+    return this.height-((this.cardHeader?48:0)+(this.showFooter?48:0));
+  }*/
 
 }

@@ -1,14 +1,15 @@
 <ng-template #refContent>
-
+  <app-user-data></app-user-data>
 </ng-template>
 <ng-template #refIndex>
-
+  <app-user-form></app-user-form>
 </ng-template>
 
 <app-layout-default
-[cardHeader]="cardHeader"
-[refContent]="refContent"
-[refIndex]="refIndex"
-[maxHeight]="height - fixedHeight"
-[showFooter] = "true"
+  [cardHeader]="cardHeader"
+  [refContent]="refContent"
+  [refIndex]="refIndex"
+  [maxHeight]="height - fixedHeight"
+  [showFooter]="true"
 ></app-layout-default>
+<router-outlet *ngIf=""></router-outlet>

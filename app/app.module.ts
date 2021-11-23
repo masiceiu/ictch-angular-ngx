@@ -1,34 +1,27 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
-import 
-{
-
-} from './components/index';
-import 
-{ 
-} from './pages/index';
 
 @NgModule({
   declarations: [
     AppComponent
     ],
   imports: [
-    TypeaheadModule.forRoot(),
-    BsDropdownModule.forRoot(),
-    HttpClientModule,
-    BrowserAnimationsModule,
     CommonModule,
     FormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    BrowserModule
+    TypeaheadModule.forRoot(),
+    BsDropdownModule.forRoot(),
   ],
   entryComponents: [],
   bootstrap: [AppComponent]

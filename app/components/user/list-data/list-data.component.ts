@@ -19,25 +19,12 @@ export class UserListDataComponent implements OnInit {
   showSpinner = true;
   users;
   getUsers() {
-    /*
-    this.userService.getUsers()
-    .subscribe((res: any) => {
+    
+    this.userService.getUsers().subscribe
+    ((res: any) => {
       const newRes = res.data.concat(res.data);
       this.users = newRes;
       this.showSpinner = false;
-    });*/
-
-    this.users = [new UserInfoModel(
-      {
-        id: "1", 
-        guid: "D21ds12x", 
-        uid: "cust2dsa12dsa", 
-        first_name: "John", 
-        last_name: "Doe", 
-        email: "email@email.com", 
-        zipcode: 10283,
-        password: "Idasn2x2#"
-      })
-    ];
+    });
   }
 }

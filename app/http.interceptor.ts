@@ -13,11 +13,11 @@ export class HttpInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     switch(req.urlWithParams){
       case"/api/v1/generate_uid":
-      
-      break;
-      default:
         console.log('HTTP Request for ' + req.urlWithParams + ' is being responded to locally.');
         return observableOf(new HttpResponse({ body: { "items": ["hi there! I'm in your app intercepting your requests"] }, status: 200 }));
+      break;
+      default:
+        return next.handle(req);
     }
     // Or if you wanted to go to the network:
     // return next.handle(req);

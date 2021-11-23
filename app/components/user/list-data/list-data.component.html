@@ -3,7 +3,7 @@
   <li class="list-group-item" *ngFor="let user of users; let i = index">
     <a class="list-title" routerLink="/user/{{ user.id }}">
     {{ i+1 }}-) {{ user.first_name + ' ' + user.last_name }}</a>
-    <p class="list-description">{{ user.email }}</p>
+    <p class="">{{ user.email }}</p>
   </li>
 </ul>
 <ng-template #loading>
@@ -20,3 +20,4 @@
   <small>Donec id elit non mi porta.</small>
 </a>
 </div>
+<router-outlet></router-outlet>

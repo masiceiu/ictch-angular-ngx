@@ -5,16 +5,16 @@ import { Injectable, Inject } from '@angular/core';
 export class UserService {
   
   constructor(
-    @Inject('apiBaseUrl') private apiUrl,
+    @Inject('apiBaseUrl') private apiBaseUrl,
     private http: HttpClient
   ) { }
 
   getUsers() {
-    return this.http.get(`${this.apiUrl}/users?delay=2`);
+    return this.http.get(`${this.apiBaseUrl}/users?delay=2`);
   }
 
-  getUser(id) {
-    return this.http.get(`${this.apiUrl}/users/${id}?delay=2`);
+  getUser(id:any) {
+    return this.http.get(`${this.apiBaseUrl}/users/${id}?delay=2`);
   }
   /*
   repos;

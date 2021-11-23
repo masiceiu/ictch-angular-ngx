@@ -1,14 +1,18 @@
-<a routerLink="/">Go to list</a><br><br>
+<a routerLink="/" class="close" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</a>
 
-<div class="detail" *ngIf="!showSpinner && user; else loading">
-  <img class="avatar" [src]="user.avatar">
-  <div class="info">
-    <h1 class="title">{{ user.first_name + ' ' + user.last_name }}</h1>
-    <p class="description">
-      {{ user.email }}
-    </p>
-  </div>
-</div>
-<ng-template #loading>
-    Loading...
-</ng-template>
+<a routerLink="/" *ngIf="">Go to list</a>
+<ul class="list-unstyled">
+  <li class="media" *ngIf="!showSpinner && user; else loading">
+    <img [src]="user.avatar" class="mr-3 avatar align-self-center" alt="..." />
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{ user.first_name + ' ' + user.last_name }}</h5>
+      <small>{{ user.email }}</small>
+      <p class="mb-1">
+        Details Information.
+      </p>
+    </div>
+  </li>
+</ul>
+<ng-template #loading> Loading... </ng-template>

@@ -20,7 +20,7 @@ const routes: Routes = [
     component: InputUserFormComponent
   },
   {
-    path: 'user/:uid',
+    path: 'user/:id',
     component: DisplayUserDataComponent
   }
 ];

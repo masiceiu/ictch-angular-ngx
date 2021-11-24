@@ -11,9 +11,11 @@ export class SettingsService {
   private _config:any
   constructor(private http: HttpClient) { }
   load(): any {
-    this.http.get<any>('assets/config.json').subscribe(res =>
+    this.http.get<any>('./assets/config.json').subscribe(res =>
       {
         this._config = res;
+      },err=>{
+        console.log(err);
       });
     //return this.http.get<any>('/assets/config.json').subscribe(res =>{return res;});  
   }

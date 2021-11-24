@@ -37,7 +37,7 @@ export class DefaultLayoutComponent implements OnInit {
   get getHeight():number{ 
     return this.height-((this.cardHeader?48:0)+(this.showFooter?48:0));
   }
-  onWindowResize(event) {
+  onWindowResize(event:any) {
     this.width = event.target.innerWidth;
     this.height = event.target.innerHeight;
   }

@@ -37,6 +37,7 @@ export class DisplayUserDataComponent implements OnInit
   getUser(id:any) {
     this.showSpinner = true;
     this.userService.getUser(id).subscribe
+    this.userService.getUser(id).subscribe
     ((res: any) => {
       console.log(res);
       this.user = res.data;
@@ -44,7 +45,6 @@ export class DisplayUserDataComponent implements OnInit
     });
   }
   
-
 	private subscriber: any;
   getOneUser() {
     /*
@@ -53,14 +53,5 @@ export class DisplayUserDataComponent implements OnInit
        this.user = new UserInfoModel(data.customer);
      });
     });*/
-  }
-  getDetail() {
-    this.userService.getUsers().subscribe
-    ((res: any) => {
-      this.user = res.data;
-      this.showSpinner = false;
-    }, (err: any) => {
-      console.log(err);
-    });
   }
 }

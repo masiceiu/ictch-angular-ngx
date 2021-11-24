@@ -21,7 +21,7 @@ export class LayoutsComponent implements OnInit {
 
   ngOnInit() {
   }
-  onWindowResize(event) {
+  onWindowResize(event:any) {
     this.width = event.target.innerWidth;
     this.height = event.target.innerHeight;
   }

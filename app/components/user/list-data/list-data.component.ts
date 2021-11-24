@@ -17,7 +17,7 @@ export class UserListDataComponent implements OnInit {
   }
 
   showSpinner = true;
-  users;
+  users:any=[];
   getUsers() {
     
     this.userService.getUsers().subscribe

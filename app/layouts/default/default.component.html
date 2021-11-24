@@ -35,22 +35,22 @@
 <div class="card-footer py-1 px-2" *ngIf="showFooter">
   <ng-template #footerRef>
     <div class="flex-parent">
-      <div class="flex-child" style="text-align:left;" *ngIf="onClickL.observed">
+      <div class="flex-child" style="text-align:left;" *ngIf="onClickL.observers.length > 0">
       <a href (click)="_onClickL($event)">
           <i class="bi bi-chat-left-fill"></i>
         </a>
       </div>
-      <div class="flex-child" style="text-align:center;" *ngIf="onClickC.observed">
+      <div class="flex-child" style="text-align:center;" *ngIf="onClickC.observers.length > 0">
       <a href (click)="_onClickC($event)">
           <i class="bi bi-chat-square-fill"></i>
         </a>
       </div>
-      <div class="flex-child" style="text-align:right;" *ngIf="onClickR.observed">
+      <div class="flex-child" style="text-align:right;" *ngIf="onClickR.observers.length > 0">
         <a href (click)="_onClickR($event)">
           <i class="bi bi-chat-right-fill"></i>
         </a>
       </div>
-      <div class="flex-child" style="text-align:right;" *ngIf="onClick.observed">
+      <div class="flex-child" style="text-align:right;" *ngIf="onClick.observers.length > 0">
         <a href (click)="_onClick($event)">
           <i class="bi bi-check-lg"></i>
         </a>

@@ -5,7 +5,7 @@ import { Injectable, Inject } from '@angular/core';
 export class UserService {
   
   constructor(
-    @Inject('apiBaseUrl') private apiBaseUrl,
+    @Inject('apiBaseUrl') private apiBaseUrl:string,
     private http: HttpClient
   ) { }
 

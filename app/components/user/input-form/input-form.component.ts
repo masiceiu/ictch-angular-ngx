@@ -72,6 +72,7 @@ export class InputUserFormComponent implements OnInit {
   	else
   	{
   		let data: any = Object.assign({guid: this.guid}, this.userForm.value);
+      console.log(data);
       /*
   		this.http.post('/api/v1/customer', data).subscribe((data:any) => {
 	      

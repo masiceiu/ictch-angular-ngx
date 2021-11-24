@@ -19,12 +19,12 @@ export class AppComponent implements OnInit {
     //this.showFooter = true;
     this.width = window.innerWidth;
     this.height = window.innerHeight;
-    console.log("settingsService:",settingsService)
+    console.log("settingsService:",settingsService.config)
   }
 
   ngOnInit() {
   }
-  onWindowResize(event) {
+  onWindowResize(event:any) {
     this.width = event.target.innerWidth;
     this.height = event.target.innerHeight;
   }

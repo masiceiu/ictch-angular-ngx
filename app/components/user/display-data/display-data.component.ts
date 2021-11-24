@@ -12,33 +12,17 @@ import { UserService } from '../services/user.service';
 
 export class DisplayUserDataComponent implements OnInit
 {
- /*
-	user: UserInfoModel = new UserInfoModel({
-    id: "1", 
-    guid: "D21ds12x", 
-    uid: "cust2dsa12dsa", 
-    first_name: "John", 
-    last_name: "Doe", 
-    email: "email@email.com", 
-    zipcode: 10283,
-    password: "Idasn2x2#",
-    avatar: "https://avatars.githubusercontent.com/u/359395?v=4",
-  });*/
-
   showSpinner = true;
-  userId;
-  user;
+  user:any = {};
 
   constructor(
     private userService: UserService,
     private activatedRoute: ActivatedRoute
   ) {
-    console.log('err1');
    }
 
   ngOnInit() {
     this.subscriber = this.activatedRoute.params.subscribe(params => {
-      console.log(params.id);
       this.getUser(params.id);
     });
     /*
@@ -50,7 +34,7 @@ export class DisplayUserDataComponent implements OnInit
     //this.showSpinner = false;
     */
   }
-  getUser(id) {
+  getUser(id:any) {
     this.showSpinner = true;
     this.userService.getUser(id).subscribe
     ((res: any) => {

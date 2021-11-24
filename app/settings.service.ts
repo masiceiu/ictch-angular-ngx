@@ -9,7 +9,6 @@ interface Config {
 @Injectable()
 export class SettingsService {
   constructor(private http: HttpClient) { }
-
   load(): any {
     return this.http.get<any>('/assets/config.json')
       .subscribe(res =>{return res;});

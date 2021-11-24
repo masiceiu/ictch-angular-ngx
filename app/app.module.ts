@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +14,10 @@ import { AppComponent } from './app.component';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { DefaultLayoutComponent } from './layouts/default/default.component';
 
+import { SettingsService } from './settings.service';
+export function loadSettings(settings: SettingsService) {
+   return () => settings.load();
+}
 import { HttpInterceptor } from './http.interceptor';
 
 const routes: Routes = [
@@ -43,8 +47,10 @@ const routes: Routes = [
   entryComponents: [],
   bootstrap: [AppComponent],
   providers: [
+    SettingsService,
     { provide: 'apiBaseUrl', useValue: 'https://reqres.in/api' },
-    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptor, multi: true },
+    { provide: APP_INITIALIZER, useFactory: loadSettings, deps: [SettingsService], multi: true }
   ]
 })
 export class AppModule {

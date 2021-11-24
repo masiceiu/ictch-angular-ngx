@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 
+import { SettingsService } from './settings.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,11 +14,12 @@ export class AppComponent implements OnInit {
   fixedHeight = 100;
   cardHeader = 'Toggi';
   showFooter = true;
-  constructor() { 
+  constructor(private settingsService: SettingsService) {
     //this.cardHeader = 'Toggi';
     //this.showFooter = true;
     this.width = window.innerWidth;
     this.height = window.innerHeight;
+    console.log("settingsService:",settingsService)
   }
 
   ngOnInit() {

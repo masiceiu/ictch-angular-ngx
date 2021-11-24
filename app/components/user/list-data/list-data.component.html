@@ -1,4 +1,8 @@
-<h1>User Information</h1>
+<h1>Information</h1>
+<div class="sticky-top bg-secondary text-white">
+  <router-outlet></router-outlet>
+</div>
+
 <ul class="list-group list-group-flush" *ngIf="!showSpinner && users; else loading">
   <li class="list-group-item" *ngFor="let user of users; let i = index">
     <a class="list-title" routerLink="/user/{{ user.id }}">
@@ -20,4 +24,3 @@
   <small>Donec id elit non mi porta.</small>
 </a>
 </div>
-<router-outlet></router-outlet>

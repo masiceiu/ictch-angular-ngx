@@ -16,8 +16,24 @@ const routes: Routes = [
     component: UserComponent
   },
   {
-    path: 'user',
-    component: InputUserFormComponent
+    path: 'insert',
+    component: InputUserFormComponent,
+    outlet: 'index'   
+  },
+  {
+    path: 'update/:id',
+    component: DisplayUserDataComponent,
+    outlet: 'header1'   
+  },
+  {
+    path: 'selects',
+    component: UserListDataComponent,
+    outlet: 'content'   
+  },
+  {
+    path: 'select/:id',
+    component: DisplayUserDataComponent,
+    outlet: 'header1'   
   },
   {
     path: 'user/:id',

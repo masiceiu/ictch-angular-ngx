@@ -1,4 +1,16 @@
-<form class="p-3">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="p-3" >
+<div class="form-row">
+  <div class="form-group col-md-6" [ngClass]="{ 'has-error': invalidFirstName() }"> <!-- First Name -->
+    <label for="first_name" class="control-label">First Name</label>
+    <input type="text" formControlName="first_name" class="form-control" id="first_name" name="first_name" placeholder="first name">
+    <p *ngIf="invalidFirstName()" id="first_name_error" class="help-block">{{this.serviceErrors.first_name || 'Invalid first name.'}}</p>
+  </div>
+  <div class="form-group col-md-6" [ngClass]="{ 'has-error': invalidLastName() }"> <!-- Last Name -->
+    <label for="last_name" class="control-label">Last Name</label>
+    <input type="text" formControlName="last_name" class="form-control" id="last_name" name="last_name" placeholder="last name">
+    <p *ngIf="invalidLastName()" id="last_name_error" class="help-block">{{this.serviceErrors.last_name || 'Invalid last name.'}}</p>
+  </div>
+</div>
 <div class="form-row">
   <div class="form-group col-md-6">
     <label for="inputEmail4">Email</label>

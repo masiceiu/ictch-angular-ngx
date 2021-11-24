@@ -51,6 +51,7 @@ export class DisplayUserDataComponent implements OnInit
     */
   }
   getUser(id) {
+    this.showSpinner = true;
     this.userService.getUser(id).subscribe
     ((res: any) => {
       console.log(res);

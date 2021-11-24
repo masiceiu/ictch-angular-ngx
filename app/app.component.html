@@ -1,8 +1,10 @@
 <ng-template #refContent>
-  <app-user-list-data></app-user-list-data>
+  <app-user-list-data></app-user-list-data> 
+  <router-outlet *ngIf=""></router-outlet>
 </ng-template>
 <ng-template #refIndex>
   <app-user-form></app-user-form>
+  <router-outlet *ngIf=""></router-outlet>
 </ng-template>
 
 <app-layout-default

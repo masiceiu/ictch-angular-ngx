@@ -55,14 +55,14 @@ export class InputUserFormComponent implements OnInit {
   	this.userForm = this.formBuilder.group({
   		first_name: ['', [Validators.required, Validators.maxLength(50)]],
   		last_name: ['', [Validators.required, Validators.maxLength(50)]],
-  		email: ['', [Validators.required, Validators.email, Validators.maxLength(75)]],
-  		zipcode: ['', [Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')]],
-  		password: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
+  		/*zipcode: ['', [Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')]],
+  		password: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],*/
   	});
   }
 
   onSubmit()
   {
+    console.log("data",this.userForm.invalid);
   	this.submitted = true;
 
   	if(this.userForm.invalid == true)

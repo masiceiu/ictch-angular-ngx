@@ -11,7 +11,7 @@ export class AppService {
   constructor(private http: HttpClient) { 
     this.http.get<any>('/shared/data/config.json').subscribe(res =>
       {
-        console.log(res);
+          console.log(res);
       });
   }
 }

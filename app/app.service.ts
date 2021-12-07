@@ -19,7 +19,10 @@ export class AppService {
   load() {
     const jsonFile = `/assets/json/config.json`
     return new Promise<void>((resolve, reject) => { 
-        this.http
+      resolve();
+      console.log(response);
+      this._config = {};
+        /*this.http
             .get(jsonFile)
             .toPromise()
             .then((response: any) => {
@@ -34,7 +37,7 @@ export class AppService {
                         response
                     )}`
                 )
-            })
+            })*/
     })
   }
   get(url: string): any {

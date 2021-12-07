@@ -13,39 +13,48 @@ import { UserService } from './services/user.service';
 const routes: Routes = [
   {
     path: '',
-    component: UserComponent
+    component: UserComponent,
+    children:[
+      {
+        path: 'list',
+        component: UserListDataComponent
+      },
+      {
+        path: 'add',
+        component: InputUserFormComponent
+      },
+      {
+        path: 'add',
+        component: UserListDataComponent
+      },
+      {
+        path: 'edit/:id',
+        component: DisplayUserDataComponent
+      },
+      {
+        path: 'view/:id',
+        component: DisplayUserDataComponent,
+        //outlet:"view"
+      },
+      {
+        path: 'cancel/:id',
+        component: DisplayUserDataComponent
+      },
+      { path: '', redirectTo: 'list'},
+    ],
   },
-  {
-    path: 'insert',
-    component: InputUserFormComponent,
-    outlet: 'index'   
-  },
-  {
-    path: 'update/:id',
-    component: DisplayUserDataComponent,
-    outlet: 'header1'   
-  },
-  {
-    path: 'selects',
-    component: UserListDataComponent,
-    outlet: 'content'   
-  },
-  {
-    path: 'select/:id',
-    component: DisplayUserDataComponent,
-    outlet: 'header1'   
-  },
-  {
-    path: 'user/:id',
-    component: DisplayUserDataComponent
-  }
+  /*{
+    path: '',
+    component: UserComponent,
+    outlet:"index"
+  }*/
 ];
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ],
   exports: [
     UserComponent,

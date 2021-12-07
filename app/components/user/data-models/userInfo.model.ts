@@ -1,6 +1,6 @@
 export class UserInfoModel
 {
-  guid: string = "";
+	guid: string = "";
 	uid: string = "";
 	
 	first_name: string = "";
@@ -10,7 +10,6 @@ export class UserInfoModel
 	zipcode: string = "";
 
 	password: string = "";
-
 
 	constructor(obj: any = null)
 	{

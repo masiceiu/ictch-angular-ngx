@@ -10,7 +10,7 @@
   -ms-transform: translate(0, 0);
   -o-transform: translate(0, 0);
   transform: translate(0, 0);
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
   max-height: 250px;
   overflow: auto;
 }

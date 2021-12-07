@@ -1,8 +1,8 @@
-import { HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
-import { Observable, of as observableOf } from 'rxjs';
 import { Injectable, Injector } from '@angular/core';
-
-
+import { HttpRequest, 
+  HttpHandler, 
+  HttpEvent, HttpResponse } from '@angular/common/http';
+import { Observable, of as observableOf } from 'rxjs';
 
 @Injectable()
 export class HttpInterceptor implements HttpInterceptor {

@@ -25,6 +25,9 @@ export class DefaultLayoutComponent implements OnInit {
   width = 250;
   height = 250;
   fixedHeight = 100;
+  config = {
+    icon:["bi bi-microsoft","bi bi-grid-fill","chat-square-dots-fill","bi bi-filter-circle"], 
+    bg:["","bg-info text-white","bg-dark text-white"] }; 
   constructor() { 
     this.cardHeader = 'Toggi';
     this.showFooter = true;

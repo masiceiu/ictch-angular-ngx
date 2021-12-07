@@ -1,12 +1,15 @@
-<h1>Information</h1>
-
-<div class="sticky-top bg-secondary text-white">
-  <router-outlet></router-outlet>
+<div class="sticky-top m-n1">
+  <div class="border-bottom bg-light">
+  <div class="d-flex justify-content-between">
+    <div class=""><h3>Information</h3></div>
+    <div class=""></div>
+    <div class=""><a class="btn" routerLink="/user/add">Add New</a></div>
+  </div>
 </div>
-
+</div>
 <ul class="list-group list-group-flush" *ngIf="!showSpinner && users; else loading">
   <li class="list-group-item" *ngFor="let user of users; let i = index">
-    <a class="list-title" routerLink="/user/{{ user.id }}">
+    <a class="list-title" routerLink="/user/view/{{ user.id }}">
     {{ i+1 }}-) {{ user.first_name + ' ' + user.last_name }}</a>
     <p class="">{{ user.email }}</p>
   </li>
@@ -14,14 +17,3 @@
 <ng-template #loading>
   Loading...
 </ng-template>
-
-<div class="list-group" *ngIf="">
-<a href="#" class="list-group-item list-group-item-action active">
-  <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1">List group item heading</h5>
-    <small>3 days ago</small>
-  </div>
-  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-  <small>Donec id elit non mi porta.</small>
-</a>
-</div>

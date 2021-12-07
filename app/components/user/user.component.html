@@ -1,3 +1,10 @@
-<p *ngIf="">
-user works!
-</p>
+<div class="sticky-top" *ngIf="">
+  <div class="d-flex flex-wrap justify-content-end">
+    <div class="p-2">
+      <a class="btn btn-link" routerLink="/user/list">List View</a></div>
+    <div class="p-2">
+      <a class="btn btn-link" routerLink="/user/add">Add New</a>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

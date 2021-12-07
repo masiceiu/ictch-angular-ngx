@@ -12,6 +12,7 @@ import { UserService } from '../services/user.service';
 
 export class DisplayUserDataComponent implements OnInit
 {
+ 
   showSpinner = true;
   user:any = {};
 

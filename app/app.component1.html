@@ -1,0 +1,45 @@
+<ng-template #refHeader>
+    <div class="flex-parent">
+      <div class="flex-child" style="text-align:left;">
+        <h3 class="card-title m-0">{{cardHeader}}</h3>
+      </div>
+      <div class="flex-child" style="text-align:center;">
+        <a href (click)="false" *ngIf="">
+          <i class="bi bi-check-circle"></i>
+        </a>
+      </div>
+      <div class="flex-child" style="text-align:right;">
+        <a href (click)="false" *ngIf="">
+          <i class="bi bi-star"></i>
+        </a>
+      </div>
+      <div class="flex-child" style="text-align:right;">
+        <div class="navbar-action" >
+          <a class="p-1 dropdown-toggle nav-link" href="#!" id="profileDropdown" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="user-image"
+              src="https://lh3.googleusercontent.com/a-/AOh14GjwU0fBdQu0lUkJTpl9pA1dZ-Kw01fAe7ezoTb1eg=s96-c" alt="user" style="height: 28px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+            <li class="nav-item mx-0">
+              <a class="nav-link"  href="/accounts/profile/">Profile</a>
+            </li>
+            <li class="nav-item mx-0">
+              <a class="nav-link" href="/accounts/logout/"><span>Logout </span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #refContent>
+    <router-outlet></router-outlet>
+  </ng-template>
+  <ng-template #refIndex>
+    <router-outlet *ngIf=""></router-outlet>
+  </ng-template>
+  
+  <app-layout-default [refHeader]="refHeader" [refContent]="refContent" [refIndex]="refIndex"
+    [maxHeight]="height - fixedHeight" [showFooter]="true"></app-layout-default>
+  <router-outlet *ngIf=""></router-outlet>
+  

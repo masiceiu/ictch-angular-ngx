@@ -20,7 +20,6 @@ export class AppService {
     const jsonFile = `/assets/json/config.json`
     return new Promise<void>((resolve, reject) => { 
       resolve();
-      console.log(response);
       this._config = {};
         /*this.http
             .get(jsonFile)

@@ -11,7 +11,16 @@ export class ProfileComponent implements OnInit {
 
   title = "My Profile";
   constructor(private service:ProfileService) {
-      //console.log(this.service);
+    this.service.getAll().subscribe((res: any) => 
+    {
+      console.log(res);
+    });
+    /*
+      this.service.getAll().subscribe(res =>
+      {
+        console.log(res);
+      });
+      */
    }
 
   ngOnInit() {

@@ -10,11 +10,12 @@ export class ProfileService {
   ) { }
 
   getAll() {
-    return this.http.get(`${this.apiBaseUrl}/api/hgis/person`);
+    //console.log(`${this.apiBaseUrl}api/hgis/person`);
+    return this.http.get(`${this.apiBaseUrl}api/hgis/person`);
   }
 
   getOne(id:any) {
-    return this.http.get(`${this.apiBaseUrl}/api/hgis/person/${id}`);
+    return this.http.get(`${this.apiBaseUrl}api/hgis/person/${id}`);
   }
   /*
   repos;

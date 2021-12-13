@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
-import { UserInfoModel } from '../data-models/userInfo.model';
+//import { UserModel } from '../../../models/user/userl
+
+
 import { UserService } from '../services/user.service';
 
 @Component({

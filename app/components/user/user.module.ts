@@ -24,10 +24,6 @@ const routes: Routes = [
         component: InputUserFormComponent
       },
       {
-        path: 'add',
-        component: UserListDataComponent
-      },
-      {
         path: 'edit/:id',
         component: DisplayUserDataComponent
       },
@@ -40,9 +36,11 @@ const routes: Routes = [
         path: 'cancel/:id',
         component: DisplayUserDataComponent
       },
-      { path: '', redirectTo: 'list'},
+      { path: '', redirectTo: 'list', pathMatch:"full"},
+      //{ path: '**', component: UserComponent}
     ],
   },
+  //{ path: '**', component: UserComponent}
   /*{
     path: '',
     component: UserComponent,

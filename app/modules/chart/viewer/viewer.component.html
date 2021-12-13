@@ -1,0 +1,9 @@
+<div (swiperight)="goPrevPage()" (swipeleft)="goNextPage()" class="chart-container">
+    <div *ngIf="isPagination && paginationInfo?.isPrevPage" class="icon-arrow icon-arrow--left" (click)="goPrevPage()">
+      <i class="icon-arrow-down"></i>
+    </div>
+    <canvas #chartRef [class.grabbed]="isPagination"></canvas>
+    <div *ngIf="isPagination && paginationInfo?.isNextPage" class="icon-arrow icon-arrow--right" (click)="goNextPage()">
+      <i class="icon-arrow-down"></i>
+    </div>
+  </div>

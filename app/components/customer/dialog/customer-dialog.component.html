@@ -1,0 +1,15 @@
+<h1> {{ action === 'edit' ? 'Edit' : 'Add'}} Customer</h1>
+<div >
+    <form-field>
+        <label>First Name</label>
+        <input [(ngModel)]="customer.firstName">
+    </form-field>
+    <form-field>
+        <mat-label>Last Name</mat-label>
+        <input [(ngModel)]="customer.lastName">
+    </form-field>
+</div>
+<div>
+    <button (click)="onCancelClick()">Cancel</button> 
+    <button (click)="onOkClick()">Ok</button>
+</div>

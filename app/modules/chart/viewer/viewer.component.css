@@ -1,0 +1,55 @@
+/*mas
+:host .chart-container {
+    position: relative;
+    height: 350px;
+    width: 100%;
+  }
+  
+  :host .chart-container canvas {
+    background-color: lightgray;
+  }
+  */
+  /* :host .chart-container canvas.grabbed {
+    cursor: grab;
+  } */
+  
+  /* :host .chart-container canvas.grabbed:active {
+    cursor: default;
+  } */
+  
+  /* :host .icon-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    cursor: pointer;
+    font-size: 20px;
+  } */
+  
+  /* :host .icon-arrow--left {
+    left: 0;
+  }
+  
+  :host .icon-arrow--left:hover {
+    box-shadow: inset 28px 0 18px -17px #e0dada;
+  }
+  
+  :host .icon-arrow--left .icon-arrow-down {
+    transform: rotate(90deg);
+  }
+  
+  :host .icon-arrow--right {
+    right: 0;
+  }
+  
+  :host .icon-arrow--right:hover {
+    box-shadow: inset -28px 0 18px -17px #e0dada;
+  }
+  
+  :host .icon-arrow--right .icon-arrow-down {
+    transform: rotate(-90deg);
+  } */
+  

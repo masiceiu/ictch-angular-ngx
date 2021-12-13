@@ -15,14 +15,14 @@ import { LayoutsComponent } from './layouts/layouts.component';
 import { DefaultLayoutComponent } from './layouts/default/default.component';
 
 import { HttpInterceptor } from './http.interceptor';
-
-
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutsComponent,
-    DefaultLayoutComponent
+    DefaultLayoutComponent,
+    NotFoundComponent,
     ],
   imports: [
     CommonModule,

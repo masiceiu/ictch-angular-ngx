@@ -37,6 +37,16 @@
 </ng-template>
 <ng-template #refIndex>
   <router-outlet name="index"></router-outlet>
+  <div class="border-bottom bg-light">
+    <div class="d-flex justify-content-between">
+      <div class="pl-1">
+        <h5>Home</h5>
+      </div>
+      <div class=""><a class="btn btn-sm" routerLink="/user">User</a></div>
+      <div class=""><a class="btn btn-sm" routerLink="/product">Product</a></div>
+      <div class=""><a class="btn btn-sm" routerLink="/chart">Chart</a></div>
+    </div>
+  </div>
 </ng-template>
 <app-layout-default [refHeader]="refHeader" [refContent]="refContent" [refIndex]="refIndex"
   [maxHeight]="height - fixedHeight" [showFooter]="true"></app-layout-default>

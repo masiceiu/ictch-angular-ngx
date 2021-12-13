@@ -1,11 +1,13 @@
 <div class="sticky-top m-n1">
   <div class="border-bottom bg-light">
-  <div class="d-flex justify-content-between">
-    <div class=""><h3>Information</h3></div>
-    <div class=""></div>
-    <div class=""><a class="btn" routerLink="/user/add">Add New</a></div>
+    <div class="d-flex justify-content-between">
+      <div class="px-2 pt-2">
+        <h5>Information</h5>
+      </div>
+      <div class=""></div>
+      <div class=""><a class="btn btn-sm pt-2" routerLink="/user/add">Add New</a></div>
+    </div>
   </div>
-</div>
 </div>
 <ul class="list-group list-group-flush" *ngIf="!showSpinner && users; else loading">
   <li class="list-group-item" *ngFor="let user of users; let i = index">

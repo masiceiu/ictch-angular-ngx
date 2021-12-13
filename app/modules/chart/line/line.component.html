@@ -1,0 +1,17 @@
+<div class="container" *ngIf="">
+	<div class="d-flex">
+	  <div class="col">
+		<div class="card">
+		  <div class="card-body p-1 m-0">
+            <select class="form-control" *ngIf="">
+                <option *ngFor="let country of countries" [value]="country.name">
+                  {{country.name}}
+                </option>
+              </select>
+			<canvas id="myChart" #meuCanvas></canvas>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <canvas id="myChart" #meuCanvas></canvas>

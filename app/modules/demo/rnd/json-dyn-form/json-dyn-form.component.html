@@ -4,7 +4,7 @@
 
   <div [class]="prop.parentClass">
 
-    <label [for]="prop.id" [class]="prop.labelClass">{{prop.label}} :</label>
+    <label *ngIf="prop.type!='hidden'" [for]="prop.id" [class]="prop.labelClass">{{prop.label}} :</label>
 
     <div [ngSwitch]="prop.type">
 

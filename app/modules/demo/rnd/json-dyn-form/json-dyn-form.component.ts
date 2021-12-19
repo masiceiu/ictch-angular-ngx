@@ -126,7 +126,7 @@ export const inputData = {
   "id": "",
   "name": "",
   "type": "hidden",
-  "value": "",
+  "value": "?",
   "label": "",
   "labelClass": "",
   "labelOrientation": "left/right/top/bottom",
@@ -148,7 +148,7 @@ export const inputData = {
       "validation": {
 
        }
-  },
+  },/*
   "password" : {
   "id": "password",
   "name": "password",
@@ -457,5 +457,5 @@ export const inputData = {
           "required": true,
           "pattern":""
        }
-}
+}*/
 }

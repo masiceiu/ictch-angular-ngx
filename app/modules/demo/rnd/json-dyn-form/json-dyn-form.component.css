@@ -1,0 +1,5 @@
+.error { color: red; }
+    .labelTop { display: block; }
+.labelLeft {float:left;display:block;margin-right: 1em; }
+.input{display: block;}
+.inputLeft{display: inline-block;width: auto;}

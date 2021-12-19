@@ -1,0 +1,91 @@
+<form novalidate (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
+
+<div *ngFor="let prop of objectProps">
+
+  <div [class]="prop.parentClass">
+
+    <label [for]="prop.id" [class]="prop.labelClass">{{prop.label}} :</label>
+
+    <div [ngSwitch]="prop.type">
+
+      <input *ngSwitchCase="'text'" [class]="prop.class" [formControlName]="prop.key" [id]="prop.id" [type]="prop.type"
+        maxlength="{{prop.maxValue}}" pattern="{{prop.pattern}}"  minlength="{{prop.minValue}}" [placeholder]="prop.placeholder">
+
+      <input *ngSwitchCase="'number'" [class]="prop.class" [formControlName]="prop.key" [id]="prop.id" [type]="prop.type" min="0"
+        [maxlength]="prop.maxLength" [pattern]="prop.pattern" [minlength]="prop.minLength"
+        [placeholder]="prop.placeholder" (keydown)="validationCheck($event,number)">
+
+      <div *ngSwitchCase="'radio'" [class]="prop.class"  [id]="prop.id">
+        <label *ngFor="let option of prop.options">
+          <input type="radio" [name]="prop.key" [formControlName]="prop.key" [value]="option.value"> {{option.label}}
+        </label>
+      </div>
+
+        <select  *ngSwitchCase="'select'" [class]="prop.class" [formControlName]="prop.key" [id]="prop.id">
+          <option *ngFor="let option of prop.options" [value]="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+
+      <input *ngSwitchCase="'alpha'" [class]="prop.class" [formControlName]="prop.key" [id]="prop.id" [type]="prop.type"
+        [maxlength]="prop.maxLength" [pattern]="prop.pattern" [minlength]="prop.minLength"
+        onkeydown="return /[a-z]/i.test(event.key)" [placeholder]="prop.placeholder">
+
+      <input *ngSwitchCase="'alphaNumeric'" [class]="prop.class"  [formControlName]="prop.key" [id]="prop.id" [type]="prop.type"
+        [maxlength]="prop.maxLength" [pattern]="prop.pattern" [minlength]="prop.minLength"
+        [placeholder]="prop.placeholder" onkeydown="return /[a-z0-9]/i.test(event.key)">
+
+      <input *ngSwitchCase="'password'" [class]="prop.class" [formControlName]="prop.key" [id]="prop.id" [type]="prop.type"
+        [maxlength]="prop.maxLength" [pattern]="prop.pattern" [minlength]="prop.minLength"
+        [placeholder]="prop.placeholder">
+
+      <input *ngSwitchCase="'email'" [class]="prop.class" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type"
+        [maxlength]="prop.maxLength" [pattern]="prop.pattern" [minlength]="prop.minLength"
+        [placeholder]="prop.placeholder">
+
+      <input *ngSwitchCase="'tel'" [class]="prop.class" [formControlName]="prop.key" [id]="prop.id"
+        [type]="prop.type" [maxlength]="prop.maxLength" [pattern]="prop.pattern" [minlength]="prop.minLength"
+        [placeholder]="prop.placeholder" (input)="formatPhoneNumber($event.target)">
+
+      <input *ngSwitchCase="'date'"  [class]="prop.class" [formControlName]="prop.key" [id]="prop.id" [type]="prop.type"
+        [maxlength]="prop.maxLength" [pattern]="prop.pattern" [minlength]="prop.minLength"
+        [placeholder]="prop.placeholder">
+
+      <input *ngSwitchCase="'time'" [class]="prop.class" [formControlName]="prop.key" [id]="prop.id" [type]="prop.type"
+        [maxlength]="prop.maxLength" [pattern]="prop.pattern" [minlength]="prop.minLength"
+        [placeholder]="prop.placeholder">
+
+      <input *ngSwitchCase="'datetime-local'"  [class]="prop.class" [formControlName]="prop.key" [id]="prop.id" [type]="prop.type"
+        [maxlength]="prop.maxLength" [pattern]="prop.pattern" [minlength]="prop.minLength"
+        [placeholder]="prop.placeholder">
+    </div>
+  </div>
+
+  <div class="error" *ngIf="form.get(prop.key).invalid &&  (form.get(prop.key).dirty || form.get(prop.key).touched)">
+
+    <div *ngIf="form.get(prop.key).errors.required">
+      {{ prop.label }} is required.
+    </div>
+
+    <div *ngIf="form.get(prop.key).errors.minlength">
+      {{ prop.minLength }}
+    </div>
+
+    <div *ngIf="form.get(prop.key).errors.maxlength">
+      {{ prop.maxLength}}
+    </div>
+
+    <div *ngIf="form.get(prop.key).errors.pattern">
+      {{ prop.patternMsg}}
+    </div>
+
+  </div>
+</div>
+<p>
+  <button type="submit">Save</button>
+</p>
+</form>
+  <hr />
+  <strong>Form Value</strong>
+  <pre>{{ form.value | json }}</pre>
+  <strong>Form is valid:</strong> {{form.valid}}

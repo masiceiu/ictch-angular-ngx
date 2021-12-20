@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class PlayMediaComponent implements OnInit {
   
 
-  public audio = new Audio("https://docs.google.com/uc?download=open&id=1sqF1T_hf-Ci0f3gKrO4dsjWxykDxdQ_Y");
+  public audio = new Audio("https://docs.google.com/uc?download=open&id=16OUadcimdV65yvigTuhqrWo51EURaO-a");
+  public audio2 = new Audio("https://docs.google.com/uc?download=open&id=1sqF1T_hf-Ci0f3gKrO4dsjWxykDxdQ_Y");
   constructor() { }
-
+  //https://drive.google.com/file/d//view?usp=sharing
   ngOnInit() {
     let track_list = [
       {

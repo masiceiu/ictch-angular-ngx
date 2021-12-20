@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, BehaviorSubject } from 'rxjs';
-import { StreamState } from '../stream-state';
 import { takeUntil } from 'rxjs/operators';
 import * as moment from 'moment';
 
@@ -24,7 +23,7 @@ export class AudioService {
     'loadedmetadata',
     'loadstart',
   ];
-  private state: StreamState = {
+  private state: MediaState = {
     playing: false,
     readableCurrentTime: '',
     readableDuration: '',
@@ -97,7 +96,7 @@ export class AudioService {
     return moment.utc(momentTime).format(format);
   }
 
-  private stateChange: BehaviorSubject<StreamState> = new BehaviorSubject(this.state);
+  private stateChange: BehaviorSubject<MediaState> = new BehaviorSubject(this.state);
 
   private updateStateEvents(event: Event): void {
     switch (event.type) {

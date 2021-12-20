@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class PlayMediaComponent implements OnInit {
   
 
-  public audio = new Audio("https://docs.google.com/uc?download=open&id=16OUadcimdV65yvigTuhqrWo51EURaO-a");
+  public audio = new Audio("https://docs.google.com/uc?download=open&id=1J-egV0_CTEVqWOgrPCMV3BBZXWPR-dIs");
+  public audio1 = new Audio("https://docs.google.com/uc?download=open&id=16OUadcimdV65yvigTuhqrWo51EURaO-a");
   public audio2 = new Audio("https://docs.google.com/uc?download=open&id=1sqF1T_hf-Ci0f3gKrO4dsjWxykDxdQ_Y");
+  
   constructor() {
       //this.audio.load();
    }

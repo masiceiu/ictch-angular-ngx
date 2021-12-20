@@ -1,0 +1,41 @@
+<div class="text-center">
+  <div class="player-container">
+    <div class="">
+      <a 
+        class="play-btn"
+        *ngIf="!state?.playing"
+        (click)="play()"
+      >
+      <!--[disabled]="state?.error" -->
+      <i class="bi bi-play-circle"></i>
+      </a>
+      <a class="play-btn" *ngIf="state?.playing" (click)="pause()">
+        <i class="bi bi-pause-circle"></i>
+      </a>
+    </div>
+    <div class="">
+      <input type="range" *ngIf=""
+        class="time-slider"
+        min="0"
+        [max]="state?.duration"
+        color="primary"
+        step="1"
+        [value]="state?.currentTime"
+        (input)="onSliderChangeEnd($event)"
+      />
+      <!--[disabled]="state?.error" -->
+      <div class="time-container">
+        <span class="time-value text-left">{{ state?.readableCurrentTime }}</span>
+        <span class="time-value text-right">{{ state?.readableDuration }}</span>
+      </div>
+    </div>
+    <div class="">
+      <a class="vol-btn" *ngIf="!state?.mute" (click)="mute()">
+        <i class="bi bi-volume-up"></i>
+      </a>
+      <a mat-icon-button class="vol-btn" *ngIf="state?.mute" (click)="unmute()">
+        <i class="bi bi-volume-off"></i>
+      </a>
+    </div>
+  </div>
+</div>

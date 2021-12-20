@@ -10,7 +10,9 @@ export class PlayMediaComponent implements OnInit {
 
   public audio = new Audio("https://docs.google.com/uc?download=open&id=16OUadcimdV65yvigTuhqrWo51EURaO-a");
   public audio2 = new Audio("https://docs.google.com/uc?download=open&id=1sqF1T_hf-Ci0f3gKrO4dsjWxykDxdQ_Y");
-  constructor() { }
+  constructor() {
+      //this.audio.load();
+   }
   //https://drive.google.com/file/d//view?usp=sharing
   ngOnInit() {
     let track_list = [
@@ -34,5 +36,28 @@ export class PlayMediaComponent implements OnInit {
   stop(): void {
     this.audio.pause();
   }
+
+
   //https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio
+  playlist = [
+    {
+      title: "Tha Kar ke",
+      link: "https://funksyou.com/fileDownload/Songs/128/13080.mp3"
+    },
+    {
+      title: "Golmal",
+      link: "https://funksyou.com/fileDownload/Songs/128/13091.mp3"
+    }
+  ];
 }
+
+/*
+https://stackoverflow.com/questions/44883501/play-sound-in-angular-4
+playAudio(){
+  let audio = new Audio();
+  audio.src = "../../../assets/audio/alarm.wav";
+  audio.load();
+  audio.play();
+}
+this.playAudio();
+*/

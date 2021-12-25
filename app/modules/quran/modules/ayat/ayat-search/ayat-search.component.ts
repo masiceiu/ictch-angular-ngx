@@ -63,14 +63,24 @@ export class AyatSearchComponent implements OnInit {
   ayatIndexs: any[] = [];
 
   spin = false;
-  isSuraSearch = false;
+  //isSuraSearch = false;
   isSearchLoading = false;
   currentPage = 2;
 
-  groups: any[];
+  groups: any[] = [];
 
-  ayatGroups: any[];
+  ayatGroups: any[] = [];
   ayat_groups_key = "ayat_groups_key";
+  star_ayats: any = {};
+  star_ayats_key = "ayat_star_key";
+  /*ayat_stars: any[];
+  ayat_stars_key = "ayat_star_key";
+  ayatGroup: any = {};
+  ayat_group_key = "ayat_group_key";
+  ayatGroups: any[];
+  ayat_groups_key = "ayat_groups_key";*/
+  ayat_searchs: any[] = [];
+  ayat_search_key = "ayat_search_key";
   constructor(
     private ayatService: AyatService,
     private googleService: GoogleService,
@@ -90,16 +100,6 @@ export class AyatSearchComponent implements OnInit {
       { id:"b", name:"Group Emoji Smile", icon:"emoji-smile", ayats:{} }
     ];
   }
-  star_ayats: any = {};
-  star_ayats_key = "ayat_star_key";
-  /*ayat_stars: any[];
-  ayat_stars_key = "ayat_star_key";
-  ayatGroup: any = {};
-  ayat_group_key = "ayat_group_key";
-  ayatGroups: any[];
-  ayat_groups_key = "ayat_groups_key";*/
-  ayat_searchs: any[] = [];
-  ayat_search_key = "ayat_search_key";
   ngOnInit() {
     this.audioService.play();
     let translates = this.ayatModel.getTranslateList();
@@ -252,7 +252,7 @@ export class AyatSearchComponent implements OnInit {
     //console.log($event, key,this.scrollableItems,item);
     item.scrollIntoView();
   }
-  onSelect($event: any, switch_on:string): void {
+  onSelect($event: any, switch_on:string = ""): void {
     switch (switch_on) {
       case '':
         $event.preventDefault();
@@ -302,7 +302,7 @@ export class AyatSearchComponent implements OnInit {
         break;
       }  
   }  
-  @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;
+  @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective> = new QueryList<PopoverDirective>();
   onShow(): void {
     //console.log();
     //this.selected = $event;
@@ -398,9 +398,9 @@ export class AyatSearchComponent implements OnInit {
         item: data.item
         }
         setTimeout(() => { 
-          this.isSuraSearch = true;
+          //this.isSuraSearch = true;
           this.onClick(data.$event,'search');
-          this.isSuraSearch = false;
+          //this.isSuraSearch = false;
         },500);
         //this.dataSync.next('hide');
         break;

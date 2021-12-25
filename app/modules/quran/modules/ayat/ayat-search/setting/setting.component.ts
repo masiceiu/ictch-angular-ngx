@@ -33,18 +33,18 @@ export class SettingComponent implements OnInit {
   private getInputs() {
 
     const inputs: InputBase<string>[] = [
-      /*
+      /**/
       new DropdownInput({
-        key: 'brave',
-        label: 'Bravery Rating',
+        key: 'key1',
+        label: 'value-1',
         options: [
-          {key: 'solid',  value: 'Solid'},
-          {key: 'great',  value: 'Great'},
-          {key: 'good',   value: 'Good'},
-          {key: 'unproven', value: 'Unproven'}
+          {key: 'key1',  value: 'value-1'},
+          {key: 'key2',  value: 'value-2'},
+          {key: 'key3',   value: 'value-3'},
+          {key: 'key4', value: 'value-4'}
         ],
         order: 3
-      }),*/
+      }),
       
       new TextboxInput({
         key: 'atext',

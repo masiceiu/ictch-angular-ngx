@@ -13,7 +13,8 @@ export class AudioService{
   public play(){
     let audio = new Audio();
     audio.src = 'https://verses.quran.com/Alafasy/mp3/001001.mp3';
-    audio.play();audio.onprogress = (v) => {
+    audio.play();
+    audio.onprogress = (v) => {
       const timeRanges = audio.buffered;
       if (timeRanges.length > 0) {
         const index = timeRanges.length - 1;

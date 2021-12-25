@@ -239,8 +239,8 @@ export class AyatSearchComponent implements OnInit {
   onOpenChange(data: boolean): void {
     console.log(data);
   }
-  @ViewChildren(ScrollableItemDirective) scrollableItems: QueryList<ScrollableItemDirective>
-  public handleScrollClick($event:any, key: string) {
+  @ViewChildren(ScrollableItemDirective) scrollableItems!: QueryList<ScrollableItemDirective>
+  public handleScrollClick($event:any, key: any) {
     $event.preventDefault();
     this.popovers.forEach((popover: PopoverDirective) => {
       if(popover.isOpen){
@@ -248,9 +248,11 @@ export class AyatSearchComponent implements OnInit {
       }
     });
     const item = this.scrollableItems.find(x => x.key.startsWith(key));
-    console.log(this.popovers.length);
+    if(item){
+      item.scrollIntoView();
+    }
+    //console.log(this.popovers.length);
     //console.log($event, key,this.scrollableItems,item);
-    item.scrollIntoView();
   }
   onSelect($event: any, switch_on:string = ""): void {
     switch (switch_on) {

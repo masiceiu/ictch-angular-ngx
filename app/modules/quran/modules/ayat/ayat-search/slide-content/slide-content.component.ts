@@ -75,11 +75,13 @@ export class SlideContentComponent implements OnInit {
       return key;
     });
   }
-  @ViewChildren(ScrollableItemDirective) scrollableItems: QueryList<ScrollableItemDirective>
+  @ViewChildren(ScrollableItemDirective) scrollableItems!: QueryList<ScrollableItemDirective>
   public handleScrollClick($event:any, key: string) {
     $event.preventDefault();
     //console.log($event, key);
     const item = this.scrollableItems.find(x => x.key.startsWith(key))
-    item.scrollIntoView();
+    if(item){
+      item.scrollIntoView();
+    }
   }
 }

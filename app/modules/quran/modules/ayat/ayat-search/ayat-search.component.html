@@ -180,6 +180,10 @@
 			</a>
 		</div>
 
+		<audio #audio>
+			<source [src]="audioPath" type="audio/mp3">
+		</audio>
+		
 		<app-slide-content [data]="ayatIndexs" (onItemClick)="onClick($event.data,$event.switch_on)" [maxHeight]="height-fixedHeight"></app-slide-content>
 
 		<ng-template #refMoreSub>

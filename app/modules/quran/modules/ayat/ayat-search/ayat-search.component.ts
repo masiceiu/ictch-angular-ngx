@@ -1,4 +1,4 @@
-import { Component, OnInit, QueryList, ViewChild, ViewChildren, ɵConsole } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren, ɵConsole } from '@angular/core';
 import {Subject, Observer, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -20,7 +20,7 @@ from '../../../shared/directives/scrollable-item.directive';
   styleUrls: ['./ayat-search.component.css'],
   host: {"(window:resize)":"onWindowResize($event)" }
 })
-export class AyatSearchComponent implements OnInit {
+export class AyatSearchComponent implements OnInit, AfterViewInit {
   
   width = 250;
   height = 250;
@@ -81,6 +81,8 @@ export class AyatSearchComponent implements OnInit {
   ayat_groups_key = "ayat_groups_key";*/
   ayat_searchs: any[] = [];
   ayat_search_key = "ayat_search_key";
+  audioPath = "https://verses.quran.com/Alafasy/mp3/001001.mp3";
+  @ViewChild('audio') audio!: ElementRef;
   constructor(
     private ayatService: AyatService,
     private googleService: GoogleService,
@@ -101,7 +103,7 @@ export class AyatSearchComponent implements OnInit {
     ];
   }
   ngOnInit() {
-    this.audioService.play();
+    /this.audioService.play();
     let translates = this.ayatModel.getTranslateList();
     this.translates = translates;
     this.translate = translates[10];
@@ -193,6 +195,29 @@ export class AyatSearchComponent implements OnInit {
     },1000)
     
     this.init();
+  }
+  ngAfterViewInit(): void {
+    this.audio.nativeElement.play();
+    //console.log("..."); autoplay loop 
+    /*
+    var audioElement2 = document.createElement('audio');
+    audioElement2.setAttribute('src', 'notify.wav');
+    audioElement2.setAttribute('autoplay', 'autoplay');
+    audioElement2.Play(); 
+    */
+    /*this.text.nativeElement.innerHTML = `autoplay: ${
+      this.audio.nativeElement.autoplay ? 'on' : 'off'
+    } loop: ${this.audio.nativeElement.loop} muted: ${
+      this.audio.nativeElement.muted
+    }`;*/
+    //loop="loop"
+    //this.audio.nativeElement.loop=true;
+    //this.btn.nativeElement.click();
+    //this.audio.nativeElement.play();
+    /*audioElement.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);*/
   }
   onWindowResize(event) {
     this.width = event.target.innerWidth;

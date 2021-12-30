@@ -103,7 +103,7 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
     ];
   }
   ngOnInit() {
-    /this.audioService.play();
+    //this.audioService.play();
     let translates = this.ayatModel.getTranslateList();
     this.translates = translates;
     this.translate = translates[10];

@@ -1,3 +1,18 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <button (click)="myFunction('https://youtu.be/dXhzHxzjeMQ')">Try it open</button>
+    </div>
+		
+		<div class="col-xs-12">
+			<video width="320" height="240" controls #videoPlayer [src]="'https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z'" ></video>
+	</div>
+			<div class="col-xs-12">
+			<video id="my_video_1" width="600" height="400" controls>
+				<source src="https://docs.google.com/uc?export=open&id=1VckhR883l1rQtf_stHop9dwCeTeODjSd" type='video/mp4' ></video>
+    </div>
+  </div>
+</div>
 <div id="instructions">
 	<video id="my_video_1" width="600" height="400" controls>
 		<source src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2.mp4?raw=true" type='video/mp4' />

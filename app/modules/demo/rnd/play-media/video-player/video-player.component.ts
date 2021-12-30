@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 
 @Component({
   selector: 'app-video-player',
@@ -8,10 +8,13 @@ import { Component, ViewChild, ElementRef } from "@angular/core";
 export class VideoPlayerComponent implements OnInit {
 
   constructor() { }
-
+  myFunction(url) {
+    window.open(url,"","width=audio,height=245");
+  }
   ngOnInit() {
   }
   name = "Angular";
+  //https://drive.google.com/file/d/1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z/view?usp=sharing
   @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
   isPlay: boolean = false;
   toggleVideo(event: any) {

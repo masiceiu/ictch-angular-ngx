@@ -242,8 +242,8 @@
 					<app-search-ayat [config]="config"	
 					[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}" 
 					(starClick)="onClick($event.data,$event.switch_on)" [refMore]="refMoreSub" 
-					(leftClick)="idata=(idata-0+1)"
-					(rightClick)="idata=(idata-0-1)" ></app-search-ayat>
+					(leftClick)="idata=(idata-0-1)"
+					(rightClick)="idata=(idata-0+1)" ></app-search-ayat>
 				</ng-container>	
 				</div>
 			</div>

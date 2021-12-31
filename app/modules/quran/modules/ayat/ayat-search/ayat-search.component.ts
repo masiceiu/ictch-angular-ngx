@@ -472,13 +472,13 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
             console.log(key,star_val[key]);
           });*/
         break;
-        case 'ayat-left':
+        case 'ayat-right':
           data.$event.preventDefault();
           this.idata = data.item.index;
           this.dataSync.next("");
           //console.log(data);
-          break;          
-        case 'ayat-right':
+          break;
+          case 'ayat-left':          
           data.$event.preventDefault();
           this.idata = data.item.index-2;
           this.dataSync.next("");

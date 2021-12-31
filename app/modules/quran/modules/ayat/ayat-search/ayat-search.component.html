@@ -256,7 +256,7 @@
 		<app-side-slider [positionTop]="-35" [hideToggleIcon]="true" [refTemplate]="tprSync" [dataSync]="dataSync"></app-side-slider>
 </div>
 <div class="col-12 p-0">
-	<div class="scroller" style="max-height:{{height-fixedHeight}}px">
+	<div class="scroller" [ngStyle]="{'max-height':(height-fixedHeight)+'px'}">
 				<div class="list-group-item text-center" *ngIf="config.isSuraSearch && ayatList?.length">
 				<h6 class="mb-1">"Al-Qur'an (Sura:&nbsp;{{ayatList[0]?.sura}}.{{ayatList[0]?.stext}},
 					Ayat:&nbsp;{{ayatList?.length}})"</h6>

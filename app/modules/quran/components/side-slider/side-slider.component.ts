@@ -13,7 +13,7 @@ export class SideSliderComponent implements OnInit {
   @Input() icon = "";
   @Input() iconMarginTop = 0;
   @Input() hideToggleIcon = false;
-  @Input() refTemplate: TemplateRef<any>;
+  @Input() refTemplate!: TemplateRef<any>;
   @Input() dataSync = new Subject<string>();
   //@Output() onItemClick = new EventEmitter<any>();
   /*@ViewChild('templateRef', { read: TemplateRef }) templateRef:TemplateRef<any>;
@@ -23,7 +23,7 @@ export class SideSliderComponent implements OnInit {
     this.vref.createEmbeddedView(this.templateRef);
   }*/
   @HostListener('document:click', ['$event'])
-  clickout(event) {
+  clickout(event:any) {
     if(this.eRef.nativeElement.contains(event.target)) {
       //this.text = "clicked inside";
     } else {

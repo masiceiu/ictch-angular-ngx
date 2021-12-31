@@ -34,6 +34,7 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
     aShow:true,//
     mShow:true,//
     eShow:true,//
+    isSuraSearch: false,
   };
   rangeMin = 0
   rangeMax = 30

@@ -9,7 +9,7 @@ export class SearchContentComponent implements OnInit {
 
   @Input() data:any = {};
   @Input() config:any = {};
-  @Input() refMore: TemplateRef<any>;
+  @Input() refMore!: TemplateRef<any>;
   @Output() onItemClick = new EventEmitter<any>();
   constructor() { }
 

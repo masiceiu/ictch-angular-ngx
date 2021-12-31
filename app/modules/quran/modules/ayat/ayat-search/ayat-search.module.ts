@@ -20,7 +20,7 @@ import { SettingComponent } from './setting/setting.component';
 
 import { AyatSearchComponent } from './ayat-search.component';
 
-import { AyatContentComponent } from './ayat-content/ayat-content.component';
+import { SearchAyatComponent } from './search-ayat/search-ayat.component';
 import { IndexContentComponent } from './index-content/index-content.component';
 import { SearchContentComponent } from './search-content/search-content.component';
   
@@ -45,7 +45,7 @@ import { SearchContentComponent } from './search-content/search-content.componen
     ConfigComponent,
     SettingComponent,
     AyatSearchComponent,
-    AyatContentComponent,
+    SearchAyatComponent,
     IndexContentComponent,
     SearchContentComponent
   ]

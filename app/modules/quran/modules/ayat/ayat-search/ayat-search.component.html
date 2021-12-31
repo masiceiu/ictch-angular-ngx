@@ -212,7 +212,7 @@
 			</div>
 		</ng-template>
 		<ng-template #tprStar>
-			<div class="scroller" style="max-height:{{height-fixedHeight}}px">				
+			<div class="scroller" [ngStyle]="{'max-height':(height-fixedHeight)+'px'}">				
 				<div class="list-group">	
 					<ng-container *ngFor="let it of map(star_ayats); let i = index;">
 						<app-search-content [config]="config"	
@@ -236,7 +236,7 @@
 		</div>	
 
 		<ng-template #tprSync>
-			<div class="scroller" style="max-height:{{height-fixedHeight}}px">			
+			<div class="scroller" [ngStyle]="{'max-height':(height-fixedHeight)+'px'}">			
 				<div class="list-group" *ngIf="(ayatAll.length && idata)">	
 				<ng-container *ngFor="let it of [ayatAll[idata]];">
 					<app-search-ayat [config]="config"	

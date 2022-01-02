@@ -21,7 +21,6 @@ export class ProfileService {
     return this.http.get(`${this.apiBaseUrl}api/hgis/person/${id}`);
   }
   postImg(payload:FormData) {
-  
    return this.http
       .post(`https://srinu.org/Api.php?apicall=upload_sub_cat`,
         payload, {

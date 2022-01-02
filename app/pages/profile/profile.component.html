@@ -1,56 +1,85 @@
-<header class="d-flex flex-column flex-md-row p-3 border-bottom shadow-sm align-items-center">
-<h5 class="h5 font-weight-normal mr-md-auto">My Angular</h5>
-<nav>
-  <a href="/" class="p-2 text-dark">Home</a>
-  <a href="/profile" class="p-2 text-dark">Profile</a>
-</nav>
+<header
+  class="
+    d-flex
+    flex-column flex-md-row
+    p-3
+    border-bottom
+    shadow-sm
+    align-items-center
+  "
+>
+  <h5 class="h5 font-weight-normal mr-md-auto">My Angular</h5>
+  <nav>
+    <a href="/" class="p-2 text-dark">Home</a>
+    <a href="/profile" class="p-2 text-dark">Profile</a>
+  </nav>
 </header>
 <main class="container">
-<div class="page-header px-3 py-3 mx-auto text-center">
-  <h3 class="font-weight-normal text-center">{{title}}</h3>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-md-9">
-    <table>
-      <tbody>
-        <tr>
-          <td colspan="3">
-            <h3 class="h3">Md. Abdus Sobhan</h3>
-          </td>
-        </tr>
-        <tr>
-          <td width="58px">Email</td>
-          <td width="1%"><span style="padding-right:5px">:</span></td>
-          <td>masiceiu@gmail.com</td>
-        </tr>
-        <tr>
-          <td>Mobile</td>
-          <td>:</td>
-          <td>01724299726</td>
-        </tr>
-        <tr>
-          <td>Address</td>
-          <td>:</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>AToken</td>
-          <td>:</td>
-          <td>344ee94b2768aec2121193d351c821e251ef8a29</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="page-header px-3 py-3 mx-auto text-center">
+    <h3 class="font-weight-normal text-center">{{ title }}</h3>
   </div>
-  <div class="col-xs-12 col-md-3 " align="center">
-    <!--ajax-dialog-->
-    <div style="width: 150px; height: 160px;">
-      <img data-holder-rendered="true" src="http://ictcarehome.com/uploads/profile_images/55c03b60d9be9.jpg"
-        style="width: 150px; height: 160px;" data-src="holder.js/200x200" class="img-thumbnail" alt="Photo">
-      <a id="change_photo2" href="http://ictcarehome.com/index.php/account/change_photo" class="change_photo "><i
-          class="fa fa-camera">&nbsp;</i>Update Photo.</a>
+  <div class="row">
+    <form (ngSubmit)="onSubmit()">
+      <input type="hidden" name="size" value="1000000" />
+      <div>
+        <input type="file" name="image" (change)="onFileSelected($event)" />
+      </div>
+      <div>
+        <input id="textauthor" name="name" placeholder="Name" />
+        <button type="submit" name="upload">POST</button>
+      </div>
+    </form>
+    <div class="col-xs-12 col-md-9">
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3">
+              <h3 class="h3">Md. Abdus Sobhan</h3>
+            </td>
+          </tr>
+          <tr>
+            <td width="58px">Email</td>
+            <td width="1%"><span style="padding-right:5px">:</span></td>
+            <td>masiceiu@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Mobile</td>
+            <td>:</td>
+            <td>01724299726</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>:</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>AToken</td>
+            <td>:</td>
+            <td>344ee94b2768aec2121193d351c821e251ef8a29</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-  <!--
+    <div class="col-xs-12 col-md-3" align="center">
+      <!--ajax-dialog-->
+      <div style="width: 150px; height: 160px;">
+        <img
+          data-holder-rendered="true"
+          src="http://ictcarehome.com/uploads/profile_images/55c03b60d9be9.jpg"
+          style="width: 150px; height: 160px;"
+          data-src="holder.js/200x200"
+          class="img-thumbnail"
+          alt="Photo"
+        />
+        <a
+          id="change_photo2"
+          href="http://ictcarehome.com/index.php/account/change_photo"
+          class="change_photo"
+          ><i class="fa fa-camera">&nbsp;</i>Update Photo.</a
+        >
+      </div>
+    </div>
+    <!--
   <div class="col-md-12 col-xs-12">
     <span class="pull-right edit-profile"><a id="basic" class="edit" href="#">Cancel</a></span>
     <fieldset>
@@ -111,27 +140,27 @@
   </div>
   <div class="clarefix">&nbsp;</div>-->
 
-  <div class="col-md-12 col-md-12"><span class="pull-right edit-profile"><a id="obj" class="edit"
-        href="#">Cancel</a></span>
-    <fieldset>
-      <legend>Objective</legend>
-      <div class="view-obj" style="display: none;"></div>
-      <div class="edit-obj" style="">
+    <div class="col-md-12 col-md-12">
+      <span class="pull-right edit-profile"
+        ><a id="obj" class="edit" href="#">Cancel</a></span
+      >
+      <fieldset>
+        <legend>Objective</legend>
+        <div class="view-obj" style="display: none;"></div>
+        <div class="edit-obj" style=""></div>
+        <!--<span class="pull-right"><a id="cancel" href="#">Cancel</a></span>To be a successful Software Engineering that involves professional challenges, appreciates handwork and integrity in carrying out responsibilities.-->
+      </fieldset>
+    </div>
 
-      </div>
-      <!--<span class="pull-right"><a id="cancel" href="#">Cancel</a></span>To be a successful Software Engineering that involves professional challenges, appreciates handwork and integrity in carrying out responsibilities.-->
-    </fieldset>
-  </div>
-
-  <div class="col-md-12 col-xs-12">
-    <fieldset>
-      <legend>Employment History</legend>
-      <!--<p><strong>Sr. Software Engineer(Continue) </strong></p>
+    <div class="col-md-12 col-xs-12">
+      <fieldset>
+        <legend>Employment History</legend>
+        <!--<p><strong>Sr. Software Engineer(Continue) </strong></p>
             <p>Grameen Solutions Ltd</p>
           <p><em>Mirpur-2, Dhaka.</em></p>-->
-    </fieldset>
-  </div>
-  <!--
+      </fieldset>
+    </div>
+    <!--
     <div class="col-md-12 col-xs-12">&nbsp;</div>
 
   <div class="col-md-12 col-xs-12">
@@ -141,7 +170,7 @@
     </fieldset>
   </div>
   <div class="col-md-12 col-xs-12">&nbsp;</div>-->
-</div>
+  </div>
 </main>
 <!--
 <div (collapsed)="collapsed($event)"

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 declare var EventSource;
 
@@ -13,8 +13,8 @@ export class SseService {
         return new Observable<string>(obs => {
             const es = new EventSource(sseUrl);
             es.addEventListener('message', (evt) => {
-                console.log(evt.data);
                 obs.next(evt.data);
+                //console.log(evt.data);
             });
             return () => es.close();
         });

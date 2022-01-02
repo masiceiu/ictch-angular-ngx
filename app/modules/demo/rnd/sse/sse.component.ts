@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {SseService} from './sse.service';
-import {Observable, Subscription} from 'rxjs/Rx';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-sse',
@@ -12,15 +11,15 @@ import {Observable, Subscription} from 'rxjs/Rx';
 export class SseComponent implements OnInit, OnDestroy {
 
     private sseStream: Subscription;
-    messages:Array<string> = [];
+    messages:Array<any> = [];
 
     constructor(private sseService: SseService){
     }
 
     ngOnInit() {
         this.sseStream = this.sseService.observeMessages('https://lifewhois.com/sse.php')
-                        .subscribe(message => {
-                            messages.push(message);
+                        .subscribe((res:any) => {
+                            this.messages.push(res.data);
                         });
     }
 

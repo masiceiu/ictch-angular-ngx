@@ -9,8 +9,8 @@ export class SseService {
     constructor() {
     }
 
-    observeMessages(sseUrl: string): Observable<string> {
-        return new Observable<string>(obs => {
+    observeMessages(sseUrl: string): Observable<any> {
+        return new Observable<any>(obs => {
             const es = new EventSource(sseUrl);
             es.addEventListener('message', (evt) => {
                 obs.next(evt.data);

@@ -18,8 +18,9 @@ export class SseComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.sseStream = this.sseService.observeMessages('https://lifewhois.com/sse.php')
-                        .subscribe((res:any) => {
-                            this.messages.push(res.data);
+                        .subscribe((data:any) => {
+                            this.messages.push(data);
+                            console.log("msgs:",data);
                         });
     }
 

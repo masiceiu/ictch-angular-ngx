@@ -6,7 +6,7 @@ import { Observable, Subscription } from 'rxjs';
 export class SseService {
   constructor(private _zone: NgZone) {}
   getServerSentEvent(url: string): Observable<any> {
-    return Observable.create((observer) => {
+    return new Observable((observer) => {
       const eventSource = this.getEventSource(url);
       eventSource.onmessage = (event) => {
         this._zone.run(() => {
@@ -36,7 +36,7 @@ export class DynComponent implements OnInit {
       .getServerSentEvent('https://lifewhois.com/sse.php')
       .subscribe((res:any) => {
         //messages.push(message);
-        console.log(res);
+        console.log("dyn:",res);
       });
   }
 

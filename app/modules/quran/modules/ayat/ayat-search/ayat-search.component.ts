@@ -281,16 +281,20 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
     //console.log($event, key,this.scrollableItems,item);
   }
   onSelect($event: any, switch_on:string = ""): void {
+    //console.log($event, switch_on);
+    $event && $event.preventDefault();
     switch (switch_on) {
-      case '':
-        $event.preventDefault();
+      case 'none':
+        //$event.preventDefault();
+        //console.log($event);
         break;
       default:
-        console.log($event);
+        //console.log($event);
         this.selected = $event;
         //console.log($event.item);
         break;
     }
+    //return false;
   }
   stringReplace(str:string,by:string='') {
     //wordExp = /(([a-zA-Z\s])?\w+)/;

@@ -2,13 +2,15 @@
 <div class="container">
 <div class="row">
    <div class="col-8">
-   <app-comments *ngIf="active=='comments'"></app-comments>
+    <app-sse *ngIf="active=='sse'"></app-sse>
+    <app-comments *ngIf="active=='comments'"></app-comments>
    <app-play-media *ngIf="active=='play-media'"></app-play-media>
    <app-json-to-form *ngIf="active=='json-to-form'"></app-json-to-form>
    <app-json-dyn-form *ngIf="active=='json-dyn-form'"></app-json-dyn-form>
    <app-append-to-element *ngIf="active=='append-to-element'"></app-append-to-element>
    </div>
    <div class="col-4">
+    <a (click)="active='sse'" href="jacascript::void(0)">SSE</a><br/>
     <a (click)="active='comments'" href="jacascript::void(0)">Comments</a><br/>
     <a (click)="active='play-media'" href="jacascript::void(0)">Play-Media</a><br/>
     <a (click)="active='json-to-form'" href="jacascript::void(0)">Json-To-Form</a><br/>

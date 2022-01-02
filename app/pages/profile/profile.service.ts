@@ -17,6 +17,21 @@ export class ProfileService {
   getOne(id:any) {
     return this.http.get(`${this.apiBaseUrl}api/hgis/person/${id}`);
   }
+  getSse(id:any) {
+    return this.http.get(`${this.apiBaseUrl}api/hgis/person/${id}`);
+  }
+  postImg(payload:FormData) {
+  
+   return this.http
+      .post(`https://srinu.org/Api.php?apicall=upload_sub_cat`,
+        payload, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      );
+  }
+
   /*
   repos;
   constructor(http: HttpClient) {

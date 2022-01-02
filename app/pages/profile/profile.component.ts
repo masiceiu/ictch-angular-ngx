@@ -9,7 +9,11 @@ import { ProfileService } from './profile.service';
 })
 export class ProfileComponent implements OnInit {
 
-  title = "My Profile";
+  title = "My Profile"; 
+  name = 'Angular';
+  image: File;
+  resData: any;
+  selectedFile = null;
   constructor(private service:ProfileService) {
     this.service.getAll().subscribe((res: any) => 
     {
@@ -25,5 +29,22 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
   }
+  onFileSelected(event) {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+  }
 
+  onSubmit() {
+    const payload = new FormData();
+    payload.append('name', this.name);
+    payload.append('image', this.selectedFile, this.selectedFile.name);
+    this.service.postImg(payload).subscribe((res: any) => 
+    {
+      console.log(res);
+    });
+    /*.subscribe((data: any) => {
+      this.resData = data;
+      console.log(this.resData);
+    });*/
+  }
 }

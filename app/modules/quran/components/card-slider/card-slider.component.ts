@@ -20,6 +20,9 @@ export class CardSliderComponent implements OnInit {
   @Output() onClickC = new EventEmitter<any>();
   @Output() onClickR = new EventEmitter<any>();
   doorClassToggled = false;
+  config = {
+    icon:["bi bi-microsoft","bi bi-text-indent-left","bi bi-grid-fill","chat-square-dots-fill","bi bi-filter-circle"], 
+    bg:["","bg-info text-white","bg-dark text-white"] }; 
   constructor() { 
   }
 

@@ -35,7 +35,7 @@
 <div class="card-footer py-1 px-2" *ngIf="showFooter">
   <ng-template #footerRef>
     <div class="flex-parent">
-      <div class="flex-child" style="text-align:left;" *ngIf="onClickL.observed">
+      <div class="flex-child" style="text-align:left;" *ngIf="!onClickL.observed">
       <a href (click)="_onClickL($event)">
           <i class="bi bi-chat-left-fill"></i>
         </a>
@@ -56,10 +56,10 @@
         </a>
       </div>
       <div class="flex-child" style="text-align:right;">
-        <a *ngIf="1" href (click)="toggleDoor($event)" style="padding: 0 2px;border: 1px lightgray dotted;">
-          <i class="bi bi-chevron-compact-{{doorClassToggled?'right':'left'}}"></i>
+        <a *ngIf="1" href (click)="toggleDoor($event)" style="padding: 4px 8px 6px 8px;border: 1px lightgray dotted;">
+          <i class="bi bi-text-indent-{{doorClassToggled?'right':'left'}}"></i>
         </a>
-        <!--<i class="bi bi-text-indent-left"></i>-->
+        <!--<i class="bi bi-text-indent-left"></i>bi bi-chevron-compact-->
         <a *ngIf="0" href (click)="toggleDoor($event)" style="padding: 4px 8px 6px 8px;border: 1px lightgray dotted;" class="{{config.bg[2]}}">
         <i class="{{config.icon[1]}}"></i>
       </a>

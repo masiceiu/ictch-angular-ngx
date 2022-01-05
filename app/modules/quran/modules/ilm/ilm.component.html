@@ -14,6 +14,17 @@
     </div>
   </ng-template>
   <app-side-slider [refTemplate]="tpr2" [positionTop]="35"></app-side-slider>
+  <ng-template #tprSync>
+    <div class="scroller" style="max-height:{{ height - fixedHeight }}px">
+      Not Implement yet!
+    </div>
+  </ng-template>
+  <app-side-slider
+    [positionTop]="-35"
+    [hideToggleIcon]="true"
+    [refTemplate]="tprSync"
+    [dataSync]="dataSync"
+  ></app-side-slider>
   <ng-template #tpr3>
     <app-advice *ngIf="1"></app-advice>
   </ng-template>
@@ -25,6 +36,7 @@
     [refContent]="tpr3"
     [refIndex]="tpr4"
     [maxHeight]="height - fixedHeight"
-    [showFooter] = "true"
+    [showFooter]="true"
+    (onClickL)="dataSync.next('')"
   ></app-card-slider>
 </div>

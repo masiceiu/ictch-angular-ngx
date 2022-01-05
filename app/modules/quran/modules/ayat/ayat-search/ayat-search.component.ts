@@ -591,7 +591,7 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
   }
   start(callBack=()=>null,interval:number=1000):number {
     if(callBack){
-      callBack();
+      //callBack();
       return setInterval(() => {
         callBack(); 
       }, interval);

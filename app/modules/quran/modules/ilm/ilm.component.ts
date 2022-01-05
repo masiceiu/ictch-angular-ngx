@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Subject } from 'rxjs';
 
 @Component({
   selector: 'app-ilm',
@@ -11,6 +12,7 @@ export class IlmComponent implements OnInit {
   width = 250;
   height = 250;
   fixedHeight = 100;
+  dataSync = new Subject<string>();
   constructor() { 
     this.width = window.innerWidth;
     this.height = window.innerHeight;
@@ -22,5 +24,12 @@ export class IlmComponent implements OnInit {
   onWindowResize(event) {
     this.width = event.target.innerWidth;
     this.height = event.target.innerHeight;
+  }
+  onClick(data:any, switch_on:string): void {
+    switch (switch_on) {
+      case 'left': 
+        //this.dataSync.next('');
+        break;
+    }
   }
 }

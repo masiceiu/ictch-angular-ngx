@@ -35,7 +35,7 @@
 <div class="card-footer py-1 px-2" *ngIf="showFooter">
   <ng-template #footerRef>
     <div class="flex-parent">
-      <div class="flex-child" style="text-align:left;" *ngIf="!onClickL.observed">
+      <div class="flex-child" style="text-align:left;" *ngIf="onClickL.observed">
       <a href (click)="_onClickL($event)">
           <i class="bi bi-chat-left-fill"></i>
         </a>

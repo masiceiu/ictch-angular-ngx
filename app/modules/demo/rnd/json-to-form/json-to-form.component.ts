@@ -72,6 +72,17 @@ export class JsonToFormComponent implements OnInit {
                 key: "registrationCountry",
                 title: "Country",
                 type: "text"
+              },
+              {
+                key: "Address",
+                title: "Address",
+                group: [
+                  {
+                    key: "contactaddress",
+                    title: "Contact Address",
+                    type: "text"
+                  }
+                ]
               }
             ]
           }

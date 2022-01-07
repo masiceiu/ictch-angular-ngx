@@ -240,7 +240,7 @@
 				<div class="list-group" *ngIf="(ayatAll.length && (idata>0))">	
 				<ng-container *ngFor="let it of [ayatAll[idata]];">
 					<app-search-ayat [config]="config"	
-					[data]="{ayat:it, sura:suraIndex[it.sura], isStar:true,search:search}" 
+					[data]="{ayat:it, sura:suraIndex[it.sura], isStar:star_ayats[idata],search:search}" 
 					(starClick)="onClick($event.data,$event.switch_on)" [refMore]="refMoreSub" 
 					(leftClick)="idata=(idata-0-1)"
 					(rightClick)="idata=(idata-0+1)" ></app-search-ayat>

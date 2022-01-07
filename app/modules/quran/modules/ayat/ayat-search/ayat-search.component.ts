@@ -73,6 +73,7 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
   ayatGroups: any[] = [];
   ayat_groups_key = "ayat_groups_key";
   star_ayats: any = {};
+  star_ayat_ids: [] = [];
   star_ayats_key = "ayat_star_key";
   /*ayat_stars: any[];
   ayat_stars_key = "ayat_star_key";

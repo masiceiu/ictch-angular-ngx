@@ -442,7 +442,7 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
         this.storageService.SetList(this.ayat_search_key,this.ayat_searchs.splice(data, 1));
         break;
         case 'ayat-group-add':
-          console.log(switch_on,data.$event.group)
+          //console.log(switch_on,data.$event)
           //console.log(data.$event, data.item,this.star_ayats);          
           //delete person.age;
           /**/
@@ -478,7 +478,14 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
           });*/
         break;
         case 'ayat-group-remove':
-          console.log(switch_on,data.$event.group);
+          data.$event.preventDefault();
+          if(this.star_ayats.hasOwnProperty(data.item.index)){
+            delete this.star_ayats[data.item.index];
+            this.storageService.SetList(this.star_ayats_key,this.star_ayats);
+          }
+          console.log(this.star_ayats_key,this.star_ayats);
+          //delete person.age;  // or delete person["age"];
+          //console.log(switch_on,data);
           break;
         case 'ayat-right':
           data.$event.preventDefault();

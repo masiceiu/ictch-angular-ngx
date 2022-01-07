@@ -441,7 +441,8 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
         //console.log(data, 1);
         this.storageService.SetList(this.ayat_search_key,this.ayat_searchs.splice(data, 1));
         break;
-        case 'ayat-group':
+        case 'ayat-group-add':
+          console.log(switch_on,data.$event.group)
           //console.log(data.$event, data.item,this.star_ayats);          
           //delete person.age;
           /**/
@@ -476,6 +477,9 @@ export class AyatSearchComponent implements OnInit, AfterViewInit {
             console.log(key,star_val[key]);
           });*/
         break;
+        case 'ayat-group-remove':
+          console.log(switch_on,data.$event.group);
+          break;
         case 'ayat-right':
           data.$event.preventDefault();
           this.idata = data.item.index;

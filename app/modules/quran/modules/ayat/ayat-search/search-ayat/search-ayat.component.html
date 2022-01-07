@@ -9,7 +9,7 @@
       <a href (click)="_leftClick($event)" style="padding: 0 6px;">
         <i class="bi bi-arrow-left-circle"></i>
       </a>
-      <a href (click)="_starClickClick({$event:$event, group:'star', item:data.ayat},'ayat-group')" style="padding: 0 6px;">
+      <a href (click)="_starClickClick({$event:$event, group:'star', item:data.ayat},'ayat-group-'+(data.isStar?'add':'remove'))" style="padding: 0 6px;">
         <i class="bi bi-star{{data.isStar?'-fill':''}}"></i>
       </a>
       <a href (click)="_rightClick($event)" style="padding: 0 6px;">

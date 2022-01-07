@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SetupService } from './setup.service';
 
 @Component({
   selector: 'app-setup',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private setupService:SetupService) { }
 
   ngOnInit() {
+    this.setupService.get("https://lifewhois.com/api/help").subscribe(res =>{
+      console.log(res);
+    });
   }
 
 }

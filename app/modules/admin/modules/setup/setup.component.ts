@@ -12,9 +12,10 @@ export class SetupComponent implements OnInit {
 
   ngOnInit() {
     console.log("init");
-    this.setupService.get("https://lifewhois.com/api/help").subscribe(res =>{
-      console.log(res);
-    },err=>{ console.log(err);});
-  }
+    //this.setupService.get("https://lifewhois.com/api/help").subscribe(res =>{
+    this.setupService.get("https://lifewhois.com/api/qurn/item").subscribe(res =>{
+        console.log(res);
+      },err=>{ console.log(err);});
+    }
 
 }

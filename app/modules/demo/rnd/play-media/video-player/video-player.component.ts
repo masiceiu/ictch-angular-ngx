@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-video-player',
@@ -6,8 +7,22 @@ import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
   styleUrls: ['./video-player.component.css']
 })
 export class VideoPlayerComponent implements OnInit {
-
-  constructor() { }
+  videoSource =
+  "https://nv.vi-serve.com/vis-media/101/263/w_MD4H0BBdKt9t_F9ZNu_720p.mp4";
+  file =
+  "https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z";
+  src ='';
+  constructor(private sanitizer:DomSanitizer){
+    //let url = 
+    this.src = window.URL.createObjectURL(
+       new Blob([this.videoSource], { type: "video/mp4" })
+     );
+     //this.src = sanitizer.bypassSecurityTrustUrl(url);
+     console.log(this.src);
+   }
+   public getSantizeUrl(url : string) {
+     return this.sanitizer.bypassSecurityTrustUrl(url);
+ }
   myFunction(url) {
     window.open(url,"","width=audio,height=245");
   }
@@ -52,3 +67,4 @@ export class VideoPlayerComponent implements OnInit {
   }
 
 }
+//https://stackoverflow.com/questions/25046301/convert-url-to-file-or-blob-for-filereader-readasdataurl

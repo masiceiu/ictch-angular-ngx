@@ -5,6 +5,9 @@
     </div>
 		<!-- id=1VckhR883l1rQtf_stHop9dwCeTeODjSd -->
 		<div class="col-xs-12" *ngIf="1">
+		
+			<video *ngIf="src" width="320" controls #videoPlayer [src]="getSantizeUrl(src)"></video>
+				
 		<video width="320" controls #videoPlayer [src]="'https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z'"  id="my_video_1"></video>
 </div>
 <div class="col-xs-12" *ngIf="1">

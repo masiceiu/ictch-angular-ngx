@@ -3,18 +3,21 @@
     <div class="col-xs-12">
       <button (click)="myFunction('https://youtu.be/dXhzHxzjeMQ')">Try it open</button>
     </div>
-		
-		<div class="col-xs-12">
-			<video width="320" height="240" controls #videoPlayer [src]="'https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z'" ></video>
-	</div>
+		<!-- id=1VckhR883l1rQtf_stHop9dwCeTeODjSd -->
+		<div class="col-xs-12" *ngIf="1">
+		<video width="320" controls #videoPlayer [src]="'https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z'"  id="my_video_1"></video>
+</div>
+<div class="col-xs-12" *ngIf="1">
+<video width="320" height="240" controls #videoPlayer [src]="'https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z'"  id="my_video_10"></video>
+</div>
 			<div class="col-xs-12">
-			<video id="my_video_1" width="600" height="400" controls>
-				<source src="https://docs.google.com/uc?export=open&id=1VckhR883l1rQtf_stHop9dwCeTeODjSd" type='video/mp4' ></video>
+			<video id="my_video_11" width="600" height="400" controls>
+				<source src="https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z" type='video/mp4' ></video>
     </div>
   </div>
 </div>
 <div id="instructions">
-	<video id="my_video_1" width="600" height="400" controls>
+	<video id="my_video_11" width="600" height="400" controls>
 		<source src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2.mp4?raw=true" type='video/mp4' />
 		<source src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2.webm?raw=true" type='video/webm' />
 		<track label="English" kind="subtitles" srclang="en" src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2-subtitles-pt-BR.vvt?raw=true" default>

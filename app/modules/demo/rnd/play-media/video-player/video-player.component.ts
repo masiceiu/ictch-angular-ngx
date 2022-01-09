@@ -65,6 +65,31 @@ export class VideoPlayerComponent implements OnInit {
     let video: any = document.getElementById("my_video_1");
     video.currentTime = 0;
   }
+  
+  download(videoSource: string) {
+    console.log(videoSource);
+    // Create an invisible A element
+    const a = document.createElement("a");
+    a.style.display = "none";
+    document.body.appendChild(a);
+
+    this.src = window.URL.createObjectURL(
+      new Blob([videoSource], { type: "video/mp4" })
+    );
+    console.log(this.src);
+    // Set the HREF to a Blob representation of the data to be downloaded
+    a.href = this.src;
+
+    // Use download attribute to set set desired file name
+    a.setAttribute("download", "video");
+
+    // Trigger the download by simulating click
+    a.click();
+
+    // Cleanup
+    window.URL.revokeObjectURL(a.href);
+    document.body.removeChild(a);
+  }
 
 }
 //https://stackoverflow.com/questions/25046301/convert-url-to-file-or-blob-for-filereader-readasdataurl

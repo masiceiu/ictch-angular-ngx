@@ -24,7 +24,7 @@ export class SetupComponent implements OnInit {
   ngOnInit() {
     //console.log("init");
     //this.setupService.get("https://lifewhois.com/api/help").subscribe(res =>{})
-    //this.loadItems();
+    this.loadItems();
   }
   onClick(switch_on:string, data:any) {
     switch(switch_on){
@@ -46,9 +46,16 @@ export class SetupComponent implements OnInit {
   }
   loadItems(){
     this.setupService.get("https://lifewhois.com/api/qurn/item").subscribe(res =>{
-        console.log(res);
+        console.log(res,);
         //this.items = res;
       },err=>{ console.log(err);});
+      /*let filteredArray = this.employeeList.filter(function(employee){
+        console.log(employee.experiance>1)
+        return employee.experiance>1;
+      })*/
+      /*let amrishIndex = this.employeeList.findIndex(function (empl) {
+      return  empl.name === 'gowri';
+    });*/
   }
 
   postItem(){
@@ -58,13 +65,30 @@ export class SetupComponent implements OnInit {
       type_id: 1,
       parent_id: null
     };
-  
+
+    console.log(Array.isArray(data));
+    if(Array.isArray(data)){
+      Object.keys(data).map((v) =>{
+        console.log("v:",v);
+      });
+      Object.keys(data).forEach(key =>{
+        console.log("key:",key);
+      });
+    }
+    
+
+  let map = new Map<string, string>();
+    //Object.keys(this.res['values']).forEach(key => this.map.set(key, this.res['values'][key]))
+    //console.log(this.map)
+  }
+    /*
     this.setupService.post("https://lifewhois.com/api/qurn/item", data).subscribe(res =>{
         console.log(res);
         //this.items = res;
-      },err=>{ console.log(err);});
+      },err=>{ console.log(err);});*/
   }
 
+/*
   addItem(){post
     const body = { title: 'Angular POST Request Example' };
     this.http.post<any>('https://reqres.in/api/posts', body, { headers }).subscribe(data => {
@@ -81,7 +105,7 @@ export class SetupComponent implements OnInit {
         this.items = res;
       },err=>{ console.log(err);});
   }
-
+*/
     data= [
       {
         "id": 5,
@@ -109,6 +133,14 @@ export class SetupComponent implements OnInit {
         "parent": 5
       }
       ];
+  rnd(){
+    this.state = {
+      person: { name: "lullubi", address: { city: "kullulu", phone: "9778797987" } }
+    };
+    //.keys(this.state.person).map((v) => (
+      //<div>{[v,": ",JSON.stringify(this.state.person[v]),<br />]}</div>
+      //))
+  }
 }
 //https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
 

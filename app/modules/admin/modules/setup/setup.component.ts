@@ -8,22 +8,32 @@ import { SetupService } from './setup.service';
 })
 export class SetupComponent implements OnInit {
 
+  item:any = {};
+  items:any[] = [
+    {
+      slides:[],
+      groups:[],
+    }
+  ];
+
   stars:any[] = [];
   star_indexs:any[] = [];
   constructor(private setupService:SetupService) { }
   ctx = {data: this.stars};
   
-  item:any = {};
   ngOnInit() {
     //console.log("init");
-    //this.setupService.get("https://lifewhois.com/api/help").subscribe(res =>{
-    this.setupService.get("https://lifewhois.com/api/qurn/item").subscribe(res =>{
-        console.log(res);
-      },err=>{ console.log(err);});
+    //this.setupService.get("https://lifewhois.com/api/help").subscribe(res =>{})
+    //this.loadItems();
   }
   onClick(switch_on:string, data:any) {
     switch(switch_on){
       case"add-new":
+      if(confirm("confirm before add!")){
+        this.postItem();
+      }
+      break;
+      case""://slide
         //console.log(switch_on,data);
         let id = this.stars.length+1;
         this.item.id = id;
@@ -33,6 +43,43 @@ export class SetupComponent implements OnInit {
         console.log(switch_on,this.stars,this.star_indexs);
       break;
     }
+  }
+  loadItems(){
+    this.setupService.get("https://lifewhois.com/api/qurn/item").subscribe(res =>{
+        console.log(res);
+        //this.items = res;
+      },err=>{ console.log(err);});
+  }
+
+  postItem(){
+    let data = {
+      json: this.items[0],
+      lang: "bn",
+      type_id: 1,
+      parent_id: null
+    };
+  
+    this.setupService.post("https://lifewhois.com/api/qurn/item", data).subscribe(res =>{
+        console.log(res);
+        //this.items = res;
+      },err=>{ console.log(err);});
+  }
+
+  addItem(){post
+    const body = { title: 'Angular POST Request Example' };
+    this.http.post<any>('https://reqres.in/api/posts', body, { headers }).subscribe(data => {
+        this.postId = data.id;
+    });
+    this.setupService.get("https://lifewhois.com/api/qurn/item").subscribe(res =>{
+        console.log(res);
+        this.items = res;
+      },err=>{ console.log(err);});
+  }
+  delItem(){
+    this.setupService.get("https://lifewhois.com/api/qurn/item").subscribe(res =>{
+        console.log(res);
+        this.items = res;
+      },err=>{ console.log(err);});
   }
 
     data= [

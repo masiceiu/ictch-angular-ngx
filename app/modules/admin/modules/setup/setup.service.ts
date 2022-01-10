@@ -17,6 +17,10 @@ export class SetupService {
   get(url: string): any {
     return this.http.get<any>(url); 
   }
+  post(url: string, data:any): any {
+    return this.http.post<any>(url,data); 
+    //this.http.post<any>(url, body, { headers });
+  }
   add(url: string, data:any): any {
     return this.http.post<any>(url,data); 
   }
@@ -24,3 +28,4 @@ export class SetupService {
     return this.http.post<any>(url,data); 
   }
 }
+//https://stackblitz.com/edit/angular-http-post-examples

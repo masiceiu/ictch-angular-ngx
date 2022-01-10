@@ -16,6 +16,19 @@ const routes: Routes = [
         }
       }
     ]
+  },{
+    path: "chat",
+    //component: ?,
+    children:[
+      {
+        path: "",
+        loadChildren: () =>
+        import("./modules/chat/chat.module").then(m => m.ChatModule),
+        data: {
+          feature: "Chat"
+        }
+      }
+    ]
   },
   {
     path: "setup",

@@ -17,4 +17,10 @@ export class SetupService {
   get(url: string): any {
     return this.http.get<any>(url); 
   }
+  add(url: string, data:any): any {
+    return this.http.post<any>(url,data); 
+  }
+  set(url: string, data:any): any {
+    return this.http.post<any>(url,data); 
+  }
 }

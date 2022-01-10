@@ -1,3 +1,23 @@
-<p>
-setup works!
-</p>
+<h1 class="text-center">Setup Works!</h1>
+<hr />
+<ng-template #template let-data="data">
+  <li *ngFor="let item of data">
+    {{item.name}}
+  </li>
+</ng-template>
+<ol>
+  <ng-container *ngTemplateOutlet="template; context: ctx">
+  </ng-container>
+  <li>
+    <a (click)="onClick('add-new', item)" href="javascript:void(0)">
+      Add New
+    </a>
+  </li>
+</ol>
+
+<tree
+  *ngIf=""
+  [parentId]="0"
+  [dataList]="data"
+  (click)="onClick($event, $event)"
+></tree>

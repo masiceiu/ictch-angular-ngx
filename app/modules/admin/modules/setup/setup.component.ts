@@ -9,6 +9,7 @@ import { SetupService } from './setup.service';
 export class SetupComponent implements OnInit {
 
   stars:any[] = [];
+  star_indexs:any[] = [];
   constructor(private setupService:SetupService) { }
   ctx = {data: this.stars};
   
@@ -27,8 +28,9 @@ export class SetupComponent implements OnInit {
         let id = this.stars.length+1;
         this.item.id = id;
         this.item.name = "item-"+id;
+        this.star_indexs.push(id);
         this.stars.push(Object.assign({},this.item));
-        console.log(switch_on,this.stars);
+        console.log(switch_on,this.stars,this.star_indexs);
       break;
     }
   }

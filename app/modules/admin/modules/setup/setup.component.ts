@@ -10,8 +10,14 @@ export class SetupComponent implements OnInit {
   item: any = {};
   items: any[] = [
     {
-      slides: [1],
-      groups: [2],
+      refs: [{}],
+      stars: [1],
+      slides: [{
+        text: 'তওহীদ',
+        url: '/quran/ayat/groups/tawhid',
+        index:[1]
+      }],
+      groups: [{}],
     },
   ];
 
@@ -46,20 +52,13 @@ export class SetupComponent implements OnInit {
   loadItems() {
     this.setupService.get('https://lifewhois.com/api/qurn/item').subscribe(
       (res) => {
-        console.log(res);
         //this.items = res;
+        console.log(res);
       },
       (err) => {
         console.log(err);
       }
     );
-    /*let filteredArray = this.employeeList.filter(function(employee){
-        console.log(employee.experiance>1)
-        return employee.experiance>1;
-      })*/
-    /*let amrishIndex = this.employeeList.findIndex(function (empl) {
-      return  empl.name === 'gowri';
-    });*/
   }
 
   postItem() {
@@ -74,52 +73,24 @@ export class SetupComponent implements OnInit {
         console.log(res);
         //this.items = res;
       },err=>{ console.log(err);});*/
-    //console.log(("" is Object))
-    //console.log(Array.isArray(data));
-    let isObject = function (item) {
-      return typeof item === 'object' && !Array.isArray(item) && item !== null;
-    };
-    let fn = function (item) {
-      Object.keys(item).map((key) => {
-        let val = item[key];
-        if (Array.isArray(val)) {
-          console.log('array:', val);
-          val.forEach((item) => {
-            fn(item);
-          });
-        } else if (typeof val === 'object' && val !== null) {
-          console.log('object:', val);
-          fn(val);
-        } else {
-          console.log('val:', val);
-        }
-        //console.log(key,":",val);
-      });
-    };
-    fn(data);
-    //if(Array.isArray(data)){
-    //data.forEach(item =>{
-    //fn(item);
-    //});
-    //}else if(isObject(data)){
-    //fn(data);
-    //}else{
-    //console.log(":",data);
-    //console.log("key=>val");
-    //fn(data);
-    /*Object.keys(data).map((v) =>{
-        console.log("v:",v);
-      });
-      Object.keys(data).forEach(key =>{
-        console.log("key:",key);
-      });*/
-    //}
-
-    let map = new Map<string, string>();
-    //Object.keys(this.res['values']).forEach(key => this.map.set(key, this.res['values'][key]))
-    //console.log(this.map)
   }
 
+  fn = function (item) {
+    if (Array.isArray(item)) {
+      console.log('array:', item);
+      item.forEach((it) => {
+        fn(it);
+      });
+    } else if (typeof item === 'object' && item !== null) {
+      console.log('object:', item);
+      Object.keys(item).map((key) => {
+        let val = item[key];
+        fn(val);
+      });
+    } else {
+      console.log('val:', item);
+    }
+  };
   /*
     addItem(){post
       const body = { title: 'Angular POST Request Example' };
@@ -166,6 +137,15 @@ export class SetupComponent implements OnInit {
     },
   ];
   rnd() {
+    
+    /*let filteredArray = this.employeeList.filter(function(employee){
+        console.log(employee.experiance>1)
+        return employee.experiance>1;
+      })*/
+    /*let amrishIndex = this.employeeList.findIndex(function (empl) {
+      return  empl.name === 'gowri';
+    });*/
+
     this.state = {
       person: {
         name: 'lullubi',
@@ -175,6 +155,52 @@ export class SetupComponent implements OnInit {
     //Object.keys(this.state.person).map((v) => (
     //<div>{[v,": ",JSON.stringify(this.state.person[v]),<br />]}</div>
     //))
+
+    //console.log(("" is Object))
+    //console.log(Array.isArray(data));
+    let isObject = function (item) {
+      return typeof item === 'object' && !Array.isArray(item) && item !== null;
+    };
+
+    let fn1 = function (item) {
+      Object.keys(item).map((key) => {
+        let val = item[key];
+        if (Array.isArray(val)) {
+          console.log('array:', val);
+          val.forEach((it) => {
+            fn(it);
+          });
+        } else if (typeof val === 'object' && val !== null) {
+          console.log('object:', val);
+          fn(val);
+        } else {
+          console.log('val:', val);
+        }
+        //console.log(key,":",val);
+      });
+    };
+    fn(data);
+    //if(Array.isArray(data)){
+    //data.forEach(item =>{
+    //fn(item);
+    //});
+    //}else if(isObject(data)){
+    //fn(data);
+    //}else{
+    //console.log(":",data);
+    //console.log("key=>val");
+    //fn(data);
+    /*Object.keys(data).map((v) =>{
+        console.log("v:",v);
+      });
+      Object.keys(data).forEach(key =>{
+        console.log("key:",key);
+      });*/
+    //}
+
+    let map = new Map<string, string>();
+    //Object.keys(this.res['values']).forEach(key => this.map.set(key, this.res['values'][key]))
+    //console.log(this.map)
   }
 }
 //https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/

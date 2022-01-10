@@ -164,9 +164,11 @@
 						<div class="flex-parent">
 								<div class="flex-child" 
 								*ngFor="let i=index of [].constructor(selected.item.ayat)">
+									<a href (click)="handleScrollClick($event, (i+1))" >
 										<span class="list-group-item" [id]="i" style="padding: 0.25rem .50rem;text-align: center;" >
-												<a href (click)="handleScrollClick($event, (i+1))" >{{(i+1)}}</a>
+												{{(i+1)}}
 										</span>
+									</a>
 								</div>
 						</div>
 					</div>								

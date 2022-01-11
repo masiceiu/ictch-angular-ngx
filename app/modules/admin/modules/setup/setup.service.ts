@@ -17,14 +17,18 @@ export class SetupService {
   get(url: string): any {
     return this.http.get<any>(url); 
   }
+  set(url: string, data:any): any {
+    return this.http.post<any>(url,data); 
+  }
+  del(url: string, data:any): any {
+    return this.http.post<any>(url,data); 
+  }
+
   post(url: string, data:any): any {
     return this.http.post<any>(url,data); 
     //this.http.post<any>(url, body, { headers });
   }
   add(url: string, data:any): any {
-    return this.http.post<any>(url,data); 
-  }
-  set(url: string, data:any): any {
     return this.http.post<any>(url,data); 
   }
 }

@@ -25,7 +25,7 @@ export class SetupComponent implements OnInit {
   star_indexs: any[] = [];
   constructor(private setupService: SetupService) {}
   ctx = { data: this.stars };
-
+  apiBaseUrl = "https://lifewhois.com/api/";
   ngOnInit() {
     //console.log("init");
     //this.setupService.get("https://lifewhois.com/api/help").subscribe(res =>{})
@@ -50,7 +50,8 @@ export class SetupComponent implements OnInit {
     }
   }
   loadItems() {
-    this.setupService.get('https://lifewhois.com/api/qurn/item').subscribe(
+    const url = `${this.apiBaseUrl}qurn/item`;
+    this.setupService.get(url).subscribe(
       (res) => {
         //this.items = res;
         console.log(res);

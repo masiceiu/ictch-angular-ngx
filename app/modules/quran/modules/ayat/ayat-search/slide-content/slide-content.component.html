@@ -1,8 +1,10 @@
  <ng-template #refTemplate>
     <ng-container *ngFor="let it of map(searchIndex);">
-        <span class="list-group-item m-0" style="padding: 0.1rem .50rem;text-align: center;"  *ngIf="it">
-            <a href (click)="handleScrollClick($event, it)">{{it}}</a>
-        </span>
+        <a href (click)="handleScrollClick($event, it)">
+            <span class="list-group-item m-0" style="padding: 0.1rem .50rem;text-align: center;" *ngIf="it">
+             {{it}}
+           </span>
+          </a>
     </ng-container>
 </ng-template>
 <div id="analyticsContainer" class="toggler" 
@@ -35,9 +37,11 @@
   <div class="scroller" *ngIf="list.length"  style="max-height:{{maxHeight}}px">
         <div class="flex-parent"><!-- it.name.charAt(0) -->
             <div class="flex-child" *ngFor="let it of list; let i = index;" [hidden]="!i"[appScrollableItem]="it.name">
-                <span class="list-group-item" *ngIf="true" [id] ="i" style="padding: 0.25rem .50rem;text-align: center;" >
-                    <a href (click)="_onItemClick({$event:$event, item:it},'suggest-item')" >{{it.name}}</a>
-                </span>
+                <a href (click)="_onItemClick({$event:$event, item:it},'suggest-item')">
+                    <span class="list-group-item" *ngIf="true" [id]="i" style="padding: 0.25rem .50rem;text-align: center;">
+                        {{it.name}}
+                    </span>
+                </a>
             </div>
         </div>
     </div>

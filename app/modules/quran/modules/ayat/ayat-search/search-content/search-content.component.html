@@ -11,7 +11,7 @@
     </a>
   </div>
   <div class="flex-shrink-1" style="text-align:right;white-space: nowrap;">
-    <a href (click)="_onItemClick({$event:$event, group:'star', item:data.ayat},('ayat-group' + (data.isStar?'-remove':'-add')))" style="padding: 0 6px;">
+     <a href (click)="_onItemClick({$event:$event, group:'star', item:data.ayat},'ayat-group')" style="padding: 0 6px;">
       <i class="bi bi-star{{data.isStar?'-fill':''}}"></i>
     </a>
     <a href (click)="_onItemClick({$event:$event, item:data.ayat},'ayat-right')" style="padding: 0 6px;">

@@ -6,13 +6,13 @@
       </a>
     </div>
     <div class="flex-shrink-1" style="text-align:right;white-space: nowrap;">   
-      <a href (click)="_leftClick($event)" style="padding: 0 6px;">
+      <a href (click)="_leftClick($event)" style="padding: 0 6px;" *ngIf="data.ayat.index>1">
         <i class="bi bi-arrow-left-circle"></i>
       </a>
       <a href (click)="_starClickClick({$event:$event, group:'star', item:data.ayat},'ayat-group-'+(data.isStar?'add':'remove'))" style="padding: 0 6px;">
         <i class="bi bi-star{{data.isStar?'-fill':''}}"></i>
       </a>
-      <a href (click)="_rightClick($event)" style="padding: 0 6px;">
+      <a href (click)="_rightClick($event)" style="padding: 0 6px;" *ngIf="data.ayat.index<6236">
         <i class="bi bi-arrow-right-circle"></i>
       </a>
       <a href (click)="false" [popover]="refMore" placement="auto" 

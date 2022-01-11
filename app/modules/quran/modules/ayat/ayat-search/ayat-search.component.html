@@ -238,17 +238,17 @@
 
 		<ng-template #tprSync>
 			<div class="scroller" [ngStyle]="{'max-height':(height-fixedHeight)+'px'}">			
-				<div class="list-group" *ngIf="(ayatAll.length && (idata>0))">	
+				<div class="list-group" *ngIf="(ayatAll.length && (idata>-1))">	
 				<ng-container *ngFor="let it of [ayatAll[idata]];">
 					<app-search-ayat [config]="config"	
-					[data]="{ayat:it, sura:suraIndex[it.sura], isStar:star_ayats[idata],search:search}" 
+					[data]="{ayat:it, sura:suraIndex[it.sura], isStar:star_ayats[idata-1],search:search}" 
 					(starClick)="onClick($event.data,$event.switch_on)" [refMore]="refMoreSub" 
 					(leftClick)="idata=(idata-0-1)"
 					(rightClick)="idata=(idata-0+1)" ></app-search-ayat>
 				</ng-container>	
 				</div>
 			</div>
-			<div class="content" *ngIf="!(ayatAll.length && (idata>0))">
+			<div class="content" *ngIf="!(ayatAll.length && (idata>-1))">
 				<h3 class="text-center">سُبْحَانَ ٱللَّٰهِ</h3>
 				<h3 class="text-center">ٱلْحَمْدُ لِلَّٰهِ</h3>
 				<h3 class="text-center">Ayat:Loading...</h3>

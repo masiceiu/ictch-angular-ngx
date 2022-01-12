@@ -254,6 +254,15 @@
 				<h3 class="text-center">Ayat:Loading...</h3>
 			</div>
 		</ng-template>
+		<ng-template #tprView>
+			<div class="scroller" [ngStyle]="{'max-height':(height-fixedHeight)+'px'}">
+				<div class="list-group">
+					<ng-container *ngFor="let i of [1,2]; let it = index">
+					 {{i}}
+					</ng-container>	
+				</div>
+			</div>
+		</ng-template>
 		<app-side-slider [positionTop]="-35" [hideToggleIcon]="true" [refTemplate]="tprSync" [dataSync]="dataSync"></app-side-slider>
 </div>
 <div class="col-12 p-0">

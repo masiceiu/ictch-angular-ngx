@@ -8,6 +8,8 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 export class VideoPlayerComponent implements OnInit {
   videoSource =
+  "https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z";
+  videoSource1 =
   "https://nv.vi-serve.com/vis-media/101/263/w_MD4H0BBdKt9t_F9ZNu_720p.mp4";
   file =
   "https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z";
@@ -22,6 +24,11 @@ export class VideoPlayerComponent implements OnInit {
    }
    public getSantizeUrl(url : string) {
      return this.sanitizer.bypassSecurityTrustUrl(url);
+ }
+ public get getSrc(): string{
+  //return this.file;
+  return this.videoSource1;
+  //return window.URL.createObjectURL(new Blob([this.videoSource]));
  }
   myFunction(url) {
     window.open(url,"","width=audio,height=245");

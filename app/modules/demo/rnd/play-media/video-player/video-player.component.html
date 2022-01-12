@@ -1,39 +1,81 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
-      <button (click)="myFunction('https://youtu.be/dXhzHxzjeMQ')">Try it open</button>
+      <button (click)="myFunction('https://youtu.be/dXhzHxzjeMQ')">
+        Try it open
+      </button>
     </div>
-		<!-- id=1VckhR883l1rQtf_stHop9dwCeTeODjSd -->
-		
-		<div class="col-xs-12" *ngIf="1">
-			<button (click)="download(videoSource)">Download</button>
-			<video *ngIf="src" width="320" controls #videoPlayer [src]="getSantizeUrl(src)"></video>
-		</div>
-		<hr />
-		<div class="col-xs-12" *ngIf="1">
+    <!-- id=1VckhR883l1rQtf_stHop9dwCeTeODjSd -->
 
-		<video width="320" controls #videoPlayer [src]="'https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z'"  id="my_video_1"></video>
-</div>
-<div class="col-xs-12" *ngIf="1">
-<video width="320" height="240" controls #videoPlayer [src]="'https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z'"  id="my_video_10"></video>
-</div>
-			<div class="col-xs-12">
-			<video id="my_video_11" width="600" height="400" controls>
-				<source src="https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z" type='video/mp4' ></video>
+    <div class="col-xs-12" *ngIf="1">
+      <button (click)="download(videoSource)">Download</button>
+      <video width="320" controls #videoPlayer [src]="getSrc"></video>
+    </div>
+    <div id="instructions" *ngIf="">
+      <hr />
+      <div class="col-xs-12" *ngIf="1">
+        <video
+          *ngIf="src"
+          width="320"
+          controls
+          #videoPlayer
+          [src]="getSantizeUrl(src)"
+        ></video>
+        <video
+          width="320"
+          controls
+          #videoPlayer
+          [src]="
+            'https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z'
+          "
+          id="my_video_1"
+        ></video>
+      </div>
+      <div class="col-xs-12" *ngIf="1">
+        <video
+          width="320"
+          height="240"
+          controls
+          #videoPlayer
+          [src]="
+            'https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z'
+          "
+          id="my_video_10"
+        ></video>
+      </div>
+      <div class="col-xs-12">
+        <video id="my_video_11" width="600" height="400" controls>
+          <source
+            src="https://docs.google.com/uc?export=open&id=1-3O_0vamkRNKZf1oed7HBFKm2fNMcw-Z"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+
+      <video id="my_video_11" width="600" height="400" controls>
+        <source
+          src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2.mp4?raw=true"
+          type="video/mp4"
+        />
+        <source
+          src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2.webm?raw=true"
+          type="video/webm"
+        />
+        <track
+          label="English"
+          kind="subtitles"
+          srclang="en"
+          src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2-subtitles-pt-BR.vvt?raw=true"
+          default
+        />
+      </video>
+      <button (click)="playPause()">Play/Pause</button>
+      <button (click)="makeBig()">Big</button>
+      <button (click)="makeSmall()">Small</button>
+      <button (click)="makeNormal()">Normal</button>
+      <button (click)="restart()">Restart</button>
+      <button (click)="skip(-10)">Rewind</button>
+      <button (click)="skip(10)">Fastforward</button>
     </div>
   </div>
-</div>
-<div id="instructions">
-	<video id="my_video_11" width="600" height="400" controls>
-		<source src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2.mp4?raw=true" type='video/mp4' />
-		<source src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2.webm?raw=true" type='video/webm' />
-		<track label="English" kind="subtitles" srclang="en" src="https://github.com/gzuzmark/angular-8-html5-video-player-demo/blob/master/src/app/MIB2-subtitles-pt-BR.vvt?raw=true" default>
-	</video>
-	<button (click)="playPause()">Play/Pause</button>
-	<button (click)="makeBig()">Big</button>
-	<button (click)="makeSmall()">Small</button>
-	<button (click)="makeNormal()">Normal</button>
-	<button (click)="restart();">Restart</button>
-	<button (click)="skip(-10)">Rewind</button>
-	<button (click)="skip(10)">Fastforward</button>
 </div>

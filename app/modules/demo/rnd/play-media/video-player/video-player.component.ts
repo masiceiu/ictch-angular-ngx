@@ -25,6 +25,8 @@ export class VideoPlayerComponent implements OnInit {
    public getSantizeUrl(url : string) {
      return this.sanitizer.bypassSecurityTrustUrl(url);
  }
+
+ 
  public get getSrc(): string{
   //return this.file;
   return this.videoSource1;

@@ -2,17 +2,18 @@ import { Injectable } from '@angular/core';
 import { Subject, Observable, BehaviorSubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import * as moment from 'moment';
-
-export class MediaState = {
+/*
+export interface MediaState = {
   playing: false,
-  readableCurrentTime: '',
-  readableDuration: '',
+  readableCurrentTime:string,
+  readableDuration: string,
   duration: undefined,
   currentTime: undefined,
   canplay: false,
   error: false,
   mute: false,
-};
+};*/
+
 @Injectable({
   providedIn: 'root',
 })

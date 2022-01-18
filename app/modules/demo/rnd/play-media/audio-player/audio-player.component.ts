@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AudioService } from './audio.service';
+import { AudioPlayerService } from './audio-player.service';
 
 @Component({
   selector: 'app-audio-player',
@@ -11,7 +11,7 @@ export class AudioPlayerComponent implements OnInit {
 
   state: MediaState;
 
-  constructor(private audioService: AudioService) {
+  constructor(private audioService: AudioPlayerService) {
     this.audioService.getState().subscribe(state => {
       this.state = state;
     });

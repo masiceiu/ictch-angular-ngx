@@ -32,6 +32,35 @@ export class PlayMediaComponent implements OnInit {
       },
     ];
   }
+   playList = { 
+    'audios' : [
+    
+    ],
+    'videos' : [
+    
+    ],
+    'images' : [{
+        'name'  : 'Allah Hoo1',
+        'alt' : 'Allah Hoo1',
+        'url': 'resources/images/allah-hoo/allah-hoo1.png',
+        'more': '<a href="#">more..</a>'
+      },{
+        'name'  : 'Allah Hoo2',
+        'alt' : 'Allah Hoo2',
+        'url': 'resources/images/allah-hoo/allah-hoo2.png',
+        'more': '<a href="#">more..</a>'
+      },{
+        'name'  : 'Allah Hoo3',
+        'alt' : 'Allah Hoo3',
+        'url': 'https://i.pinimg.com/originals/09/3b/75/093b75b0ebd6821b3fbf992eb43670d3.jpg',
+        'more': '<a href="#">more..</a>'
+      }/*,{
+        'name'  : 'Allah Hoo',
+        'alt' : 'Allah Hoo',
+        'url': 'https://docs.google.com/uc?export=open&id=1Vjakr5hhEo8SbWacX7mFnGbtAARkbsyb',
+        'more': '<a href="#">more..</a>'
+      }*/
+    ]};
   gallery = { 'images' : [
       
     {
@@ -56,6 +85,56 @@ export class PlayMediaComponent implements OnInit {
     },
     
   ]};
+
+  fileLoad(fileJson) {
+    return new Promise(function(resolve, reject) {
+      var request = new XMLHttpRequest();
+      request.open('GET', fileJson.url);
+      request.responseType = 'blob';
+  
+      request.onload = function() {
+        if (request.status == 200) {
+          var res = [];
+          res[0] = request.response;
+          res[1] = fileJson;
+          resolve(res);
+        } else {
+          reject(Error('Image didn\'t load successfully; error code:' + request.statusText));
+        }
+      };
+      request.onerror = function() {
+        reject(Error('There was a network error.'));
+      };
+      request.send();
+    });
+  }
+  
+  //var imgSection = document.querySelector('section');
+  load = function() {
+    var imageList = playList.images;
+    for(var i = 0; i<=imageList.length-1; i++) {
+      fileLoad(imageList[i]).then(function(res) {
+  
+        var imageURL = window.URL.createObjectURL(res[0]);
+        /*
+        var myImage = document.createElement('img');
+        var myFigure = document.createElement('figure');
+        var myCaption = document.createElement('caption');
+  
+        myImage.src = imageURL;
+        myImage.setAttribute('alt', res[1].alt);
+        myCaption.innerHTML = '<strong>' + res[1].name + '</strong>: Taken by ' + res[1].more;
+  
+        imgSection.appendChild(myFigure);
+        myFigure.appendChild(myImage);
+        myFigure.appendChild(myCaption);*/
+  
+      }, function(Error) {
+        console.log(Error);
+      });
+    }
+  };
+  
   imgLoad(imgJSON) {
     // return a promise for an image loading
     return new Promise(function(resolve, reject) {
@@ -86,20 +165,20 @@ export class PlayMediaComponent implements OnInit {
 
     // load each set of image, alt text, name and caption
     for(var i = 0; i<=this.gallery.images.length-1; i++) {
-      this.imgLoad(gallery.images[i]).then(function(arrayResponse) {
+      this.imgLoad(this.gallery.images[i]).then(function(arrayResponse) {
   
-        var myImage = document.createElement('img');
-        var myFigure = document.createElement('figure');
-        var myCaption = document.createElement('caption');
         var imageURL = window.URL.createObjectURL(arrayResponse[0]);
+        //var myImage = document.createElement('img');
+        //var myFigure = document.createElement('figure');
+        //var myCaption = document.createElement('caption');
   
-        myImage.src = imageURL;
-        myImage.setAttribute('alt', arrayResponse[1].alt);
-        myCaption.innerHTML = '<strong>' + arrayResponse[1].name + '</strong>: Taken by ' + arrayResponse[1].credit;
+        //myImage.src = imageURL;
+        //myImage.setAttribute('alt', arrayResponse[1].alt);
+        //myCaption.innerHTML = '<strong>' + arrayResponse[1].name + '</strong>: Taken by ' + arrayResponse[1]//.credit;
   
-        imgSection.appendChild(myFigure);
-        myFigure.appendChild(myImage);
-        myFigure.appendChild(myCaption);
+        //imgSection.appendChild(myFigure);
+        //myFigure.appendChild(myImage);
+        //myFigure.appendChild(myCaption);
   
       }, function(Error) {
         console.log(Error);

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MediaState } from './../media-state';
 import { AudioPlayerService } from './audio-player.service';
 
 @Component({

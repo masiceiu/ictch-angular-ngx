@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, switchMap } from 'rxjs';
+import { MediaState } from './../media-state';
 
 @Injectable()
 export class PlayMediaService {

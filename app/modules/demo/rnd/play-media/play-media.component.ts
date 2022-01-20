@@ -111,9 +111,9 @@ export class PlayMediaComponent implements OnInit {
   
   //var imgSection = document.querySelector('section');
   load = function() {
-    var imageList = playList.images;
+    let imageList = this.playList.images;
     for(var i = 0; i<=imageList.length-1; i++) {
-      fileLoad(imageList[i]).then(function(res) {
+      this.fileLoad(imageList[i]).then((res)=> {
   
         var imageURL = window.URL.createObjectURL(res[0]);
         /*
@@ -129,7 +129,7 @@ export class PlayMediaComponent implements OnInit {
         myFigure.appendChild(myImage);
         myFigure.appendChild(myCaption);*/
   
-      }, function(Error) {
+      }, (Error)=> {
         console.log(Error);
       });
     }

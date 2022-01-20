@@ -1,10 +1,10 @@
 export interface MediaState {
-  playing: false,
+  playing: boolean,
   readableCurrentTime:string,
   readableDuration: string,
-  duration: undefined,
-  currentTime: undefined,
-  canplay: false,
-  error: false,
-  mute: false,
+  duration: number,
+  currentTime: number,
+  canplay: boolean,
+  error: boolean,
+  mute: boolean,
 }

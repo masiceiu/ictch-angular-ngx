@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+
 import { MediaState } from './../media-state';
 import { AudioPlayerService } from './audio-player.service';
 
@@ -44,7 +45,12 @@ export class AudioPlayerComponent implements OnInit {
   unmute() {
     this.audioService.unmute();
   }
+  onSliderChange(duration) {
+    this.audioService.seekTo(duration);
+  }
   onSliderChangeEnd(change) {
-    this.audioService.seekTo(change.value);
+    console.log(change.value);
+    //console.log(this.state?.currentTime);
+    //this.audioService.seekTo(this.state?.currentTime);
   }
 }

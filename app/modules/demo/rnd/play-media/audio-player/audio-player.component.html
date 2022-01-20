@@ -13,7 +13,7 @@
         <i class="bi bi-pause-circle"></i>
       </a>
     </div>
-    <div class="">
+    <div class="" >
       <input type="range" *ngIf=""
         class="time-slider"
         min="0"
@@ -22,7 +22,15 @@
         step="1"
         [value]="state?.currentTime"
         (input)="onSliderChangeEnd($event)"
-      />
+      /> 
+      <input type="range"
+      class="time-slider"
+      min="0"
+      [max]="state?.duration"
+      color="primary"
+      step="1"
+      [(ngModel)]='state.currentTime' (change)="onSliderChange(state.currentTime)"
+    />
       <!--[disabled]="state?.error" -->
       <div class="time-container">
         <span class="time-value text-left">{{ state?.readableCurrentTime }}</span>

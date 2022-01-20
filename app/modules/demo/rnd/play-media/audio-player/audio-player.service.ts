@@ -2,18 +2,8 @@ import { Injectable } from '@angular/core';
 import { Subject, Observable, BehaviorSubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import * as moment from 'moment';
-/*
-export interface MediaState = {
-  playing: false,
-  readableCurrentTime:string,
-  readableDuration: string,
-  duration: undefined,
-  currentTime: undefined,
-  canplay: false,
-  error: false,
-  mute: false,
-};*/
 
+import { MediaState } from './../media-state';
 @Injectable({
   providedIn: 'root',
 })
@@ -49,6 +39,7 @@ export class AudioPlayerService {
       // Play audio
       this.audioObject.src = url;
       this.audioObject.load();
+      //this.audioObject.load = e =>console.log(`Your lovely audio`);
       this.audioObject.play();
 
       const handler = (event: Event) => {

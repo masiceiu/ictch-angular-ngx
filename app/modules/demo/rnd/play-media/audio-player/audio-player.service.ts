@@ -142,7 +142,7 @@ export class AudioPlayerService {
     };
   }
 
-  getState(): Observable<StreamState> {
+  getState(): Observable<MediaState> {
     return this.stateChange.asObservable();
   }
 

@@ -1,0 +1,23 @@
+<p>
+range-select works!
+</p>
+<div className="rangeslider">
+  <div className="rangeslider-label">foo</div>
+  <div  className="rangeslider-track">
+    <div className="rangeslider-track-active" [ngStyle]="{
+      left: minPosition,
+      width: tWidth,
+    }" ></div>
+    <div
+      className="rangeslider-track-button-min"
+      (mousedown)="onMouseDown(e, 'minPos')"
+      [ngStyle]="{left:minPosition}"
+    ></div>
+    <div
+      className="rangeslider-track-button-max"
+      (musedown)="onMouseDown(e, 'maxPos')"
+      [ngStyle]="{left:maxPosition}"
+    ></div>
+  </div>
+  <div className="rangeslider-label">foo</div>
+</div>

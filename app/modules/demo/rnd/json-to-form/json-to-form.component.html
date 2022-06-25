@@ -10,6 +10,8 @@
 
 <ng-template #recursiveList let-filterFields let-formGroup="formGroup">
   <div class="form-group">
+    <ul style="list-style-type: none;"> 
+    <li>
     <ng-container *ngFor="let item of filterFields">
       <label *ngIf="!item.group" class="col">{{ item.title }}</label>
       <ng-container *ngIf="item.group; else default">
@@ -42,6 +44,8 @@
         </div>
       </ng-template>
     </ng-container>
+  </li>
+  </ul>
   </div>
 </ng-template>
 <pre>{{ filterForm?.value | json }}</pre>

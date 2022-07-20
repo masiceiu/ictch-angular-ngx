@@ -54,6 +54,8 @@ export class AppComponent implements OnInit {
 
   }
   onClick(switch_on:string="", data:any=null) {
+    console.log('click change detected');
+    this.toggled=true;
     switch(switch_on){
       default:
         break;

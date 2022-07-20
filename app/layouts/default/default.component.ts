@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@an
 })
 export class DefaultLayoutComponent implements OnInit {
   
+  @Input() toggler = false;
   @Input() maxHeight = 250;
   @Input() cardHeader = "";
   @Input() showHeader = false;
@@ -20,7 +21,7 @@ export class DefaultLayoutComponent implements OnInit {
   @Output() onClickL = new EventEmitter<any>();
   @Output() onClickC = new EventEmitter<any>();
   @Output() onClickR = new EventEmitter<any>();
-  doorClassToggled = false;
+  //doorClassToggled = false;
 
   width = 250;
   height = 250;
@@ -46,7 +47,7 @@ export class DefaultLayoutComponent implements OnInit {
   }
   public toggleDoor($event:any) {
     $event.preventDefault();
-    this.doorClassToggled = !this.doorClassToggled;  
+    this.toggler = !this.toggler;  
   }
   _onClickL($event:any) 
   {

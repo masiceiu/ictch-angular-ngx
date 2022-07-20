@@ -43,7 +43,6 @@ export class AppComponent implements OnInit {
 
       if (event instanceof NavigationError) {
         // Hide loading indicator
-
         // Present error to user
         console.log(event.error);
       }
@@ -51,6 +50,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+  onClick(switch_on:string="", data:any=null) {
+    switch(switch_on){
+      default:
+        break;
+    }  
+    return false;
   }
   onWindowResize(event:any) {
     this.width = event.target.innerWidth;

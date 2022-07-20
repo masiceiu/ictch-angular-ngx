@@ -30,7 +30,7 @@ export class DefaultLayoutComponent implements OnInit {
     icon:["bi bi-microsoft","bi bi-grid-fill","chat-square-dots-fill","bi bi-filter-circle"], 
     bg:["","bg-info text-white","bg-dark text-white"] }; 
   constructor() { 
-    this.cardHeader = 'Toggi';
+    this.cardHeader = 'Default Header';
     this.showFooter = true;
     this.width = window.innerWidth;
     this.height = window.innerHeight;

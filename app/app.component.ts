@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
   width = 250;
   height = 250;
+  toggled = false;
   fixedHeight = 100;
   cardHeader = 'Toggi';
   showFooter = true;

@@ -32,5 +32,6 @@ export class AppComponent {
             previous_url:this.payload.current_url
           });
       });
+
     }
 }

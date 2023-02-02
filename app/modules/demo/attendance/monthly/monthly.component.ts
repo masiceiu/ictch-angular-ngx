@@ -39,8 +39,8 @@ export class MonthlyComponent implements OnInit {
   daysInMonth: Date[];
 
   constructor() {
-    
-    this.yearmonth = new Date().getFullYear().toString() + '-' + (new Date().getMonth()+1).toString();
+    let month = (new Date().getMonth()+1).toString();
+    this.yearmonth = new Date().getFullYear().toString() + '-' + (month.length>1?month:'0'+month);
     //console.log("YearMonth=>",this.yearmonth);
     this.daysInMonth = new Array<Date>();
     this.getBatchAttendance();
@@ -50,6 +50,7 @@ export class MonthlyComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
   getBatchAttendance() {  //this will call the http get service to get the attendance details from the DB
     this.batchMontlyAttendance = BATCHATTENDANCE;
@@ -57,9 +58,9 @@ export class MonthlyComponent implements OnInit {
 
   monthChanged() {
     //this.daysInMonth = new Array<Date>();
-    //console.log("YearMonth=>",this.yearmonth);
-    this.updateDaysInMonth();
+    console.log("YearMonth=>",this.yearmonth);
 
+    this.updateDaysInMonth();
   }
 
   updateDaysInMonth() {
@@ -87,35 +88,16 @@ export class MonthlyComponent implements OnInit {
       })
       
      //this.batchMontlyAttendance[i].Attendance = _.orderBy(this.batchMontlyAttendance[i].Attendance,['date'],['asc']);
-    }/**/
-    
-    //console.log('=>',this.daysInMonth[0].getUTCDate());
-    //console.log("MontOf=>",date);
-    //console.log("DaysInMonth=>",this.daysInMonth);
-    //console.log("MontlyAttendance=>",this.batchMontlyAttendance);
+    }
   }
 
   updateBatchAttendance() {
     for (let studentAttendance of this.batchMontlyAttendance) {
-      //console.log("studentAttendance=>",studentAttendance.Attendance,this.daysInMonth);
-      /*this.daysInMonth.filter(e => {
-        console.log('4=>',e);
-      });*/
       for (let date of this.daysInMonth) {
-        //console.log('3=>',date);
-        //if studentAttendance.Attendance array's date does not contain the daysInMonth's date then add a new AttendanceInMonth object to batchMonthlyAttendance array with isPreset as null
-        //console.log("MontOf=>",date,studentAttendance.Attendance);
-        /*studentAttendance.Attendance.filter(e => {
-          console.log(e.date.valueOf(),date.valueOf());
-        });*/
         if (studentAttendance.Attendance.filter(e => e.date.valueOf() == date.valueOf()).length <= 0)
         {
           this.batchMontlyAttendance.filter(e => e.StudentID === studentAttendance.StudentID).forEach(it=>it.Attendance.push({date:date,IsPresent:null,NoAttendance:true})); 
         }
-        /*
-        if (_.find(studentAttendance.Attendance, { date: date }) == null) {          
-          _.find(this.batchMontlyAttendance, { StudentID: studentAttendance.StudentID }).Attendance.push({date:date,IsPresent:null,NoAttendance:true});            
-        }*/
       }
 
     }
@@ -134,3 +116,4 @@ export class AttendanceInMonth {
   IsPresent: Boolean;
   NoAttendance:Boolean=false;
 }
+//https://stackoverflow.com/questions/4345045/loop-through-a-date-range-with-javascript

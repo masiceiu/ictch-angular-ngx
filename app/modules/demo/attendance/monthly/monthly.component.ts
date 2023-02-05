@@ -91,6 +91,8 @@ export class MonthlyComponent implements OnInit {
   monthChanged() {
     //this.daysInMonth = new Array<Date>();
     //console.log('YearMonth=>', this.yearmonth);
+    
+    this.getBatchAttendance(); 
     this.updateDaysInMonth();
   }
 

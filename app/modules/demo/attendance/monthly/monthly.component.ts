@@ -1,34 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-const BATCHATTENDANCE: BatchMonthlyAttendance[] = [
-  {
-    StudentID: '1',
-    Name: 'user-1',
-    Attendance: [
-      {
-        date: "2023-02-01",
-        IsPresent: true,
-        NoAttendance: false,
-      },
-      {
-        date: "2023-02-28",
-        IsPresent: true,
-        NoAttendance: false,
-      },
-    ],
-  },
-  {
-    StudentID: '2',
-    Name: 'user-2',
-    Attendance: [
-      {
-        date: "2023-02-01",
-        IsPresent: false,
-        NoAttendance: false,
-      },
-    ],
-  },
-];
+
 @Component({
   selector: 'app-monthly-attendance',
   templateUrl: './monthly.component.html',
@@ -85,7 +57,59 @@ export class MonthlyComponent implements OnInit {
   }
   getBatchAttendance() {
     //this will call the http get service to get the attendance details from the DB
-    this.batchMontlyAttendance = BATCHATTENDANCE;
+    switch(this.yearmonth){
+      case'2023-02':
+      this.batchMontlyAttendance = [
+        {
+          StudentID: '1',
+          Name: 'user-1',
+          Attendance: [
+            {
+              date: "2023-02-01",
+              IsPresent: true,
+              NoAttendance: false,
+            },
+            {
+              date: "2023-02-03",
+              IsPresent: true,
+              NoAttendance: false,
+            },
+            {
+              date: "2023-02-28",
+              IsPresent: true,
+              NoAttendance: false,
+            },
+          ],
+        },
+        {
+          StudentID: '2',
+          Name: 'user-2',
+          Attendance: [
+            {
+              date: "2023-02-01",
+              IsPresent: false,
+              NoAttendance: false,
+            },
+          ],
+        },
+      ];
+      break;
+      default:
+        this.batchMontlyAttendance = [
+          {
+            StudentID: '1',
+            Name: 'user-1',
+            Attendance: [],
+          },
+          {
+            StudentID: '2',
+            Name: 'user-2',
+            Attendance: [],
+          },
+        ];
+      break;
+    }
+    
   }
 
   monthChanged() {
@@ -115,7 +139,7 @@ export class MonthlyComponent implements OnInit {
     {
       this.daysInMonth.push(new Date(this.dates[i]));
     }*/
-    this.updateBatchAttendance();
+    this.updateBatchAttendance();/**/
     for (let i = 0; i < this.batchMontlyAttendance.length; i++) {
       this.batchMontlyAttendance[i].Attendance.sort((a, b) => {
         //console.log(a.date.valueOf() - b.date.valueOf());

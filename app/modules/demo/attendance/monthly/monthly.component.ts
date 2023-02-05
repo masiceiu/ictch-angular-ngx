@@ -355,5 +355,6 @@ export class AttendanceInMonth {
   IsPresent: Boolean;
   NoAttendance: Boolean = false;
 }
+//https://stackblitz.com/edit/timezone
 //https://stackblitz.com/edit/angular-local-date-pipe
 //https://stackoverflow.com/questions/4345045/loop-through-a-date-range-with-javascript
